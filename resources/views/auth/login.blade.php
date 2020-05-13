@@ -15,11 +15,11 @@
 
       <div class="container">
         <div class ="row" id ="rowportal">
-          <p class="portallogin">Portal do candidato</p>
+          <p class="portallogin">Portal do Candidato</p>
 
         </div>
         <div class="row" id ="rowbioextratus">
-          <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>Extratus</a>
+          <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
 
         </div>
 

@@ -113,11 +113,11 @@
       <div class="col-sm"></div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-3">
+      <div class="col-sm-2 col-md-2">
 
       </div>
 
-      <div class="col-xs-3 col-md-3">
+      <div class="col-xs-4 col-md-4">
 
         <ul class="footer-links">
           <li ><p class="fas fa-map-marked-alt">  Rodovia Km1, MG-123 - Zona Rural</p></li>
@@ -126,15 +126,15 @@
         </ul>
       </div>
 
-      <div class="col-xs-3 col-md-3">
+      <div class="col-xs-4 col-md-4">
 
         <ul class="footer-links">
           <li><p class="fas fa-road"> Alvinópolis - MG, CEP: 35950-000</p></li>
           <li><p class="fas fa-registered"> CNPJ: 02.176.615/0001-07</p></li>
         </div>
-        <div class="col-xs-3 col-md-3 ">
+        <div class="col-xs-2 col-md-2 ">
 
-          
+
         </ul>
       </div>
     </div>

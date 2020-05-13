@@ -87,7 +87,7 @@
     font-size: 25px;
     color: green;
     justify-content: center;
-
+    margin-top: -40px;
     margin-right: 20px;
 }
 
@@ -225,4 +225,22 @@
     margin-left: 70px;
 
 
+}
+
+
+#navbarLogin{
+  background-color: #CDD7BC !important;
+
+}
+
+
+#idfooter{
+  margin-top: 120px !important;
+
+}
+
+
+
+#FormLogin{
+  margin-top: -85px;
 }

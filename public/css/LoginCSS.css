@@ -1,0 +1,228 @@
+#TamEnvelope {
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+
+}
+
+#TamEnvelopeReg {
+    font-size: 25px;
+    margin-left: 15px;
+    padding-left: 60px;
+
+}
+
+#TamChave {
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    margin-left: 60px;
+}
+
+
+#ImagemUsuario {
+    text-justify: center;
+    border-radius: 100%;
+
+
+}
+
+
+
+#CabecalhoBody {
+    background-color: aliceblue;
+    font-size: 12;
+    width: 375px;
+
+
+    margin-top: 200px;
+    size: 100px;
+
+
+}
+
+
+
+
+
+
+#HeaderId {
+    border-top-style: solid;
+    background-color: aliceblue;
+    margin-top: -45px;
+
+
+}
+
+
+
+/*
+#idcontainer {
+    background-color: lightgreen !important;
+    i
+} */
+
+
+/* .idBODY {
+    background-color: 679966;
+} */
+
+.idBODY {
+    background-color: #CDD7BC;
+
+}
+
+#rowbioextratus {
+    background-color: #CDD7BC;
+    width: 600px;
+    height: 100px;
+
+}
+
+#rowportal {
+    background-color: #CDD7BC;
+    width: 600px;
+    height: 40px;
+    font-size: 25px;
+    color: green;
+    justify-content: center;
+
+    margin-right: 20px;
+}
+
+
+.ExtratusLogin {
+    /* width: 100px;
+    height: 400px; */
+    font-size: 30px;
+    color: green;
+    margin-left: 100px;
+    margin-top: 0px;
+}
+
+.BioLogin {
+    color: rgb(25, 61, 25);
+}
+
+
+#email {
+
+
+    min-width: 180px;
+
+}
+
+
+
+#password {
+
+    min-width: 180px;
+}
+
+#name {
+    min-width: 180px;
+}
+
+#password-confirm {
+    min-width: 180px;
+
+}
+
+/*
+#emaillogin {
+    width: 200px;
+
+
+}
+
+
+#senhalogin {
+    width: 0px;
+
+
+}
+
+/*
+
+#submitilogin {
+    width: 200px;
+}
+
+*/
+/*
+#caixaemaillabel {
+    margin-right: 100px;
+} */
+
+/* #submitid {
+    width: 300px;
+
+} */
+
+
+#usercheck {
+    font-size: 20px;
+    width: 100px;
+    padding-left: 80px;
+
+
+
+}
+
+#question {
+    font-size: 20px;
+    width: 10px;
+    padding-left: 0px;
+
+
+}
+
+#botaoesqueceu {
+    margin-top: 10px;
+
+}
+
+.portallogin {
+
+    font-size: 30px;
+    color: green;
+    margin-right: auto;
+    margin-left: 40px;
+}
+
+
+#NomeID {
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    margin-left: 60px;
+}
+
+
+#checksenha {
+
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    margin-left: 60px;
+}
+
+
+#registrarbotao {
+    margin-top: 10px;
+}
+
+#userregistro {
+    font-size: 20px;
+    width: 40px;
+    padding-left: 20px;
+
+}
+
+#idlogininform {
+    justify-content: center;
+    margin-left: 70px;
+
+
+}

@@ -15,16 +15,18 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="idBODY">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,13 +42,50 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            </li> --}}
+
+                            <ul>
+
+                                <a class="btn btn-primary mt-2" href="/">
+                                <span class="fas fa-home"></span></a>
+
+                        </ul>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                            <ul class ="ml-4">
+
+                                    <a class="btn btn-primary mt-2" href="{{ route('register') }}">
+                                    <span class="fas fa-user-plus px-2">
+                                   </span></a>
+                                </ul>
+
+                                <ul>
+                                    <div class="btn-group ml-4 mt--5" role="group" aria-label="Button group with nested dropdown" style ="width: -40px;">
+                  <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top" alt="">
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+
+
+                      <a class="dropdown-item" href="">
+                        <img src="img/ImagemBrasil.png" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
+
+                        <a class="dropdown-item" href="">
+                          <img src="img/ImagemEspanha.jpg" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
+
+                          <a class="dropdown-item" href="">
+                            <img src="img/ImagemIngles.jpg" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
+
+
+                          </div>
+                        </div>
+                      </div>
+                                </ul>
+
+
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -72,9 +111,8 @@
             </div>
         </nav>
 
-        <main class="py-4">
+
             @yield('content')
-        </main>
     </div>
 </body>
 </html>

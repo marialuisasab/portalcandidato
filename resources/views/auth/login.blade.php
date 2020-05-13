@@ -13,14 +13,16 @@
 
     <div class="card" id="CabecalhoBody">
 
-      <div class="container">
+      <div class="container" id="containerPortalBio">
         <div class ="row" id ="rowportal">
+          <div class="col">
           <p class="portallogin">Portal do Candidato</p>
-
+</div>
         </div>
         <div class="row" id ="rowbioextratus">
+          <div class="col">
           <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
-
+          </div>
         </div>
 
 
@@ -34,7 +36,7 @@
           @csrf
 
           <div class="form-group row"id ="emaillogin" >
-            <label for="email" class="col-md-4 col-form-label text-md-right" ><span class="fas fa-envelope-square" id="TamEnvelope"></span></label>
+            <label for="email" class="col-md-2 col-form-label text-md-right" id="labelemail"><span class="fas fa-envelope-square" id="TamEnvelope"></span></label>
 
             <div class="col-md-6" >
               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
@@ -48,7 +50,7 @@
           </div>
 
           <div class="form-group row" id="senhalogin" >
-            <label for="password" class="col-md-4 col-form-label d-flex text-md-right" ><span class="fas fa-key" id="TamChave"></span></label>
+            <label for="password" class="col-md-2 col-form-label d-flex text-md-right" ><span class="fas fa-key" id="TamChave"></span></label>
 
             <div class="col-md-6">
               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"placeholder="Senha">
@@ -61,8 +63,8 @@
             </div>
           </div>
 
-          <div class="form-group row">
-            <div class="col-md-6 offset-md-4">
+          <div class="form-group row" style="margin-left: 3px;"">
+            <div class="col-md-6 offset-md-3">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -74,7 +76,7 @@
           </div>
 
           <div class="form-group row mb-0" id="submitilogin">
-            <div class="col-md-8 offset-md-4">
+            <div class="col-md-8 offset-md-2">
 
               <button type="submit" class="btn btn-primary" id="submitid">
                 {{ __('Entrar') }} <span class="fas fa-user-check" id ="usercheck"></span>

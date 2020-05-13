@@ -8,14 +8,17 @@
     {{-- <div class="col-md-8"> --}}
       <div class="card" id="CabecalhoBody">
 
-        <div class="container">
+        <div class="container" id= "containerPortalBio">
           <div class ="row" id ="rowportal">
+             <div class="col">
             <p class="portallogin">Portal do Candidato</p>
-
+          </div>
+            
           </div>
           <div class="row" id ="rowbioextratus">
+             <div class="col">
             <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
-
+             </div>
           </div>
 
 
@@ -28,7 +31,7 @@
               @csrf
 
               <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">
+                <label for="name" class="col-md-2 col-form-label text-md-right">
                   <span class="fas fa-address-card" id="NomeID"></span>
                 </label>
 
@@ -60,7 +63,7 @@
 
 
               <div class="form-group row" id ="emaillogin">
-                <label for="email" class="col-md-4 col-form-label text-md-right"><span class="fas fa-envelope-square" id="TamEnvelopeReg"></span></label>
+                <label for="email" class="col-md-2 col-form-label text-md-right"><span class="fas fa-envelope-square" id="TamEnvelopeReg"></span></label>
 
                 <div class="col-md-6">
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
@@ -74,7 +77,7 @@
               </div>
 
               <div class="form-group row" id="senhalogin">
-                <label for="password" class="col-md-4 col-form-label text-md-right"><span class="fas fa-key" id="TamChave"></span></label>
+                <label for="password" class="col-md-2 col-form-label text-md-right"><span class="fas fa-key" id="TamChaveREG"></span></label>
 
                 <div class="col-md-6">
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Senha">
@@ -88,7 +91,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><span class="fas fa-check-double" id="checksenha"></span></label>
+                <label for="password-confirm" class="col-md-2 col-form-label text-md-right"><span class="fas fa-check-double" id="checksenha"></span></label>
 
                 <div class="col-md-6">
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"placeholder="Confirmar Senha">
@@ -96,7 +99,7 @@
               </div>
 
               <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
+                <div class="col-md-6 offset-md-3">
                   <button type="submit" class="btn btn-primary" id="registrarbotao">
                     {{ __('Registrar') }}<span class="fas fa-user-check" id="userregistro"></span>
                   </button>

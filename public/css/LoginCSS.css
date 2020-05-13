@@ -2,14 +2,15 @@
     font-size: 25px;
     width: 40px;
     height: 40px;
-    margin-left: 15px;
+    margin-right: 70px;
 
 }
 
 #TamEnvelopeReg {
-    font-size: 25px;
-    margin-left: 15px;
-    padding-left: 60px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    margin-right: 70px;
 
 }
 
@@ -17,7 +18,14 @@
     font-size: 25px;
     width: 40px;
     height: 40px;
-    margin-left: 60px;
+    margin-left: 15px;
+}
+
+#tamChaveREG {
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
 }
 
 
@@ -31,6 +39,7 @@
 
 
 #CabecalhoBody {
+    justify-content: center;
     background-color: aliceblue;
     font-size: 12;
     width: 375px;
@@ -57,23 +66,23 @@
 
 
 
-/*
+
 #idcontainer {
-    background-color: lightgreen !important;
-    i
-} */
+    justify-content: center;
+    justify-items: center;
 
-
-/* .idBODY {
-    background-color: 679966;
-} */
-
-.idBODY {
-    background-color: #CDD7BC;
 
 }
 
+
+
+.idBODY {
+    background-color: #CDD7BC;
+    justify-content: center;
+}
+
 #rowbioextratus {
+    /* justify-content: center; */
     background-color: #CDD7BC;
     width: 600px;
     height: 100px;
@@ -86,18 +95,18 @@
     height: 40px;
     font-size: 25px;
     color: green;
-    justify-content: center;
     margin-top: -40px;
-    margin-right: 20px;
+    margin-left: 15px;
 }
 
 
 .ExtratusLogin {
+    justify-content: center;
     /* width: 100px;
     height: 400px; */
     font-size: 30px;
     color: green;
-    margin-left: 100px;
+    margin-left: 68px;
     margin-top: 0px;
 }
 
@@ -109,7 +118,11 @@
 #email {
 
 
-    min-width: 180px;
+    min-width: 260px;
+    justify-content: center;
+    padding-left: 30px;
+    margin-right: 300px;
+
 
 }
 
@@ -117,16 +130,27 @@
 
 #password {
 
-    min-width: 180px;
+    min-width: 260px;
+    justify-content: center;
+    padding-left: 30px;
+    margin-right: 300px;
+
+
+
 }
 
 #name {
-    min-width: 180px;
+    min-width: 260px;
+    justify-content: center;
+    padding-left: 30px;
+    margin-right: 300px;
 }
 
 #password-confirm {
-    min-width: 180px;
-
+    min-width: 260px;
+    justify-content: center;
+    padding-left: 30px;
+    margin-right: 300px;
 }
 
 /*
@@ -143,22 +167,22 @@
 
 }
 
-/*
+*/
 
 #submitilogin {
-    width: 200px;
+    justify-content: center;
 }
 
-*/
+
 /*
 #caixaemaillabel {
     margin-right: 100px;
 } */
 
-/* #submitid {
-    width: 300px;
+#submitid {
+    justify-content: center;
 
-} */
+}
 
 
 #usercheck {
@@ -184,11 +208,11 @@
 }
 
 .portallogin {
-
+    /* justify-content: center; */
     font-size: 30px;
     color: green;
     margin-right: auto;
-    margin-left: 40px;
+
 }
 
 
@@ -196,7 +220,7 @@
     font-size: 25px;
     width: 40px;
     height: 40px;
-    margin-left: 60px;
+    margin-right: 52px;
 }
 
 
@@ -205,12 +229,13 @@
     font-size: 25px;
     width: 40px;
     height: 40px;
-    margin-left: 60px;
+    margin-right: 60px;
 }
 
 
 #registrarbotao {
-    margin-top: 10px;
+    margin-top: 2px;
+    margin-left: 5px;
 }
 
 #userregistro {
@@ -228,19 +253,25 @@
 }
 
 
-#navbarLogin{
-  background-color: #CDD7BC !important;
+#navbarLogin {
+    background-color: #CDD7BC !important;
 
 }
 
 
-#idfooter{
-  margin-top: 120px !important;
+#idfooter {
+    margin-top: 120px !important;
 
 }
 
 
 
-#FormLogin{
-  margin-top: -85px;
+#FormLogin {
+    justify-content: center;
+    margin-top: -100px;
+}
+
+
+#containerPortalBio {
+    justify-content: center;
 }

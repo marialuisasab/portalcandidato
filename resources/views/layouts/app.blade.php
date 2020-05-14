@@ -24,7 +24,7 @@
 <body class="idBODY">
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbarLogin">
-      
+       
         <!-- <a class="navbar-brand" href="{{ url('/') }}">
           <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
         </a> -->
@@ -108,7 +108,7 @@
                     @endguest
                   </ul>
                 </div>
-              
+             
             </nav>
 
 

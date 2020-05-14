@@ -7,7 +7,7 @@
 @section('content')
 
 
-
+  <div class="container">
 
   <div class="row justify-content-md-center" id ="FormLogin">
 
@@ -96,6 +96,11 @@
       </div>
     </div>
   </div>
+  </div>
+
+  
+  
+
 
 
 
@@ -108,13 +113,13 @@
   <div class="container">
 
     <div class="row" >
-      <div class="col-sm"></div>
-      <div class ="col-sm">
-        <h5 id="idlogininform">Em caso de duvidas:</h5>
+      <div class="col-xs-4 col-md-4"></div>
+      <div class ="col-sm-4 col-md-4">
+        <h6 id="idlogininform">Para mais informções:</h6>
       </div>
-      <div class="col-sm"></div>
+      <div class="col-sm-4 col-md-4"></div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top: 10px; ">
       <div class="col-sm-2 col-md-2">
 
       </div>

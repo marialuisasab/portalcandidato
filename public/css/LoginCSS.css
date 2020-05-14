@@ -84,7 +84,7 @@
 #rowbioextratus {
     justify-content: center;
     background-color: #CDD7BC;
-    width: 3600px;
+    width: 378px;
     height: 100px;
 
 }
@@ -236,7 +236,8 @@
 
 #registrarbotao {
     margin-top: 2px;
-    margin-left: 5px;
+    margin-left: 14px;
+    justify-content: center;
 }
 
 #userregistro {
@@ -269,7 +270,7 @@
 
 #FormLogin {
     justify-content: center;
-    margin-top: -100px;
+    margin-top: -130px;
 }
 
 

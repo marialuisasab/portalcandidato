@@ -8,7 +8,7 @@
 
 
 
-<div class="container" id ="idcontainer">
+
   <div class="row justify-content-md-center" id ="FormLogin">
 
     <div class="card" id="CabecalhoBody">
@@ -96,7 +96,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
 
 

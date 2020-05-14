@@ -24,13 +24,13 @@
 <body class="idBODY">
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbarLogin">
-      <div class="container">
+      
         <!-- <a class="navbar-brand" href="{{ url('/') }}">
           <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
         </a> -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> --}}
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
@@ -60,7 +60,7 @@
                   </span></a>
                 </ul>
 
-                <ul>
+                <ul style="margin-left: auto;">
                   <div class="btn-group ml-4 mt--5" role="group" aria-label="Button group with nested dropdown" style ="width: -40px;">
                     <div class="btn-group" role="group">
                       <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,7 +108,7 @@
                     @endguest
                   </ul>
                 </div>
-              </div>
+              
             </nav>
 
 

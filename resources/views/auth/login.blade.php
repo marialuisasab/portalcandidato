@@ -1,13 +1,14 @@
-@extends('layouts.app')
-<link rel="stylesheet" href="css/LoginCSS.css">
+
+@extends('auth.footernavbartemplate')
 <link rel="stylesheet" href="css/principal.css">
+<link rel="stylesheet" href="css/LoginCSS.css">
 <link rel="stylesheet" href="css/redes.css">
 
 
-@section('content')
 
 
-  <div class="container">
+  {{-- <div class="container"> --}}
+   @section('footerconteudo')
 
   <div class="row justify-content-md-center" id ="FormLogin">
 
@@ -17,7 +18,7 @@
         <div class ="row" id ="rowportal">
           <div class="col">
           <p class="portallogin">Portal do Candidato</p>
-</div>
+       </div>
         </div>
         <div class="row" id ="rowbioextratus">
           <div class="col">
@@ -98,81 +99,18 @@
   </div>
   </div>
 
+
+  
+ @endsection
   
   
 
 
 
+ 
+ 
 
 
 
 
-
-<footer class="site-footer mt-5" id="idfooter">
-
-  <div class="container">
-
-    <div class="row" >
-      <div class="col-xs-4 col-md-4"></div>
-      <div class ="col-sm-4 col-md-4">
-        <h6 id="idlogininform">Para mais informções:</h6>
-      </div>
-      <div class="col-sm-4 col-md-4"></div>
-    </div>
-    <div class="row" style="margin-top: 10px; ">
-      <div class="col-sm-2 col-md-2">
-
-      </div>
-
-      <div class="col-xs-4 col-md-4">
-
-        <ul class="footer-links">
-          <li ><p class="fas fa-map-marked-alt">  Rodovia Km1, MG-123 - Zona Rural</p></li>
-          <li><p class="fas fa-phone"> (031) 3855-3000</p></li>
-          <li><p class="fas fa-envelope"> rh@bioextratus.com.br </p></li>
-        </ul>
-      </div>
-
-      <div class="col-xs-4 col-md-4">
-
-        <ul class="footer-links">
-          <li><p class="fas fa-road"> Alvinópolis - MG, CEP: 35950-000</p></li>
-          <li><p class="fas fa-registered"> CNPJ: 02.176.615/0001-07</p></li>
-        </div>
-        <div class="col-xs-2 col-md-2 ">
-
-
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  <hr>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-sm-6 col-xs-12">
-        <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bioextratus Cosmetics Natural
-          <a href="https:https://loja.bioextratus.com.br">Site Oficial</a>.
-        </p>
-      </div>
-
-      <div class="col-md-4 col-sm-6 col-xs-12">
-
-        <ul class="social-icons">
-          <li><a class="facebook" href="https://www.facebook.com/bioextratus/">
-            <img  class ="redesimg" src="img/ImagemFacebook.jpg"></a></li>
-            <li><a class="twitter" href="https://www.linkedin.com/in/bio-extratus-cosmetic-natural-ltda-918900159/">{{--<i class="fa fa-linkedin"></i> --}}
-              <img class="redesimg" src="img/ImagemLinkedin.jpg"></a></li>
-              <li><a class="dribbble" href="https://www.instagram.com/bioextratus/?hl=pt-br">
-                <img class ="redesimg"src="img/ImagemInstagram.jpg" ></a></li>
-                <li><a class="youtube" href="https://www.youtube.com/bioextratusoficial">
-                  <img class="redesimg"src="img/ImagemYoutube.png"></a></li>
-                  <li><a class="flickr" href="https://www.flickr.com/photos/bioextratus/">
-                    <img class="redesimg"src="img/ImagemFlicker.png"></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
-
-          @endsection
+        

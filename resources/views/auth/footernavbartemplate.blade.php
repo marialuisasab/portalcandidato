@@ -65,20 +65,20 @@
                   <div class="btn-group ml-4 mt--5" role="group" aria-label="Button group with nested dropdown" style ="width: -40px;">
                     <div class="btn-group" role="group">
                       <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top" alt="">
+                        <img src="/img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top" alt="">
                       </button>
 
                       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 
 
                         <a class="dropdown-item" href="">
-                          <img src="img/ImagemBrasil.png" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
+                          <img src="/img/ImagemBrasil.png" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
 
                           <a class="dropdown-item" href="">
-                            <img src="img/ImagemEspanha.jpg" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
+                            <img src="/img/ImagemEspanha.jpg" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
 
                             <a class="dropdown-item" href="">
-                              <img src="img/ImagemIngles.jpg" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
+                              <img src="/img/ImagemIngles.jpg" role ="button" width="40" height="30" class="d-inline-block align-top" alt=""></a>
 
 
                             </div>
@@ -113,9 +113,36 @@
             </nav>
 
 <div class="container">
+  <div class="row justify-content-md-center" id ="FormLogin">
+    <div class="card" id="CabecalhoBody">
+      
+      <div class="container" id="containerPortalBio">
+        <div class ="row" id ="rowportal">
+          <div class="col">
+          <p class="portallogin">Portal do Candidato</p>
+       </div>
+        </div>
+        <div class="row" id ="rowbioextratus">
+          <div class="col">
+          <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
+          </div>
+        </div>
 
+
+      </div>  <p></p>
+      <div class="card-header"  id="HeaderID">
+        <img src="/img/ImagemUsuario.png" alt="" width="40" height="40" style="justify-content: center" id ="ImagemUsuario"><h3 class="font-italic"style="font-size: 15px;">Meu Login</h3>
+      </div>
+
+      <div class="card-body" id ="cardlogin">
               @yield('footerconteudo')
+              
        </div> 
+
+       </div> 
+</div>
+</div>
+
           </div>
 
 
@@ -186,15 +213,15 @@
 
         <ul class="social-icons">
           <li><a class="facebook" href="https://www.facebook.com/bioextratus/">
-            <img  class ="redesimg" src="img/ImagemFacebook.jpg"></a></li>
+            <img  class ="redesimg" src="/img/ImagemFacebook.jpg"></a></li>
             <li><a class="twitter" href="https://www.linkedin.com/in/bio-extratus-cosmetic-natural-ltda-918900159/">{{--<i class="fa fa-linkedin"></i> --}}
-              <img class="redesimg" src="img/ImagemLinkedin.jpg"></a></li>
+              <img class="redesimg" src="/img/ImagemLinkedin.jpg"></a></li>
               <li><a class="dribbble" href="https://www.instagram.com/bioextratus/?hl=pt-br">
-                <img class ="redesimg"src="img/ImagemInstagram.jpg" ></a></li>
+                <img class ="redesimg"src="/img/ImagemInstagram.jpg" ></a></li>
                 <li><a class="youtube" href="https://www.youtube.com/bioextratusoficial">
-                  <img class="redesimg"src="img/ImagemYoutube.png"></a></li>
+                  <img class="redesimg"src="/img/ImagemYoutube.png"></a></li>
                   <li><a class="flickr" href="https://www.flickr.com/photos/bioextratus/">
-                    <img class="redesimg"src="img/ImagemFlicker.png"></a></li>
+                    <img class="redesimg"src="/img/ImagemFlicker.png"></a></li>
                   </ul>
                 </div>
               </div>

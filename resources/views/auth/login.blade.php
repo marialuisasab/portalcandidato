@@ -1,8 +1,8 @@
 
 @extends('auth.footernavbartemplate')
-<link rel="stylesheet" href="css/principal.css">
-<link rel="stylesheet" href="css/LoginCSS.css">
-<link rel="stylesheet" href="css/redes.css">
+<link rel="stylesheet" href="/css/principal.css">
+<link rel="stylesheet" href="/css/LoginCSS.css">
+<link rel="stylesheet" href="/css/redes.css">
 
 
 
@@ -10,29 +10,7 @@
   {{-- <div class="container"> --}}
    @section('footerconteudo')
 
-  <div class="row justify-content-md-center" id ="FormLogin">
 
-    <div class="card" id="CabecalhoBody">
-
-      <div class="container" id="containerPortalBio">
-        <div class ="row" id ="rowportal">
-          <div class="col">
-          <p class="portallogin">Portal do Candidato</p>
-       </div>
-        </div>
-        <div class="row" id ="rowbioextratus">
-          <div class="col">
-          <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
-          </div>
-        </div>
-
-
-      </div>  <p></p>
-      <div class="card-header"  id="HeaderID">
-        <img src="img/ImagemUsuario.png" alt="" width="40" height="40" style="justify-content: center" id ="ImagemUsuario"><h3 class="font-italic"style="font-size: 15px;">Meu Login</h3>
-      </div>
-
-      <div class="card-body" id ="cardlogin">
         <form method="POST" action="{{ route('login') }}" id ="formulariologin">
           @csrf
 
@@ -94,10 +72,8 @@
             </div>
           </div>
         </form>
-      </div>
-    </div>
-  </div>
-  </div>
+     
+  
 
 
   

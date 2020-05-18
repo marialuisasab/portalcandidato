@@ -11,11 +11,11 @@
    @section('footerconteudo')
 
           <div class="card-header"  id="HeaderID">
-        <span class="fas fa-user-tie" style="font-size: 30px; width: 50px; height: 40px;"></span><h3 class="font-italic"style="font-size: 25px; color:red;"><strong>Login do administrador</strong> </h3>
+        <span class="fas fa-user-tie" style="font-size: 30px; width: 50px; height: 40px;"></span><h3 class="font-italic"style="font-size: 25px; color:red;"><strong>Administrador</strong> </h3>
          </div>
 
           <div class="card-body" id ="cardlogin">
-        <form method="POST" action="{{ route('login') }}" id ="formulariologin">
+       <form method="POST" action="{{ route('admin.login') }}" id ="formulariologin">
           @csrf
 
           <div class="form-group row"id ="emaillogin" >

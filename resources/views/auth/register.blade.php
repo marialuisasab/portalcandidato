@@ -27,6 +27,11 @@
           <img src="img/ImagemUsuario.png" alt="" width="40" height="40" style="justify-content: center" id ="ImagemUsuario"><h3 class="font-italic"style="font-size: 15px;">Meu Registro</h3></div>
 
           <div class="card-body" id ="cardlogin"> --}}
+            
+            <div class="card-header"  id="HeaderID">
+        <span class="fas fa-user-plus" style="font-size: 30px; width: 40px; height: 40px;"></span><h3 class="font-italic"style="font-size: 15px;">Novo usuário</h3>
+      </div>
+            <div class="card-body" id ="cardlogin">
             <form method="POST" action="{{ route('register') }}">
               @csrf
 
@@ -61,7 +66,7 @@
 
 
 
-
+                  
               <div class="form-group row" id ="emaillogin">
                 <label for="email" class="col-md-2 col-form-label text-md-right"><span class="fas fa-envelope-square" id="TamEnvelopeReg"></span></label>
 
@@ -106,6 +111,7 @@
                 </div>
               </div>
             </form>
+            </div>
           
 
 

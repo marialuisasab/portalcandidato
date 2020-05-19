@@ -29,9 +29,9 @@
         <!-- <a class="navbar-brand" href="{{ url('/') }}">
           <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
         </a> -->
-        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
-        </button> --}}
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
@@ -112,24 +112,22 @@
              
             </nav>
 
-<div class="container">
+<div class="container-fluid" id="dadosbiocont">
   <div class="row justify-content-md-center" id ="FormLogin">
     <div class="card" id="CabecalhoBody">
       
       <div class="container" id="containerPortalBio">
         <div class ="row" id ="rowportal">
-          <div class="col">
+         
           <p class="portallogin">Portal do Candidato</p>
-       </div>
-        </div>
-        <div class="row" id ="rowbioextratus">
-          <div class="col">
+      
+          
           <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
-          </div>
+          
         </div>
 
 
-      </div>  <p></p>
+      </div>  
       
 
       

@@ -1,32 +1,27 @@
-#TamEnvelope {
+/* #TamEnvelope {
     font-size: 25px;
     width: 40px;
     height: 40px;
     margin-right: 70px;
 
-}
+} */
 
-#TamEnvelopeReg {
+/* #TamEnvelopeReg {
     font-size: 30px;
     width: 40px;
     height: 40px;
     margin-right: 70px;
 
-}
+} */
 
-#TamChave {
+/* #TamChave {
     font-size: 25px;
     width: 40px;
     height: 40px;
-    margin-left: 15px;
-}
+    margin-right: 70px;
+} */
 
-#tamChaveREG {
-    font-size: 25px;
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-}
+
 
 
 #ImagemUsuario {
@@ -44,8 +39,7 @@
     font-size: 12;
     width: 375px;
 
-
-    margin-top: 200px;
+    margin-top: 320px;
     size: 100px;
 
 
@@ -81,21 +75,22 @@
     justify-content: center;
 }
 
+/* 
 #rowbioextratus {
     justify-content: center;
     background-color: #CDD7BC;
-    width: 378px;
+    width: 38px;
     height: 100px;
 
-}
+} */
 
 #rowportal {
     background-color: #CDD7BC;
-    width: 300px;
-    height: 40px;
+    width: 10p0x;
+    height: 100px;
     font-size: 25px;
     color: green;
-    margin-top: -40px;
+    margin-top: -160px;
     margin-left: 15px;
     justify-content: center;
 }
@@ -105,10 +100,9 @@
     justify-content: center;
     /* width: 100px;
     height: 400px; */
-    font-size: 30px;
+    font-size: 20px;
     color: green;
-    margin-left: 68px;
-    margin-top: 0px;
+
 }
 
 .BioLogin {
@@ -119,10 +113,9 @@
 #email {
 
 
-    min-width: 240px;
+
     justify-content: center;
-    padding-left: 30px;
-    margin-right: 300px;
+
 
 
 }
@@ -130,29 +123,27 @@
 
 
 #password {
-
-    min-width: 240px;
     justify-content: center;
-    padding-left: 30px;
-    margin-right: 300px;
+
 
 
 
 }
 
+/* 
 #name {
-    min-width: 240px;
+
     justify-content: center;
     padding-left: 30px;
     margin-right: 300px;
 }
 
 #password-confirm {
-    min-width: 240px;
+
     justify-content: center;
     padding-left: 30px;
     margin-right: 300px;
-}
+} */
 
 /*
 #emaillogin {
@@ -188,68 +179,70 @@
 
 #usercheck {
     font-size: 20px;
-    width: 100px;
-    padding-left: 80px;
+
+
 
 
 
 }
 
 #question {
-    font-size: 20px;
-    width: 10px;
-    padding-left: 0px;
+    justify-content: center;
 
 
 }
 
 #botaoesqueceu {
     margin-top: 10px;
+    padding-left: 10px;
+
+
 
 }
 
 .portallogin {
-    /* justify-content: center; */
-    font-size: 30px;
+    justify-content: center;
+    font-size: 23px;
     color: green;
     margin-right: auto;
-
+    width: 600px;
+    height: 60px;
 }
 
-
+/* 
 #NomeID {
     font-size: 25px;
     width: 40px;
     height: 40px;
     margin-right: 52px;
-}
+} */
 
 
-#checksenha {
+/* #checksenha {
 
     font-size: 25px;
     width: 40px;
     height: 40px;
     margin-right: 60px;
-}
+} */
 
 
-#registrarbotao {
+/* #registrarbotao {
     margin-top: 2px;
     margin-left: 14px;
     justify-content: center;
-}
+} */
 
-#userregistro {
+/* #userregistro {
     font-size: 20px;
     width: 40px;
     padding-left: 20px;
 
-}
+} */
 
 #idlogininform {
     justify-content: center;
-    margin-left: 70px;
+
 
 
 }
@@ -270,12 +263,19 @@
 
 #FormLogin {
     justify-content: center;
-    margin-top: -130px;
+    margin-top: -180px;
 }
 
 
 #containerPortalBio {
     justify-content: center;
+    /* background-color: aqua; */
+    background-color: #CDD7BC;
+
+    width: 100px;
+    height: 30;
+    text-align: center;
+
 }
 
 
@@ -285,22 +285,18 @@
 
 }
 
-#idchecknovasenha {
+/* #idchecknovasenha {
     font-size: 20px;
     width: 100px;
     padding-left: 80px;
-}
-
-#submitesquece {
-    justify-content: center;
+} */
 
 
-}
 
 
 #containerRecuSenha {
     background-color: #CDD7BC;
-    width: 600px;
+    text-align: center;
 
 
 

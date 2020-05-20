@@ -6,7 +6,6 @@
 
 
 
-
   {{-- <div class="container"> --}}
    @section('footerconteudo')
 
@@ -14,15 +13,18 @@
         <span class="fas fa-user-tie" style="font-size: 30px; width: 50px; height: 40px;"></span><h3 class="font-italic"style="font-size: 25px; color:red;"><strong>Administrador</strong> </h3>
          </div>
 
-          <div class="card-body" id ="cardlogin">
-       <form method="POST" action="{{ route('admin.login') }}" id ="formulariologin">
+         <div class="card-body" id ="cardlogin">
+        
+<form method="POST" action="{{ route('admin.login') }}" id ="formulariologin">
           @csrf
 
-          <div class="form-group row"id ="emaillogin" >
-            <label for="email" class="col-md-2 col-form-label text-md-right" id="labelemail"><span class="fas fa-envelope-square" id="TamEnvelope"></span></label>
-
-            <div class="col-md-6" >
+          <div class="input-group mb-3">
+            <label for="email"></label>
               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+               
+              <div class="input-group-append">
+                     <span class="input-group-text" id="basic-addon2"><span class="fas fa-envelope-square" id="TamEnvelope"></span></span>
+                    </div>
 
               @error('email')
               <span class="invalid-feedback" role="alert">
@@ -30,24 +32,25 @@
               </span>
               @enderror
             </div>
-          </div>
+         
 
-          <div class="form-group row" id="senhalogin" >
-            <label for="password" class="col-md-2 col-form-label d-flex text-md-right" ><span class="fas fa-key" id="TamChave"></span></label>
-
-            <div class="col-md-6">
+          <div class="input-group mb-3">
+            <label for="password"></label>
               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"placeholder="Senha">
+               
 
+              <div class="input-group-append">
+                     <span class="input-group-text" id="basic-addon2"><span class="fas fa-key" id="TamChave"></span></span>
+                    </div>
               @error('password')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
               </span>
               @enderror
             </div>
-          </div>
 
-          <div class="form-group row" style="margin-left: 3px;"">
-            <div class="col-md-6 offset-md-3">
+          <div class="form-group" style="  text-align: center;">
+           
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -56,36 +59,41 @@
                 </label>
               </div>
             </div>
-          </div>
+          
 
-          <div class="form-group row mb-0" id="submitilogin">
-            <div class="col-md-8 offset-md-2">
+          <div class="form-group" style="  text-align: center;">
+         
 
-              <button type="submit" class="btn btn-primary" id="submitid">
+              <button type="submit" class="btn btn-primary" id="botaoesqueceu">
                 {{ __('Entrar') }} <span class="fas fa-user-check" id ="usercheck"></span>
               </button>
 
               @if (Route::has('password.request'))
 
+            </div>
 
-              <a class="btn btn-primary" href="{{ route('password.request') }}" id="botaoesqueceu">
+
+              <div class="form-group" style="  text-align: center;">
+              <a class="btn btn-link" href="{{ route('password.request') }}" id="botaoesqueceu">
                 {{ __('Esqueceu sua senha') }}
                 <span class="fas fa-question" id="question"></span>
               </a>
+               </div>
               @endif
-            </div>
-          </div>
+           
+           
+
+         
         </form>
           </div>
   
 
                       <div class="container" id="containerRecuSenha">
-        <div class="row justify-content-md-center">
-            <div class="col-md-12 col-md-12" style="margin-top: 30px;  margin-right: 240px; text-content:center;">
-             
-            <h5 class="text-center" style="color: red"><em> Esta pagina é especificamente voltada para o login do usuário administrador.</em></h5>
+        <div class="row ">
           
-        </div>
+            <h5 class="text-center" style="color: red; margin-top: 20px;"><em> Esta pagina é especificamente voltada para o login do usuário administrador.</em></h5>
+          
+   
         
         </div>
 

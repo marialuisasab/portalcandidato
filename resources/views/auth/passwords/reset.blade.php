@@ -1,65 +1,71 @@
-@extends('layouts.app')
+@extends('auth.footernavbartemplate')
+<link rel="stylesheet" href="/css/principal.css">
+<link rel="stylesheet" href="/css/LoginCSS.css">
+<link rel="stylesheet" href="/css/redes.css">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+@section('footerconteudo')
 
-                <div class="card-body">
+                <div class="card-header" id="HeaderID"><span class="fas fa-users-cog" style="font-size: 30px; width: 40px; height: 40px;"></span><h3 class="font-italic"style="font-size: 15px;">Troca de senha:</h3>
+                </div>
+
+                <div class="card-body" id="cardlogin">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="email"></label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                           
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+
+                                <div class="input-group-append">
+                     <span class="input-group-text" id="basic-addon2"><span class="fas fa-envelope-square" id="TamEnvelope"></span></span>
+                    </div>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                           
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="password"></label>
 
-                            <div class="col-md-6">
+                            
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
+                                <div class="input-group-append">
+                     <span class="input-group-text" id="basic-addon2"><span class="fas fa-key" id="TamChave"></span></span>
+                    </div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                          
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="password-confirm"></label>
 
-                            <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                           <div class="input-group-append">
+                     <span class="input-group-text" id="basic-addon2"><span class="fas fa-check-double" id="checksenha"></span> </span>
+                    </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group" style="text-align: center;">
+                            
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
+                                    {{ __('Confirmar alteração') }}
+                               
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+     
 @endsection

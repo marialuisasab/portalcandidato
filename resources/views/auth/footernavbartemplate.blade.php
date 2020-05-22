@@ -112,17 +112,16 @@
              
             </nav>
 
-<div class="container-fluid" id="dadosbiocont">
+<div class="container-fluid" id="dadosbiocont" style="text-align: center; margin-right:10px;">
   <div class="row justify-content-md-center" id ="FormLogin">
     <div class="card" id="CabecalhoBody">
       
       <div class="container" id="containerPortalBio">
         <div class ="row" id ="rowportal">
          
-          <p class="portallogin">Portal do Candidato</p>
       
           
-          <a class ="ExtratusLogin"href="/"><b class="BioLogin">BIO</b>EXTRATUS</a>
+          <a class ="ExtratusLogin"href="/">Portal do Candidato <b class="BioLogin">BIO</b>EXTRATUS</a>
           
         </div>
 

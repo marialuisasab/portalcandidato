@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Portal do candidato',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Portal do candidato</b><p></p><b><strong>BIO</strong></b><b class="lead"><em>EXTRATUS<em></b>',
+    'logo_img' => false,
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -103,8 +103,8 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_header' => '',
-    'classes_content' => '',
+    'classes_content_header' => 'container-fluid',
+    'classes_content' => 'container-fluid',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
@@ -209,7 +209,7 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
+            'text' => 'Buscar',
             'search' => true,
             'topnav' => true,
         ],
@@ -218,76 +218,109 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        
+        ['header' => 'Informações:'],
+
+         ['header' => 'Gerênciar Perfil:'],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text' => 'Sobre meu perfil',
+            'icon' => 'fas fa-fw fa-user-cog',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                'text' => 'Meu Perfil',
+                'icon' => 'fas fa-fw fa-user-edit',
+                'url' => '',
+                ],
+                   [
+                       'text'=>'Imprimir Curriculo',
+                       'icon'=>'fas fa-fw fa-file-alt',
+                       'url' =>'',
+                   ],
+                     [
+                         'text'=>'Alterar Senha',
+                         'icon'=>'fas fa-fw fa-lock-open',
+                         'url'=>'',
+                     ],
+                       [
+                           'text'=>'Sair',
+                           'icon'=>'fas fa-fw fa-sign-out-alt',
+                           'url'=>'',
+                       ],
+            
+          
+        ],
+        ],
+       
+         ['header' => 'Gerênciar Currículo:'],
+        [
+            'text' => 'Cadastrar Curriculo',
+            'icon'    => 'fas fa-fw fa-file-signature',
+            'submenu' => [
+                [
+                    'text' => 'Dados Pessoais',
+                    'icon' =>'fas fa-fw fa-id-card',
+                    'url' => 'candidato/dadospessoais',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                'text' => 'Endereço',
+                'icon' =>'fas fa-fw fa-map-marked-alt',
+                'url' => '',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'    => 'Formação e Cursos',
+                    'icon'     => 'fas fa-fw fa-user-graduate',
+                    'url' =>'',
                 ],
+                     
+                [
+                    'text' => 'Experiência Profissional',
+                    'icon' =>'fas fa-fw fa-user-tie',
+                    'url'  => '',
+                ],
+                  [
+                  'text' => 'Idiomas',
+                  'icon' =>'fas fa-fw fa-language',
+                  'url' => '',
+                  ],
+
+                  [
+                  'text' => 'Redes Sociais',
+                  'icon' =>'fas fa-fw fa-hashtag',
+                  'url' => '',
+                  ],
             ],
         ],
-        ['header' => 'labels'],
+        ['header' => 'Gerênciar Vagas:'],
+         [
+         'text' => 'Sobre as vagas',
+         'icon'=>'fas fa-fw fa-share',
+         'submenu' =>[
+       
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
+            'text'       => 'Vagas Disponíveis',
+            'url' =>'',
+            'icon'=>'fas fa-fw fa-bullhorn',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
+           'text' => 'Histórico de participações',
+           'url' =>'',
+           'icon'=>'fas fa-fw fa-tasks',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
+            'text' => 'Acompanhar Processo',
+            'url' =>'',
+            'icon'=>'fas fa-fw fa-eye',
         ],
+          ],
     ],
+
+     ['header'=>'Suporte:'],
+      [
+          'text'=>'Suporte Tecnico',
+          'icon'=>'fas fa-fw fa-headset',
+          'url'=>'',
+      ],
+     ],
 
     /*
     |--------------------------------------------------------------------------
@@ -309,7 +342,6 @@ return [
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
     ],
 
     /*

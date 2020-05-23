@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/candidato/dadospessoais', 'CurriculoController@index');
 
 Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');

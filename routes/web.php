@@ -21,7 +21,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+Route::get('/curriculo', 'CurriculoController@index')->name('curriculo.dados');
+Route::get('/curriculo/dados', 'CurriculoController@create')->name('curriculo.novo');
+Route::get('/curriculo/editar/{id}', 'CurriculoController@edit')->name('curriculo.editar');
+Route::post('/curriculo/{id}', 'CurriculoController@update');
+Route::post('/curriculo', 'CurriculoController@store');
+
+Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
+
+Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');

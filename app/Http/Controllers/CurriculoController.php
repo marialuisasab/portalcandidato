@@ -16,8 +16,6 @@ class CurriculoController extends Controller
     {
         $this->middleware('auth');
     }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -40,8 +38,8 @@ class CurriculoController extends Controller
      */
     public function create()
     {   
-        $cidades = Helper::getCidades();
-        return view('curriculo.create', compact('cidades'));
+       
+        return view('curriculo.create');
     }
 
     /**
@@ -66,8 +64,8 @@ class CurriculoController extends Controller
         $c->ufcnh =  $request->ufcnh;
         $c->dtcadastro = Date('Y-m-d');
         $c->dtatualizacao = Date('Y-m-d');
-        $c->nomepai = ucwords(strtolower($request->nomepai));
-        $c->nomemae = ucwords(strtolower($request->nomemae));
+        $c->nomepai = umb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
+        $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
         $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
         $c->dfisico =  $request->dfisico;
         $c->genero =  $request->genero;
@@ -161,8 +159,8 @@ class CurriculoController extends Controller
             $c->cnh = $request->cnh;
             $c->ufcnh = $request->ufcnh;
             $c->dtatualizacao = Date('Y-m-d');
-            $c->nomepai = ucwords(strtolower($request->nomepai));
-            $c->nomemae = ucwords(strtolower($request->nomemae));
+            $c->nomepai = mb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
+            $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
             $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
             $c->dfisico = $request->dfisico;
             $c->genero = $request->genero;
@@ -191,9 +189,7 @@ class CurriculoController extends Controller
                 }
                 $c->foto = $arquivo;                  
             }
-
             //dd($c);
-
             if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){         
                 return redirect()->route('curriculo.dados')
                             ->with('success', 'Dados cadastrados com sucesso!');
@@ -221,7 +217,7 @@ class CurriculoController extends Controller
 
     public function updateUser($user, $foto, $nome){
         //Editar o nome do usuário e foto
-        $user->name = ucwords(strtolower($nome));
+        $user->name = mb_convert_case($nome, MB_CASE_TITLE, "UTF-8");;
         $user->foto = $foto;   
         if ($user->save()){
             return true;

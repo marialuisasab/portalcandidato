@@ -99,7 +99,7 @@
 							<label for="naturalidade">Naturalidade</label>
 							<select class="custom-select" id="naturalidade" name="naturalidade">				 
 							   <option value = "" selected>Selecionar</option>
-							  	@foreach($cidades as $cid)
+							  	@foreach(Helper::getCidades() as $cid)
                             	<option value = "{{$cid->idcidade}}">{{ $cid->nome }}</option>
                             	@endforeach
 							</select>						  

@@ -41,6 +41,10 @@
 					<th>Pais</th>
 					<td>{{Helper::getPais($e->pais_idpais)}}</td>
 				</tr>
+				<tr>
+					<th>Disponibilidade para mudança de cidade</th>
+					<td>{{$e->disp_mudanca}}</td>
+				</tr>
 							
 			@endforeach							
 			</table>

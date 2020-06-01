@@ -59,6 +59,7 @@ class EnderecoController extends Controller
         $e->complemento = mb_convert_case($request->complemento, MB_CASE_TITLE, "UTF-8");
         $e->pais_idpais = 1;
         $e->cep = $request->cep;
+        $e->disp_mudanca = $request->disp_mudanca;
         
         if ($e->save() && $this->updateCurriculo(Auth::user()->id, $e->idendereco)){         
                 return redirect()->route('endereco')
@@ -114,7 +115,8 @@ class EnderecoController extends Controller
             $e->numero = $request->numero;
             $e->complemento = mb_convert_case($request->complemento, MB_CASE_TITLE, "UTF-8");
             $e->pais_idpais = 1;
-            $e->cep = $request->cep;
+            $e->cep = $request->cep;           
+            $e->disp_mudanca = $request->disp_mudanca;
 
             if ($e->save()){         
                     return redirect()->route('endereco')

@@ -16,6 +16,7 @@ class Endereco extends Model
     	'complemento', 
     	'pais_idpais',
         'cep',
+        'disp_mudanca',
     ];
     protected $guarded = ['idendereco'];
     protected $table = 'endereco';

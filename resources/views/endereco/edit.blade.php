@@ -37,7 +37,7 @@
 					</div>
 					<div class="col">
 						<div class="form-group">
-							<label for = "complemento">Complemento *</label>
+							<label for = "complemento">Complemento</label>
 							<input type="text" class="form-control" name="complemento" placeholder="Complemento" value="{{$e->complemento}}">
 						</div>
 					</div>
@@ -67,12 +67,27 @@
 					</div>
 					<div class="col">
 						<div class="form-group">
-							<label for="pais">País</label>
+							<label for="pais">País *</label>
 							<select class="custom-select" id="pais_idpais" name="pais_idpais" value="{{$e->pais_idpais}}">
 							   <option value = "" selected>País</option>
 							   <option value="1">Brasil</option>
 							   <option value="2">Outro</option>
 							</select>						  
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label>Tem diponibilidade para mudança de cidade ou estado?&emsp;</label>
+						  	<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+							  <label class="form-check-label" for="inlineRadio1">Sim</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+							  <label class="form-check-label" for="inlineRadio2">Não</label>
+							</div>
 						</div>
 					</div>
 				</div>

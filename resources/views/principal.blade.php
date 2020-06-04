@@ -166,36 +166,114 @@
                           </button>
                         </form>
                       </ul>
-                      <div id="accordion">
+                      
+                {{-- Tipo acocordin --}}
+               
+                <div id="accordion">
 
-                        <div class="card">
-                          <div class="card-header" id="headingOne">
+                  
+
+                  <div class="card">
+                    
+                    <div class="card-header" id="headingOne">
+
+
+                      <div class="container">
+                        <div class="row">
+                          <div class="col">
 
                             <h4>
                               <a href="/">
-                                <span class="badge badge-light" >Vaga 1...</span>
+                                <p>Vaga para ...</p>
                               </a>
-                              <nav class="navbar navbar-nav">
-                                <ul class ="ml-auto">
+                            </h4>
+                            <hr>
+                          </div>
+                        </div>
+                        <div class="row">
 
-                                  <button type="button" class="btn btn-info">
-                                    <a class="ml-1"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                      Visualizar
+                          <div class="col-sm">
+                            
+
+                            <div class="pull-left">
+                              <div class="meta-tag">
+                                <span class="badge badge-light " >Alvinopolis -MG
+                                  <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top" alt="">
+                                </span>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <div class="col-sm">
+
+                          </div>
+
+
+                          <div class="col-sm">
+                            <div class="btn-group-vertical">
+                              <a name= "idcadastrar"class="btn btn-info ml-4" role="button"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color:white">
+                                Visualizar</a>
+
+
+                                <a name= "idcadastrar"class="btn btn-info ml-4" role="button" href="/"id="IDcadastrar">
+                                  Cadastrar</a>
+
+
+
+                                  <a class="btn btn-info ml-4"href="/">
+                                    <img src="img/ImagemEmail.jpg" width="70" height="40" class="d-inline-block align-top" alt="">
+
+                                  </a>
+
+                                </div>
+
+
+                              </div>
+
+                            </div>
+
+
+                            
+                            </div>
+
+                          </div>
+
+
+
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+
+
+                            <div class="container">
+                              <div class="row">
+                                <div class="col">
+
+                                  <h4>
+                                    <a href="/">
+                                      <p>Vaga para ...</p>
                                     </a>
-                                  </button>
+                                  </h4>
+                                  <hr>
+                                </div>
+                              </div>
+                              <div class="row">
 
+                                <div class="col-sm">
+                                  {{-- <div class="footer-links">
+                                    <p class="fas fa-map-marked-alt">  Rodovia Km1, MG-123 - Zona Rural</p></li>
+                                    <p class="fas fa-phone"> (031) 3855-3000</p></li>
+                                    <p class="fas fa-envelope"> rh@bioextratus.com.br </p></li>
+                                  </div> --}}
 
-                                  <a name= "idcadastrar"class="btn btn-info ml-4" role="button" href="/"id="IDcadastrar">
-                                    Cadastrar</a>
-
-
-                                    <a class="ml-4"href="/">
-                                      <img src="img/ImagemEmail.jpg" width="70" height="40" class="d-inline-block align-top" alt="">
-
-                                    </a>
-                                  </ul>
-                                </nav>
-                                <div class="job-tag">
                                   <div class="pull-left">
                                     <div class="meta-tag">
                                       <span class="badge badge-light " >Alvinopolis -MG
@@ -204,101 +282,132 @@
                                     </div>
 
                                   </div>
-                                </h4>
 
-                              </div>
-
-                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                 </div>
-                              </div>
-                            </div>
+                                <div class="col-sm">
 
-                            <div class="card">
-                              <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                  <h4>
-                                    <a href="/">
-                                      <span class="badge badge-light" >Vaga 2...</span>
-                                    </a>
-                                    <nav class="navbar navbar-nav">
-                                      <ul class ="ml-auto">
-
-                                        <button type="button" class="btn btn-info">
-                                          <a class="ml-1"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Visualizar
-                                          </a>
-                                        </button>
-
-
-                                        <a name= "idcadastrar" class="btn btn-info  ml-4" role="button" href="/"id="IDcadastrar">
-                                          Cadastrar
-                                        </a>
-
-
-                                        <a class="ml-4"href="/">
-                                          <img src="img/ImagemEmail.jpg" width="70" height="40" class="d-inline-block align-top" alt="">
-                                        </a>
-                                      </ul>
-                                    </nav>
-                                    <span class="badge badge-light " >Alvinopolis -MG
-                                      <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top" alt="">
-                                    </span>
-                                  </h4>
-                                </h5>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                 </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                  <h4>
-                                    <a href="/">
-                                      <span class="badge badge-light" >Vaga 3...</span>
-                                    </a>
-                                    <nav class="navbar navbar-nav">
-                                      <ul class ="ml-auto">
-
-                                        <button type="button" class="btn btn-info">
-                                          <a class="ml-1"  data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Visualizar
-                                          </a>
-                                        </button>
 
 
-                                        <a name= "idcadastrar" class="btn btn-info ml-4" role="button" href="/"id="IDcadastrar">
-                                          Cadastrar
-                                        </a>
+                                <div class="col-sm">
+                                  <div class="btn-group-vertical">
+                                    <a name= "idcadastrar"class="btn btn-info ml-4" role="button"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color:white">
+                                      Visualizar</a>
 
 
-                                        <a class="ml-4"href="/">
+                                      <a name= "idcadastrar"class="btn btn-info ml-4" role="button" href="/"id="IDcadastrar">
+                                        Cadastrar</a>
+
+
+
+                                        <a class="btn btn-info ml-4"href="/">
                                           <img src="img/ImagemEmail.jpg" width="70" height="40" class="d-inline-block align-top" alt="">
 
                                         </a>
-                                      </ul>
-                                    </nav>
-                                    <span class="badge badge-light " >Alvinopolis -MG
-                                      <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top" alt="">
-                                    </span>
-                                  </h4>
-                                </h5>
-                              </div>
-                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+                                      </div>
+
+
+                                    </div>
+
+                                  </div>
+
+
+                                 
+                                  </div>
+
+                                </div>
+
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                  <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                  </div>
                                 </div>
                               </div>
-                            </div>
 
-                          </div>
+
+
+                              <div class="card">
+                                <div class="card-header" id="headingThree">
+
+                                  <div class="container">
+                                    <div class="row">
+                                      <div class="col">
+
+                                        <h4>
+                                          <a href="/">
+                                            <p>Vaga para...</p>
+                                          </a>
+                                        </h4>
+                                        <hr>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+
+                                      <div class="col-sm">
+                                        <div class="footer-links">
+                                          <p class="fas fa-map-marked-alt">  Rodovia Km1, MG-123 - Zona Rural</p></li>
+                                          <p class="fas fa-phone"> (031) 3855-3000</p></li>
+                                          <p class="fas fa-envelope"> rh@bioextratus.com.br </p></li>
+                                        </div>
+
+                                        <div class="pull-left">
+                                          <div class="meta-tag">
+                                            <span class="badge badge-light " >Alvinopolis -MG
+                                              <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top" alt="">
+                                            </span>
+                                          </div>
+
+                                        </div>
+
+                                      </div>
+                                      <div class="col-sm">
+
+                                      </div>
+
+
+                                      <div class="col-sm">
+                                        <div class="btn-group-vertical">
+                                          <a name= "idcadastrar"class="btn btn-info ml-4" role="button"  data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color:white">
+                                            Visualizar</a>
+
+
+                                            <a name= "idcadastrar"class="btn btn-info ml-4" role="button" href="/"id="IDcadastrar">
+                                              Cadastrar</a>
+
+
+
+                                              <a class="btn btn-info ml-4"href="/">
+                                                <img src="img/ImagemEmail.jpg" width="70" height="40" class="d-inline-block align-top" alt="">
+
+                                              </a>
+
+                                            </div>
+
+
+                                          </div>
+
+                                        </div>
+
+
+                                        
+                                        </div>
+
+
+                                      </div>
+
+                                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                        <div class="card-body">
+                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+
+                                  </div>
                         </div>
-                        <div class="col-md-auto"></div>
-                        <div class="col col-lg-2"></div>
+                        {{--}} Fim do row{{--}}
                       </div>
                     </div>
 

@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Curriculo;
+use Helper;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+
+        $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+
+      
+        return view('home', compact(['candidato']));
     }
 }

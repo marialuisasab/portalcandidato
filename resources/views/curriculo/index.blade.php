@@ -69,7 +69,7 @@
 				<div class="col-sm">
 					<button class=" btn btn-link" style="color" type="cancel">
 										<a href="/home" >Voltar</a>
-										<span class="fas fa-window-close"  style="font-size: 25px; text-align: center;"></span>
+										<span class="fas fa-undo"  style="font-size: 25px; text-align: center;"></span>
 
 									</button>
 				</div>

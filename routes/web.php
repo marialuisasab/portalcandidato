@@ -31,6 +31,20 @@ Route::get('/curriculo/editar/{id}', 'CurriculoController@edit')->name('curricul
 Route::post('/curriculo/{id}', 'CurriculoController@update');
 Route::post('/curriculo', 'CurriculoController@store');
 
+Route::get('/endereco', 'EnderecoController@index')->name('endereco');
+Route::get('/endereco/novo', 'EnderecoController@create')->name('endereco.novo');
+Route::get('/endereco/editar/{id}', 'EnderecoController@edit')->name('endereco.editar');
+Route::post('/endereco/{id}', 'EnderecoController@update');
+Route::post('/endereco', 'EnderecoController@store');
+
+Route::get('/cursos', 'FormacaoController@index')->name('cursos');
+Route::get('/curso/novo', 'FormacaoController@create')->name('curso.novo');
+Route::get('/curso/editar/{id}', 'FormacaoController@edit')->name('curso.editar');
+Route::get('/curso/{id}', 'FormacaoController@show')->name('curso');
+Route::post('/curso/{id}', 'FormacaoController@update');
+Route::post('/curso', 'FormacaoController@store');
+
+
 Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');

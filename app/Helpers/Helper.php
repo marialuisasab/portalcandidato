@@ -5,6 +5,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Cidade;
 use App\Estado;
+use App\Pais;
+use App\Instituicao;
+use App\Categoria;
+use App\Curso;
+use App\Area;
+use App\Nivel;
 
 class Helper
 {
@@ -16,15 +22,60 @@ class Helper
     public static function setPretensao($valor){
         return str_replace(',','.',$valor);
     }
+
     public static function getPretensao($valor){
         return 'R$'.str_replace('.',',',$valor);
     }
+
     public static function getEstados(){
         $estados = Estado::orderBy('uf','ASC')->get();
         return $estados;
     }
+
     public static function getCidades(){
         $cidades = Cidade::orderBy('nome','ASC')->get();
         return $cidades;
     }
+
+    public static function getCidadesDoEstado($id){
+        $cidades = Cidade::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
+        return $cidades;
+    }
+
+    public static function getEstado($id){
+        $estado = Estado::select('uf')->where('idestado', $id)->get()[0];
+        return $estado->uf;
+    }
+
+    public static function getCidade($id){
+        $cidade = Cidade::where('idcidade', $id)->get()[0];
+        return $cidade->nome;
+    }
+    
+    public static function getPais($id){
+        $pais = Pais::where('idpais', $id)->get()[0];
+        return $pais->nome;
+    }
+
+    public static function getCategorias(){
+        $categorias = Categoria::orderBy('nome','ASC')->get();
+        return $categorias;
+    }
+
+    public static function getInstituicoes(){
+        $instituicoes = Instituicao::orderBy('nome','ASC')->get();
+        return $instituicoes;
+    }
+
+    public static function getAreas(){
+        $areas = Area::orderBy('nome','ASC')->get();
+        return $areas;
+    }
+
+    public static function getNiveis(){
+        $niveis = Nivel::orderBy('nome','ASC')->get();
+        return $niveis;
+    }
+
+
 }

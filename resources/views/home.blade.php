@@ -49,8 +49,8 @@
  
                         <div class="col-sm">
                     <ul>   
-          <span class="fas fa-arrow-circle-left"style="font-size: 25px; text-align: center;"></span> 
-          <a href="#"><em><strong>Voltar</strong></em></a>
+          <span class="fas fa-undo"style="font-size: 25px; text-align: center;"></span> 
+          <a href="/"><em><strong>Voltar</strong></em></a>
                 </ul>
                 </div>
                 <div class="col-sm">

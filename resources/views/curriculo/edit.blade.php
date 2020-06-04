@@ -43,18 +43,19 @@
 
 								</div>
 
-				<div class="col-sm">
-				 
+							
+				<div class="col-xs-8 col-md-6" style="margin-left: auto;">
+				 	<div class="btn-group " role="group" aria-label="" >
 					<button class=" btn btn-link">
 						<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
 						<span class="fa fa-edit"  style="font-size: 25px; text-align: center;"></span>
 					
 					</button>
 
-				</div>
+	
 
 
-				<div class="col-sm">
+				
 						<button class=" btn btn-link" style="color:red;" type="cancel">
 										<a href="#" style="color: red;" >Cancelar</a>
 										<span class="fas fa-window-close"  style="font-size: 25px; text-align: center;"></span>
@@ -62,15 +63,16 @@
 									</button>
 
 
-				</div>
+				
 
-				<div class="col-sm">
+			
 					<button class=" btn btn-link" style="color" type="cancel">
-										<a href="/home" >Voltar</a>
+										<a href="/curriculo" >Voltar</a>
 										<span class="fas fa-undo"  style="font-size: 25px; text-align: center;"></span>
 
 									</button>
 				</div>
+			</div>
 			</div>
 		</div>
 

@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="container">
 
 
@@ -20,9 +18,9 @@
 			<div id="accordion" style="margin-top: 40px;">
 				<div class="card-border-light" >
 					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
-						<div class="container" >
-							<div class="row">
-								<div class="col-sm">
+							<div class="container" >
+			<div class="row">
+		<div class="col-xs-4 col-md-4">
 									<h2 class="mb-0" style="color:dodgerblue;">
 
 										Dados Pessoais
@@ -35,38 +33,43 @@
 
 								</div>
 
-								<div class="col-sm">
+							
+				<div class="col-xs-8 col-md-6" style="margin-left: auto;">
+				 	<div class="btn-group " role="group" aria-label="" >
+					{{-- <button class=" btn btn-link">
+						<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
+						<span class="fa fa-edit"  style="font-size: 25px; text-align: center;"></span>
+					
+					</button> --}}
 
-									<button class=" btn btn-link">
-										<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
-										<span class="fa fa-edit"  style="font-size: 25px; text-align: center;"></span>
+	
 
-									</button>
-									<button class=" btn btn-link" style="color:red;" type="cancel">
-										<a href="/curriculo/editar/{{Auth::user()->id}}" >Cancelar</a>
+
+				
+						<button class=" btn btn-link" style="color:red;" type="cancel">
+										<a href="#" style="color: red;" >Cancelar</a>
 										<span class="fas fa-window-close"  style="font-size: 25px; text-align: center;"></span>
 
 									</button>
 
-									<button class=" btn btn-link" style="color" type="cancel">
-										<a href="home" >Voltar</a>
-										<span class="fas fa-window-close"  style="font-size: 25px; text-align: center;"></span>
+
+				
+
+			
+					<button class=" btn btn-link" style="color" type="cancel">
+										<a href="/home" >Voltar</a>
+										<span class="fas fa-undo"  style="font-size: 25px; text-align: center;"></span>
 
 									</button>
-
-
-
-
-
-
-								</div>
-							</div>
-						</div>
-
-
+				</div>
+			</div>
+			</div>
+		</div>
 
 
 					</div>
+
+					
 					<div id="collapseOne"  class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body" style="box-sizing: border-box;">
 
@@ -470,8 +473,15 @@
 																					</div>
 																				</div>
 																			</div>
+																		<div class="col-xs1 col-md-1"></div>
+
 																		</div>
 																	</div>
+
+																	
+																	
+						
+
 
 
 

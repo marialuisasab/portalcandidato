@@ -43,7 +43,7 @@
     <div class="card-header" id="headingOne" style="background-color: aliceblue;">
 		<div class="container" >
 			<div class="row">
-				<div class="col-sm">
+				<div class="col-xs-3 col-md-3">
  <h2 class="mb-0">
         <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
         Dados Pessoais
@@ -56,7 +56,9 @@
 	
 				</div>
 
-				<div class="col-sm">
+				<div class="col-xs-8 col-md-6" style="margin-left: auto;">
+				<div class="btn-group " role="group" aria-label="" style="margin-left: auto;">
+
 				 
 					<button class=" btn btn-link">
 						<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
@@ -64,15 +66,17 @@
 					
 					</button>
 
-				</div>
+				
 
-				<div class="col-sm">
+				
+		
 					<button class=" btn btn-link" style="color" type="cancel">
 										<a href="/home" >Voltar</a>
 										<span class="fas fa-undo"  style="font-size: 25px; text-align: center;"></span>
 
 									</button>
 				</div>
+			</div>
 			</div>
 		</div>
      

@@ -150,7 +150,7 @@
 
 
 									<div class="form-group">
-										<li><strong>Pretenção Salarial:&nbsp;&nbsp;&nbsp;</strong>
+										<li><strong>PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control" placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial"></li>
 
 										</div>
@@ -165,7 +165,7 @@
 										</div> --}}
 
 										<div class="form-group">
-											<li><strong>Data de Nascimento:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
+											<li><strong>DATA DE NASCIMENTO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
 												<input type="date" class="form-control" placeholder="Ex.: dd/mm/aaaa" name="dtnascimento" id="dtnascimento">
 											</div></li>
 
@@ -187,7 +187,7 @@
 											</div> --}}
 
 											<div class="form-group">
-												<li><strong> Genero:&nbsp;&nbsp;&nbsp;</strong>
+												<li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>
 													<select class="custom-select" id="genero" name="genero">
 														<option value = "" selected>Selecionar</option>
 														<option value="F">Feminino</option>
@@ -207,11 +207,8 @@
 												--}}
 
 
-												<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong> </li>
-												<hr>
-
 												<div class="form-group">
-													<li style=""><strong> Nome da mãe:&nbsp;&nbsp;&nbsp;</strong>
+													<li style=""><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong>
 														<input type="text" class="form-control" name="nomemae" id="nomemae" placeholder="Nome da mãe"></li>
 													</div>
 
@@ -227,7 +224,7 @@
 														</div> --}}
 
 														<div class="form-group">
-															<li><strong> Nome do pai:&nbsp;&nbsp;&nbsp;</strong>
+															<li><strong> NOME DO PAI:&nbsp;&nbsp;&nbsp;</strong>
 																<input type="text" class="form-control" name="nomepai" id="nomepai" placeholder="Nome do pai">
 															</li>
 														</div>
@@ -247,7 +244,7 @@
 															--}}
 
 															<div class="form-group">
-																<li><strong> Deficiente físico?&nbsp;&nbsp;&nbsp;</strong>
+																<li><strong> DEFICIENTE FISICO?&nbsp;&nbsp;&nbsp;</strong>
 																	<select class="custom-select" id="dfisico" name="dfisico">
 																		<option value = "" selected>Selecionar</option>
 																		<option value="1">Sim</option>
@@ -270,7 +267,7 @@
 
 
 																<div class="form-group">
-																	<li><strong> Nacionalidade:&nbsp;&nbsp;&nbsp;</strong>
+																	<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong>
 																		<select class="custom-select" id="nacionalidade" name="nacionalidade">
 																			<option value = "" selected>Selecionar</option>
 																			<option value="1">Brasileira</option>
@@ -293,7 +290,7 @@
 																	</div> --}}
 
 																	<div class="form-group">
-																		<li><strong> Naturalidade:&nbsp;&nbsp;&nbsp;</strong>
+																		<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>
 																			<select class="custom-select" id="naturalidade" name="naturalidade">
 																				{{-- <option value = "" selected>Selecionar</option>
 																				@foreach($cidades as $cid)
@@ -315,7 +312,7 @@
 
 
 																		<div class="form-group">
-																			<li><strong> Telefone 1 &nbsp;&nbsp;&nbsp;</strong>
+																			<li><strong> TELEFONE 1 &nbsp;&nbsp;&nbsp;</strong>
 																				<input type="text" class="form-control" name="telefone1" id="telefone1" placeholder="Telefone 1"> </li>
 																			</div>
 																			<hr>
@@ -330,7 +327,7 @@
 																			</div> --}}
 
 																			<div class="form-group">
-																				<li><strong>Telefone 2&nbsp;&nbsp;&nbsp;</strong>
+																				<li><strong>TELEFONE 2&nbsp;&nbsp;&nbsp;</strong>
 																					<input type="text" class="form-control" name="telefone2" id="telefone2" placeholder="Telefone 2"> </li>
 																				</div>
 																				<hr>
@@ -354,7 +351,7 @@
 
 
 																					<div class="form-group">
-																						<li><strong> Estado Civil&nbsp;&nbsp;&nbsp;</strong>
+																						<li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>
 																							<select class="custom-select" id="estadocivil" name="estadocivil">
 																								<option value="" selected>Selecionar</option>
 																								<option value="1">Solteiro(a)</option>
@@ -382,7 +379,7 @@
 																						</div> --}}
 
 																						<div class="form-group">
-																							<li><strong> Categoria CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+																							<li><strong> CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 																								<select class="custom-select" id="catcnh" name="catcnh">
 																									<option value="" selected>Selecionar</option>
 																									<option value="A">A</option>
@@ -405,7 +402,7 @@
 																							</div>	 --}}
 
 																							<div class="form-group">
-																								<li><strong> UF de origem CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+																								<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
 																									<input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"></li>
 																								</div>
 
@@ -423,7 +420,7 @@
 
 
 																								<div class="form-group">
-																									<li><strong> Número CNH :&nbsp;&nbsp;&nbsp;</strong><span > </span>
+																									<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span > </span>
 																										<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH">
 																									</li>
 																								</div>
@@ -436,7 +433,7 @@
 																									</div> --}}
 
 																									<div class="form-group">
-																										<li><strong> Objetivos :&nbsp;&nbsp;&nbsp;</strong><span > </span>
+																										<li><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong><span > </span>
 																											<textarea class="form-control" id="sobre" rows="3" name="sobre"></textarea>
 																										</li>
 																									</div>
@@ -458,7 +455,7 @@
 																											@if(Auth::user()->foto != null)
 																											<img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}" style="max-width: 50px;">
 																											@endif
-																											<li><strong>Foto:&nbsp;&nbsp;&nbsp;</strong><span > </span>
+																											<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span > </span>
 																												<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg">
 																											</li>
 

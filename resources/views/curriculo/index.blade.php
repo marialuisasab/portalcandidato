@@ -5,7 +5,7 @@
 
 
 @section('content_header')
-
+{{-- 
 <nav aria-label="Navegação de página exemplo">
   <ul class="pagination justify-content-end">
     <li class="page-item disabled">
@@ -18,7 +18,7 @@
       <a class="page-link" href="#">Próximo</a>
     </li>
   </ul>
-</nav>
+</nav> --}}
 
 @endsection
 
@@ -115,9 +115,9 @@
 		  
 		<hr>
 
-		@if(($candDados->genero != null)&& ($candDados->genero =='2'))
+		@if(($candDados->genero != null)&& ($candDados->genero =='M'))
      	  <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>Masculino</li>
-		   @elseif(($candDados->genero != null)&& ($candDados->genero =='1'))
+		   @elseif(($candDados->genero != null)&& ($candDados->genero =='F'))
 		    <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>Feminino</li>
 		   @else
 		   <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não cadastrado!</span></li>
@@ -143,9 +143,18 @@
 
 
 
-		  <li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong>  {{$candDados->Deficiente}}</li>
-		<hr>
+		     @if(($candDados->dfisico != null) && ($candDados->dfisico == '1'))
+		  <li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
+		  @elseif(($candDados->dfisico != null) && ($candDados->dfisico == '2'))
+		  <li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Não</li>
+		 <li><strong>Não Informado!&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não cadastrado!</span></li>
+		 @endif
 
+		<hr>
+{{-- 
+		<li style="word-break: break-word;"><strong> dfisico:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->dfisico}}</li>
+		<hr>
+		 --}}
 
 		
 		  <li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->sobre}}</li>
@@ -173,7 +182,24 @@
 		<hr>
 
 
-		  <li><strong> CARTEIRA DE HABILITAÇÃO (CNH):&nbsp;&nbsp;&nbsp;</strong> {{$candDados->cnh}}</li>
+
+		@if(($candDados->catcnh != null)&&($candDados->catcnh =='A'))
+		 <li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>A</li>
+		 @elseif(($candDados->catcnh != null)&&($candDados->catcnh =='B'))
+		 <li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>B</li>
+		 @elseif(($candDados->catcnh != null)&&($candDados->catcnh =='C'))
+		 <li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>C</li>
+		 @elseif(($candDados->catcnh != null)&&($candDados->catcnh =='D'))
+		 <li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>D</li>
+		 @elseif(($candDados->catcnh != null)&&($candDados->catcnh =='E'))
+		 <li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>E</li>
+		 @else
+			<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não cadastrado!</span></li>
+		 @endif
+		 <hr>
+
+
+		  <li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong> {{$candDados->cnh}}</li>
 		<hr>
 
              @if($candDados->ufcnh != null)
@@ -182,6 +208,8 @@
 			<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não cadastrado!</span></li>
 			@endif
 		<hr>
+
+
 
 
 		  @if($candDados->nacionalidade != null)
@@ -200,8 +228,16 @@
 		<hr>
 
 
-		   @if($candDados->estadocivil != null)
-		  <li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->estadocivil}}</li>
+		   @if(($candDados->estadocivil != null)&&($candDados->estadocivil =='1'))
+		  <li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>Solteiro</li>
+		  @elseif(($candDados->estadocivil != null)&&($candDados->estadocivil =='2'))
+		   <li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>Casado</li>
+		  @elseif(($candDados->estadocivil != null)&&($candDados->estadocivil =='3'))
+		   <li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>Divorciado</li>
+		  @elseif(($candDados->estadocivil != null)&&($candDados->estadocivil =='4'))
+		  <li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>Viúvo</li>
+		   @elseif(($candDados->estadocivil != null)&&($candDados->estadocivil =='5'))
+		  <li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>Separado</li>
 		  @else
 		   <li><strong> ESTADO CIVIL :&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não cadastrado!</span></li>
 		   @endif

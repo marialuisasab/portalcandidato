@@ -255,7 +255,7 @@ return [
                 [
                     'text' => 'Dados Pessoais',
                     'icon' =>'fas fa-fw fa-id-card',
-                    'url' => 'candidato/dadospessoais',
+                    'url' => '/curriculo',
                 ],
                 [
                 'text' => 'Endereço',

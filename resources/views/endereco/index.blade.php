@@ -43,7 +43,7 @@
 				</tr>
 				<tr>
 					<th>Disponibilidade para mudança de cidade</th>
-					<td>{{$e->disp_mudanca}}</td>
+					<td>{{$e->disp_mudanca == '1' ? 'Sim':'Não'}}</td>
 				</tr>
 							
 			@endforeach							

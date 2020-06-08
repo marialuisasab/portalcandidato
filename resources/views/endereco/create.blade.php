@@ -90,6 +90,15 @@
 						</div>
 					</div>
 				</div>
+				 @if($errors->any())
+		          <div class="card-footer">
+		            @foreach($errors->all() as $error)
+		              <div class="alert alert-danger" role="alert">
+		                {{$error}}
+		              </div>
+		            @endforeach
+		          </div>
+		        @endif
 				<br><button type="submit" class="btn btn-primary btn-sm">Salvar</button>
 				<button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
 			</form>

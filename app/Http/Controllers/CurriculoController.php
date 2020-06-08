@@ -24,7 +24,6 @@ class CurriculoController extends Controller
     public function index()
     {   
         $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
-        //var_dump($candidato);
     
         if(count($candidato)==0)
             return view('curriculo.create');
@@ -50,6 +49,8 @@ class CurriculoController extends Controller
      */
     public function store(Request $request)
     {   
+        $this->validarFormulario($request);
+
         $user = Auth::user();
 
         $c = new Curriculo();       
@@ -64,7 +65,7 @@ class CurriculoController extends Controller
         $c->ufcnh =  $request->ufcnh;
         $c->dtcadastro = Date('Y-m-d');
         $c->dtatualizacao = Date('Y-m-d');
-        $c->nomepai = umb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
+        $c->nomepai = mb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
         $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
         $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
         $c->dfisico =  $request->dfisico;
@@ -146,6 +147,7 @@ class CurriculoController extends Controller
      */
     public function update(Request $request, $id)
     {   
+        $this->validarFormulario($request);
         $user = Auth::user();
         $c = Curriculo::where("users_id", $id)->get()[0];
         
@@ -222,6 +224,33 @@ class CurriculoController extends Controller
         if ($user->save()){
             return true;
         }
+    }
+
+    public function validarFormulario($request){
+        
+        $regras = [
+            'nome'=>'required|string|max:100',
+            'cpf' =>'required|unique:curriculo|size:11',
+            'rg' => 'required|max:11',
+            'pretsalarial' => 'required',
+            'dtnascimento' => 'required',
+            'genero' => 'required',
+            'nomemae' => 'required|string',
+            'dfisico' => 'required',
+            'nacionalidade' => 'required',
+            'naturalidade' => 'required',
+            'telefone1' => 'required',
+            'estadocivil' => 'required',
+        ];
+
+        $mensagens = [
+            'required' => 'Este campo não poderá estar em branco! :attribute ',//mensagem genérica
+            'cpf.unique' => 'Já existe um registro com este CPF em nosso cadastro',//mensagem específica
+            'max' => 'O tamanho do campo deve ser de até :max caracteres :attribute',
+            'integer' => 'Digite apenas números neste campo :attribute',
+        ];
+
+        $request->validate($regras, $mensagens);
     }
 
 }

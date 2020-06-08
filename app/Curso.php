@@ -22,4 +22,5 @@ class Curso extends Model
     ];
     protected $guarded = ['idcurso'];
     protected $table = 'curso';
+    public $timestamps = false;
 }

@@ -43,7 +43,7 @@ Route::get('/curso/editar/{id}', 'FormacaoController@edit')->name('curso.editar'
 Route::get('/curso/{id}', 'FormacaoController@show')->name('curso');
 Route::post('/curso/{id}', 'FormacaoController@update');
 Route::post('/curso', 'FormacaoController@store');
-
+Route::get('/curso/excluir/{id}', 'FormacaoController@destroy')->name('curso.excluir');
 
 Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
 

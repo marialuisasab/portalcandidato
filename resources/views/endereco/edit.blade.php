@@ -49,7 +49,7 @@
 							<select class="custom-select" id="cidade" name="cidade_idcidade" value="{{$e->cidade_idcidade}}">				 
 							   <option value = "">Selecionar</option>
 							  	@foreach(Helper::getCidades() as $cid)
-                            		<option value = "{{$cid->idcidade}}">{{ $cid->nome }}</option>
+                            		<option value = "{{$cid->idcidade}}" {{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>{{ $cid->nome }}</option>
                             	@endforeach 
 							</select>						  
 						</div>
@@ -60,7 +60,7 @@
 							<select class="custom-select" id="estado" name="estado_idestado" value="{{$e->estado_idestado}}">				 
 							   <option value = "">Selecionar</option>
 							  	@foreach(Helper::getEstados() as $est)
-                            		<option value = "{{$est->idestado}}" >{{$est->uf}} </option>
+                            		<option value = "{{$est->idestado}}" {{ $e->estado_idestado == $est->idestado ? 'selected' : '' }} >{{$est->uf}} </option>
                             	@endforeach                            
 							</select>						  
 						</div>
@@ -69,8 +69,8 @@
 						<div class="form-group">
 							<label for="pais">País *</label>
 							<select class="custom-select" id="pais_idpais" name="pais_idpais" value="{{$e->pais_idpais}}">
-							   <option value = "" selected>País</option>
-							   <option value="1">Brasil</option>
+							   <option value = "" >País</option>
+							   <option value="1" selected>Brasil</option>
 							   <option value="2">Outro</option>
 							</select>						  
 						</div>
@@ -81,23 +81,28 @@
 						<div class="form-group">
 							<label>Tem diponibilidade para mudança de cidade ou estado?&emsp;</label>
 						  	<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-							  <label class="form-check-label" for="inlineRadio1">Sim</label>
+							  <input class="form-check-input" type="radio" id="disp_mudanca" name="disp_mudanca" value="1" {{ $e->disp_mudanca == '1' ? 'checked' : '' }}>
+							  <label class="form-check-label" for="disp_mudanca">Sim</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-							  <label class="form-check-label" for="inlineRadio2">Não</label>
+							  <input class="form-check-input" type="radio" name="disp_mudanca" value="2" id="disp_mudanca" {{ $e->disp_mudanca == '2' ? 'checked' : '' }}>
+							  <label class="form-check-label" for="disp_mudanca">Não</label>
 							</div>
 						</div>
 					</div>
 				</div>
+				 @if($errors->any())
+		          <div class="card-footer">
+		            @foreach($errors->all() as $error)
+		              <div class="alert alert-danger" role="alert">
+		                {{$error}}
+		              </div>
+		            @endforeach
+		          </div>
+		        @endif
 				<br><button type="submit" class="btn btn-primary btn-sm">Salvar</button>
 				<button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
 			</form>
 		</div>
 	</div>
 @endsection
-<script>
-		var selected = $('.selected').val();
-    	$('.custom-select > option[value="selected"]').attr('selected',true);
-	</script>

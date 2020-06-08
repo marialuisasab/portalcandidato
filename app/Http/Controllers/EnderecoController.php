@@ -14,8 +14,6 @@ class EnderecoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        //$this->$endereco = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')
-         //               ->where("users_id", Auth::user()->id)->get();
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +22,6 @@ class EnderecoController extends Controller
      */
     public function index()
     {
-        //$id = Curriculo::select('endereco_idendereco')->where("users_id", Auth::user()->id)->get();
         $endereco = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')->where("users_id", Auth::user()->id)->get();
        
         if(count($endereco)==0)
@@ -49,7 +46,8 @@ class EnderecoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $this->validarFormulario($request);
         $e = new Endereco();
         $e->estado_idestado = $request->estado_idestado;
         $e->cidade_idcidade = $request->cidade_idcidade;
@@ -103,7 +101,9 @@ class EnderecoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        $this->validarFormulario($request);
+
         $e = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')->where("users_id", $id)->get()[0];
 
         if(isset($e)){
@@ -147,5 +147,28 @@ class EnderecoController extends Controller
         if ($curriculo->save()){
             return true;
         }
+    }
+
+
+    public function validarFormulario($request){
+        
+        $regras = [
+            'cep'=>'required|size:8',
+            'logradouro' => 'required|max:100',
+            'bairro' => 'required|max:45',
+            'numero' => 'required|integer',
+            'cidade_idcidade' => 'required',
+            'estado_idestado' => 'required',
+            'pais_idpais' => 'required',
+            'disp_mudanca' => 'required',
+        ];
+        
+        $mensagens = [
+            'required' => 'Este campo não poderá estar em branco! :attribute',//mensagem genérica
+            'integer' => 'Digite apenas números neste campo',
+            'max' => 'O tamanho do campo deve ser de até :max caracteres :attribute',
+        ];
+
+        $request->validate($regras, $mensagens);
     }
 }

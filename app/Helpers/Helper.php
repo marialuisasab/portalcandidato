@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Helpers;
+
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Cidade;
@@ -11,12 +13,24 @@ use App\Categoria;
 use App\Curso;
 use App\Area;
 use App\Nivel;
-
+use App\Curriculo;
 class Helper
-{
+{   
+    public static function getIdCurriculo(){
+        $id = Curriculo::where('users_id', Auth::user()->id)->get()[0];
+        return $id->idcurriculo;
+    }
    
     public static function setData($stringData){
-        return  Carbon::parse(str_replace('/', '-',$stringData))->format('Y-m-d'); //
+        if(!isset($stringData))
+            return null;
+        return  Carbon::parse(str_replace('/', '-',$stringData))->format('Y-m-d'); 
+    }
+
+    public static function getData($stringData){
+        if(!isset($stringData))
+            return null;
+        return Carbon::parse(str_replace('-', '/',$stringData))->format('d/m/Y'); 
     }
 
     public static function setPretensao($valor){
@@ -76,6 +90,21 @@ class Helper
         $niveis = Nivel::orderBy('nome','ASC')->get();
         return $niveis;
     }
+
+    public static function getNivel($id){
+        $nivel = Nivel::where('idnivel', $id)->get()[0];
+        return $nivel->nome;
+    }
+    public static function getArea($id){
+        $area = Area::where('idarea', $id)->get()[0];
+        return $area->nome;
+    }
+
+    public static function getCategoria($id){
+        $cat = Categoria::where('idcategoria', $id)->get()[0];
+        return $cat->nome;
+    }
+
 
 
 }

@@ -260,7 +260,7 @@ return [
                 [
                 'text' => 'Endereço',
                 'icon' =>'fas fa-fw fa-map-marked-alt',
-                'url' => '',
+                'url' => '/endereco',
                 ],
                 [
                     'text'    => 'Formação e Cursos',

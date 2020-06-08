@@ -1,6 +1,5 @@
 @extends('adminlte::master')
-  <link rel="stylesheet" href="css/redes.css">
-<link rel="stylesheet" href="css/principal.css">
+  
 
 
 

@@ -34,7 +34,7 @@
 
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-4 col-md-4">
+								<div class="col-xs-5 col-md-5">
 									<h2 class="mb-0" style="color:dodgerblue;">
 
 										Dados Pessoais
@@ -48,34 +48,20 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-6" style="margin-left: auto;">
+								<div class="col-xs-4 col-md-4" style="margin-left: auto;">
 									<div class="btn-group " role="group" aria-label="">
-										<button class=" btn btn-link">
+										{{-- <button class=" btn btn-link">
 											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
-											<span class="fa fa-edit"
-												style="font-size: 25px; text-align: center;"></span>
+										<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 
-										</button>
-
+										</button> --}}
 
 
+										<button class=" btn btn-link"
+											style="color:GRAY; margin-top: 10px; margin-left: auto;" type="cancel">
+											<a href="/curriculo" style="color:gray;"><span class="fas fa-undo"
+													style="font-size: 25px; text-align: center;">Voltar</span></a>
 
-
-										<button class=" btn btn-link" style="color:red;" type="cancel">
-											<a href="#" style="color: red;">Cancelar</a>
-											<span class="fas fa-window-close"
-												style="font-size: 25px; text-align: center;"></span>
-
-										</button>
-
-
-
-
-
-										<button class=" btn btn-link" style="color" type="cancel">
-											<a href="/curriculo">Voltar</a>
-											<span class="fas fa-undo"
-												style="font-size: 25px; text-align: center;"></span>
 
 										</button>
 									</div>
@@ -429,8 +415,17 @@
 							@endforeach
 						</div>
 						@endif
-						<br><button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-						<button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+						<br>
+						<div class="btn-group " role="group" aria-label="">
+
+							<button type="submit" class="btn btn-link" id="botaosalvarend"
+								style="color: dodgerblue; font-size:25px;"><span class="fas fa-save">Salvar</button>
+							<button class=" btn btn-link" style="color:red;" type="cancel">
+								<a href="cancel" style="color: red;"><span class="fas fa-window-close"
+										style="font-size: 25px; text-align: center;">Cancelar</span></a>
+							</button>
+
+						</div>
 						</form>
 						</ul>
 					</div>

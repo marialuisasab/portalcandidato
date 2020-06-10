@@ -89,15 +89,17 @@
                   <div class="col-sm">
 
                     <button class=" btn btn-link">
-                      <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
-                        <strong>Editar</strong></a>
-                      <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+                      <a style="color:dodgerblue;" href="/curso/editar/{{$c->idcurso}}">
+                        <strong><span class="fa fa-edit"
+                            style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+
 
                     </button>
 
                     <button class=" btn btn-link">
-                      <a href="/curso/novo" style="color: dodgerblue;"><strong> Novo </strong></a>
-                      <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
+                      <a href="/curso/novo" style="color: dodgerblue;"><strong><span class="fa fa-plus"
+                            style="font-size: 25px; text-align: center;">Novo</span> </strong></a>
+
                     </button>
 
                     <button class=" btn btn-link" style="color:red;">

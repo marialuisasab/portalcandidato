@@ -43,7 +43,7 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-8">
+								<div class="col-xs-8 col-md-8" style="margin-top: 10px;">
 
 									<button class=" btn btn-link">
 										<a style="color:dodgerblue;" href="/endereco/editar/{{Auth::user()->id}}">

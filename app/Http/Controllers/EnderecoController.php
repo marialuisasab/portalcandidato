@@ -22,11 +22,16 @@ class EnderecoController extends Controller
      */
     public function index()
     {
+
+
+
+        $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
         $endereco = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')->where("users_id", Auth::user()->id)->get();
        
         if(count($endereco)==0)
             return view('endereco.create');
-        return view('endereco.index', compact(['endereco']));     
+        return view('endereco.index', compact(['endereco']))
+                            ->with('candidato', $candidato);
     }
 
     /**

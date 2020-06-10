@@ -1,66 +1,72 @@
 @extends('adminlte::page')
 
 {{-- Link do Bootstrap --}}
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+  integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 {{-- <link rel ="stylesheet" href="css/homeCandidato.css"> --}}
 <link rel="stylesheet" href="css/principal.css">
-  <link rel="stylesheet" href="css/redes.css">
+<link rel="stylesheet" href="css/redes.css">
 {{-- Link do Js --}}
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
 <script src="js/eventos.js"></script>
 
 
 @section('content_header')
 
-  <div class="container">
-         <div class="row">
-           <div class="col-sm">
-           </div>
-           <div class="col-sm">
-            <ul>
-             <span class="fas fa-eye "  style="font-size: 25px; text-align: center;"></span>
-             <a href="curriculo">Visualizar Curriculo</a>
-            </ul>
-     
-             </div>
-            <div class="col-sm">
-            <ul>
-           <span class="fa fa-edit"  style="font-size: 25px; text-align: center;"></span>
-           <a href="/curriculo/editar/{{Auth::user()->id}}" >Editar Perfil</a>
-           </ul>
-            </div>
-          
-           
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <ul>
+        <span class="fas fa-eye " style="font-size: 20px; text-align: center;color:dodgerblue;">
+          <a href="curriculo"><strong>Visualizar Curriculo</strong></a></span>
+      </ul>
 
-{{-- 
+    </div>
+    <div class="col-sm">
+      <ul>
+        <span class="fa fa-edit" style="font-size: 20px; text-align: center; color:dodgerblue;">
+          <a href="/curriculo/editar/{{Auth::user()->id}}"><strong>Editar Perfil</strong></a></span>
+      </ul>
+    </div>
+
+
+
+    {{-- 
            <div class="col-sm">
             <ul>
        <a class="fas fa-home"href="home" style="text-align: center;color:rgba(17, 15, 15, 0.37);"><p>Home</p></a>
             </ul>
            </div>
                 --}}
-                   
- 
-                        <div class="col-sm">
-                    <ul>   
-          <span class="fas fa-undo"style="font-size: 25px; text-align: center;"></span> 
-          <a href="/"><em><strong>Voltar</strong></em></a>
-                </ul>
-                </div>
-                <div class="col-sm">
-           </div>
 
-  
-        </div>
 
-          </div>
-        
+    <div class="col-sm">
+      <ul>
+
+        <span class="fas fa-undo" style="font-size: 25px; text-align: center; color:dodgerblue;">
+          <a href="/"><strong>Voltar</strong></a></span>
+      </ul>
+    </div>
+    <div class="col-sm">
+    </div>
+
+
+  </div>
+
+</div>
+
 
 @endsection
 
@@ -70,8 +76,8 @@
 
 
 
- 
-  <div class="container">
+
+<div class="container">
   <div class="row">
 
     <div class="col-sm" style="background-color: white; border-top-style:solid">
@@ -80,35 +86,38 @@
 
           <div class="card-body" style="text-align: center;">
             @if(Auth::user()->foto != null)
-            <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}" style="max-width: 200px; text-align: center;">
+            <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+              style="max-width: 200px; text-align: center;">
             @else
-            <img class="profile-user-img img-responsive img-circle" src="" alt="Usuário sem foto">
+            <img class="profile-user-img img-responsive img-circle" src="storage/fotos/usuariopadrao.png"
+              alt="Usuário sem foto">
             @endif
           </div>
-          
+
 
 
           {{-- <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture"> --}}
 
-          
-          
+
+
           <div style="text-justify:  center;">
-            
+
             <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
 
             <p class="text-muted text-center">Software Engineer</p>
             @foreach($candidato as $item)
-            <ul  style="text-align: center;">
+            <ul style="text-align: center;">
 
               @if($item->telefone1!= null)
-                   <p  style="padding-left: 10px;"><strong  class="lead">Telefone:</strong> {{$item->telefone1}}</p>
+              <p style="padding-left: 10px;"><strong class="lead">Telefone:</strong> {{$item->telefone1}}</p>
               @else
-               <p  style="padding-left: 10px;"><strong  class="lead">Sem informações cadastradas!!!</strong> </p>
+              <p style="padding-left: 10px;"><strong class="lead">Sem informações cadastradas!!!</strong> </p>
               @endif
-             
 
-              
-              <p style="padding-left: 10px;"><strong style="font">Email:</strong><em style="padding-left: 10px;">{{Auth::user()->email}}</em></p>
+
+
+              <p style="padding-left: 10px;"><strong style="font">Email:</strong><em
+                  style="padding-left: 10px;">{{Auth::user()->email}}</em></p>
 
 
 
@@ -118,8 +127,9 @@
 
 
 
-              <div class="card text-white bg-secondary mb-3"  style="text-align: center; margin-top: -20px;">
-                <h5 style="text-align: center; font-family: Palatino Linotype, Book Antiqua, Palatino, serif">Sobre Mim:</h5>
+              <div class="card text-white bg-secondary mb-3" style="text-align: center; margin-top: -20px;">
+                <h5 style="text-align: center; font-family: Palatino Linotype, Book Antiqua, Palatino, serif">Sobre Mim:
+                </h5>
                 <hr>
                 <div class="card-body">
 
@@ -128,99 +138,94 @@
                 </div>
               </div>
             </div>
-             @endforeach
+            @endforeach
 
 
-            {{-- <a href="/curriculo/editar/{{Auth::user()->id}}" class="btn btn-primary btn-block"><b>Editar Perfil</b></a> --}}
-             
+            {{-- <a href="/curriculo/editar/{{Auth::user()->id}}" class="btn btn-primary btn-block"><b>Editar
+              Perfil</b></a> --}}
+
           </div>
-        
+
         </div>
       </div>
     </div>
 
 
-   
-
-    
-</div>
 
 
-    <div class="row">
- 
-      
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-blue">
-            <div class="inner">
-              <h3>150</h3>
 
-              <p style="text-align: center;">Agendamentos</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+  </div>
+
+
+  <div class="row">
+
+
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-blue">
+        <div class="inner">
+          <h3>150</h3>
+
+          <p style="text-align: center;">Agendamentos</p>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p style="text-align: center">Meus Processos</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p style="text-align: center;">Completar curriculo</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p style="text-align: center;">Alerta de Vagas</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
+        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-green">
+        <div class="inner">
+          <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+          <p style="text-align: center">Meus Processos</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <h3>44</h3>
+
+          <p style="text-align: center;">Completar curriculo</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-red">
+        <div class="inner">
+          <h3>65</h3>
+
+          <p style="text-align: center;">Alerta de Vagas</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-pie-graph"></i>
+        </div>
+        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+  </div>
 
 </div>
 
 
-                        @endsection
-
-
-                    
-                        
-                        
-                       
+@endsection
 
 
 
@@ -245,7 +250,13 @@
 
 
 
-                  {{-- <div class="container">
+
+
+
+
+
+
+{{-- <div class="container">
                     <div class="row justify-content-center">
                       <div class="col-md-8">
                         <div class="card">
@@ -256,31 +267,26 @@
                             @if (session('status'))
                             <div class="alert alert-success" role="alert">
                               {{ session('status') }}
-                            </div>
-                            @endif
+</div>
+@endif
 
-                            Você está logado como usuário!
-                          </div>
-                          <div class="card-body">
-                            @if(Auth::user()->foto != null)
-                            <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}" style="max-width: 200px;">
-                            @endif
-                          </div>
-                          <div class="card-body">
-                            <a href="{{route('curriculo.dados')}}">Dados Pessoais</a><br>
-                            <a href="{{route('home')}}">Endereço</a><br>
-                            <a href="{{route('home')}}">Idiomas</a><br>
-                            <a href="{{route('home')}}">Experiência Profissional</a><br>
-                            <a href="{{route('home')}}">Formação e Cursos</a><br>
-                            <a href="{{route('home')}}">Redes Sociais</a><br>
-                            <a href="{{route('home')}}">Acompanhar Vagas</a><br>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
-                 
-
-
-
-                  
+Você está logado como usuário!
+</div>
+<div class="card-body">
+  @if(Auth::user()->foto != null)
+  <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}" style="max-width: 200px;">
+  @endif
+</div>
+<div class="card-body">
+  <a href="{{route('curriculo.dados')}}">Dados Pessoais</a><br>
+  <a href="{{route('home')}}">Endereço</a><br>
+  <a href="{{route('home')}}">Idiomas</a><br>
+  <a href="{{route('home')}}">Experiência Profissional</a><br>
+  <a href="{{route('home')}}">Formação e Cursos</a><br>
+  <a href="{{route('home')}}">Redes Sociais</a><br>
+  <a href="{{route('home')}}">Acompanhar Vagas</a><br>
+</div>
+</div>
+</div>
+</div>
+</div> --}}

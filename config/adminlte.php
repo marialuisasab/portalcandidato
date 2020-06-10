@@ -265,7 +265,7 @@ return [
                 [
                     'text'    => 'Formação e Cursos',
                     'icon'     => 'fas fa-fw fa-user-graduate',
-                    'url' =>'',
+                    'url' =>'/cursos',
                 ],
                      
                 [

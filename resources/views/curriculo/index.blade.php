@@ -2,6 +2,11 @@
 
 <link rel="stylesheet" href="/css/indexCurriculo.css">
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="/js/Endereco/endereco.js"></script>
+
 
 
 @section('content_header')
@@ -44,18 +49,18 @@
 					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-3 col-md-3">
-									<h2 class="mb-0">
-										<button
+								<div class="col-xs-4 col-md-4">
+									<h2 class="mb-0" style="color:dodgerblue;">
+										{{-- <button
 											class="d-flex align-items-center justify-content-between btn btn-link collapsed"
 											data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-											aria-controls="collapseOne">
-											Dados Pessoais
-											<span class="fa-stack fa-sm">
-												<i class="fas fa-circle fa-stack-2x"></i>
-												<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
-											</span>
-										</button>
+											id="dadospessoaismostrar" aria-controls="collapseOne"> --}}
+										Dados Pessoais
+										<span class="fa-stack fa-sm">
+											<i class="fas fa-circle fa-stack-2x"></i>
+											<i class="fas fa-id-card fa-stack-1x fa-inverse"></i>
+										</span>
+										{{-- </button> --}}
 									</h2>
 
 								</div>
@@ -64,8 +69,9 @@
 									<div class="btn-group " role="group" aria-label="" style="margin-left: auto;">
 
 
-										<button class=" btn btn-link">
-											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
+										<button class=" btn btn-link" style="colo:dodgerblue;">
+											<a style="color:dodgerblue;"
+												href="/curriculo/editar/{{Auth::user()->id}}"><strong>Editar</strong></a>
 											<span class="fa fa-edit"
 												style="font-size: 25px; text-align: center;"></span>
 
@@ -75,9 +81,16 @@
 
 
 
-										<button class=" btn btn-link" style="color" type="cancel">
-											<a href="/home">Voltar</a>
+										<button class=" btn btn-link" style="color: gray;" type="cancel">
+											<a style="color: gray;" href="/home"><strong>Voltar</strong></a>
 											<span class="fas fa-undo"
+												style="font-size: 25px; text-align: center;"></span>
+
+										</button>
+
+										<button class=" btn btn-link" style="color: green;" type="cancel">
+											<a style="color: green;" href="/endereco"><strong> Proximo</strong></a>
+											<span class="fas fa-forward"
 												style="font-size: 25px; text-align: center;"></span>
 
 										</button>
@@ -172,8 +185,15 @@
 								--}}
 
 
+								@if ($candDados->sobre!=null)
 								<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
 									{{$candDados->sobre}}</li>
+								@else
+								<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
+									<span style="color:red;">Não informado!</span></li>
+
+								@endif
+
 								<hr>
 
 
@@ -220,38 +240,60 @@
 								<hr>
 
 
+								@if ($candDados->cnh!=null)
 								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
 									{{$candDados->cnh}}</li>
+								@else
+								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
+									<span style="color:red;">Não Informado!</span></li>
+								@endif
 								<hr>
 
+								@foreach(Helper::getEstados() as $estados)
+								@if($estados->idestado == $candDados->ufcnh)
 								@if($candDados->ufcnh != null)
-								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->ufcnh}}</li>
+								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong>{{$estados->nome}}</li>
 								@else
 								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
+								@else
+								@endif
+								@endforeach
 								<hr>
 
 
 
 
+								@foreach(Helper::getPai() as $pai)
+								@if($pai->idpais == $candDados->nacionalidade)
 								@if($candDados->nacionalidade != null)
-								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->nacionalidade}}</li>
+								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$pai->nome}}</li>
 								@else
 								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
+								@else
+								@endif
+								@endforeach
 								<hr>
 
 
 
 
+
+								@foreach(Helper::getCidades() as $cid)
+								@if($cid->idcidade == $candDados->naturalidade)
 								@if($candDados->naturalidade != null)
-								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->naturalidade}}</li>
+								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$cid->nome}}
+								</li>
 								@else
 								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
+								@else
+								@endif
+								@endforeach
 								<hr>
 
 
@@ -269,7 +311,7 @@
 								<li><strong> ESTADO CIVIL :&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
-								<hr>
+
 
 
 
@@ -281,7 +323,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="card">
+				{{-- <div class="card">
 					<div class="card-header" id="headingTwo" style="background-color: aliceblue;">
 						<div class="container">
 							<div class="row">
@@ -294,7 +336,7 @@
 											Endereço
 											<span class="fa-stack fa-sm">
 												<i class="fas fa-circle fa-stack-2x"></i>
-												<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+												<i class="fas fa-map-marked-alt fa-stack-1x fa-inverse"></i>
 											</span>
 										</button>
 									</h2>
@@ -304,40 +346,48 @@
 								<div class="col-sm">
 
 									<button class=" btn btn-link">
-										<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
-										<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+										<a href="/endereco/editar/{{Auth::user()->id}}">Editar</a>
+				<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 
-									</button>
+				</button>
 
+				<button class=" btn btn-link" style="color" type="cancel">
+					<a href="/home">Voltar</a>
+					<span class="fas fa-undo" style="font-size: 25px; text-align: center;"></span>
 
-
-								</div>
-							</div>
-						</div>
-
-
+				</button>
 
 
-					</div>
+
+			</div>
+		</div>
+	</div>
 
 
-					<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-						<div class="card-body">
 
 
-							@yield('conteudoendereço')
-							{{-- <ul>
-										<li>Informatics</li>
-										<li>Mathematics</li>
-										<li>Greek</li>
-										<li>Biostatistics</li>
-										<li>English</li>
-										<li>Nursing</li>
-									</ul> --}}
-						</div>
-					</div>
-				</div>
-				<div class="card">
+</div>
+
+
+<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+	<div class="card-body">
+
+
+		@yield('conteudoendereço')
+
+
+
+
+
+
+	</div>
+</div>
+</div> --}}
+
+
+
+
+{{-- <div class="card">
 					<div class="card-header" id="headingThree">
 						<h2 class="mb-0">
 							<button class="d-flex align-items-center justify-content-between btn btn-link collapsed"
@@ -361,13 +411,13 @@
 							</ul>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				</div> --}}
+</div>
+</div>
 
 
 
-		{{-- 
+{{-- 
 					<div class="col-xs-3 col-md-3">
 						
 						<div class="card-border-light mb-3" style="max-width: 18rem; margin-top: 40px;">
@@ -388,12 +438,12 @@
 
 
 
-		<div class="col-xs-1 col-md-1">
+<div class="col-xs-1 col-md-1">
 
 
-		</div>
+</div>
 
-	</div>
+</div>
 
 </div>
 

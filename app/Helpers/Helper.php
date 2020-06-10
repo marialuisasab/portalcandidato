@@ -51,6 +51,11 @@ class Helper
         return $cidades;
     }
 
+    public static function getPai(){
+    $pais = Pais::orderBy('nome','ASC')->get();
+    return $pais;
+    }
+
     public static function getCidadesDoEstado($id){
         $cidades = Cidade::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
         return $cidades;

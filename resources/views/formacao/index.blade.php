@@ -35,61 +35,15 @@
                   </h2>
 
                 </div>
-                <div class="col-xs-1 col-md-1"></div>
 
-                {{-- <div class="col-xs-7 col-md-7">
 
+                <div class="col-xs-5 col-md-5" style="margin-top: 40px;">
+
+                  {{--
                   <button class=" btn btn-link">
                     <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
-                <strong>Editar</strong></a>
-                <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
-
-                </button>
-
-                <button class=" btn btn-link">
-                  <a href="/curso/novo" style="color: dodgerblue;"><strong> Novo </strong></a>
-                  <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
-                </button>
-
-                <button class=" btn btn-link" style="color: gray;" type="cancel">
-                  <a style="color: gray;" href="/endereco"><strong>Voltar</strong></a>
-                  <span class="fas fa-undo" style="font-size: 25px; text-align: center;"></span>
-
-                </button>
-
-                <button class=" btn btn-link" style="color: green;" type="cancel">
-                  <a style="color: green;" href="#"><strong> Proximo</strong></a>
-                  <span class="fas fa-forward" style="font-size: 25px; text-align: center;"></span>
-
-                </button>
-
-
-
-              </div> --}}
-            </div>
-
-
-          </div>
-
-
-
-
-        </div>
-
-
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body">
-
-            @foreach($cursos as $c)
-
-            <div class="container">
-              <div class="row" style="margin-top: 25px; text-align:center;">
-                <div class="col-sm">
-
-                  <button class=" btn btn-link">
-                    <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
-                      <strong>Editar</strong></a>
-                    <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+                  <strong>Editar</strong></a>
+                  <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 
                   </button>
 
@@ -97,12 +51,7 @@
                     <a href="/curso/novo" style="color: dodgerblue;"><strong> Novo </strong></a>
                     <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
                   </button>
-
-                  <button class=" btn btn-link" style="color:red;">
-                    <a href="/curso/excluir/{{$c->idcurso}}" style="color:red;"><span class=" fa fa-trash-alt"
-                        style="font-size: 25px; text-align: center;">Excluir</span> </a>
-
-                  </button>
+                  --}}
 
                   <button class=" btn btn-link" style="color: gray;">
                     <a style="color: gray;" href="/endereco"><strong><span class="fas fa-undo"
@@ -113,79 +62,120 @@
 
                   <button class=" btn btn-link" style="color: green;">
                     <a style=" color: green;" href="#"><strong><span class="fas fa-forward"
-                          style="font-size: 25px; text-align: center;">Proximo</span> </strong></a>
+                          style="font-size: 25px; text-align: center;">Proximo</span>
+                      </strong></a>
 
 
-                  </button>
+
                 </div>
               </div>
 
-              <div class="row" style="margin-top: 25px;">
 
-                <div class="col-sm">
-                  <ul></ul>
-
-                  <ul style="list-style-type: none; margin-right: auto;">
-
-
-
-                    <li><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
-                    </li>
-                    <hr>
-
-                    @if($c->escolaridade === 1)
-                    <li><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getNivel($c->nivel_idnivel)}}
-                    </li>
-                    <hr>
-
-                    <li><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}</li>
-                    <hr>
-
-                    @if($c->periodo)
-                    <li><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
-                    </li>
-                    <hr>
-                    @endif
-                    @else
-
-                    <li><strong>
-                        CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
-                    </li>
-                    <hr>
-                    @endif
-
-                    <li><strong>
-                        DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtinicio)}}
-                    </li>
-                    <hr>
-
-                    @if($c->dtfim)
-                    <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}
-                    </li>
-                    @endif
-                    <hr>
-                  </ul>
-
-                </div>
-              </div>
             </div>
 
 
 
 
-            @endforeach
+          </div>
+
+
+          <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+
+              @foreach($cursos as $c)
+
+              <div class="container">
+                <div class="row" style="margin-top: 25px; text-align:center;">
+                  <div class="col-sm">
+
+                    <button class=" btn btn-link">
+                      <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
+                        <strong>Editar</strong></a>
+                      <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+
+                    </button>
+
+                    <button class=" btn btn-link">
+                      <a href="/curso/novo" style="color: dodgerblue;"><strong> Novo </strong></a>
+                      <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
+                    </button>
+
+                    <button class=" btn btn-link" style="color:red;">
+                      <a href="/curso/excluir/{{$c->idcurso}}" style="color:red;"><span class=" fa fa-trash-alt"
+                          style="font-size: 25px; text-align: center;">Excluir</span> </a>
+
+                    </button>
+
+
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 25px;">
+
+                  <div class="col-sm">
+                    <ul></ul>
+
+                    <ul style="list-style-type: none; margin-right: auto;">
 
 
 
+                      <li><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
+                      </li>
+                      <hr>
+
+                      @if($c->escolaridade === 1)
+                      <li><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getNivel($c->nivel_idnivel)}}
+                      </li>
+                      <hr>
+
+                      <li><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}</li>
+                      <hr>
+
+                      @if($c->periodo)
+                      <li><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
+                      </li>
+                      <hr>
+                      @endif
+                      @else
+
+                      <li><strong>
+                          CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
+                      </li>
+                      <hr>
+                      @endif
+
+                      <li><strong>
+                          DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtinicio)}}
+                      </li>
+                      <hr>
+
+                      @if($c->dtfim)
+                      <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}
+                      </li>
+                      @endif
+                      <hr>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              @endforeach
+
+
+
+            </div>
           </div>
         </div>
+
       </div>
-
     </div>
-  </div>
-  <div class="col-xs-1 col-md-1"></div>
+    <div class="col-xs-1 col-md-1"></div>
 
-</div>
+  </div>
 </div>
 
 

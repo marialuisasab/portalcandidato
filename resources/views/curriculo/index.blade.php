@@ -49,7 +49,7 @@
 					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-4 col-md-4">
+								<div class="col-xs-5 col-md-5">
 									<h2 class="mb-0" style="color:dodgerblue;">
 										{{-- <button
 											class="d-flex align-items-center justify-content-between btn btn-link collapsed"
@@ -65,15 +65,16 @@
 
 								</div>
 
-								<div class="col-xs-8 col-md-6" style="margin-left: auto;">
-									<div class="btn-group " role="group" aria-label="" style="margin-left: auto;">
+								<div class="col-xs-7 col-md-7">
+									<div class="btn-group " role="group">
 
 
 										<button class=" btn btn-link" style="colo:dodgerblue;">
 											<a style="color:dodgerblue;"
-												href="/curriculo/editar/{{Auth::user()->id}}"><strong>Editar</strong></a>
-											<span class="fa fa-edit"
-												style="font-size: 25px; text-align: center;"></span>
+												href="/curriculo/editar/{{Auth::user()->id}}"><strong><span
+														class="fa fa-edit"
+														style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+
 
 										</button>
 
@@ -81,18 +82,18 @@
 
 
 
-										<button class=" btn btn-link" style="color: gray;" type="cancel">
-											<a style="color: gray;" href="/home"><strong>Voltar</strong></a>
-											<span class="fas fa-undo"
-												style="font-size: 25px; text-align: center;"></span>
+										<button class=" btn btn-link" style="color: gray;">
+											<a style="color: gray;" href="/home"><strong><span class="fas fa-undo"
+														style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
+
 
 										</button>
 
-										<button class=" btn btn-link" style="color: green;" type="cancel">
-											<a style="color: green;" href="/endereco"><strong> Proximo</strong></a>
-											<span class="fas fa-forward"
-												style="font-size: 25px; text-align: center;"></span>
-
+										<button class=" btn btn-link" style="color: green;">
+											<a style=" color: green;" href="/endereco"><strong><span
+														class="fas fa-forward"
+														style="font-size: 25px; text-align: center;">Proximo</span>
+												</strong></a>
 										</button>
 									</div>
 								</div>

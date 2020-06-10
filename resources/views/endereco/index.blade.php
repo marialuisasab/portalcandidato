@@ -41,27 +41,32 @@
 									</h2>
 
 								</div>
-								<div class="col-xs-1 col-md-1"></div>
 
-								<div class="col-xs-8 col-md-6">
+
+								<div class="col-xs-8 col-md-8">
 
 									<button class=" btn btn-link">
 										<a style="color:dodgerblue;" href="/endereco/editar/{{Auth::user()->id}}">
-											<strong>Editar</strong></a>
-										<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+											<strong><span class="fa fa-edit"
+													style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+
 
 									</button>
 
-									<button class=" btn btn-link" style="color: gray;" type="cancel">
-										<a style="color: gray;" href="/curriculo"><strong>Voltar</strong></a>
-										<span class="fas fa-undo" style="font-size: 25px; text-align: center;"></span>
+									<button class=" btn btn-link" style="color: gray;">
+										<a style="color: gray;" href="/curriculo"><strong><span class="fas fa-undo"
+													style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
+
 
 									</button>
 
-									<button class=" btn btn-link" style="color: green;" type="cancel">
-										<a style="color: green;" href="/cursos"><strong> Proximo</strong></a>
-										<span class="fas fa-forward"
-											style="font-size: 25px; text-align: center;"></span>
+									<button class=" btn btn-link" style="color: green;">
+										<a style=" color: green;" href="/cursos"><strong><span class="fas fa-forward"
+													style="font-size: 25px; text-align: center;">Proximo</span>
+											</strong></a>
+
+
+									</button>
 
 									</button>
 

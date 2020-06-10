@@ -83,7 +83,7 @@
             @foreach($cursos as $c)
 
             <div class="container">
-              <div class="row" style="margin-top: 25px;">
+              <div class="row" style="margin-top: 25px; text-align:center;">
                 <div class="col-sm">
 
                   <button class=" btn btn-link">

@@ -15,7 +15,7 @@
 
     </div>
 
-    <div class="col-xs-11 col-md-11">
+    <div class="col-xs-10 col-md-10">
 
       <div id="accordion" style="margin-top: 40px;">
 
@@ -23,7 +23,7 @@
           <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
             <div class="container">
               <div class="row">
-                <div class="col-xs-4 col-md-4">
+                <div class="col-sm">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
 
                     Formação Acadêmica e Cursos Complementares
@@ -37,7 +37,54 @@
                 </div>
                 <div class="col-xs-1 col-md-1"></div>
 
-                <div class="col-xs-7 col-md-7">
+                {{-- <div class="col-xs-7 col-md-7">
+
+                  <button class=" btn btn-link">
+                    <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
+                <strong>Editar</strong></a>
+                <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+
+                </button>
+
+                <button class=" btn btn-link">
+                  <a href="/curso/novo" style="color: dodgerblue;"><strong> Novo </strong></a>
+                  <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
+                </button>
+
+                <button class=" btn btn-link" style="color: gray;" type="cancel">
+                  <a style="color: gray;" href="/endereco"><strong>Voltar</strong></a>
+                  <span class="fas fa-undo" style="font-size: 25px; text-align: center;"></span>
+
+                </button>
+
+                <button class=" btn btn-link" style="color: green;" type="cancel">
+                  <a style="color: green;" href="#"><strong> Proximo</strong></a>
+                  <span class="fas fa-forward" style="font-size: 25px; text-align: center;"></span>
+
+                </button>
+
+
+
+              </div> --}}
+            </div>
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+
+            @foreach($cursos as $c)
+
+            <div class="container">
+              <div class="row" style="margin-top: 25px;">
+                <div class="col-sm">
 
                   <button class=" btn btn-link">
                     <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
@@ -51,75 +98,29 @@
                     <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
                   </button>
 
-                  <button class=" btn btn-link" style="color: gray;" type="cancel">
-                    <a style="color: gray;" href="/endereco"><strong>Voltar</strong></a>
-                    <span class="fas fa-undo" style="font-size: 25px; text-align: center;"></span>
-
-                  </button>
-
-                  <button class=" btn btn-link" style="color: green;" type="cancel">
-                    <a style="color: green;" href="#"><strong> Proximo</strong></a>
-                    <span class="fas fa-forward" style="font-size: 25px; text-align: center;"></span>
-
-                  </button>
-
-
-
-                </div>
-              </div>
-            </div>
-
-
-
-
-          </div>
-
-
-          <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-
-              @foreach($cursos as $c)
-
-              <div class="container">
-                <div class="row" style="background-color: aliceblue;"">
-                  <div class=" col-sm">
-
-                  <button class=" btn btn-link">
-                    <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
-                      <strong>Editar</strong></a>
-                    <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
-
-                  </button>
-
-                  <button class=" btn btn-link">
-                    <a class="btn btn-sm btn-primary" href="/curso/novo""><strong><span
-                            class=" fa fa-plus" style="font-size: 25px; text-align: center;">Novo</span> </strong></a>
-
-                  </button>
-
-                  <button class=" btn btn-link">
-                    <a href="/curso/excluir/{{$c->idcurso}}" class="btn btn-sm btn-danger"><span class="fa fa-trash-alt"
+                  <button class=" btn btn-link" style="color:red;">
+                    <a href="/curso/excluir/{{$c->idcurso}}" style="color:red;"><span class=" fa fa-trash-alt"
                         style="font-size: 25px; text-align: center;">Excluir</span> </a>
 
                   </button>
 
-                  <button class=" btn btn-link">
-                    <a class="btn btn-sm btn-secondary" href="/endereco"><strong> <span class="fas fa-undo"
+                  <button class=" btn btn-link" style="color: gray;">
+                    <a style="color: gray;" href="/endereco"><strong><span class="fas fa-undo"
                           style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
 
 
                   </button>
 
-                  <button class="btn btn-link" type=" cancel">
-                    <a class="btn btn-sm btn-success" href=" #"><span class="fas fa-forward"
-                        style="font-size: 25px; text-align: center;">Proximo</span>
-                    </a>
+                  <button class=" btn btn-link" style="color: green;">
+                    <a style=" color: green;" href="#"><strong><span class="fas fa-forward"
+                          style="font-size: 25px; text-align: center;">Proximo</span> </strong></a>
+
 
                   </button>
                 </div>
               </div>
 
-              <div class="row">
+              <div class="row" style="margin-top: 25px;">
 
                 <div class="col-sm">
                   <ul></ul>
@@ -182,7 +183,7 @@
 
     </div>
   </div>
-  {{-- <div class="col-xs-1 col-md-1"></div> --}}
+  <div class="col-xs-1 col-md-1"></div>
 
 </div>
 </div>

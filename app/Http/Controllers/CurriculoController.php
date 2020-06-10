@@ -228,9 +228,11 @@ class CurriculoController extends Controller
 
     public function validarFormulario($request){
         
+   
+
         $regras = [
             'nome'=>'required|string|max:100',
-            'cpf' =>'required|unique:curriculo|size:11',
+            'cpf' =>'required|size:11',
             'rg' => 'required|max:11',
             'pretsalarial' => 'required',
             'dtnascimento' => 'required',
@@ -242,6 +244,9 @@ class CurriculoController extends Controller
             'telefone1' => 'required',
             'estadocivil' => 'required',
         ];
+        if ($request->isMethod('post')) {
+            $regras['cpf'] = 'required|size:11|unique:curriculo';
+        }
 
         $mensagens = [
             'required' => 'Este campo não poderá estar em branco! :attribute ',//mensagem genérica

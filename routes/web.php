@@ -45,6 +45,22 @@ Route::post('/curso/{id}', 'FormacaoController@update');
 Route::post('/curso', 'FormacaoController@store');
 Route::get('/curso/excluir/{id}', 'FormacaoController@destroy')->name('curso.excluir');
 
+Route::get('/experiencias', 'ExperienciaController@index')->name('experiencias');
+Route::get('/experiencia/novo', 'ExperienciaController@create')->name('experiencia.novo');
+Route::get('/experiencia/editar/{id}', 'ExperienciaController@edit')->name('experiencia.editar');
+Route::post('/experiencia/{id}', 'ExperienciaController@update');
+Route::post('/experiencia', 'ExperienciaController@store');
+Route::get('/experiencia/excluir/{id}', 'ExperienciaController@destroy')->name('experiencia.excluir');
+
+Route::get('/idiomas', 'IdiomaController@index')->name('idiomas');
+Route::get('/idioma/novo', 'IdiomaController@create')->name('idioma.novo');
+Route::get('/idioma/editar/{id}', 'IdiomaController@edit')->name('idioma.editar');
+Route::get('/idioma/{id}', 'IdiomaController@show')->name('idioma');
+Route::post('/idioma/{id}', 'IdiomaController@update');
+Route::post('/idioma', 'IdiomaController@store');
+Route::get('/idioma/excluir/{id}', 'IdiomaController@destroy')->name('idioma.excluir');
+
+
 Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');

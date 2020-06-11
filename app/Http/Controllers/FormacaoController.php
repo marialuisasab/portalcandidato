@@ -98,7 +98,7 @@ class FormacaoController extends Controller
     public function edit($id)
     {   
         $curso = Curso::find($id);
-        //dd($id,$curso);
+        
         return view('formacao.edit', compact(['curso']));  
     }
 

@@ -14,6 +14,7 @@ use App\Curso;
 use App\Area;
 use App\Nivel;
 use App\Curriculo;
+
 class Helper
 {   
     public static function getIdCurriculo(){

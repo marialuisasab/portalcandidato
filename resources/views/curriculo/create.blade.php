@@ -325,6 +325,15 @@
                             </li>
 
                         </div>
+                        @if($errors->any())
+                        <div class="card-footer">
+                            @foreach($errors->all() as $error)
+                            <div class="alert alert-danger" role="alert">
+                                {{$error}}
+                            </div>
+                            @endforeach
+                        </div>
+                        @endif
                         <br>
                         <div class="btn-group " role="group" aria-label="">
                             <button type="submit" class="btn btn-link" id="botaosalvarend"

@@ -173,15 +173,15 @@
                     </li>
                   </div>
 
-                  {{-- <div class="form-group" style="display: none;" id="dataconclu">
+                  <div class="form-group" style="display: none;" id="dataconclu">
                     <li style=""><strong> DATA DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="date" class="form-control" name="dtfim" placeholder=""> </li>
-                  </div> --}}
+                  </div>
 
-                  <div class="form-group" style="display: none;" id="previconcl">
+                  {{-- <div class="form-group" style="display: none;" id="previconcl">
                     <li style=""><strong> PREVISÃO DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="date" class="form-control" name="dtfim" placeholder=""> </li>
-                  </div>
+                  </div> --}}
 
 
 

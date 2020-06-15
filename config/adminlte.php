@@ -271,7 +271,7 @@ return [
                 [
                     'text' => 'Experiência Profissional',
                     'icon' =>'fas fa-fw fa-user-tie',
-                    'url'  => '',
+                    'url'  => '/experiencias',
                 ],
                   [
                   'text' => 'Idiomas',

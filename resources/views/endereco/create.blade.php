@@ -20,7 +20,7 @@
 					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-4 col-md-4">
+								<div class="col-sm">
 									<h2 class="mb-0" style="color:dodgerblue;">
 										Endereço
 										<span class="fa-stack fa-sm">
@@ -33,7 +33,7 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-4" style="margin-left: auto; margin-top:10px;">
+								<div class="col-xs-8 col-md-2" style="margin-left: auto; margin-top:10px;">
 									<div class="btn-group " role="group" aria-label="">
 										{{-- <button class=" btn btn-link">
 											<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
@@ -173,10 +173,8 @@
 
 
 									<div class="form-group">
-
 										<li><strong>DISPONIBILIDADE DE MUDANÇA PARA OUTRO ESTADO OU
 												CIDADE?:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio" name="disp_mudanca"
 													id="disp_mudanca" value="1">
@@ -187,10 +185,7 @@
 													id="disp_mudanca" value="2">
 												<label class="form-check-label">Não</label>
 											</div>
-
-
 										</li>
-
 									</div>
 
 									@if($errors->any())
@@ -204,7 +199,7 @@
 									@endif
 
 									<br>
-									<div class="btn-group " role="group" aria-label="">
+									<div class="form-group" style="text-align: end;">
 										<button type="submit" class="btn btn-link" id="botaosalvarend"
 											style="color: dodgerblue; font-size:25px;"><span
 												class="fas fa-save">Salvar</button>

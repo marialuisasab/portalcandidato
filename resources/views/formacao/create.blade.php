@@ -1,5 +1,10 @@
 @extends('adminlte::page')
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+<script src="/js/formacao/formacao.js"></script>
 @section('content')
 
 <div class="container">
@@ -69,7 +74,7 @@
                   <div class="form-group">
                     <li><strong> DESCRIÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" name="nome"
-                        placeholder="Nome da instituição">
+                        placeholder="Descrição do Curso">
                       @if($errors->has('nome'))
                       <div class="invalid-feedback">
                         {{$errors->first('nome')}}
@@ -79,8 +84,22 @@
                   </div>
 
 
-
+                  {{-- complemento  definicao pendente --}}
                   <div class="form-group">
+                    <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
+                      <select class="custom-select" id="escolaridade" name="escolaridade">
+                        <option value="" selected>Selecionar</option>
+                        <option value="1">Academica</option>
+                        <option value="2">Complementar</option>
+                      </select>
+                    </li>
+
+                  </div>
+
+
+
+
+                  <div class="form-group" id="idnivel" style="display: none;">
                     <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="nivel_idnivel" name="nivel_idnivel">
                         <option value="" selected>Selecionar</option>
@@ -95,7 +114,7 @@
 
 
 
-                  <div class="form-group">
+                  <div class="form-group" id="idcateg" style="display: none;">
                     <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="categoria_idcategoria" name="categoria_idcategoria">
                         <option value="" selected>Selecionar</option>
@@ -109,7 +128,7 @@
 
 
 
-                  <div class="form-group">
+                  <div class="form-group" style="display: none;" id="idarea">
                     <li><strong> AREA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="area_idarea" name="area_idarea">
                         <option value="" selected>Selecionar</option>
@@ -121,22 +140,9 @@
                   </div>
 
 
-                  {{-- complemento  definicao pendente --}}
-                  <div class="form-group">
-                    <li><strong>ESCOLARIDADE:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="escolaridade" name="escolaridade">
-                        <option value="" selected>Selecionar</option>
-                        <option value="1">Sim</option>
-                        <option value="2">Não</option>
-                      </select>
-                    </li>
-
-                  </div>
 
 
-
-
-                  <div class="form-group">
+                  <div class="form-group" id="idperiodo" style="display: none;">
                     <li><strong>PERÍODO:*&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
                       <input type="number" class="form-control" name="periodo" placeholder="Ex.: 1/10">
                     </li>
@@ -154,13 +160,26 @@
 
 
 
-
-
-
-
-
                   <div class="form-group">
+                    <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                      <div class="form-check form-check-inline" id="idconcluicurso" name="checkcurso">
+                        <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1"> Sim
+                        {{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
+
+
+                        <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="2"> Não
+                        {{-- <label class="form-check-label">Não</label> --}}
+                      </div>
+                    </li>
+                  </div>
+
+                  {{-- <div class="form-group" style="display: none;" id="dataconclu">
                     <li style=""><strong> DATA DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
+                      <input type="date" class="form-control" name="dtfim" placeholder=""> </li>
+                  </div> --}}
+
+                  <div class="form-group" style="display: none;" id="previconcl">
+                    <li style=""><strong> PREVISÃO DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="date" class="form-control" name="dtfim" placeholder=""> </li>
                   </div>
 
@@ -211,7 +230,7 @@
 
   </div>
 </div>
-<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+{{-- <script type="text/javascript" src="{{asset('js/app.js')}}"></script> --}}
 
 
 @endsection

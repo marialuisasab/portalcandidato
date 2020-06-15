@@ -23,8 +23,8 @@
           <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
             <div class="container">
               <div class="row">
-                <div class="col-sm">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                <div class="col-xs-6 col-md-6">
+                  <h2 class="mb-0" style="color:dodgerblue;">
 
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
@@ -37,7 +37,7 @@
                 </div>
 
 
-                <div class="col-xs-5 col-md-5" style="margin-top: 40px;">
+                <div class="col-xs-6 col-md-5" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
                   {{--
                   <button class=" btn btn-link">
@@ -56,16 +56,13 @@
                   <button class=" btn btn-link" style="color: gray;">
                     <a style="color: gray;" href="/endereco"><strong><span class="fas fa-undo"
                           style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
-
-
                   </button>
 
                   <button class=" btn btn-link" style="color: green;">
-                    <a style=" color: green;" href="#"><strong><span class="fas fa-forward"
+                    <a style=" color: green;" href="/experiencias"><strong><span class="fas fa-forward"
                           style="font-size: 25px; text-align: center;">Proximo</span>
                       </strong></a>
-
-
+                  </button>
 
                 </div>
               </div>
@@ -151,7 +148,11 @@
                       </li>
                       <hr>
 
-                      @if($c->dtfim)
+                      @if($c->dtfim == null)
+                      <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">Não
+                          concluido!!!</span>
+                      </li>
+                      @else
                       <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}
                       </li>
                       @endif

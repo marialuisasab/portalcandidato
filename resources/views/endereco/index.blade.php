@@ -29,7 +29,7 @@
 					<div class="card-header" id="headingTwo" style="background-color: aliceblue;">
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-4 col-md-4">
+								<div class="col-sm">
 									<h2 class="mb-0" style="color:dodgerblue;">
 
 										Endereço
@@ -43,32 +43,25 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-8" style="margin-top: 10px;">
-
+								<div class="col-xs-8 col-md-6" style="margin-top: 7px; margin-left: auto;">
 									<button class=" btn btn-link">
 										<a style="color:dodgerblue;" href="/endereco/editar/{{Auth::user()->id}}">
 											<strong><span class="fa fa-edit"
 													style="font-size: 25px; text-align: center;">Editar</span></strong></a>
-
-
 									</button>
 
 									<button class=" btn btn-link" style="color: gray;">
 										<a style="color: gray;" href="/curriculo"><strong><span class="fas fa-undo"
 													style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
-
-
 									</button>
 
 									<button class=" btn btn-link" style="color: green;">
 										<a style=" color: green;" href="/cursos"><strong><span class="fas fa-forward"
 													style="font-size: 25px; text-align: center;">Proximo</span>
 											</strong></a>
-
-
 									</button>
 
-									</button>
+
 
 								</div>
 							</div>

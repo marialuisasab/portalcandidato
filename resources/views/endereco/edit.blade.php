@@ -49,7 +49,7 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-4" style="margin-left: auto;">
+								<div class="col-xs-8 col-md-2" style="margin-left: auto;">
 									<div class="btn-group " role="group" aria-label="">
 
 
@@ -224,23 +224,15 @@
 
 									<br>
 
-									<div class="btn-group " role="group" aria-label="">
-
+									<div class="form-group" style="text-align: end;">
 										<button type="submit" class="btn btn-link" id="botaosalvarend"
 											style="color: dodgerblue; font-size:25px;"><span
 												class="fas fa-save">Salvar</button>
 
-
-
-
 										<button class=" btn btn-link" style="color:red;" type="cancel">
 											<a href="cancel" style="color: red;"><span class="fas fa-window-close"
 													style="font-size: 25px; text-align: center;">Cancelar</span></a>
-
-
 										</button>
-
-
 									</div>
 
 

@@ -11,8 +11,8 @@
 {{-- Link do Js --}}
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -24,42 +24,32 @@
 @section('content_header')
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-    </div>
-    <div class="col-sm">
-      <ul>
-        <span class="fas fa-eye " style="font-size: 20px; text-align: center;color:dodgerblue;">
-          <a href="curriculo"><strong>Visualizar Curriculo</strong></a></span>
-      </ul>
-
-    </div>
-    <div class="col-sm">
-      <ul>
-        <span class="fa fa-edit" style="font-size: 20px; text-align: center; color:dodgerblue;">
-          <a href="/curriculo/editar/{{Auth::user()->id}}"><strong>Editar Perfil</strong></a></span>
-      </ul>
-    </div>
-
-
-
-    {{-- 
-           <div class="col-sm">
-            <ul>
-       <a class="fas fa-home"href="home" style="text-align: center;color:rgba(17, 15, 15, 0.37);"><p>Home</p></a>
-            </ul>
-           </div>
-                --}}
-
+  <div class="row" style="margin-top: 15px;">
 
     <div class="col-sm">
       <ul>
 
-        <span class="fas fa-undo" style="font-size: 25px; text-align: center; color:dodgerblue;">
-          <a href="/"><strong>Voltar</strong></a></span>
+        <a href="curriculo"><strong><span class="fas fa-eye "
+              style="font-size: 20px; text-align: center;color:dodgerblue;">Visualizar Curriculo</span></strong></a>
+      </ul>
+
+    </div>
+
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      <ul>
+
+        <a href="/curriculo/editar/{{Auth::user()->id}}"><strong><span class="fa fa-edit"
+              style="font-size: 20px; text-align: center; color:dodgerblue;">Editar Perfil</span></strong></a>
       </ul>
     </div>
+    <div class="col-sm"></div>
+
     <div class="col-sm">
+      <ul>
+        <a href="/"><strong><span class="fas fa-undo"
+              style="font-size: 20px; text-align: center; color:dodgerblue;">Voltar</span></strong></a>
+      </ul>
     </div>
 
 
@@ -87,10 +77,9 @@
           <div class="card-body" style="text-align: center;">
             @if(Auth::user()->foto != null)
             <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
-              style="max-width: 200px; text-align: center;">
+              style="max-width: 200px; text-align: center; border-radius: 50%;">
             @else
-            <img class="profile-user-img img-responsive img-circle" src="storage/fotos/usuariopadrao.png"
-              alt="Usuário sem foto">
+            <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png" alt="Usuário sem foto">
             @endif
           </div>
 
@@ -104,7 +93,7 @@
 
             <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
 
-            <p class="text-muted text-center">Software Engineer</p>
+            <p class="text-muted text-center">Ultimo cargo... EX: Software Engineer</p>
             @foreach($candidato as $item)
             <ul style="text-align: center;">
 

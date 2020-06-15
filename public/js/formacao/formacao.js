@@ -77,12 +77,12 @@ $(function () {
 
             }
 
-            if (this.value == '2') {
-                document.getElementById("previconcl").style.display = 'block';
-            } else {
-                document.getElementById("previconcl").style.display = 'none';
+            // if (this.value == '2') {
+            //     document.getElementById("previconcl").style.display = 'block';
+            // } else {
+            //     document.getElementById("previconcl").style.display = 'none';
 
-            }
+            // }
         });
 
 

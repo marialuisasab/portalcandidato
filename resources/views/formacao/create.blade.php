@@ -163,7 +163,8 @@
                   <div class="form-group">
                     <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <div class="form-check form-check-inline" id="idconcluicurso" name="checkcurso">
-                        <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1"> Sim
+                        <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1">
+                        Sim&nbsp;&nbsp;&nbsp;
                         {{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
 
 

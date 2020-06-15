@@ -79,22 +79,24 @@
                     </li>
                   </div>
 
-
                   <div class="form-group">
                     <li><strong>TIPO DE FORMAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
+                      @if($curso->escolaridade == '1')
                       <select class="custom-select" id="escolaridade" name="escolaridade">
-                        <option value="">Selecionar</option>
                         <option value="1" {{ $curso->escolaridade == '1' ? 'selected' : ''}}>Academica</option>
-                        <option value="2" {{ $curso->escolaridade == '2' ? 'selected' : ''}}>Complementar</option>
-                      </select></li>
-
+                      </select>
+                      @elseif($curso->escolaridade == '2')
+                      <select class="custom-select" id="escolaridade" name="escolaridade">
+                        <option value="2" {{ $curso->escolaridade == '1' ? 'selected' : ''}}>Complementar</option>
+                      </select>
+                      @else
+                      @endif
+                    </li>
                   </div>
 
 
-
-
-
-                  <div class="form-group" id="idnivel" style="display: none;">
+                  @if ($curso->escolaridade =='1')
+                  <div class="form-group" id="idnivel">
                     <li><strong> NÍVEL:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="nivel_idnivel" name="nivel_idnivel">
                         <option value="">Selecionar</option>
@@ -106,10 +108,15 @@
                       </select>
                     </li>
                   </div>
+                  @else
+
+                  @endif
 
 
 
-                  <div class="form-group" id="idcateg" style="display: none;">
+
+                  @if ($curso->escolaridade =='2')
+                  <div class="form-group" id="idcateg">
                     <li><strong>CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="categoria_idcategoria" name="categoria_idcategoria">
                         <option value="">Selecionar</option>
@@ -121,12 +128,16 @@
                       </select>
                     </li>
                   </div>
+                  @else
+
+                  @endif
 
 
 
 
 
-                  <div class="form-group" style="display: none;" id="idarea">
+                  @if ($curso->escolaridade =='1')
+                  <div class="form-group" id="idarea">
                     <li><strong> AREA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="area_idarea" name="area_idarea">
                         <option value="">Selecionar</option>
@@ -137,18 +148,21 @@
                       </select>
                     </li>
                   </div>
+                  @else
+                  @endif
 
 
 
 
-
-
-                  <div class="form-group" style="display: none;" id="idperiodo">
+                  @if ($curso->escolaridade =='1')
+                  <div class="form-group" id="idperiodo">
                     <li><strong>PERIODO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
                       <input type="number" class="form-control" name="periodo" value="{{$curso->periodo}}"
                         placeholder="Ex: 1">
                   </div>
                   </li>
+                  @else
+                  @endif
 
 
 
@@ -167,7 +181,8 @@
                   <div class="form-group">
                     <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <div class="form-check form-check-inline" id="idconcluicurso" name="checkcurso">
-                        <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1"> Sim
+                        <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1">
+                        Sim&nbsp;&nbsp;&nbsp;
                         {{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
 
 

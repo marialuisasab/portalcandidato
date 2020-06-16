@@ -69,7 +69,7 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/curso/{{$curso->idcurso}}" method="POST">
+                <form action="/endereco/{{Auth::user()->id}}" method="POST">
                   @csrf
 
                   <div class="form-group">

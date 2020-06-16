@@ -107,7 +107,7 @@
 
 
 
-                      <li><strong>DESCRIÇÃO DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
+                      <li><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
                       </li>
                       <hr>
 
@@ -149,14 +149,6 @@
                       </li>
                       @endif
                       <hr>
-                      @if ($c->institucao != null)
-                      <li><strong> INSTITUIÇÃO DE ENSINO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->instituicao)}}
-                      </li>
-                      @else
-                      <li><strong>INSTITUIÇÃO DE ENSINO:&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">Não
-                          Informado! </span>
-                      </li>
-                      @endif
                     </ul>
 
                   </div>

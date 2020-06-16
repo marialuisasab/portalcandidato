@@ -1,0 +1,282 @@
+[33mcommit 790ec98e1a4b5eb26597900bbbab0d2e5945b169[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Tue Jun 16 16:47:56 2020 -0300
+
+    alteracoesselect#1
+
+[33mcommit 4df2316e8d0eb51e67184971e49c07843b3f22f0[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon Jun 15 14:58:56 2020 -0300
+
+    alteracoesformacao#3
+
+[33mcommit d2348a8ab1c31a60dc248b47a72f3313c64b60e4[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon Jun 15 13:33:05 2020 -0300
+
+    alteracoesformacao#2
+
+[33mcommit ce239ce010b5ccc80653a22c51eab8a4586e301e[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon Jun 15 11:23:06 2020 -0300
+
+    alteracoesformacao#1
+
+[33mcommit 5cc9254ef55256999366098e1b522360ba182a8c[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon Jun 15 11:20:56 2020 -0300
+
+    alteracoesformacao
+
+[33mcommit 0e5b5b690c93c677ac2ea0ff43873405add758d1[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Thu Jun 11 16:31:17 2020 -0300
+
+    crud Experiencia Profissional
+
+[33mcommit 19a432ec9fa015fe0dd078da90147909ff008294[m
+Merge: 69875c7 f4af756
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Thu Jun 11 13:42:53 2020 -0300
+
+    Merge branch 'master' of github.com:marialuisasab/portalcandidato
+
+[33mcommit 69875c7851d193ed20990d31d6c34b3d4712517b[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Thu Jun 11 13:42:19 2020 -0300
+
+    reCAPTCHA v2 Google
+
+[33mcommit f4af756fd6ec7b6359d84846463f43f0b74405ab[m
+Merge: eddc4c3 b73706e
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu Jun 11 13:29:27 2020 -0300
+
+    Merge branch 'master' of https://github.com/marialuisasab/portalcandidato
+
+[33mcommit eddc4c393efb6efc9c05bebf8f7fe3f542b264f3[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu Jun 11 13:29:19 2020 -0300
+
+    alteracaocurriculo
+
+[33mcommit b73706ed87239ea939cc76a820116cf1ce5e6816[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Thu Jun 11 13:16:09 2020 -0300
+
+    reCAPTCHA v2 Google
+
+[33mcommit 0b0a5f26f77a5bd9aa660d8cc32f394156bd87e9[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Thu Jun 11 11:48:40 2020 -0300
+
+    reCAPTCHA v2 Google
+
+[33mcommit 99684acc040e7474e9897780000f6bd098120ab9[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Wed Jun 10 18:02:29 2020 -0300
+
+    Corrigindo validacao doCPF
+
+[33mcommit d2d6032d59ea5bc07f64ae385fcff5600b622260[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed Jun 10 16:24:39 2020 -0300
+
+    cssFormCurricEnder
+
+[33mcommit 1bd6a67f024005dc88e35dd88f66ca01066ae706[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed Jun 10 11:41:23 2020 -0300
+
+    alteracoesLayoutFormacaoEcursos
+
+[33mcommit ab5db01a02f1fce986576f49fc944ff452fee84f[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed Jun 10 11:25:28 2020 -0300
+
+    alteracoesFormacaoEcurriculoEendereco
+
+[33mcommit dc0e7e2276223a242e8c1d754f3b8eada101ed59[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed Jun 10 11:21:19 2020 -0300
+
+    alteraçõesFormaccaoeCurriculo
+
+[33mcommit fd6cceb53d2a7c1872c9bae2415ba9f122d9017b[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed Jun 10 11:07:18 2020 -0300
+
+    alteraçõesFormacao
+
+[33mcommit 131bdaa034242ea70d222cba1526fd190e470a46[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon Jun 8 17:02:04 2020 -0300
+
+    mudancascurriculo
+
+[33mcommit a4c245de3cd6ee2b93cb2e8aea6f50a2bf3aee89[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Mon Jun 8 16:33:07 2020 -0300
+
+    crud Formacao/Cursos e validaçcoes
+
+[33mcommit d75e8b304f7832174f3a7b0d06c3430384f1fb94[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Fri Jun 5 16:05:38 2020 -0300
+
+    alteracaoSelects
+
+[33mcommit 5c6aab44a25d3f0e1bd4808c3f3343d8d011f086[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu Jun 4 17:25:26 2020 -0300
+
+    dadospessoais#2
+
+[33mcommit 9c9c9aab64523b7eebadae7a4171d0eb08b2189e[m
+Merge: ca10289 97bfbe7
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu Jun 4 16:23:20 2020 -0300
+
+    dadospessoais#1
+
+[33mcommit ca102892dc7b3f0353d3d0385f806c7c2d29766c[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu Jun 4 15:13:09 2020 -0300
+
+    dadospessoais
+
+[33mcommit 97bfbe790c31a9cf381e07391d4045095054a3d6[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Mon Jun 1 12:41:24 2020 -0300
+
+    incolusao de um campo no crud de Endereco
+
+[33mcommit e9b2ecaa71b9105d636d7128c7c81c3c3a4ec98c[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Mon Jun 1 11:14:04 2020 -0300
+
+    crud de Endereco
+
+[33mcommit 41abfa22143798dcd5f983c8343a16fcddca2a5e[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:   Mon May 25 14:56:33 2020 -0300
+
+    crud de Dados Pessoais
+
+[33mcommit 74694cac971df8c44043f719af71167ecf41f8ef[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Fri May 22 21:34:57 2020 -0300
+
+    alteracaoDadospessoais
+
+[33mcommit ae489f1f91ad85783efa82618e8e64b2462b71ef[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Fri May 22 21:17:40 2020 -0300
+
+    dadospessoais
+
+[33mcommit d2c45fcd8930e8e140c4fe30a53a985c1f36c1cb[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Fri May 22 15:00:46 2020 -0300
+
+    TELASINICIAISRESPONS
+
+[33mcommit e84434b1a9faaa759be25d61e5f851c32155c285[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 20 16:31:22 2020 -0300
+
+    telaResetarSenha
+
+[33mcommit 4fb16daf5c252785b3b3aa9b6897c0cf2418a395[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Tue May 19 20:37:42 2020 -0300
+
+    corrigirtelas
+
+[33mcommit b1e2c14e1f400a7552b3783a0f1554256ba1d099[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon May 18 19:29:06 2020 -0300
+
+    viewsADMCAND
+
+[33mcommit d6bf2bb620a0fbc87f0a337fa3405e8bac0b6753[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon May 18 16:41:54 2020 -0300
+
+    loginADM
+
+[33mcommit 3467582340b675d5dc6415ae2cc617e813f2ece2[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Mon May 18 13:05:37 2020 -0300
+
+    estruturapadraoLOGREG
+
+[33mcommit a9240e8a65c92146672c696f09b1455d9a5367e0[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Fri May 15 13:24:38 2020 -0300
+
+    templatefooternavbar
+
+[33mcommit 0bf9d6648bc37e7957c1a509a459fa37fb8e4b66[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu May 14 16:35:01 2020 -0300
+
+    CorrecaoLogRegister#6
+
+[33mcommit 2e8ce5db7d11d1bb89805cd353b411a22c210a9a[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Thu May 14 11:38:02 2020 -0300
+
+    alteracoesnavbarLOGINREGISTER
+
+[33mcommit dce6d7b96be4ec209d707f2b3d3374cac84d3bee[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 17:19:06 2020 -0300
+
+    alteracoesloginreg#5
+
+[33mcommit 1f8030c8eeff5e1265d2f7a836b934084063e1fa[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 14:30:56 2020 -0300
+
+    alteracoesLoginRegister#4
+
+[33mcommit 5dcd468b32c97ec1691699dfef077307b3da4e82[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 13:54:38 2020 -0300
+
+    alteracoesLoginRegister#3
+
+[33mcommit b44dd427dac4a0427789059f6cd75f8aa031a89e[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 13:50:17 2020 -0300
+
+    alteracoesLoginRegister#2
+
+[33mcommit e5bb3385ac085120de140d1b4809efaa4bebfca0[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 12:29:50 2020 -0300
+
+    LoginEregister#1
+
+[33mcommit d3963d2e6c1d0832bb94ded3332a6fa411837288[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 12:28:02 2020 -0300
+
+    LoginERegister
+
+[33mcommit e61dd90829beb6f038b59a5782547b466fc1f138[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 12:21:42 2020 -0300
+
+    AdicPaginaPrincipal
+
+[33mcommit c0657bf1d3a9c5f7e6d8f14fd3ad973d80ce1df8[m
+Author: Marcos Vinicius <marcosvtn@yahoo.com.br>
+Date:   Wed May 13 11:22:36 2020 -0300
+
+    CorrecaoErroRegisterUsers
+
+[33mcommit 7f29fe4bf9426b9c4c0fb0e4b4941c0e5f7968b5[m
+Author: Maria Luisa <marialuisasab@gmail.com>
+Date:

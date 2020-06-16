@@ -1,5 +1,10 @@
 @extends('adminlte::page')
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="/js/dadospessoais/edit.js"></script>
+
 @section('content')
 
 <div class="container">
@@ -191,8 +196,14 @@
                             <li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
                                 <select class="custom-select" id="nacionalidade" name="nacionalidade">
                                     <option value="" selected>Selecionar</option>
+                                    @foreach(Helper::getPai () as $pais)
+                                    <option value="{{$pais->idpais}}">{{$pais->nome}}
+                                    </option>
+                                    @endforeach
+                                    {{--                                     
+                                    <option value="" selected>Selecionar</option>
                                     <option value="1">Brasileira</option>
-                                    <option value="2">Outra</option>
+                                    <option value="2">Outra</option> --}}
                                 </select> </li>
                         </div>
 
@@ -256,12 +267,27 @@
                         </div>
 
 
-
-
-
-
-
                         <div class="form-group">
+                            <li><strong>POSSUI CNH!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                <div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
+                                    <input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
+                                        value="1">
+                                    Sim&nbsp;&nbsp;&nbsp;
+                                    {{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
+
+
+                                    <input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
+                                        value="2"> Não
+                                    {{-- <label class="form-check-label">Não</label> --}}
+                                </div>
+                            </li>
+                        </div>
+                        <hr>
+
+
+
+
+                        <div class="form-group" style="display: none;" id="selcatcnh">
                             <li><strong> CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                 <select class="custom-select" id="catcnh" name="catcnh">
                                     <option value="" selected>Selecionar</option>
@@ -278,7 +304,7 @@
 
 
 
-                        <div class="form-group">
+                        <div class="form-group" style="display: none;" id="seleorigcnh">
                             <li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
                                 <select class="custom-select" id="ufcnh" name="ufcnh" placeholder="UF">
                                     <option value="" selected>Selecionar</option>
@@ -293,7 +319,7 @@
 
 
 
-                        <div class="form-group">
+                        <div class="form-group" style="display: none;" id="numcnh">
                             <li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                 <input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH">
                             </li>

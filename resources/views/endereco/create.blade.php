@@ -165,8 +165,10 @@
 										<li style=""><strong> PAÍS:&nbsp;&nbsp;&nbsp;</strong>
 											<select class="custom-select" id="pais_idpais" name="pais_idpais">
 												<option value="" selected>País</option>
-												<option value="1">Brasil</option>
-												<option value="2">Outro</option>
+												@foreach(Helper::getPai () as $pais)
+												<option value="{{$pais->idpais}}">{{$pais->nome}}
+												</option>
+												@endforeach
 											</select> </li>
 									</div>
 

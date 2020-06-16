@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/Dadospessoais/edit.js"></script>
 {{-- <script src="/js/Dadospessoais/edit.js"></script> --}}
 
 
@@ -154,39 +155,17 @@
 
 						<div class="form-group">
 							<li><strong> GENERO:*&nbsp;&nbsp;&nbsp;</strong>
-
-								@if($c->genero == null)
 								<select class="custom-select" id="genero" name="genero" value="{{$c->genero}}">
-									<option value="" id="idselecionargen">Selecionar</option>
-									<option value="F" id="idselecionargen">Feminino</option>
-									<option value="M" id="idselecionargen">Masculino</option>
-									<option value="N" id="idselecionargen">Prefiro não informar</option>
+									<option value="" id="idselecionargen" {{$c->genero == null ? 'selected' : ''}}>
+										Selecionar</option>
+									<option value="F" id="idselecionargen" {{$c->genero == 'F' ? 'selected' : ''}}>
+										Feminino</option>
+									<option value="M" id="idselecionargen" {{$c->genero == 'M' ? 'selected' : ''}}>
+										Masculino</option>
+									<option value="N" id="idselecionargen" {{$c->genero == 'N' ? 'selected' : ''}}>
+										Prefiro não informar</option>
 								</select>
-								@elseif($c->genero == 'F')
-								<select class="custom-select" id="genero" name="genero" value="{{$c->genero}}">
-									<option value="" id="idselecionargen">Selecionar</option>
-									<option value="F" id="idselecionargen" selected>Feminino</option>
-									<option value="M" id="idselecionargen">Masculino</option>
-									<option value="N" id="idselecionargen">Prefiro não informar</option>
-								</select>
-								@elseif($c->genero == 'M')
-								<select class="custom-select" id="genero" name="genero" value="{{$c->genero}}">
-									<option value="" id="idselecionargen">Selecionar</option>
-									<option value="F" id="idselecionargen">Feminino</option>
-									<option value="M" id="idselecionargen" selected>Masculino</option>
-									<option value="N" id="idselecionargen">Prefiro não informar</option>
-								</select>
-								@elseif($c->genero == 'N')
-								<select class="custom-select" id="genero" name="genero" value="{{$c->genero}}">
-									<option value="" id="idselecionargen">Selecionar</option>
-									<option value="F" id="idselecionargen">Feminino</option>
-									<option value="M" id="idselecionargen">Masculino</option>
-									<option value="N" id="idselecionargen" selected>Prefiro não informar</option>
-								</select>
-								@else
-								@endif
 							</li>
-
 						</div>
 
 
@@ -221,28 +200,12 @@
 						<div class="form-group">
 							<li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
 
-								@if ($c->dfisico == null)
 								<select class="custom-select" id="dfisico" name="dfisico" value="{{$c->dfisico}}">
-									<option value="" selected>Selecionar</option>
-									<option value="1">Sim</option>
-									<option value="2">Não</option>
+									<option value="" {{$c->dfisico == null ? 'selected' : ''}} selected>Selecionar
+									</option>
+									<option value="1" {{$c->dfisico == '1' ? 'selected' : ''}}>Sim</option>
+									<option value="2" {{$c->dfisico == '2' ? 'selected' : ''}}>Não</option>
 								</select> </li>
-
-							@elseif(($c->dfisico != null) && ($c->dfisico == '1'))
-							<select class="custom-select" id="dfisico" name="dfisico" value="{{$c->dfisico}}">
-								<option value="">Selecionar</option>
-								<option value="1" selected>Sim</option>
-								<option value="2">Não</option>
-							</select> </li>
-
-							@elseif(($c->dfisico != null) && ($c->dfisico == '2'))
-							<select class="custom-select" id="dfisico" name="dfisico" value="{{$c->dfisico}}">
-								<option value="">Selecionar</option>
-								<option value="1">Sim</option>
-								<option value="2" selected>Não</option>
-							</select> </li>
-
-							@endif
 
 						</div>
 
@@ -304,23 +267,29 @@
 						<div class="form-group">
 							<li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="telefone2" id="telefone2"
-									placeholder="Telefone 2" value="{{$c->telefone2}}""> </li>
-</div>
+									placeholder="Telefone 2" value="{{$c->telefone2}}"> </li>
+						</div>
 
 
 
 
 
-<div class=" form-group">
+						<div class=" form-group">
 							<li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="custom-select" id="estadocivil" name="estadocivil"
 									value="{{$c->estadocivil}}">
-									<option value="" selected>Selecionar</option>
-									<option value="1">Solteiro(a)</option>
-									<option value="2">Casado(a)</option>
-									<option value="3">Divorciado(a)</option>
-									<option value="4">Viúvo(a)</option>
-									<option value="5">Separado(a)</option>
+									<option name="selectestadocivil" value=""
+										{{$c->estadocivil == null ? 'selected' : ''}}>Selecionar</option>
+									<option name="selectestadocivil" value="1"
+										{{$c->estadocivil == '1' ? 'selected' : ''}}>Solteiro(a)</option>
+									<option name="selectestadocivil" value="2"
+										{{$c->estadocivil == '2' ? 'selected' : ''}}>Casado(a)</option>
+									<option name="selectestadocivil" value="3"
+										{{$c->estadocivil == '3' ? 'selected' : ''}}>Divorciado(a)</option>
+									<option name="selectestadocivil" value="4"
+										{{$c->estadocivil == '4' ? 'selected' : ''}}>Viúvo(a)</option>
+									<option name="selectestadocivil" value="5"
+										{{$c->estadocivil == '5' ? 'selected' : ''}}>Separado(a)</option>
 								</select> </li>
 						</div>
 
@@ -332,12 +301,12 @@
 						<div class="form-group">
 							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
-									<option value="" selected>Selecionar</option>
-									<option value="A">A</option>
-									<option value="B">B</option>
-									<option value="C">C</option>
-									<option value="D">D</option>
-									<option value="E">E</option>
+									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
+									<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
+									<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
+									<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
+									<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
+									<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
 								</select></li>
 						</div>
 

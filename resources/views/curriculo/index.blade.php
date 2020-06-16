@@ -109,21 +109,46 @@
 
 
 
+
 								<li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong> {{Auth::user()->name}}
 								</li>
 								<hr>
 
 
+								<li><strong> CPF:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->cpf}}</li>
+								<hr>
 
-								<li><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong> {{Auth::user()->email}}</li>
+
+								<li><strong> CARTEIRA DE IDENTIFICAÇÃO(RG):&nbsp;&nbsp;&nbsp;</strong>
+									{{$candDados->rg}}</li>
 								<hr>
 
 
 								<li><strong> DATA DE
 										NASCIMENTO:&nbsp;&nbsp;&nbsp;</strong>{{date_format(new DateTime($candDados->dtnascimento), 'd/m/Y')}}
 								</li>
-
 								<hr>
+
+
+								<li><strong> TELEFONE(PRINCIPAL):&nbsp;&nbsp;&nbsp;</strong> {{$candDados->telefone1}}
+								</li>
+								<hr>
+
+
+								@if ($candDados ->telefone2 != null)
+								<li><strong> TELEFONE(2ºOPÇÃO):&nbsp;&nbsp;&nbsp;</strong> {{$candDados->telefone2}}
+								</li>
+								@else
+								<li><strong> TELEFONE(2ºOPÇÃO):&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">
+										Não Informado!</span>
+								</li>
+								@endif
+								<hr>
+
+
+								<li><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong> {{Auth::user()->email}}</li>
+								<hr>
+
 
 								@if(($candDados->genero != null)&& ($candDados->genero =='M'))
 								<li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>Masculino</li>
@@ -133,154 +158,6 @@
 								<li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
-								<hr>
-
-
-								@if($candDados->nomemae != null)
-								<li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->nomemae}}</li>
-								@else
-								<li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-
-								<hr>
-
-
-								@if($candDados->nomepai != null)
-								<li><strong> NOME DO PAI:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->nomepai}}</li>
-								@else
-								<li><strong> NOME DA PAI:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-								<hr>
-
-
-
-								@if(($candDados->dfisico != null) && ($candDados->dfisico == '1'))
-								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
-								@elseif(($candDados->dfisico != null) && ($candDados->dfisico == '2'))
-								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Não</li>
-								@else
-								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-
-								<hr>
-								{{-- 
-										<li style="word-break: break-word;"><strong> dfisico:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->dfisico}}</li>
-								<hr>
-								--}}
-
-
-								@if ($candDados->sobre!=null)
-								<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
-									{{$candDados->sobre}}</li>
-								@else
-								<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
-									<span style="color:red;">Não informado!</span></li>
-
-								@endif
-
-								<hr>
-
-
-								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
-									R${{$candDados->pretsalarial}},00</li>
-								<hr>
-
-
-								<li><strong> TELEFONE(PRINCIPAL):&nbsp;&nbsp;&nbsp;</strong> {{$candDados->telefone1}}
-								</li>
-								<hr>
-
-
-								<li><strong> TELEFONE(2ºOPÇÃO):&nbsp;&nbsp;&nbsp;</strong> {{$candDados->telefone2}}
-								</li>
-								<hr>
-
-
-								<li><strong> CPF:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->cpf}}</li>
-								<hr>
-
-
-
-								<li><strong> CARTEIRA DE IDENTIFICAÇÃO(RG):&nbsp;&nbsp;&nbsp;</strong>
-									{{$candDados->rg}}</li>
-								<hr>
-
-
-
-								@if(($candDados->catcnh != null)&&($candDados->catcnh =='A'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>A</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='B'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>B</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='C'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>C</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='D'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>D</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='E'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>E</li>
-								@else
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-								<hr>
-
-
-								@if ($candDados->cnh!=null)
-								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
-									{{$candDados->cnh}}</li>
-								@else
-								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
-									<span style="color:red;">Não Informado!</span></li>
-								@endif
-								<hr>
-
-								@foreach(Helper::getEstados() as $estados)
-								@if($estados->idestado == $candDados->ufcnh)
-								@if($candDados->ufcnh != null)
-								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong>{{$estados->nome}}</li>
-								@else
-								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-								@else
-								@endif
-								@endforeach
-								<hr>
-
-
-
-
-								@foreach(Helper::getPai() as $pai)
-								@if($pai->idpais == $candDados->nacionalidade)
-								@if($candDados->nacionalidade != null)
-								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$pai->nome}}</li>
-								@else
-								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-								@else
-								@endif
-								@endforeach
-								<hr>
-
-
-
-
-
-								@foreach(Helper::getCidades() as $cid)
-								@if($cid->idcidade == $candDados->naturalidade)
-								@if($candDados->naturalidade != null)
-								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$cid->nome}}
-								</li>
-								@else
-								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
-								@endif
-								@else
-								@endif
-								@endforeach
 								<hr>
 
 
@@ -298,6 +175,132 @@
 								<li><strong> ESTADO CIVIL :&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
+								<hr>
+
+								@foreach(Helper::getPai() as $pai)
+								@if($pai->idpais == $candDados->nacionalidade)
+								@if($candDados->nacionalidade != null)
+								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$pai->nome}}</li>
+								@else
+								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										Informado!</span></li>
+								@endif
+								@else
+								@endif
+								@endforeach
+								<hr>
+
+								@foreach(Helper::getCidades() as $cid)
+								@if($cid->idcidade == $candDados->naturalidade)
+								@if($candDados->naturalidade != null)
+								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$cid->nome}}
+								</li>
+								@else
+								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										cadastrado!</span></li>
+								@endif
+								@else
+								@endif
+								@endforeach
+								<hr>
+
+
+
+								@if(($candDados->dfisico != null) && ($candDados->dfisico == '1'))
+								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
+								@elseif(($candDados->dfisico != null) && ($candDados->dfisico == '2'))
+								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Não</li>
+								@else
+								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										cadastrado!</span></li>
+								@endif
+								<hr>
+
+
+								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
+									R${{$candDados->pretsalarial}},00</li>
+								<hr>
+
+
+								@if($candDados->nomemae != null)
+								<li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->nomemae}}</li>
+								@else
+								<li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										cadastrado!</span></li>
+								@endif
+								<hr>
+
+
+								@if($candDados->nomepai != null)
+								<li><strong> NOME DO PAI:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->nomepai}}</li>
+								@else
+								<li><strong> NOME DA PAI:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										Informado!</span></li>
+								@endif
+								<hr>
+
+
+								{{-- 
+										<li style="word-break: break-word;"><strong> dfisico:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->dfisico}}</li>
+								<hr>
+								--}}
+
+
+								@if ($candDados->sobre!=null)
+								<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
+									{{$candDados->sobre}}</li>
+								@else
+								<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
+									<span style="color:red;">Não informado!</span></li>
+								@endif
+								<hr>
+
+
+
+								@if(($candDados->catcnh != null)&&($candDados->catcnh =='A'))
+								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>A</li>
+								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='B'))
+								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>B</li>
+								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='C'))
+								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>C</li>
+								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='D'))
+								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>D</li>
+								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='E'))
+								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>E</li>
+								@else
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										informado!</span></li>
+								@endif
+								<hr>
+
+
+								@if ($candDados->cnh!=null)
+								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
+									{{$candDados->cnh}}</li>
+								@else
+								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
+									<span style="color:red;">Não Informado!</span></li>
+								@endif
+								<hr>
+
+
+								@if ($candDados->ufcnh == null)
+								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										informado!</span></li>
+								@else
+								@foreach (Helper::getEstados() as $estados)
+								@if($estados->idestado == $candDados->ufcnh)
+								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong>{{$estados->nome}}</li>
+								@else
+								@endif
+								@endforeach
+								@endif
+
+
+
+
+
+
 
 
 

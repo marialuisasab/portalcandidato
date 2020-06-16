@@ -98,8 +98,14 @@
 
 
 
+								@if ($e->complemento != null)
 								<li><strong> COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>{{$e->complemento}}
 								</li>
+								@else
+								<li><strong> COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										Informado!</span>
+								</li>
+								@endif
 								<hr>
 
 								<li><strong>

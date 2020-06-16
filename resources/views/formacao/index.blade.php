@@ -23,8 +23,8 @@
           <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
             <div class="container">
               <div class="row">
-                <div class="col-xs-6 col-md-6">
-                  <h2 class="mb-0" style="color:dodgerblue;">
+                <div class="col-xs-5 col-md-5">
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
 
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
@@ -37,21 +37,15 @@
                 </div>
 
 
-                <div class="col-xs-6 col-md-5" style="margin-top: 25px; text-align:end; margin-left: auto;">
+                <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
-                  {{--
+
                   <button class=" btn btn-link">
-                    <a style="color:dodgerblue;" href="/formacao/editar/{{Auth::user()->id}}">
-                  <strong>Editar</strong></a>
-                  <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
+                    <a href="/curso/novo" style="color: dodgerblue;"><strong><span class="fa fa-plus"
+                          style="font-size: 25px; text-align: center;">Adicionar</span> </strong></a>
 
                   </button>
 
-                  <button class=" btn btn-link">
-                    <a href="/curso/novo" style="color: dodgerblue;"><strong> Novo </strong></a>
-                    <span class="fa fa-plus" style="font-size: 25px; text-align: center;"></span>
-                  </button>
-                  --}}
 
                   <button class=" btn btn-link" style="color: gray;">
                     <a style="color: gray;" href="/endereco"><strong><span class="fas fa-undo"
@@ -93,11 +87,6 @@
 
                     </button>
 
-                    <button class=" btn btn-link">
-                      <a href="/curso/novo" style="color: dodgerblue;"><strong><span class="fa fa-plus"
-                            style="font-size: 25px; text-align: center;">Novo</span> </strong></a>
-
-                    </button>
 
                     <button class=" btn btn-link" style="color:red;">
                       <a href="/curso/excluir/{{$c->idcurso}}" style="color:red;"><span class=" fa fa-trash-alt"
@@ -122,7 +111,7 @@
                       </li>
                       <hr>
 
-                      @if($c->escolaridade === 1)
+                      @if($c->escolaridade == '1')
                       <li><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getNivel($c->nivel_idnivel)}}
                       </li>
                       <hr>
@@ -130,17 +119,20 @@
                       <li><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}</li>
                       <hr>
 
-                      @if($c->periodo)
+
                       <li><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
                       </li>
                       <hr>
-                      @endif
                       @else
+                      @endif
 
+
+                      @if ($c->escolaridade == '2')
                       <li><strong>
                           CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
                       </li>
                       <hr>
+                      @else
                       @endif
 
                       <li><strong>
@@ -150,7 +142,7 @@
 
                       @if($c->dtfim == null)
                       <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">Não
-                          concluido!!!</span>
+                          informado!</span>
                       </li>
                       @else
                       <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}

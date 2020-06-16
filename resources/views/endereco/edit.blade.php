@@ -182,9 +182,16 @@
 										<li><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 											<select class="custom-select" id="pais_idpais" name="pais_idpais"
 												value="{{$e->pais_idpais}}">
+												<option value="">Selecionar</option>
+												@foreach(Helper::getPai() as $pai)
+												<option value="{{$pai->idpais}}"
+													{{ $e->pais_idpais == $pai->idpais ? 'selected' : '' }}>
+													{{ $pai->nome }}</option>
+												@endforeach
+												{{-- 
 												<option value="" selected>País</option>
 												<option value="1">Brasil</option>
-												<option value="2">Outro</option>
+												<option value="2">Outro</option> --}}
 											</select>
 										</li>
 									</div>

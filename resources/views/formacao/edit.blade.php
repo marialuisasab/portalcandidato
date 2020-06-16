@@ -80,7 +80,7 @@
                   </div>
 
                   <div class="form-group">
-                    <li><strong>TIPO DE FORMAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       @if($curso->escolaridade == '1')
                       <select class="custom-select" id="escolaridade" name="escolaridade">
                         <option value="1" {{ $curso->escolaridade == '1' ? 'selected' : ''}}>Academica</option>
@@ -157,7 +157,7 @@
                   @if ($curso->escolaridade =='1')
                   <div class="form-group" id="idperiodo">
                     <li><strong>PERIODO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                      <input type="number" class="form-control" name="periodo" value="{{$curso->periodo}}"
+                      <input type="number" class="form-control" id="periodo" name="periodo" value="{{$curso->periodo}}"
                         placeholder="Ex: 1">
                   </div>
                   </li>
@@ -171,13 +171,14 @@
 
                   <div class="form-group">
                     <li><strong>DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                      <input type="text" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
+                      <input type="date" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
                         value="{{Helper::getData($curso->dtinicio)}}">
                     </li>
                   </div>
 
 
 
+                  @if ($curso->dtfim == null)
                   <div class="form-group">
                     <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <div class="form-check form-check-inline" id="idconcluicurso" name="checkcurso">
@@ -191,15 +192,28 @@
                       </div>
                     </li>
                   </div>
+                  @else
+                  @endif
 
 
 
+
+                  @if ($curso->dtfim == null)
                   <div class="form-group" style="display: none;" id="dataconclu">
                     <li><strong>DATA DA CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
                       <input type="date" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
                         value="{{Helper::getData($curso->dtfim)}}">
                     </li>
                   </div>
+                  @else
+                  <div class="form-group" id=" dataconclu">
+                    <li><strong>DATA DA CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+                      <input type="text" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
+                        value="{{Helper::getData($curso->dtfim)}}">
+                    </li>
+                  </div>
+                  @endif
+
 
                   {{-- <div class="form-group" style="display: none;" id="previconcl">
                     <li style=""><strong> PREVISÃO DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
@@ -211,7 +225,7 @@
 
 
                   <div class="form-group">
-                    <li><strong>INSTITUIÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                    <li><strong>INSTITUIÇÃO:*&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <select class="custom-select" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getInstituicoes() as $i)

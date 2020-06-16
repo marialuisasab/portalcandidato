@@ -60,7 +60,7 @@ class EnderecoController extends Controller
         $e->bairro = mb_convert_case($request->bairro, MB_CASE_TITLE, "UTF-8");
         $e->numero = $request->numero;
         $e->complemento = mb_convert_case($request->complemento, MB_CASE_TITLE, "UTF-8");
-        $e->pais_idpais = 1;
+        $e->pais_idpais = $request->pais_idpais;
         $e->cep = $request->cep;
         $e->disp_mudanca = $request->disp_mudanca;
         
@@ -119,7 +119,7 @@ class EnderecoController extends Controller
             $e->bairro = mb_convert_case($request->bairro, MB_CASE_TITLE, "UTF-8");
             $e->numero = $request->numero;
             $e->complemento = mb_convert_case($request->complemento, MB_CASE_TITLE, "UTF-8");
-            $e->pais_idpais = 1;
+            $e->pais_idpais = $request->pais_idpais;
             $e->cep = $request->cep;           
             $e->disp_mudanca = $request->disp_mudanca;
 

@@ -49,7 +49,7 @@ class CurriculoController extends Controller
      */
     public function store(Request $request)
     {   
-        $this->validarFormulario($request);
+        $this->validarFormulario($request, 'store');
 
         $user = Auth::user();
 
@@ -147,7 +147,7 @@ class CurriculoController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        $this->validarFormulario($request);
+        $this->validarFormulario($request, 'update');
         $user = Auth::user();
         $c = Curriculo::where("users_id", $id)->get()[0];
         
@@ -226,14 +226,12 @@ class CurriculoController extends Controller
         }
     }
 
-    public function validarFormulario($request){
-        
-   
+    public function validarFormulario($request, $method){
 
         $regras = [
             'nome'=>'required|string|max:100',
             'cpf' =>'required|size:11',
-            'rg' => 'required|max:11',
+            'rg' => 'required|max:10',
             'pretsalarial' => 'required',
             'dtnascimento' => 'required',
             'genero' => 'required',
@@ -244,7 +242,7 @@ class CurriculoController extends Controller
             'telefone1' => 'required',
             'estadocivil' => 'required',
         ];
-        if ($request->isMethod('post')) {
+        if ($method == 'store') {
             $regras['cpf'] = 'required|size:11|unique:curriculo';
         }
 

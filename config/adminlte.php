@@ -274,9 +274,9 @@ return [
                     'url'  => '/experiencias',
                 ],
                   [
-                  'text' => 'Idiomas',
+                  'text' => 'Habilidades e Ferramentas',
                   'icon' =>'fas fa-fw fa-language',
-                  'url' => '',
+                  'url' => '/habilidades',
                   ],
 
                   [

@@ -55,7 +55,7 @@ class ExperienciaController extends Controller
    
         if ($exp->save()){         
                 return redirect()->route('experiencias')
-                            ->with('success', 'informações cadastradas com sucesso!');
+                        ->with('success', 'informações cadastradas com sucesso!');
         }else {
             return redirect()
                         ->back()

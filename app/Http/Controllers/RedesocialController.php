@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class IdiomaController extends Controller
+class RedesocialController extends Controller
 {
     /**
      * Display a listing of the resource.

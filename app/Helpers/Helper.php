@@ -14,6 +14,7 @@ use App\Curso;
 use App\Area;
 use App\Nivel;
 use App\Curriculo;
+use App\Tipo;
 
 class Helper
 {   
@@ -109,6 +110,14 @@ class Helper
     public static function getCategoria($id){
         $cat = Categoria::where('idcategoria', $id)->get()[0];
         return $cat->nome;
+    }
+
+    public static function getTiposHab(){
+        return Tipo::orderBy('nome','ASC')->get();
+    }
+    public static function getTipoHab($id){
+        $tp = Tipo::where('idtipo', $id)->get()[0];
+        return $tp->nome;
     }
 
 

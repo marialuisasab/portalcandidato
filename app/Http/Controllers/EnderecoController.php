@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Endereco;
 use App\Curriculo;
+use Helper;
 
 class EnderecoController extends Controller
 {   
@@ -22,16 +23,11 @@ class EnderecoController extends Controller
      */
     public function index()
     {
-
-
-
-        $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
         $endereco = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')->where("users_id", Auth::user()->id)->get();
        
         if(count($endereco)==0)
             return view('endereco.create');
-        return view('endereco.index', compact(['endereco']))
-                            ->with('candidato', $candidato);
+        return view('endereco.index', compact(['endereco']));
     }
 
     /**
@@ -53,18 +49,19 @@ class EnderecoController extends Controller
     public function store(Request $request)
     {   
         $this->validarFormulario($request);
+
         $e = new Endereco();
         $e->estado_idestado = $request->estado_idestado;
         $e->cidade_idcidade = $request->cidade_idcidade;
         $e->logradouro = mb_convert_case($request->logradouro, MB_CASE_TITLE, "UTF-8");
         $e->bairro = mb_convert_case($request->bairro, MB_CASE_TITLE, "UTF-8");
         $e->numero = $request->numero;
-        $e->complemento = mb_convert_case($request->complemento, MB_CASE_TITLE, "UTF-8");
-        $e->pais_idpais = 1;
+        $e->complemento = ($request->complemento != null ? mb_convert_case($request->complemento, MB_CASE_TITLE,"UTF-8") : $request->complemento );
+        $e->pais_idpais = $request->pais_idpais;
         $e->cep = $request->cep;
         $e->disp_mudanca = $request->disp_mudanca;
-        
-        if ($e->save() && $this->updateCurriculo(Auth::user()->id, $e->idendereco)){         
+        //dd($e);
+        if ($e->save() && $this->updateCurriculo($e->idendereco)){         
                 return redirect()->route('endereco')
                             ->with('success', 'Dados cadastrados com sucesso!');
         }else {
@@ -118,8 +115,7 @@ class EnderecoController extends Controller
             $e->logradouro = mb_convert_case($request->logradouro, MB_CASE_TITLE, "UTF-8");
             $e->bairro = mb_convert_case($request->bairro, MB_CASE_TITLE, "UTF-8");
             $e->numero = $request->numero;
-           $e->complemento = ($request->complemento != null ? mb_convert_case($request->complemento, MB_CASE_TITLE,
-           "UTF-8") : $request->complemento );
+            $e->complemento = ($request->complemento != null ? mb_convert_case($request->complemento, MB_CASE_TITLE,"UTF-8") : $request->complemento);
             $e->pais_idpais = $request->pais_idpais;
             $e->cep = $request->cep;           
             $e->disp_mudanca = $request->disp_mudanca;
@@ -146,10 +142,12 @@ class EnderecoController extends Controller
         //
     }
 
-    public function updateCurriculo($user, $endereco){
+    public function updateCurriculo($endereco){
         //Editar o id endereco na tabela curriculo
-        $curriculo = Curriculo::where("users_id", Auth::user()->id)->get()[0];
+        $curriculo = Curriculo::find(Helper::getIdCurriculo());
+        //$candidato = Curriculo::where("users_id", Auth::user()->id)->get();
         $curriculo->endereco_idendereco = $endereco;
+        
         if ($curriculo->save()){
             return true;
         }

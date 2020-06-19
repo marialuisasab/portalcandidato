@@ -60,6 +60,16 @@ Route::post('/habilidade/{id}', 'HabilidadeController@update');
 Route::post('/habilidade', 'HabilidadeController@store');
 Route::get('/habilidade/excluir/{id}', 'HabilidadeController@destroy')->name('habilidade.excluir');
 
+Route::get('/redessociais', 'RedesocialController@index')->name('redessociais');
+Route::get('/redesocial/novo', 'RedesocialController@create')->name('redesocial.novo');
+Route::get('/redesocial/editar/{id}', 'RedesocialController@edit')->name('redesocial.editar');
+Route::get('/redesocial/{id}', 'RedesocialController@show')->name('redesocial');
+Route::post('/redesocial/{id}', 'RedesocialController@update');
+Route::post('/redesocial', 'RedesocialController@store');
+Route::get('/redesocial/excluir/{id}', 'RedesocialController@destroy')->name('redesocial.excluir');
+
+
+
 
 Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
 

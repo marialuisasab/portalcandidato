@@ -15,6 +15,7 @@ use App\Area;
 use App\Nivel;
 use App\Curriculo;
 use App\Tipo;
+use App\RedeSocial;
 
 class Helper
 {   
@@ -119,7 +120,13 @@ class Helper
         $tp = Tipo::where('idtipo', $id)->get()[0];
         return $tp->nome;
     }
+    public static function getRedes(){
+        return RedeSocial::get();      
+    }
 
-
+    public static function getRedeCurriculo($id){
+        $rs = RedeSocial::where('idredesocial', $id)->get()[0];
+        return $rs->nome;    
+    }
 
 }

@@ -282,7 +282,7 @@ return [
                   [
                   'text' => 'Redes Sociais',
                   'icon' =>'fas fa-fw fa-hashtag',
-                  'url' => '',
+                  'url' => '/redessociais',
                   ],
             ],
         ],

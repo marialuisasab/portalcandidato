@@ -88,4 +88,16 @@ $(function () {
     //     }
 
     // });
+
+
+
+    $("#botaoeditar").mouseover(function () {
+        // window.document.getElementById("botaoeditar").style.background = "#32CD32";
+        // window.document.getElementById("botaoeditar").style.color = "#32CD32";
+        // $("#botaoeditar").append("<div>Handler for .mouseover() called.</div>");
+
+        // $("#botaoeditar").mouseout(function () {
+        //     window.document.getElementById("botaoeditar").style.background = "#none";
+        //     window.document.getElementById("botaoeditar").style.color = "#none";
+    });
 });

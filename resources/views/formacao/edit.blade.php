@@ -69,7 +69,7 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/endereco/{{Auth::user()->id}}" method="POST">
+                <form action="/curso/{{$curso->idcurso}}" method="POST">
                   @csrf
 
                   <div class="form-group">
@@ -171,7 +171,7 @@
 
                   <div class="form-group">
                     <li><strong>DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                      <input type="date" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
+                      <input type="text" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
                         value="{{Helper::getData($curso->dtinicio)}}">
                     </li>
                   </div>
@@ -206,7 +206,7 @@
                     </li>
                   </div>
                   @else
-                  <div class="form-group" id=" dataconclu">
+                  <div class="form-group" id="dataconclu">
                     <li><strong>DATA DA CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
                       <input type="text" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
                         value="{{Helper::getData($curso->dtfim)}}">

@@ -150,15 +150,10 @@
 
 
 
-
-
-
                   <div class="form-group">
                     <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="date" class="form-control" name="dtinicio" placeholder=""></li>
                   </div>
-
-
 
                   <div class="form-group">
                     <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
@@ -166,7 +161,6 @@
                         <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1">
                         Sim&nbsp;&nbsp;&nbsp;
                         {{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
-
 
                         <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="2"> Não
                         {{-- <label class="form-check-label">Não</label> --}}
@@ -187,7 +181,6 @@
 
 
                   <div class="form-group">
-
                     <li><strong>INSTITUIÇÃO:*
                         &nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
@@ -196,10 +189,7 @@
                         <option value="{{$i->idinstituicao}}">{{ $i->nome }}</option>
                         @endforeach
                       </select>
-
-
                     </li>
-
                   </div>
 
                   @if($errors->any())
@@ -220,6 +210,7 @@
                       <a href="cancel" style="color: red;"><span class="fas fa-window-close"
                           style="font-size: 25px; text-align: center;">Cancelar</span></a>
                     </button>
+                  </div>
               </ul>
             </div>
           </div>

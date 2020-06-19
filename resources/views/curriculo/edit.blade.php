@@ -30,22 +30,17 @@
 			<div id="accordion" style="margin-top: 40px;">
 				<div class="card-border-light">
 					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
-
-
-
 						<div class="container">
+
 							<div class="row">
 								<div class="col-sm">
 									<h2 class="mb-0" style="color:dodgerblue;">
-
 										Dados Pessoais
 										<span class="fa-stack fa-sm">
 											<i class="fas fa-circle fa-stack-2x"></i>
 											<i class="fas fa-id-card fa-stack-1x fa-inverse"></i>
 										</span>
-
 									</h2>
-
 								</div>
 
 
@@ -58,24 +53,17 @@
 										style="color:GRAY; margin-top: 7px; margin-left: auto;" type="cancel">
 										<a href="/curriculo" style="color:gray;"><span class="fas fa-undo"
 												style="font-size: 25px; text-align: center;">Voltar</span></a>
-
-
 									</button>
-
 								</div>
+
 							</div>
 						</div>
-
-
-
-
 					</div>
+
+
 					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body" style="box-sizing: border-box;">
-
 							<ul style="list-style-type: none;">
-
-
 								<form action="/curriculo/{{$c->users_id}}" method="POST" enctype="multipart/form-data">
 									@csrf
 									{{-- <div class="form-group">
@@ -92,19 +80,12 @@
 
 
 
-
-
-
-
 						<div class="form-group">
 							<li><strong> CPF:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" maxlength="11" name="cpf" id="cpf"
 									placeholder="CPF" value="{{$c->cpf}}">
 							</li>
 						</div>
-
-
-
 
 
 						<div class="form-group">
@@ -115,18 +96,12 @@
 						</div>
 
 
-
-
-
 						<div class="form-group">
 							<li><strong> CTPS:&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="ctps" id="ctps" placeholder="CTPS"
 									value="{{$c->ctps}}">
 							</li>
 						</div>
-
-
-
 
 						<div class="form-group">
 							<li><strong>PRETENÇÃO SALARIAL:*&nbsp;&nbsp;&nbsp;</strong>
@@ -136,20 +111,12 @@
 						</div>
 
 
-
-
-
-
 						<div class="form-group">
 							<li><strong>DATA DE NASCIMENTO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<input type="date" class="form-control" placeholder="Ex.: dd/mm/aaaa"
 									name="dtnascimento" id="dtnascimento" value="{{$c->dtnascimento}}">
 						</div>
 						</li>
-
-
-
-
 
 
 
@@ -168,20 +135,11 @@
 							</li>
 						</div>
 
-
-
-
-
-
 						<div class="form-group">
 							<li style=""><strong> NOME DA MÃE:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="nomemae" id="nomemae"
 									placeholder="Nome da mãe" value="{{$c->nomemae}}"></li>
 						</div>
-
-
-
-
 
 
 
@@ -193,26 +151,15 @@
 						</div>
 
 
-
-
-
-
 						<div class="form-group">
 							<li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
-
 								<select class="custom-select" id="dfisico" name="dfisico" value="{{$c->dfisico}}">
 									<option value="" {{$c->dfisico == null ? 'selected' : ''}} selected>Selecionar
 									</option>
 									<option value="1" {{$c->dfisico == '1' ? 'selected' : ''}}>Sim</option>
 									<option value="2" {{$c->dfisico == '2' ? 'selected' : ''}}>Não</option>
 								</select> </li>
-
 						</div>
-
-
-
-
-
 
 
 						<div class="form-group">
@@ -234,7 +181,6 @@
 						</div>
 
 
-
 						<div class="form-group">
 							<li><strong> NATURALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="custom-select" id="naturalidade" name="naturalidade"
@@ -250,28 +196,17 @@
 						</div>
 
 
-
-
-
-
-
-
 						<div class="form-group">
 							<li><strong> TELEFONE 1:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="telefone1" id="telefone1"
 									placeholder="Telefone 1" value="{{$c->telefone1}}"> </li>
 						</div>
 
-
-
 						<div class="form-group">
 							<li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="telefone2" id="telefone2"
 									placeholder="Telefone 2" value="{{$c->telefone2}}"> </li>
 						</div>
-
-
-
 
 
 						<div class=" form-group">
@@ -295,9 +230,6 @@
 
 
 
-
-
-
 						<div class="form-group">
 							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
@@ -309,8 +241,6 @@
 									<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
 								</select></li>
 						</div>
-
-
 
 
 						<div class="form-group">
@@ -331,11 +261,6 @@
 						</div>
 
 
-
-
-
-
-
 						<div class="form-group">
 							<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
@@ -344,17 +269,12 @@
 						</div>
 
 
-
 						<div class="form-group">
-							<li><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<li style="word-break: break-word;"><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong>
 								<textarea class="form-control" id="sobre" rows="3" name="sobre"
-									value="{{$c->sobre}}"></textarea>
+									value="">{{$c->sobre}}</textarea>
 							</li>
 						</div>
-
-
-
-
 
 
 						<div class="form-group">
@@ -363,12 +283,10 @@
 								style="max-width: 50px;">
 							@endif
 							<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-
 								{{-- observação....... --}}
 								<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
 									value="{{$c->idcurriculo}}">
 							</li>
-
 						</div>
 
 						@if($errors->any())

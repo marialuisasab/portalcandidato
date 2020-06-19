@@ -1,5 +1,11 @@
 @extends('adminlte::page')
 
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="/js/Endereco/endereco.js"></script>
+
 @section('content')
 
 <div class="container">
@@ -122,28 +128,9 @@
 											<input type="text" class="form-control"
 												placeholder="Ex.:Casa, apartamento, etc..." name="complemento"
 												id="complemento"></li>
-
 									</div>
 
-
-
-
-									<div class="form-group">
-										<li><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
-											<select class="custom-select" id="cidade" name="cidade_idcidade">
-												<option value="" selected>Selecionar</option>
-												@foreach(Helper::getCidades() as $cid)
-												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
-												@endforeach
-											</select>
-										</li>
-									</div>
-
-
-
-
-
-
+									{{-- <form method="GET" action="/endereco" id="ID_DO_FORMULARIO"> --}}
 									<div class="form-group">
 										<li><strong> ESTADO*:&nbsp;&nbsp;&nbsp;</strong>
 											<select class="custom-select" id="estado" name="estado_idestado">
@@ -153,11 +140,24 @@
 												@endforeach
 											</select></li>
 									</div>
+									{{-- </form> --}}
 
 
 
 
-
+									<div class="form-group" id="idcidadeselect">
+										<li><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
+											<select class="custom-select" id="cidade" name="cidade_idcidade">
+												<option value="" selected>Selecionar</option>
+												@foreach(Helper::getCidades() as $cid)
+												@if ($cid->estado_idestado == $est->idestado )
+												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
+												@else
+												@endif
+												@endforeach
+											</select>
+										</li>
+									</div>
 
 
 

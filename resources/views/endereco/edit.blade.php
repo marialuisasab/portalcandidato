@@ -141,27 +141,6 @@
 
 
 
-
-
-									<div class="form-group">
-										<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-											<select class="custom-select" id="cidade" name="cidade_idcidade"
-												value="{{$e->cidade_idcidade}}">
-												<option value="">Selecionar</option>
-												@foreach(Helper::getCidades() as $cid)
-												<option value="{{$cid->idcidade}}"
-													{{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>
-													{{ $cid->nome }}</option>
-												@endforeach
-											</select>
-									</div>
-									</li>
-
-
-
-
-
-
 									<div class="form-group">
 										<li><strong>ESTADO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 											<select class="custom-select" id="estado" name="estado_idestado"
@@ -175,6 +154,35 @@
 											</select>
 										</li>
 									</div>
+
+
+
+
+
+									<div class="form-group">
+										<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+											<select class="custom-select" id="cidade" name="cidade_idcidade"
+												value="{{$e->cidade_idcidade}}">
+												<option value="">Selecionar</option>
+												@foreach (Helper ::getEstados() as $est)
+												@foreach(Helper::getCidades() as $cid)
+												@if ($cid ->estado_idestado == $est->idestado)
+												<option value="{{$cid->idcidade}}"
+													{{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>
+													{{ $cid->nome }}</option>
+												@else
+												@endif
+												@endforeach
+												@endforeach
+
+											</select>
+									</div>
+									</li>
+
+
+
+
+
 
 
 

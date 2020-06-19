@@ -44,12 +44,6 @@ $(function () {
 
     });
 
-
-
-
-
-
-
     var exem = document.getElementsByName('idconclui');
     var prev = null;
 
@@ -85,9 +79,31 @@ $(function () {
             // }
         });
 
+    }
+
+
+    var excluir_formacao = document.getElementsByName('idexcluirforma');
+
+
+    for (var i = 0; i < excluir_formacao.length; i++) {
+        excluir_formacao[i].addEventListener('click', function () {
+
+            var valor = confirm("deseja realmente excluir esta formação?!");
+            if (valor) {
+                location.href = '/curso/excluir/' + this.value;
+                window.onload = alert("Formação excluída!");
+                $("ul.item-ii").find("li").css("background-color", "red");
+
+            } else {
+                // location.href = 'can';
 
 
 
+
+            }
+
+
+        });
     }
 
 

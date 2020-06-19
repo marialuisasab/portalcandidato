@@ -22,7 +22,8 @@ class ExperienciaController extends Controller
     {   
         $experiencias = Experiencia::join('curriculo', 'curriculo_idcurriculo', '=', 'idcurriculo')->where("users_id", Auth::user()->id)->get();
 
-        
+          if(count($experiencias)==0)
+          return view('experiencia.create');
         return view('experiencia.index', compact('experiencias'));
     }
 

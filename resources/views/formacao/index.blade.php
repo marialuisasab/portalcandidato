@@ -1,5 +1,12 @@
 @extends('adminlte::page')
 
+{{-- importação do jquery --}}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+
+{{-- importação do arquivo JS --}}
+<script src="/js/formacao/formacao.js"></script>
 @section('content')
 
 
@@ -25,56 +32,36 @@
               <div class="row">
                 <div class="col-xs-5 col-md-5">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
-
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
                       <i class="fas fa-user-graduate fa-stack-1x fa-inverse"></i>
                     </span>
-
                   </h2>
-
                 </div>
-
-
                 <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
-
-
                   <button class=" btn btn-link">
                     <a href="/curso/novo" style="color: dodgerblue;"><strong><span class="fa fa-plus"
                           style="font-size: 25px; text-align: center;">Adicionar</span> </strong></a>
-
                   </button>
-
-
                   <button class=" btn btn-link" style="color: gray;">
                     <a style="color: gray;" href="/endereco"><strong><span class="fas fa-undo"
                           style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
                   </button>
-
                   <button class=" btn btn-link" style="color: green;">
                     <a style=" color: green;" href="/experiencias"><strong><span class="fas fa-forward"
                           style="font-size: 25px; text-align: center;">Proximo</span>
                       </strong></a>
                   </button>
-
                 </div>
               </div>
-
-
             </div>
-
-
-
-
           </div>
 
 
           <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-
               @foreach($cursos as $c)
-
               <div class="container">
                 <div class="row" style="margin-top: 25px; text-align:center;">
                   <div class="col-sm">
@@ -83,44 +70,36 @@
                       <a style="color:dodgerblue;" href="/curso/editar/{{$c->idcurso}}">
                         <strong><span class="fa fa-edit"
                             style="font-size: 25px; text-align: center;">Editar</span></strong></a>
-
-
                     </button>
 
 
-                    <button class=" btn btn-link" style="color:red;">
-                      <a href="/curso/excluir/{{$c->idcurso}}" style="color:red;"><span class=" fa fa-trash-alt"
+                    <button class=" btn btn-link" style="color:red;" name="idexcluirforma" value="{{$c->idcurso}}">
+                      <a style="color:red;"><span class=" fa fa-trash-alt"
                           style="font-size: 25px; text-align: center;">Excluir</span> </a>
-
                     </button>
-
-
                   </div>
                 </div>
 
                 <div class="row" style="margin-top: 25px;">
-
                   <div class="col-sm">
                     <ul></ul>
-
-                    <ul style="list-style-type: none; margin-right: auto;">
-
-
-
-                      <li><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
+                    <ul class="item-ii" style="list-style-type: none; margin-right: auto;">
+                      <li class="item-11"><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
                       </li>
                       <hr>
-
                       @if($c->escolaridade == '1')
-                      <li><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getNivel($c->nivel_idnivel)}}
+
+                      <li class="item-2"><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong>
+                        {{Helper::getNivel($c->nivel_idnivel)}}
                       </li>
                       <hr>
 
-                      <li><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}</li>
+                      <li class="item-2"><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}
+                      </li>
                       <hr>
 
 
-                      <li><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
+                      <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
                       </li>
                       <hr>
                       @else
@@ -128,44 +107,38 @@
 
 
                       @if ($c->escolaridade == '2')
-                      <li><strong>
+                      <li class="item-2"><strong>
                           CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
                       </li>
                       <hr>
                       @else
                       @endif
 
-                      <li><strong>
+                      <li class="item-2"><strong>
                           DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtinicio)}}
                       </li>
                       <hr>
 
                       @if($c->dtfim == null)
-                      <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">Não
+                      <li class="item-2"><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong> <span
+                          style="color: red;">Não
                           informado!</span>
                       </li>
                       @else
-                      <li><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}
+                      <li class="item-2"><strong> DATA DE
+                          CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}
                       </li>
                       @endif
                       <hr>
-                    </ul>
 
+                    </ul>
                   </div>
                 </div>
               </div>
-
-
-
-
               @endforeach
-
-
-
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <div class="col-xs-1 col-md-1"></div>

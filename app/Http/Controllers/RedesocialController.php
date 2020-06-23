@@ -45,24 +45,25 @@ class RedesocialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   //https://twitter.com/_marialuisasab
-        //https://www.linkedin.com/in/maria-lu%C3%ADsa-arcanjo-533390115/
-        //$this->validarFormulario($request);
-        dd($request);
-        $rede = new RedeSocialCurriculo();       
-       
-        $rede->curriculo_idcurriculo = Helper::getIdCurriculo();
-        $rede->redesocial_idredesocial = $request->redesocial_idredesocial;
-        $rede->link = $request->link;
-   
-        if ($rede->save()){         
-                return redirect()->route('redessociais')
-                        ->with('success', 'Informações cadastradas com sucesso!');
+    {   
+        $flag = false;
+        foreach ($request->link as $key => $value){        
+            $rede = new RedeSocialCurriculo();           
+            $rede->curriculo_idcurriculo = Helper::getIdCurriculo();
+            $rede->redesocial_idredesocial = $request->redesocial_idredesocial[$key];
+            $rede->link = $request->link[$key];
+            if($rede->save())
+                $flag = true;                 
+        }
+        if($flag){
+            return redirect()->route('redessociais')
+                            ->with('success', 'Dados cadastrados com sucesso!');
         }else {
             return redirect()
                         ->back()
                         ->with('error', 'Falha ao gravar as informações!');
-        } 
+        }        
+
     }
 
     /**
@@ -83,8 +84,10 @@ class RedesocialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {        
+        $redes = RedeSocialCurriculo::where('curriculo_idcurriculo', $id)->get();
+        
+        return view('redesocial.edit', compact(['redes'], 'id'));
     }
 
     /**
@@ -95,8 +98,30 @@ class RedesocialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {               
+        $flag = true;
+        foreach ($request->link as $key => $value){     
+            $rede = RedeSocialCurriculo::where('curriculo_idcurriculo', $id)
+                                           ->where('redesocial_idredesocial', $request->redesocial_idredesocial[$key])->get()[0]; 
+            if(isset($rede)){   
+               
+                $rede->curriculo_idcurriculo = $id;
+                $rede->redesocial_idredesocial = $request->redesocial_idredesocial[$key];
+                $rede->link = $request->link[$key];
+                
+                if(!$rede->update())
+                    $flag = false; 
+            }                
+        }
+        if($flag){
+            return redirect()->route('redessociais')
+                            ->with('success', 'Dados cadastrados com sucesso!');
+        }else {
+            return redirect()
+                        ->back()
+                        ->with('error', 'Falha ao gravar as informações!');
+        }  
+        
     }
 
     /**
@@ -109,4 +134,5 @@ class RedesocialController extends Controller
     {
         //
     }
+
 }

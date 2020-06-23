@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class RedeSocialCurriculo extends Model
 {
@@ -15,4 +16,9 @@ class RedeSocialCurriculo extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+    protected function setKeysForSaveQuery(Builder $query)
+    {
+        return $query->where('redesocial_idredesocial', $this->getAttribute('redesocial_idredesocial'))
+            ->where('curriculo_idcurriculo', $this->getAttribute('curriculo_idcurriculo'));
+    }
 }

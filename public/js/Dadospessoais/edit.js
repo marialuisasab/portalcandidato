@@ -13,6 +13,16 @@ $(function () {
     });
 
 
+
+
+
+
+
+
+
+
+
+    // Selecionando opções de exibir ou não a carteira de motorista para cadastro
     var exem = document.getElementsByName('tenhocnh');
     var prev = null;
 
@@ -92,12 +102,122 @@ $(function () {
 
 
     $("#botaoeditar").mouseover(function () {
-        // window.document.getElementById("botaoeditar").style.background = "#32CD32";
-        // window.document.getElementById("botaoeditar").style.color = "#32CD32";
+
         // $("#botaoeditar").append("<div>Handler for .mouseover() called.</div>");
 
         // $("#botaoeditar").mouseout(function () {
         //     window.document.getElementById("botaoeditar").style.background = "#none";
         //     window.document.getElementById("botaoeditar").style.color = "#none";
     });
+});
+
+
+// $(document).ready(function ($) {
+
+//     $("#cpf").mask("000.000.000-00");
+//     $('#cpf').blur(function () {
+//         var id = $(this).attr("id");
+//         var val = $(this).val();
+//         var pattern = new RegExp(/[0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2}/);
+
+//         if (val.match(pattern) == null) {
+//             $("#" + id + "_error").html("Digite um CPF válido");
+//         }
+//     });
+// });
+
+
+
+// adicionando mascaras cpf
+$(document).ready(function ($) {
+
+    $('#cpf').mask('000.000.000-00', {
+        reverse: true
+    });
+
+    // Adicionando mascara para a RG
+    $('#rg').mask('AA-SS.PPP.TTT', {
+        'translation': {
+            A: {
+                pattern: /[A-Za-z]/
+            },
+            S: {
+                pattern: /[0-9]/
+            },
+            P: {
+                pattern: /[0-9]/
+            },
+            T: {
+                pattern: /[0-9]/
+            },
+
+        }
+    });
+
+
+    // Adicionando mascara para a CTPS
+    $("#ctps").mask('AAAAA', {
+        translation: {
+            A: {
+                pattern: /[0-9]/
+            },
+        }
+    });
+
+
+    // Adicionando mascara para a presenção salarial
+    $("#pretsalarial").mask("###0,00", {
+        reverse: true
+    });
+
+
+    // adicionando mascaras para telefone
+    // var campotelefone = document.querySelector("#telefone1");
+
+    // campotelefone.addEventListener("input", function () {
+
+    //     var valor = this.value;
+    //     var valor1 = valor.length;
+
+    //     console.log(this.value);
+    //     var SPMaskBehavior = function (valor1) {
+    //             return val.replace(/\D/g, '').length === 11 ? '(00) 90000-0000' : '(00) 9000-0000';
+    //         },
+    //         spOptions = {
+    //             onKeyPress: function (val, e, field, options) {
+    //                 field.mask(SPMaskBehavior.apply({}, arguments), options);
+    //             }
+    //         };
+    // });
+
+
+
+    // adicionando mascara para o telefone 1
+    $("#telefone1").mask('(00)N0000-0000', {
+        translation: {
+            N: {
+                pattern: /[9-9]/,
+                optional: false
+            },
+
+        }
+    });
+
+    // adicionando mascara para o telefone 2
+    $("#telefone2").mask('(00)90000-0000', {
+        translation: {
+            // N: {
+            //     pattern: /[9-9]/
+            // },
+
+        }
+    });
+
+    // adicionando mascara para o numero da CNH
+    $("#cnh").mask('00000000000', {
+        translation: {
+
+        }
+    });
+
 });

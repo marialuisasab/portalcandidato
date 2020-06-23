@@ -5,6 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
+<script src="/jquerymask/jquerymasky.js"></script>
 <script src="/js/Dadospessoais/edit.js"></script>
 
 
@@ -64,23 +65,22 @@
 									</h2>
 								</div>
 
-								<div class="col-xs-7 col-md-6" style="margin-top: 5px; margin-right: auto;">
-									<button class=" btn btn-link" style="colo:dodgerblue;" id="botaoeditar">
-										<a style="color:dodgerblue;"
-											href="/curriculo/editar/{{Auth::user()->id}}"><strong><span
-													class="fa fa-edit"
-													style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+								<div class="col-xs-7 col-md-6"
+									style="margin-top: 5px; margin-right: auto; text-align:end; margin-top:7px;">
+									<button class=" btn btn-primary" id="botaoeditar">
+										<a style="color: white;"
+											href="/curriculo/editar/{{Auth::user()->id}}">Editar<span class="fa fa-edit"
+												style="padding-left: 15px;"></span></a>
 									</button>
 
-									<button class=" btn btn-link" style="color: gray;">
-										<a style="color: gray;" href="/home"><strong><span class="fas fa-undo"
-													style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
+									<button class=" btn btn-success">
+										<a style=" color: white;" href="/endereco">Proximo<span class="fas fa-forward"
+												style="padding-left: 15px;"></span>
+										</a>
 									</button>
-
-									<button class=" btn btn-link" style="color: green;">
-										<a style=" color: green;" href="/endereco"><strong><span class="fas fa-forward"
-													style="font-size: 25px; text-align: center;">Proximo</span>
-											</strong></a>
+									<button class=" btn btn-secondary" type="cancel">
+										<a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
+												style="padding-left: 15px;"></span></a>
 									</button>
 								</div>
 							</div>
@@ -100,7 +100,7 @@
 										alt="{{Auth::user()->name}}" style="max-width: 120px; border-radius: 50%;">
 								</h2>
 								@else
-								<h2> <img class="profile-user-img img-responsive img-circle" src=""
+								<h2> <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"
 										alt="Usuário sem foto" style="color: red;">
 								</h2>
 								<p></p>
@@ -121,6 +121,16 @@
 
 								<li><strong> CARTEIRA DE IDENTIFICAÇÃO(RG):&nbsp;&nbsp;&nbsp;</strong>
 									{{$candDados->rg}}</li>
+								<hr>
+
+								@if ($candDados->ctps!= null)
+								<li><strong> CARTEIRA DE TRABALHO(CTPS):&nbsp;&nbsp;&nbsp;</strong>
+									{{$candDados->ctps}}</li>
+								@else
+								<li><strong> CARTEIRA DE TRABALHO(CTPS):&nbsp;&nbsp;&nbsp;</strong>
+									<span style="color: red;"> Não Informado</span></li>
+								@endif
+
 								<hr>
 
 
@@ -217,9 +227,13 @@
 								<hr>
 
 
+
+
 								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
-									R${{$candDados->pretsalarial}},00</li>
+									{{Helper::getPretensao($candDados->pretsalarial)}},00</li>
 								<hr>
+
+
 
 
 								@if($candDados->nomemae != null)

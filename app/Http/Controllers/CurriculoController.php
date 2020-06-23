@@ -230,8 +230,8 @@ class CurriculoController extends Controller
 
         $regras = [
             'nome'=>'required|string|max:100',
-            'cpf' =>'required|size:11',
-            'rg' => 'required|max:10',
+            'cpf' =>'required|size:14',
+            'rg' => 'required|max:13',
             'pretsalarial' => 'required',
             'dtnascimento' => 'required',
             'genero' => 'required',
@@ -243,7 +243,7 @@ class CurriculoController extends Controller
             'estadocivil' => 'required',
         ];
         if ($method == 'store') {
-            $regras['cpf'] = 'required|size:11|unique:curriculo';
+            $regras['cpf'] = 'required|size:14|unique:curriculo';
         }
 
         $mensagens = [

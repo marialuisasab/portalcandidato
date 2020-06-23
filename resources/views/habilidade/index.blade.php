@@ -49,22 +49,23 @@
                 <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
 
-                  <button class=" btn btn-link">
-                    <a href="{{route('habilidade.novo')}}" style="color: dodgerblue;"><strong><span class="fa fa-plus"
-                          style="font-size: 25px; text-align: center;">Adicionar</span> </strong></a>
+                  <button class=" btn btn-primary">
+                    <a href="{{route('habilidade.novo')}}" style="color: white;">Adicionar<span class="fa fa-plus"
+                        style="padding-left:15px;"></span> </a>
+                  </button>
+
+                  <button class=" btn btn-success">
+                    <a style=" color: white;" href="#">Proximo
+                      <span class="fas fa-forward" style="padding-left:15px;"></span>
+                    </a>
+                  </button>
+
+                  <button class=" btn btn-secondary">
+                    <a style="color: white;" href="/experiencias">Voltar<span class="fas fa-undo"
+                        style="padding-left:15px;"></span></a>
                   </button>
 
 
-                  <button class=" btn btn-link" style="color: gray;">
-                    <a style="color: gray;" href="/habilidades"><strong><span class="fas fa-undo"
-                          style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
-                  </button>
-
-                  <button class=" btn btn-link" style="color: green;">
-                    <a style=" color: green;" href="#"><strong><span class="fas fa-forward"
-                          style="font-size: 25px; text-align: center;">Proximo</span>
-                      </strong></a>
-                  </button>
 
                 </div>
               </div>
@@ -85,17 +86,15 @@
                 <div class="row" style="margin-top: 25px; text-align:center;">
                   <div class="col-sm">
 
-                    <button class=" btn btn-link">
-                      <a style="color:dodgerblue;" href="/habilidade/editar/{{$i->idhabilidade}}">
-                        <strong><span class="fa fa-edit"
-                            style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+                    <button class=" btn btn-primary">
+                      <a style="color:white;" href="/habilidade/editar/{{$i->idhabilidade}}">Editar
+                        <span class="fa fa-edit" style="padding-left:15px;"></span></a>
                     </button>
 
 
-                    <button class=" btn btn-link" style="color:red;" name="botaoexcluirhabil"
-                      value="{{$i->idhabilidade}}">
-                      <a style=" color:red;"><span class=" fa fa-trash-alt"
-                          style="font-size: 25px; text-align: center;">Excluir</span> </a>
+                    <button class=" btn btn-danger" name="botaoexcluirhabil" value="{{$i->idhabilidade}}">
+                      <a style=" color:white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
+                      </a>
                     </button>
                   </div>
                 </div>
@@ -104,7 +103,7 @@
                   <div class="col-sm">
                     <ul></ul>
                     <ul style="list-style-type: none; margin-right: auto;">
-                      <li><strong> IDIOMAS:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getTipoHab($i->tipo_idtipo)}}
+                      <li><strong> CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getTipoHab($i->tipo_idtipo)}}
                       </li>
                       <hr>
                       <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>{{$i->nome}}</li>

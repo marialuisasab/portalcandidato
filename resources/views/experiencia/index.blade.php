@@ -53,21 +53,21 @@
 
                 <div class="col-xs-8 col-md-8" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
-                  <button class=" btn btn-link">
-                    <a href="/experiencia/novo" style="color: dodgerblue;"><strong><span class="fa fa-plus"
-                          style="font-size: 25px; text-align: center;">Adicionar</span> </strong></a>
+                  <button class=" btn btn-primary">
+                    <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
+                        style="padding-left: 15px;"></span> </a>
+                  </button>
+                  <button class=" btn btn-success">
+                    <a style=" color: white;" href="/habilidades">Proximo<span class="fas fa-forward"
+                        style="padding-left:15px;"></span>
+                    </a>
+                  </button>
+                  <button class=" btn btn-secondary">
+                    <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
+                        style="padding-left: 15px;"></span></a>
                   </button>
 
-                  <button class=" btn btn-link" style="color: gray;">
-                    <a style="color: gray;" href="/cursos"><strong><span class="fas fa-undo"
-                          style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
-                  </button>
 
-                  <button class=" btn btn-link" style="color: green;">
-                    <a style=" color: green;" href="/cursos"><strong><span class="fas fa-forward"
-                          style="font-size: 25px; text-align: center;">Proximo</span>
-                      </strong></a>
-                  </button>
                 </div>
               </div>
             </div>
@@ -87,16 +87,15 @@
                 <div class="row" style="margin-top: 25px; text-align:center;">
                   <div class="col-sm">
 
-                    <button class=" btn btn-link">
-                      <a style="color:dodgerblue;" href="/experiencia/editar/{{$e->idexperiencia}}">
-                        <strong><span class="fa fa-edit"
-                            style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+                    <button class=" btn btn-primary">
+                      <a style="color:white;" href="/experiencia/editar/{{$e->idexperiencia}}">Editar
+                        <span class="fa fa-edit" style="padding-left: 15px;"></span></a>
                     </button>
 
 
-                    <button class=" btn btn-link" style="color:red;" name="botaoexcluir" value="{{$e->idexperiencia}}">
-                      <a style="color:red;"><span class=" fa fa-trash-alt"
-                          style="font-size: 25px; text-align: center;">Excluir</span> </a>
+                    <button class=" btn btn-danger" name="botaoexcluir" value="{{$e->idexperiencia}}">
+                      <a style="color: white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
+                      </a>
                     </button>
 
 
@@ -119,13 +118,13 @@
                       <hr>
 
 
-                      <li><strong> DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong> {{Helper::setData($e->dtinicio)}}
+                      <li><strong> DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getData($e->dtinicio)}}
                       </li>
                       <hr>
 
 
                       @if ($e->dtfim != null)
-                      <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::setData($e->dtfim)}}</li>
+                      <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($e->dtfim)}}</li>
                       @else
                       <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong> <span style="color:red;"> Trabalho nesta
                           empresa atualmente!</span></li>

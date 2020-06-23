@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-<script src="/js/Dadospessoais/edit.js"></script>
+
 <script src="/js/formacao/formacao.js"></script>
 
 
@@ -50,9 +50,9 @@
 
 
                 <div class="col-xs-6 col-md-5" style="margin-left: auto; text-align:end; margin-top: 25px;">
-                  <button class=" btn btn-link" style="color: gray;">
-                    <a style="color: gray;" href="/cursos"><strong><span class="fas fa-undo"
-                          style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
+                  <button class=" btn btn-secondary" type="button">
+                    <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
+                        style="padding-left: 15px;"></span></a>
                   </button>
 
                 </div>
@@ -171,8 +171,8 @@
 
                   <div class="form-group">
                     <li><strong>DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                      <input type="text" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
-                        value="{{Helper::getData($curso->dtinicio)}}">
+                      <input type="date" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
+                        value="{{$curso->dtinicio}}">
                     </li>
                   </div>
 
@@ -208,8 +208,8 @@
                   @else
                   <div class="form-group" id="dataconclu">
                     <li><strong>DATA DA CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                      <input type="text" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
-                        value="{{Helper::getData($curso->dtfim)}}">
+                      <input type="date" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
+                        value="{{$curso->dtfim}}">
                     </li>
                   </div>
                   @endif
@@ -248,12 +248,12 @@
                   @endif
 
                   <br>
-                  <div class="btn-group " role="group" aria-label="">
-                    <button type="submit" class="btn btn-link" id="botaosalvarend"
-                      style="color: dodgerblue; font-size:25px;"><span class="fas fa-save">Salvar</button>
-                    <button class=" btn btn-link" style="color:red;" type="cancel">
-                      <a href="cancel" style="color: red;"><span class="fas fa-window-close"
-                          style="font-size: 25px; text-align: center;">Cancelar</span></a>
+                  <div class="form-group " style="text-align: end;">
+                    <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                        style="padding-left: 15px;"></button>
+                    <button class=" btn btn-danger" style="color:red;" type="cancel">
+                      <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                          style="padding-left: 15px;"></span></a>
                     </button>
                 </form>
               </ul>

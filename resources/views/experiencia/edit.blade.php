@@ -48,10 +48,10 @@
                   </div>
 
 
-                  <div class="col-xs-7 col-md-2" style="margin-left: auto;">
-                    <button class=" btn btn-link" style="color:GRAY; margin-top: 7px; margin-left: auto;" type="cancel">
-                      <a href="/experiencias" style="color:gray;"><span class="fas fa-undo"
-                          style="font-size: 25px; text-align: center;">Voltar</span></a>
+                  <div class="col-xs-7 col-md-2" style="margin-left: auto; margin-top: 25px;">
+                    <button class=" btn btn-secondary" type="cancel">
+                      <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
+                          style="padding-left: 15px;"></span></a>
                     </button>
                   </div>
 
@@ -81,8 +81,8 @@
 
                     <div class="form-group">
                       <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="text" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
-                          name="dtinicio" value="{{Helper::getData($exp->dtinicio)}}">
+                        <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
+                          name="dtinicio" value="{{$exp->dtinicio}}">
                         @if($errors->has('dtinicio'))
                         <div class="invalid-feedback">
                           {{$errors->first('dtinicio')}}
@@ -119,7 +119,7 @@
                     @else
                     <div class="form-group" id="datatermino">
                       <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="text" class="form-control" name="dtfim" value="{{Helper::getData($exp->dtfim)}}">
+                        <input type="date" class="form-control" name="dtfim" value="{{$exp->dtfim}}">
                       </li>
                     </div>
                     @endif
@@ -151,11 +151,11 @@
 
                     <br>
                     <div class="form-group" style="text-align: end;">
-                      <button type="submit" class="btn btn-link" id="botaosalvarend"
-                        style="color: dodgerblue; font-size:25px;"><span class="fas fa-save">Salvar</button>
-                      <button class=" btn btn-link" style="color:red;" type="cancel">
-                        <a href="cancel" style="color: red;"><span class="fas fa-window-close"
-                            style="font-size: 25px; text-align: center;">Cancelar</span></a>
+                      <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                          style="padding-left: 15px;"></button>
+                      <button class=" btn btn-danger" style="color:red;" type="cancel">
+                        <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                            style="padding-left: 15px;"></span></a>
                       </button>
                     </div>
 

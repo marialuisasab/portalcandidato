@@ -1,3 +1,7 @@
+// const {
+//     ready
+// } = require("jquery");
+
 $(function () {
 
     // window.document.getElementById("genero").style.background = "#32CD32";
@@ -15,12 +19,6 @@ $(function () {
 
         // window.document.getElementById('#collapseOne').addClass('collapse');
         // document.location.reload(true);
-
-
-
-
-
-
     });
 
 
@@ -43,7 +41,25 @@ $(function () {
     });
 
 
+});
 
 
+$(document).ready(function ($) {
+
+    $("#cep").mask('00000-000', {
+        translation: {
+
+        }
+    });
+
+    $("#numero").mask('9N#', {
+        translation: {
+            N: {
+                pattern: /[\d]/
+            },
+
+
+        }
+    });
 
 });

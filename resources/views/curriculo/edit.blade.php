@@ -5,7 +5,10 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/js/Dadospessoais/edit.js"></script>
+<script src="/jquerymask/jquerymasky.js"></script>
 {{-- <script src="/js/Dadospessoais/edit.js"></script> --}}
+
+
 
 
 @section('content')
@@ -49,10 +52,9 @@
 											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
 									<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 									</button> --}}
-									<button class=" btn btn-link"
-										style="color:GRAY; margin-top: 7px; margin-left: auto;" type="cancel">
-										<a href="/curriculo" style="color:gray;"><span class="fas fa-undo"
-												style="font-size: 25px; text-align: center;">Voltar</span></a>
+									<button class=" btn btn-secondary" type="cancel" style="margin-top: 10px;">
+										<a href="/curriculo" style="color: white;">Voltar<span class="fas fa-undo"
+												style="padding-left: 15px;"></span></a>
 									</button>
 								</div>
 
@@ -228,9 +230,29 @@
 								</select> </li>
 						</div>
 
-
-
+						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group">
+							<li><strong>POSSUI CNH!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+								<div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
+									<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
+										value="1">
+									Sim&nbsp;&nbsp;&nbsp;
+									{{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
+
+
+									<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
+										value="2"> Não
+									{{-- <label class="form-check-label">Não</label> --}}
+								</div>
+							</li>
+						</div>
+						@else
+
+						@endif
+
+
+						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+						<div class="form-group" style="display: none;" id="selcatcnh">
 							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
 									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
@@ -241,12 +263,25 @@
 									<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
 								</select></li>
 						</div>
+						@else
+						<div class="form-group" id="selcatcnh">
+							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
+									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
+									<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
+									<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
+									<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
+									<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
+									<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
+								</select></li>
+						</div>
+						@endif
 
 
-						<div class="form-group">
+
+						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+						<div class="form-group" style="display: none;" id="seleorigcnh">
 							<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
-
-
 								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
 									<option value="">Selecionar:</option>
 									@foreach(Helper::getEstados() as $est)
@@ -259,14 +294,42 @@
 									value="{{$c->ufcnh}}"> --}}
 							</li>
 						</div>
+						@else
+						<div class="form-group" id="seleorigcnh">
+							<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
+									<option value="">Selecionar:</option>
+									@foreach(Helper::getEstados() as $est)
+									<option value="{{$est->idestado}}"
+										{{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
+										{{ $est->nome }}</option>
+									@endforeach
+								</select>
+								{{-- <input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"
+															value="{{$c->ufcnh}}"> --}}
+							</li>
+						</div>
+
+						@endif
 
 
-						<div class="form-group">
+
+						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+						<div class="form-group" style="display: none;" id="numcnh">
+							<li><strong> NUMERO DA CNH :&"nbsp;&nbsp;&nbsp;</strong><span> </span>
+								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
+									value="{{$c->cnh}}">
+							</li>
+						</div>
+						@else
+						<div class="form-group" id="numcnh">
 							<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
 									value="{{$c->cnh}}">
 							</li>
 						</div>
+						@endif
+
 
 
 						<div class="form-group">
@@ -301,11 +364,11 @@
 						<br>
 
 						<div class="form-group" style="text-align: end;">
-							<button type="submit" class="btn btn-link" id="botaosalvarend"
-								style="color: dodgerblue; font-size:25px;"><span class="fas fa-save">Salvar</button>
-							<button class=" btn btn-link" style="color:red;" type="cancel">
-								<a href="cancel" style="color: red;"><span class="fas fa-window-close"
-										style="font-size: 25px; text-align: center;">Cancelar</span></a>
+							<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
+									class="fas fa-save" style="padding-left: 15px;"></button>
+							<button class=" btn btn-danger" style="color:red;" type="cancel">
+								<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+										style="padding-left: 15px;"></span></a>
 							</button>
 						</div>
 						</form>

@@ -3,7 +3,11 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>
+<script src="/jquerymask/jquerymasky.js"></script>
+{{-- 
+<script src="vendor/jquery/jquery.js"></script> --}}
 <script src="/js/dadospessoais/edit.js"></script>
+
 
 @section('content')
 
@@ -42,12 +46,9 @@
                                 <div class="col-xs-7 col-md-2" style="margin-left: auto; margin-top:7px;">
                                     <div class="btn-group " role="group" aria-label="">
 
-                                        <button class=" btn btn-link" style="color:GRAY; margin-left: auto;"
-                                            type="cancel">
-                                            <a href="/home" style="color:gray;"><span class="fas fa-undo"
-                                                    style="font-size: 25px; text-align: center;">Voltar</span></a>
-
-
+                                        <button class=" btn btn-secondary" type="button">
+                                            <a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
+                                                    style="padding-left: 15px;"></span></a>
                                         </button>
                                     </div>
                                 </div>
@@ -362,12 +363,16 @@
                         @endif
                         <br>
                         <div class="form-group" style="text-align: end;">
-                            <button type="submit" class="btn btn-link" id="botaosalvarend"
-                                style="color: dodgerblue; font-size:25px;"><span class="fas fa-save">Salvar</button>
-                            <button class=" btn btn-link" style="color:red;" type="cancel">
+                            <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
+                                    class="fas fa-save" style="padding-left: 15px;"></button>
+                            <button class=" btn btn-danger" style="color:red;" type="cancel">
+                                <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                                        style="padding-left: 15px;"></span></a>
+                            </button>
+                            {{-- <button class=" btn btn-link" style="color:red;" type="cancel">
                                 <a href="cancel" style="color: red;"><span class="fas fa-window-close"
                                         style="font-size: 25px; text-align: center;">Cancelar</span></a>
-                            </button>
+                            </button> --}}
                         </div>
                         </form>
                         </ul>

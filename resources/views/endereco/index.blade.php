@@ -2,9 +2,11 @@
 
 
 
-{{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
+<script src="/jquerymask/jquerymasky.js"></script>
+{{-- 
 <script src="/js/Endereco/endereco.js"></script> --}}
 
 @section('content')
@@ -43,23 +45,23 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-6" style="margin-top: 7px; margin-left: auto;">
-									<button class=" btn btn-link">
-										<a style="color:dodgerblue;" href="/endereco/editar/{{Auth::user()->id}}">
-											<strong><span class="fa fa-edit"
-													style="font-size: 25px; text-align: center;">Editar</span></strong></a>
+								<div class="col-xs-8 col-md-6"
+									style="margin-top: 7px; margin-left: auto; text-align: end;">
+									<button class=" btn btn-primary">
+										<a style="color:white;" href="/endereco/editar/{{Auth::user()->id}}">Editar
+											<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
+									</button>
+									<button class=" btn btn-success">
+										<a style=" color: white;" href="/cursos">Proximo<span class="fas fa-forward"
+												style="padding-left: 15px;"></span>
+										</a>
+									</button>
+									<button class=" btn btn-secondary" style="">
+										<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
+												style="padding-left: 15px;;"></span></a>
 									</button>
 
-									<button class=" btn btn-link" style="color: gray;">
-										<a style="color: gray;" href="/curriculo"><strong><span class="fas fa-undo"
-													style="font-size: 25px; text-align: center;">Voltar</span></strong></a>
-									</button>
 
-									<button class=" btn btn-link" style="color: green;">
-										<a style=" color: green;" href="/cursos"><strong><span class="fas fa-forward"
-													style="font-size: 25px; text-align: center;">Proximo</span>
-											</strong></a>
-									</button>
 
 
 

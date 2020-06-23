@@ -40,7 +40,7 @@
                 </div>
 
 
-                <div class="col-xs-4 col-md-4" style="margin-left: auto;">
+                <div class="col-xs-4 col-md-4" style="margin-left: auto; text-align: end; margin-top: 10px;">
                   <div class="btn-group " role="group" aria-label="">
                     {{-- <button class=" btn btn-link">
 											<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
@@ -48,10 +48,9 @@
 
                     </button> --}}
 
-                    <button class=" btn btn-link" style="color:GRAY; margin-top: 10px; margin-left: auto;"
-                      type="cancel">
-                      <a href="/experiencias" style="color:gray;"><span class="fas fa-undo"
-                          style="font-size: 25px; text-align: center;">Voltar</span></a>
+                    <button class=" btn btn-secondary" type="button">
+                      <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
+                          style="padding-left: 15px;"></span></a>
                     </button>
                   </div>
                 </div>
@@ -113,11 +112,11 @@
 
                   <br>
                   <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-link" style="color: dodgerblue; font-size:25px;"><span
-                        class="fas fa-save">Salvar</button>
-                    <button class=" btn btn-link" style="color:red;" type="cancel">
-                      <a href="cancel" style="color: red;"><span class="fas fa-window-close"
-                          style="font-size: 25px; text-align: center;">Cancelar</span></a>
+                    <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                        style="padding-left: 15px;"></button>
+                    <button class=" btn btn-danger" style="color:red;" type="cancel">
+                      <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                          style="padding-left: 15px;"></span></a>
                     </button>
                   </div>
                 </form>

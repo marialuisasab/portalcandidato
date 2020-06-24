@@ -73,7 +73,7 @@
                   <div class="form-group">
                     <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="tipo" name="tipo_idtipo">
-                        <option value="">Selecione</option>
+                        <option value="">Selecionar</option>
                         @foreach(Helper::getTiposHab() as $tp)
                         <option value="{{$tp->idtipo}}" {{$hab->tipo_idtipo == $tp->idtipo ? 'selected' : '' }}>
                           {{$tp->nome}}</option>

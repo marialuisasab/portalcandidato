@@ -74,8 +74,13 @@
 
                   <div class="form-group">
                     <li><strong> DESCRIÇÃO DO CURSO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="text" class="form-control" name="nome" id="nome"
-                        placeholder="Informe a descrição ou nome do curso" value="{{$curso->nome}}">
+                      <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" name="nome"
+                        id="nome" placeholder="Informe a descrição ou nome do curso" value="{{$curso->nome}}">
+                      @if($errors->has('nome'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('nome')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
 
@@ -171,8 +176,13 @@
 
                   <div class="form-group">
                     <li><strong>DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                      <input type="date" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
-                        value="{{$curso->dtinicio}}">
+                      <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
+                        name="dtinicio" placeholder="Ex.: 01/01/2010" value="{{$curso->dtinicio}}">
+                      @if($errors->has('dtinicio'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('dtinicio')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
 

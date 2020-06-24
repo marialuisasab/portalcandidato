@@ -68,6 +68,8 @@ Route::post('/redesocial/{id}', 'RedesocialController@update');
 Route::post('/redesocial', 'RedesocialController@store');
 Route::get('/redesocial/excluir/{id}', 'RedesocialController@destroy')->name('redesocial.excluir');
 
+Route::get('/emailsuporte', 'EmailsuporteController@index')->name('contatosuporte');
+Route::post('/emailsuporte/enviar', 'EmailsuporteController@enviar')->name('enviaremail');
 
 
 

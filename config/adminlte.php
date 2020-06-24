@@ -314,7 +314,7 @@ return [
       [
           'text'=>'Suporte Tecnico',
           'icon'=>'fas fa-fw fa-headset',
-          'url'=>'',
+          'url'=>'/emailsuporte',
       ],
      ],
 

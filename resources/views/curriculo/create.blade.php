@@ -85,8 +85,13 @@
 
                         <div class="form-group">
                             <li><strong> CPF:*&nbsp;&nbsp;&nbsp;</strong>
-                                <input type="text" class="form-control" maxlength="11" name="cpf" id="cpf"
-                                    placeholder="CPF">
+                                <input type="text" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}"
+                                    maxlength="11" name="cpf" id="cpf" placeholder="CPF">
+                                @if($errors->has('cpf'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('cpf')}}
+                                </div>
+                                @endif
                             </li>
                         </div>
 
@@ -95,8 +100,13 @@
 
                         <div class="form-group">
                             <li><strong> RG:*&nbsp;&nbsp;&nbsp;</strong>
-                                <input type="text" class="form-control" maxlength="11" name="rg" id="rg"
-                                    placeholder="RG">
+                                <input type="text" class="form-control {{$errors->has('rg') ? 'is-invalid' : ''}}"
+                                    maxlength="11" name="rg" id="rg" placeholder="RG">
+                                @if($errors->has('rg'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('rg')}}
+                                </div>
+                                @endif
                             </li>
                         </div>
 
@@ -117,8 +127,14 @@
 
                         <div class="form-group">
                             <li><strong>PRETENÇÃO SALARIAL:*&nbsp;&nbsp;&nbsp;</strong>
-                                <input type="text" class="form-control" placeholder="Ex.:9999,99" name="pretsalarial"
-                                    id="pretsalarial"></li>
+                                <input type="text"
+                                    class="form-control {{$errors->has('pretsalarial') ? 'is-invalid' : ''}}"
+                                    placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial">
+                                @if($errors->has('pretsalarial'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('pretsalarial')}}
+                                </div>
+                                @endif</li>
 
                         </div>
 
@@ -129,10 +145,17 @@
 
                         <div class="form-group">
                             <li><strong>DATA DE NASCIMENTO:*&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
-                                <input type="date" class="form-control" placeholder="Ex.: dd/mm/aaaa"
-                                    name="dtnascimento" id="dtnascimento">
+                                <input type="date"
+                                    class="form-control {{$errors->has('dtnascimento') ? 'is-invalid' : ''}}"
+                                    placeholder="Ex.: dd/mm/aaaa" name="dtnascimento" id="dtnascimento">
+                                @if($errors->has('dtnascimento'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('dtnascimento')}}
+                                </div>
+                                @endif
+                            </li>
                         </div>
-                        </li>
+
 
 
 
@@ -157,8 +180,13 @@
 
                         <div class="form-group">
                             <li style=""><strong> NOME DA MÃE:*&nbsp;&nbsp;&nbsp;</strong>
-                                <input type="text" class="form-control" name="nomemae" id="nomemae"
-                                    placeholder="Nome da mãe"></li>
+                                <input type="text" class="form-control {{$errors->has('nomemae') ? 'is-invalid' : ''}}"
+                                    name="nomemae" id="nomemae" placeholder="Nome da mãe">
+                                @if($errors->has('nomemae'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('nomemae')}}
+                                </div>
+                                @endif</li>
                         </div>
 
 
@@ -232,8 +260,15 @@
 
                         <div class="form-group">
                             <li><strong> TELEFONE 1*: &nbsp;&nbsp;&nbsp;</strong>
-                                <input type="text" class="form-control" name="telefone1" id="telefone1"
-                                    placeholder="Telefone 1"> </li>
+                                <input type="text"
+                                    class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
+                                    name="telefone1" id="telefone1" placeholder="Telefone 1">
+                                @if($errors->has('telefone1'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('telefone1')}}
+                                </div>
+                                @endif
+                            </li>
                         </div>
 
 
@@ -352,37 +387,37 @@
                             </li>
 
                         </div>
-                        @if($errors->any())
+                        {{-- @if($errors->any())
                         <div class="card-footer">
                             @foreach($errors->all() as $error)
                             <div class="alert alert-danger" role="alert">
                                 {{$error}}
-                            </div>
-                            @endforeach
-                        </div>
-                        @endif
-                        <br>
-                        <div class="form-group" style="text-align: end;">
-                            <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
-                                    class="fas fa-save" style="padding-left: 15px;"></button>
-                            <button class=" btn btn-danger" style="color:red;" type="cancel">
-                                <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
-                                        style="padding-left: 15px;"></span></a>
-                            </button>
-                            {{-- <button class=" btn btn-link" style="color:red;" type="cancel">
+                    </div>
+                    @endforeach
+                </div>
+                @endif --}}
+                <br>
+                <div class="form-group" style="text-align: end;">
+                    <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                            style="padding-left: 15px;"></button>
+                    <button class=" btn btn-danger" style="color:red;" type="cancel">
+                        <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                                style="padding-left: 15px;"></span></a>
+                    </button>
+                    {{-- <button class=" btn btn-link" style="color:red;" type="cancel">
                                 <a href="cancel" style="color: red;"><span class="fas fa-window-close"
                                         style="font-size: 25px; text-align: center;">Cancelar</span></a>
                             </button> --}}
-                        </div>
-                        </form>
-                        </ul>
-                    </div>
                 </div>
-
+                </form>
+                </ul>
             </div>
         </div>
+
     </div>
-    <div class="col-xs1 col-md-1"></div>
+</div>
+</div>
+<div class="col-xs1 col-md-1"></div>
 
 </div>
 </div>

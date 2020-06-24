@@ -149,7 +149,13 @@
 
                   <div class="form-group">
                     <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="date" class="form-control" name="dtinicio" placeholder=""></li>
+                      <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
+                        name="dtinicio" placeholder="">
+                      @if($errors->has('dtinicio'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('dtinicio')}}
+                      </div>
+                      @endif</li>
                   </div>
 
                   <div class="form-group">
@@ -167,7 +173,8 @@
 
                   <div class="form-group" style="display: none;" id="dataconclu">
                     <li style=""><strong> DATA DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="date" class="form-control" name="dtfim" placeholder=""> </li>
+                      <input type="date" class="form-control" name="dtfim" placeholder="">
+                    </li>
                   </div>
 
                   {{-- <div class="form-group" style="display: none;" id="previconcl">
@@ -189,35 +196,35 @@
                     </li>
                   </div>
 
-                  @if($errors->any())
+                  {{-- @if($errors->any())
                   <div class="card-footer">
                     @foreach($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                       {{$error}}
-                    </div>
-                    @endforeach
-                  </div>
-                  @endif
-
-                  <br>
-                  <div class="form-group " style=" text-align: end;">
-                    <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-                        style="padding-left: 15px;"></button>
-                    <button class=" btn btn-danger" style="color:red;" type="cancel">
-                      <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
-                          style="padding-left: 15px;"></span></a>
-                    </button>
-                  </div>
-              </ul>
             </div>
+            @endforeach
           </div>
+          @endif --}}
 
+          <br>
+          <div class="form-group " style=" text-align: end;">
+            <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                style="padding-left: 15px;"></button>
+            <button class=" btn btn-danger" style="color:red;" type="cancel">
+              <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                  style="padding-left: 15px;"></span></a>
+            </button>
+          </div>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="col-xs1 col-md-1"></div>
 
+    </div>
   </div>
+</div>
+<div class="col-xs1 col-md-1"></div>
+
+</div>
 </div>
 {{-- <script type="text/javascript" src="{{asset('js/app.js')}}"></script> --}}
 

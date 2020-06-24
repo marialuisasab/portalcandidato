@@ -78,8 +78,14 @@
 
 									<div class="form-group">
 										<li><strong> CEP*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control" name="cep" id="cep"
-												placeholder="Informe o seu CEP">
+											<input type="text"
+												class="form-control {{ $errors->has('cep') ? 'is-invalid' : ''}}"
+												name="cep" id="cep" placeholder="Informe o seu CEP">
+											@if($errors->has('cep'))
+											<div class="invalid-feedback">
+												{{$errors->first('cep')}}
+											</div>
+											@endif
 										</li>
 									</div>
 
@@ -88,8 +94,15 @@
 
 									<div class="form-group">
 										<li><strong> LOGRADOURO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control" name="logradouro" id="logradouro"
+											<input type="text"
+												class="form-control {{$errors->has('logradouro') ? 'is-invalid' : ''}}"
+												name="logradouro" id="logradouro"
 												placeholder="Ex.: Rua/Praça/ Ladeira ...">
+											@if($errors->has('logradouro'))
+											<div class="invalid-feedback">
+												{{$errors->first('logradouro')}}
+											</div>
+											@endif
 										</li>
 									</div>
 
@@ -99,8 +112,14 @@
 
 									<div class="form-group">
 										<li><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control" name="bairro" id="bairro"
-												placeholder="Informe o seu bairro">
+											<input type="text"
+												class="form-control {{$errors->has('bairro') ? 'is-invalid' : ''}}"
+												name="bairro" id="bairro" placeholder="Informe o seu bairro">
+											@if($errors->has('bairro'))
+											<div class="invalid-feedback">
+												{{$errors->first('bairro')}}
+											</div>
+											@endif
 										</li>
 									</div>
 
@@ -109,8 +128,14 @@
 
 									<div class="form-group">
 										<li><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control" name="numero" id="numero"
-												placeholder="numero">
+											<input type="text"
+												class="form-control {{$errors->has('numero') ? 'is-invalid' : ''}}"
+												name="numero" id="numero" placeholder="numero">
+											@if($errors->has('numero'))
+											<div class="invalid-feedback">
+												{{$errors->first('numero')}}
+											</div>
+											@endif
 										</li>
 									</div>
 
@@ -131,7 +156,8 @@
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}">{{ $est->uf }}</option>
 												@endforeach
-											</select></li>
+											</select>
+										</li>
 									</div>
 									{{-- </form> --}}
 
@@ -183,36 +209,36 @@
 										</li>
 									</div>
 
-									@if($errors->any())
+									{{-- @if($errors->any())
 									<div class="card-footer">
 										@foreach($errors->all() as $error)
 										<div class="alert alert-danger" role="alert">
 											{{$error}}
-										</div>
-										@endforeach
-									</div>
-									@endif
-
-									<br>
-									<div class="form-group" style="text-align: end;">
-										<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
-												class="fas fa-save" style="padding-left: 15px;"></button>
-										<button class=" btn btn-danger" style="color:red;" type="cancel">
-											<a href="cancel" style="color: white;">Cancelar<span
-													class="fas fa-window-close" style="padding-left: 15px;"></span></a>
-										</button>
-									</div>
-								</form>
-							</ul>
 						</div>
+						@endforeach
 					</div>
+					@endif --}}
 
+					<br>
+					<div class="form-group" style="text-align: end;">
+						<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
+								class="fas fa-save" style="padding-left: 15px;"></button>
+						<button class=" btn btn-danger" style="color:red;" type="cancel">
+							<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+									style="padding-left: 15px;"></span></a>
+						</button>
+					</div>
+					</form>
+					</ul>
 				</div>
 			</div>
-		</div>
-		<div class="col-xs1 col-md-1"></div>
 
+		</div>
 	</div>
+</div>
+<div class="col-xs1 col-md-1"></div>
+
+</div>
 </div>
 
 

@@ -353,7 +353,7 @@
 
 						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group" style="display: none;" id="numcnh">
-							<li><strong> NUMERO DA CNH :&"nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<li><strong> NUMERO DA CNH:&nbsp;&nbsp;</strong><span> </span>
 								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
 									value="{{$c->cnh}}">
 							</li>

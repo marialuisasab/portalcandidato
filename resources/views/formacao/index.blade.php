@@ -40,20 +40,21 @@
                   </h2>
                 </div>
                 <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
-                  <button class=" btn btn-primary">
-                    <a href="/curso/novo" style="color: white;">Adicionar<span class="fa fa-plus"
-                        style="padding-left:15px;"></span> </a>
-                  </button>
-                  <button class=" btn btn-success">
-                    <a style=" color: white;" href="/experiencias">Proximo<span class="fas fa-forward"
-                        style="padding-left:15px;"></span>
-                    </a>
-                  </button>
-                  <button class=" btn btn-secondary">
-                    <a style="color: white;" href="/endereco">Voltar<span class="fas fa-undo"
-                        style="padding-left:15px;"></span></a>
-                  </button>
-
+                  <ul>
+                    <button class=" btn btn-primary">
+                      <a href="/curso/novo" style="color: white;">Adicionar<span class="fa fa-plus"
+                          style="padding-left:15px;"></span> </a>
+                    </button>
+                    <button class=" btn btn-success">
+                      <a style=" color: white;" href="/experiencias">Proximo<span class="fas fa-forward"
+                          style="padding-left:15px;"></span>
+                      </a>
+                    </button>
+                    <button class=" btn btn-secondary">
+                      <a style="color: white;" href="/endereco">Voltar<span class="fas fa-undo"
+                          style="padding-left:15px;"></span></a>
+                    </button>
+                  </ul>
                 </div>
               </div>
             </div>

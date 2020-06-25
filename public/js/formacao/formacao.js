@@ -88,7 +88,7 @@ $(function () {
     for (var i = 0; i < excluir_formacao.length; i++) {
         excluir_formacao[i].addEventListener('click', function () {
 
-            var valor = confirm("deseja realmente excluir esta formação?!");
+            var valor = confirm("Deseja realmente excluir esta formação?!");
             if (valor) {
                 location.href = '/curso/excluir/' + this.value;
                 window.onload = alert("Formação excluída!");

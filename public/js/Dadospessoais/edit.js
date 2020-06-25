@@ -204,12 +204,12 @@ $(document).ready(function ($) {
     });
 
     // adicionando mascara para o telefone 2
-    $("#telefone2").mask('(00)90000-0000', {
+    $("#telefone2").mask('(00)N0000-0000', {
         translation: {
-            // N: {
-            //     pattern: /[9-9]/
-            // },
-
+            N: {
+                pattern: /[9-9]/,
+                optional: false
+            },
         }
     });
 

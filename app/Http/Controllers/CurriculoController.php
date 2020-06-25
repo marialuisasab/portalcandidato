@@ -230,7 +230,7 @@ class CurriculoController extends Controller
 
         $regras = [
             'nome'=>'required|string|max:100',
-            'cpf' =>'required|size:14',
+            'cpf' =>'required|size:14|cpf',
             'rg' => 'required|max:13',
             'pretsalarial' => 'required',
             'dtnascimento' => 'required',

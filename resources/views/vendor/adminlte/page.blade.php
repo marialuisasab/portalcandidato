@@ -1,4 +1,11 @@
 @extends('adminlte::master')
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
+{{-- <script src="/jquerymask/jquerymasky.js"></script> --}}
+
+<script src="vendor/jquery/jquery.js"></script>
+<script src="/js/menujs/menuiteracao.js"></script>
 
 
 
@@ -268,12 +275,192 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         <div class="sidebar">
 
             {{--}}Menu informações dentro do menu{{--}}
+
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column {{config('adminlte.classes_sidebar_nav', '')}}"
-                    data-widget="treeview" role="menu" @if(config('adminlte.sidebar_nav_animation_speed') !=300)
-                    data-animation-speed="{{config('adminlte.sidebar_nav_animation_speed')}}" @endif
-                    @if(!config('adminlte.sidebar_nav_accordion')) data-accordion="false" @endif>
-                    @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
+                {{-- <ul class="nav nav-pills nav-sidebar flex-column {{config('adminlte.classes_sidebar_nav', '')}}"
+                data-widget="treeview" role="menu" @if(config('adminlte.sidebar_nav_animation_speed') !=300)
+                data-animation-speed="{{config('adminlte.sidebar_nav_animation_speed')}}" @endif
+                @if(!config('adminlte.sidebar_nav_accordion')) data-accordion="false" @endif>
+                @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
+
+                </ul> --}}
+
+
+                <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
+
+                    <li class="nav-header">Informações:</li>
+                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Gerênciar
+                        Perfil:</li>
+                    {{-- <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">
+                    {{Auth::user()->name}}</li> --}}
+
+                    <li class="nav-item has-treeview">
+                        <a class="nav-link nav-item " href="#">
+                            <i class="fas fa-fw fa-user-cog "></i>
+                            <p>
+                                Sobre meu perfil
+
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-user-edit "></i>
+                                    <p>
+                                        Meu Perfil
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-file-alt "></i>
+                                    <p>
+                                        Imprimir Curriculo
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-lock-open "></i>
+                                    <p>
+                                        Alterar Senha
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-sign-out-alt "></i>
+                                    <p>
+                                        Sair
+
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-header">Gerênciar Currículo:</li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a class="nav-link active nav-item " href="#">
+                            <i class="fas fa-fw fa-file-signature "></i>
+                            <p>
+                                Cadastrar Curriculo
+
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item ">
+                                <a class="nav-link active " href="http://127.0.0.1:8000/curriculo">
+                                    <i class="fas fa-fw fa-id-card "></i>
+                                    <p>
+                                        Dados Pessoais
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" id="idenderecomenu">
+                                    <i class="fas fa-fw fa-map-marked-alt "></i>
+                                    <p>
+                                        Endereço
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " id="idformacaomenu">
+                                    <i class="fas fa-fw fa-user-graduate "></i>
+                                    <p>
+                                        Formação e Cursos
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " id="idexperienciasmenu">
+                                    <i class="fas fa-fw fa-user-tie "></i>
+                                    <p>
+                                        Experiência Profissional
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                {{-- <a class="nav-link  " href="http://127.0.0.1:8000/habilidades"> --}}
+                                <a class="nav-link  " id="idhabilidadesmenu">
+                                    <i class="fas fa-fw fa-language "></i>
+                                    <p>
+                                        Habilidades e Ferramentas
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " id="idredessociaismenu">
+                                    <i class="fas fa-fw fa-hashtag "></i>
+                                    <p>
+                                        Redes Sociais
+
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-header">Gerênciar Vagas:</li>
+                    <li class="nav-item has-treeview">
+                        <a class="nav-link nav-item " href="#">
+                            <i class="fas fa-fw fa-share "></i>
+                            <p>
+                                Sobre as vagas
+
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-bullhorn "></i>
+                                    <p>
+                                        Vagas Disponíveis
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-tasks "></i>
+                                    <p>
+                                        Histórico de participações
+
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                    <i class="fas fa-fw fa-eye "></i>
+                                    <p>
+                                        Acompanhar Processo
+
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-header">Suporte:</li>
+                    <li class="nav-item ">
+                        <a class="nav-link  " href="http://127.0.0.1:8000/emailsuporte">
+                            <i class="fas fa-fw fa-headset "></i>
+                            <p>
+                                Suporte Tecnico
+
+                            </p>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
         </div>

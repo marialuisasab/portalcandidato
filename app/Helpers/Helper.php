@@ -23,6 +23,15 @@ class Helper
         $id = Curriculo::where('users_id', Auth::user()->id)->get()[0];
         return $id->idcurriculo;
     }
+
+     public static function getIdCurriculomenu(){
+     $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+     if(count($id)==0){
+        return false;
+    } else {
+       return true;
+    }
+     }
    
     public static function setData($stringData){
         if(!isset($stringData))

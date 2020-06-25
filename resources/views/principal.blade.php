@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>@yield('titulo','Portal do Candidato')</title>
+  <title>@yield('titulo','Trabalhe Conosco')</title>
 
 
 

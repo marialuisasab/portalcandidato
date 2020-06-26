@@ -220,4 +220,20 @@ $(document).ready(function ($) {
         }
     });
 
+    $("#idformdados").submit(function () {
+        var cpfValue = $("#cpf").val();
+        var rgvalue = $("#rg").val();
+
+        // Remove os caracteres que não são dígitos:
+        cpfValue = cpfValue.replace(/\D/g, '');
+        rgvalue = rgvalue.replace(/\W/g, '');
+
+        // Atualiza o valor no campo do formulário:
+        $("#cpf").val(cpfValue);
+        $("#rg").val(rgvalue);
+        alert(cpfValue);
+        alert(rgvalue);
+
+    });
+
 });

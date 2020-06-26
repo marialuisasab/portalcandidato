@@ -344,7 +344,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     </li>
                     <li class="nav-header">Gerênciar Currículo:</li>
                     <li class="nav-item has-treeview menu-open">
-                        <a class="nav-link active nav-item " href="#">
+                        <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-file-signature "></i>
                             <p>
                                 Cadastrar Curriculo
@@ -354,7 +354,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item ">
-                                <a class="nav-link active " href="http://127.0.0.1:8000/curriculo">
+                                <a class="nav-link " href="http://127.0.0.1:8000/curriculo">
                                     <i class="fas fa-fw fa-id-card "></i>
                                     <p>
                                         Dados Pessoais

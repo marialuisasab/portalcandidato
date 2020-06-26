@@ -66,7 +66,8 @@
 					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body" style="box-sizing: border-box;">
 							<ul style="list-style-type: none;">
-								<form action="/curriculo/{{$c->users_id}}" method="POST" enctype="multipart/form-data">
+								<form action="/curriculo/{{$c->users_id}}" method="POST" enctype="multipart/form-data"
+									id="idformdados">
 									@csrf
 									{{-- <div class="form-group">
 <label for = "nome">Nome</label>

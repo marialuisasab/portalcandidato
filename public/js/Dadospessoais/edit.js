@@ -231,8 +231,8 @@ $(document).ready(function ($) {
         // Atualiza o valor no campo do formulário:
         $("#cpf").val(cpfValue);
         $("#rg").val(rgvalue);
-        alert(cpfValue);
-        alert(rgvalue);
+        // alert(cpfValue);
+        // alert(rgvalue);
 
     });
 

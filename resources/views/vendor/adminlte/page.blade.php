@@ -4,7 +4,7 @@
 </script> --}}
 {{-- <script src="/jquerymask/jquerymasky.js"></script> --}}
 
-<script src="vendor/jquery/jquery.js"></script>
+<script src="/vendor/jquery/jquery.js"></script>
 <script src="/js/menujs/menuiteracao.js"></script>
 
 
@@ -343,8 +343,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </ul>
                     </li>
                     <li class="nav-header">Gerênciar Currículo:</li>
-                    <li class="nav-item has-treeview menu-open">
-                        <a class="nav-link nav-item " href="#">
+                    <li class="nav-item has-treeview" id="idgerenciarcurriculo">
+                        <a class="nav-link nav-item " href="#" id="idcadastrarcurriculo">
                             <i class="fas fa-fw fa-file-signature "></i>
                             <p>
                                 Cadastrar Curriculo
@@ -354,7 +354,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item ">
-                                <a class="nav-link " href="http://127.0.0.1:8000/curriculo">
+                                <a class="nav-link " href="http://127.0.0.1:8000/curriculo" id="iddados">
                                     <i class="fas fa-fw fa-id-card "></i>
                                     <p>
                                         Dados Pessoais
@@ -363,7 +363,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" id="idenderecomenu">
+                                <a class="nav-link" id="idenderecomenu" type="button">
                                     <i class="fas fa-fw fa-map-marked-alt "></i>
                                     <p>
                                         Endereço
@@ -372,7 +372,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " id="idformacaomenu">
+                                <a class="nav-link  " id="idformacaomenu" type="button">
                                     <i class="fas fa-fw fa-user-graduate "></i>
                                     <p>
                                         Formação e Cursos
@@ -381,7 +381,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " id="idexperienciasmenu">
+                                <a class="nav-link  " id="idexperienciasmenu" type="button">
                                     <i class="fas fa-fw fa-user-tie "></i>
                                     <p>
                                         Experiência Profissional
@@ -391,7 +391,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </li>
                             <li class="nav-item ">
                                 {{-- <a class="nav-link  " href="http://127.0.0.1:8000/habilidades"> --}}
-                                <a class="nav-link  " id="idhabilidadesmenu">
+                                <a class="nav-link  " id="idhabilidadesmenu" type="button">
                                     <i class="fas fa-fw fa-language "></i>
                                     <p>
                                         Habilidades e Ferramentas
@@ -400,7 +400,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " id="idredessociaismenu">
+                                <a class="nav-link  " id="idredessociaismenu" type="button">
                                     <i class="fas fa-fw fa-hashtag "></i>
                                     <p>
                                         Redes Sociais

@@ -1,11 +1,15 @@
 @extends('adminlte::page')
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
 <script src="/js/Endereco/endereco.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+	integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous">
+</script>
 
 @section('content')
 
@@ -54,7 +58,8 @@
 
 										</button>
 										--}}
-										<button class=" btn btn-secondary" type="button">
+										<button class=" btn btn-secondary" type="button" value="{{Auth::user()->id}}"
+											id="idformendereco">
 											<a href="/curriculo" style="color: white;">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;"></span></a>
 										</button>
@@ -73,7 +78,7 @@
 							<ul style="list-style-type: none;">
 
 
-								<form action="/endereco" method="POST" enctype="multipart/form-data">
+								<form action="/endereco" method="POST" enctype="multipart/form-data" id="formidselect">
 									@csrf
 
 									<div class="form-group">
@@ -151,16 +156,17 @@
 									{{-- <form method="GET" action="/endereco" id="ID_DO_FORMULARIO"> --}}
 									<div class="form-group">
 										<li><strong> ESTADO*:&nbsp;&nbsp;&nbsp;</strong>
-											<select class="custom-select" id="estado" name="estado_idestado">
+											<select class="form-control unput-lg dynamic" id="estado"
+												name="estado_idestado" data-dependent="cidade">
 												<option value="" selected>Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}">{{ $est->uf }}</option>
 												@endforeach
 											</select>
 										</li>
+										{{csrf_field()}}
 									</div>
 									{{-- </form> --}}
-
 
 
 
@@ -168,12 +174,9 @@
 										<li><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
 											<select class="custom-select" id="cidade" name="cidade_idcidade">
 												<option value="" selected>Selecionar</option>
-												@foreach(Helper::getCidades() as $cid)
-												@if ($cid->estado_idestado == $est->idestado )
+												{{-- @foreach(Helper::getCidades() as $cid)
 												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
-												@else
-												@endif
-												@endforeach
+												@endforeach --}}
 											</select>
 										</li>
 									</div>
@@ -240,28 +243,6 @@
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @endsection
 

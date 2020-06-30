@@ -13,4 +13,11 @@ class Estado extends Model
     ];
     protected $guarded = ['idestado'];
     protected $table = 'estado';
+
+
+     public function cidades()
+     {
+     return $this->hasMany('App\Cidade');
+     }
+
 }

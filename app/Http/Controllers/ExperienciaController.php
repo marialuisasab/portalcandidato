@@ -55,8 +55,9 @@ class ExperienciaController extends Controller
         $exp->curriculo_idcurriculo = Helper::getIdCurriculo();
    
         if ($exp->save()){         
-                return redirect()->route('experiencias')
-                        ->with('success', 'informações cadastradas com sucesso!');
+            flash("Dados incluidos com sucesso!!!")->success();
+                return redirect()->route('experiencias');
+                        // ->with('success', 'informações cadastradas com sucesso!');
         }else {
             return redirect()
                         ->back()
@@ -108,9 +109,10 @@ class ExperienciaController extends Controller
             $exp->atividades = $request->atividades;
             $exp->curriculo_idcurriculo = Helper::getIdCurriculo();
        
-            if ($exp->save()){         
-                    return redirect()->route('experiencias')
-                                ->with('success', 'informações cadastradas com sucesso!');
+            if ($exp->save()){      
+                 flash("Dados incluidos com sucesso!!!")->success();
+                    return redirect()->route('experiencias');
+                                // ->with('success', 'informações cadastradas com sucesso!');
             }else {
                 return redirect()
                             ->back()
@@ -129,9 +131,10 @@ class ExperienciaController extends Controller
     {
         $exp = Experiencia::find($id);
         if (isset($exp)){
-            if ($exp->delete()){         
-                    return redirect()->route('experiencias')
-                                ->with('success', 'Dados excluídos com sucesso!');
+            if ($exp->delete()){    
+                 flash("Dados excluidos com sucesso!!!")->success();
+                    return redirect()->route('experiencias');
+                                // ->with('success', 'Dados excluídos com sucesso!');
             }else {
                 return redirect()
                             ->back()

@@ -6,7 +6,7 @@
 <script src="/jquerymask/jquerymasky.js"></script>
 {{-- 
 <script src="vendor/jquery/jquery.js"></script> --}}
-<script src="/js/dadospessoais/edit.js"></script>
+<script src="/js/Dadospessoais/edit.js"></script>
 
 
 @section('content')
@@ -65,7 +65,7 @@
                             <ul style="list-style-type: none;">
 
 
-                                <form action="/curriculo" method="POST" enctype="multipart/form-data">
+                                <form action="/curriculo" method="POST" enctype="multipart/form-data" id="idformdados">
                                     @csrf
                                     {{-- <div class="form-group">
 <label for = "nome">Nome</label>

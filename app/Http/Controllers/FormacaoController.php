@@ -68,12 +68,15 @@ class FormacaoController extends Controller
         }               
         //dd($curso);
         if ($curso->save()){         
-                return redirect()->route('cursos')
-                            ->with('success', 'Dados cadastrados com sucesso!');
+            flash("Dados incluidos com sucesso!!!")->success();
+                return redirect()->route('cursos');
+                            // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
             return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao gravar as informações!');
+                        ->back();
+                        flash("Falha ao gravar as informações!!!")->success();
+                        
+                        // ->with('error', 'Falha ao gravar as informações!');
         }          
 
     }
@@ -134,9 +137,10 @@ class FormacaoController extends Controller
                 $curso->categoria_idcategoria = $request->categoria_idcategoria;//só para escolaridade não (cursos) 
             }               
             //dd($curso);
-            if ($curso->save()){         
-                    return redirect()->route('cursos')
-                                ->with('success', 'Dados editados com sucesso!');
+            if ($curso->save()){  
+                 flash("Dados incluidos com sucesso!!!")->success();
+                    return redirect()->route('cursos');
+                                // ->with('success', 'Dados editados com sucesso!');
             }else {
                 return redirect()
                             ->back()
@@ -155,9 +159,10 @@ class FormacaoController extends Controller
     {
         $curso = Curso::find($id);
         if (isset($curso)){
-            if ($curso->delete()){         
-                    return redirect()->route('cursos')
-                                ->with('success', 'Dados excluidos com sucesso!');
+            if ($curso->delete()){    
+                flash("Dados excluidos com sucesso!!!")->success();
+                    return redirect()->route('cursos');
+                                // ->with('success', 'Dados excluidos com sucesso!');
             }else {
                 return redirect()
                             ->back()

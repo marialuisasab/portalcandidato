@@ -96,8 +96,9 @@ class CurriculoController extends Controller
 
         if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){            
            
-            return redirect()->route('curriculo.dados')
-                            ->with('success', 'Dados cadastrados com sucesso!');
+            flash('Dados incluidos com sucesso')->success();
+            return redirect()->route('curriculo.dados');
+                            // ->with('success', 'Dados cadastrados com sucesso!');
         }else{
             return redirect()
                             ->back()
@@ -193,8 +194,10 @@ class CurriculoController extends Controller
             }
             //dd($c);
             if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){         
-                return redirect()->route('curriculo.dados')
-                            ->with('success', 'Dados cadastrados com sucesso!');
+              
+                            // ->with('success', 'Dados cadastrados com sucesso!');
+                         flash('dados incluidos com sucesso')->success();
+                           return redirect()->route('curriculo.dados');
             }else {
                 return redirect()
                             ->back()

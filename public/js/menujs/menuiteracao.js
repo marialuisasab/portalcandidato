@@ -1,10 +1,17 @@
 $(function () {
 
+    // $("#idcadastrarcurriculo").click(function () {
+    //     $("#idcadastrarcurriculo").addClass("nav-link active nav-item");
+    //     $(".nav-item").slideDown();
+    //     $(this).next().slideDown();
+    // });
+
     $("#idenderecomenu").click(function () {
         var valor = $("#idcurriculouser").val();
 
         if (valor) {
             location.href = "/endereco";
+
         } else {
             location.href = "#";
             alert("Você deve preencher seus dados pessoais primeiro!!!");

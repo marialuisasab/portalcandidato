@@ -6,11 +6,13 @@
 	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
 <script src="/jquerymask/jquerymasky.js"></script>
+<script src="/js/Endereco/endereco.js"></script>
 {{-- 
 <script src="/js/Endereco/endereco.js"></script> --}}
 
 @section('content')
 
+@include('flash::message')
 
 <div class="container">
 

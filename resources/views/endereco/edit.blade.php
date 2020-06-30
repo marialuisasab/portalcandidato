@@ -1,11 +1,13 @@
 @extends('adminlte::page')
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
 
 <script src="/js/Endereco/endereco.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+	integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous">
+</script>
 
 
 
@@ -64,7 +66,8 @@
 
 										</button>
 										--}}
-										<button class=" btn btn-secondary" type="cancel" style="margin-top: 10px;">
+										<button class=" btn btn-secondary" type="cancel" style="margin-top: 10px;"
+											id="idformendereco" value="{{Auth::user()->id}}">
 											<a href="/endereco" style="color: white;">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;"></span></a>
 										</button>
@@ -165,7 +168,7 @@
 
 									<div class="form-group">
 										<li><strong>ESTADO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-											<select class="custom-select" id="estado" name="estado_idestado"
+											<select class=" custom-select" id="estado" name="estado_idestado"
 												value="{{$e->estado_idestado}}">
 												<option value="">Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
@@ -186,20 +189,20 @@
 											<select class="custom-select" id="cidade" name="cidade_idcidade"
 												value="{{$e->cidade_idcidade}}">
 												<option value="">Selecionar</option>
-												@foreach (Helper ::getEstados() as $est)
+
 												@foreach(Helper::getCidades() as $cid)
-												@if ($cid ->estado_idestado == $est->idestado)
+												@if ($cid ->estado_idestado == $e->cidade_idcidade)
 												<option value="{{$cid->idcidade}}"
 													{{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>
 													{{ $cid->nome }}</option>
 												@else
 												@endif
 												@endforeach
-												@endforeach
 
 											</select>
+										</li>
 									</div>
-									</li>
+
 
 
 
@@ -248,6 +251,7 @@
 											</div>
 										</li>
 									</div>
+									{{csrf_field()}}
 
 									{{-- @if($errors->any())
 									<div class="card-footer">
@@ -289,6 +293,39 @@
 @endsection
 
 
+<script>
+	$(function () {
+	
+	var id_estado = $("#estado").val();
+
+	// var estado_idestado = $("input[name=estado_idestado]").val()
+	alert(id_estado);
+	
+	if (id_estado != '') {
+	
+	$.get('/get-cidades/' + id_estado, function (cidades) {
+	$('select[name=cidade_idcidade]').empty();
+	$.each(cidades, function (key, value) {
+	$('select[name=cidade_idcidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
+	console.log(value);
+	});
+	});
+	
+	
+	} else {
+	$.get('/get-cidades', function (resultado) {
+	$('select[name=cidade_idcidade]').empty();
+	$('select[name=cidade_idcidade]').append("<option> Selecionar </option>");
+	
+	});
+	}
+
+	
+	
+
+
+	});
+</script>
 
 
 

@@ -42,7 +42,7 @@ $(function () {
             var valor = confirm("deseja realmente excluir esta experiencia?!");
             if (valor) {
                 location.href = '/experiencia/excluir/' + this.value;
-                window.onload = alert("Experiencia excluída!");
+                // window.onload = alert("Experiencia excluída!");
             } else {
                 // location.href = 'experiencias';
 
@@ -50,5 +50,9 @@ $(function () {
         });
     }
 
+
+});
+$(document).ready(function () {
+    $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });

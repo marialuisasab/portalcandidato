@@ -54,9 +54,10 @@ class HabilidadeController extends Controller
         $habilidade->curriculo_idcurriculo = Helper::getIdCurriculo();
         $habilidade->tipo_idtipo = $request->tipo_idtipo;
    
-        if ($habilidade->save()){         
-                return redirect()->route('habilidades')
-                        ->with('success', 'Informações cadastradas com sucesso!');
+        if ($habilidade->save()){       
+            flash("Dados incluidos com sucesso!!!")->success();  
+                return redirect()->route('habilidades');
+                        // ->with('success', 'Informações cadastradas com sucesso!');
         }else {
             return redirect()
                         ->back()
@@ -108,8 +109,9 @@ class HabilidadeController extends Controller
             $hab->tipo_idtipo = $request->tipo_idtipo;
        
             if ($hab->save()){         
-                    return redirect()->route('habilidades')
-                            ->with('success', 'Informações cadastradas com sucesso!');
+                flash("Dados incluidos com sucesso!!!")->success();
+                    return redirect()->route('habilidades');
+                            // ->with('success', 'Informações cadastradas com sucesso!');
             }else {
                 return redirect()
                             ->back()
@@ -129,8 +131,9 @@ class HabilidadeController extends Controller
         $habilidade = Habilidade::find($id);
         if (isset($habilidade)){
             if ($habilidade->delete()){         
-                    return redirect()->route('habilidades')
-                                ->with('success', 'Dados excluidos com sucesso!');
+                flash("Dados excluidos com sucesso!!!")->success();
+                    return redirect()->route('habilidades');
+                                // ->with('success', 'Dados excluidos com sucesso!');
             }else {
                 return redirect()
                             ->back()

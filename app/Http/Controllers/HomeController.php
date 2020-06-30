@@ -9,6 +9,9 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Curriculo;
 use Helper;
+use App\Estado;
+use App\Cidade;
+use Response;
 
 class HomeController extends Controller
 {
@@ -36,4 +39,39 @@ class HomeController extends Controller
       
         return view('home', compact(['candidato']));
     }
+
+
+
+
+    //  private $estadoModel;
+
+    //  public function __construct(Estado $estado)
+    //  {
+    //  $this->estadoModel = $estado;
+    //  }
+
+    //  public function index()
+    //  {
+    //  $estados = $this->estadoModel->lists('estado', 'id');
+
+    //  return view('cidade', compact('estados'));
+    //  }
+
+     public function getiCidades($idEstado)
+     {
+     $cidades = Cidade::where('estado_idestado', $idEstado)->orderBy('nome','ASC')->get();
+     // return $cidade->nome;
+     // $estado = $this->estadoModel->find($idEstado);
+     // $cidades = $estado->cidades()->getQuery()->get(['id', 'cidade']);
+     return Response::json($cidades);
+     }
+
+
+
+     public function getiCidadesVazias(){
+       
+        // $cidades = Cidade::orderBy('nome','ASC')->get();
+    //    return Response::json($cidades);
+    return true;
+     }
 }

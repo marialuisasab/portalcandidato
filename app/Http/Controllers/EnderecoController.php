@@ -61,9 +61,11 @@ class EnderecoController extends Controller
         $e->cep = $request->cep;
         $e->disp_mudanca = $request->disp_mudanca;
         //dd($e);
-        if ($e->save() && $this->updateCurriculo($e->idendereco)){         
-                return redirect()->route('endereco')
-                            ->with('success', 'Dados cadastrados com sucesso!');
+        if ($e->save() && $this->updateCurriculo($e->idendereco)){     
+              
+                flash('Dados incluidos com sucesso')->success();
+                return redirect()->route('endereco');
+                            // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
             return redirect()
                         ->back()
@@ -121,8 +123,10 @@ class EnderecoController extends Controller
             $e->disp_mudanca = $request->disp_mudanca;
 
             if ($e->save()){         
-                    return redirect()->route('endereco')
-                                ->with('success', 'Dados cadastrados com sucesso!');
+                  
+                    flash('dados incluidos com sucesso')->success();
+                    return redirect()->route('endereco');
+                                // ->with('success', 'Dados cadastrados com sucesso!');
             }else {
                 return redirect()
                             ->back()

@@ -247,37 +247,37 @@
                     </li>
                   </div>
 
-                  @if($errors->any())
+                  {{-- @if($errors->any())
                   <div class="card-footer">
                     @foreach($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                       {{$error}}
-                    </div>
-                    @endforeach
-                  </div>
-                  @endif
-
-                  <br>
-                  <div class="form-group " style="text-align: end;">
-                    <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-                        style="padding-left: 15px;"></button>
-                    <button class=" btn btn-danger" style="color:red;" type="cancel">
-                      <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
-                          style="padding-left: 15px;"></span></a>
-                    </button>
-                </form>
-              </ul>
             </div>
+            @endforeach
           </div>
+          @endif --}}
 
+          <br>
+          <div class="form-group " style="text-align: end;">
+            <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                style="padding-left: 15px;"></button>
+            <button class=" btn btn-danger" style="color:red;" type="cancel">
+              <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                  style="padding-left: 15px;"></span></a>
+            </button>
+            </form>
+            </ul>
+          </div>
         </div>
+
       </div>
     </div>
-    <div class="col-xs-1 col-md-1">
-
-
-    </div>
   </div>
+  <div class="col-xs-1 col-md-1">
+
+
+  </div>
+</div>
 </div>
 
 @endsection

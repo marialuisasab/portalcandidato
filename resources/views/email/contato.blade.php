@@ -1,36 +1,194 @@
 @extends('adminlte::page')
 
 
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="/jquerymask/jquerymasky.js"></script>
+<script src="/js/Endereco/endereco.js"></script>
+{{-- 
+<script src="/js/Endereco/endereco.js"></script> --}}
+
+@section('content')
+
+@include('flash::message')
+
+<div class="container">
+
+
+
+    <div class="row">
+
+        <div class="col-xs-1 col-md-1">
+
+
+        </div>
+
+        <div class="col-xs-10 col-md-10">
+
+            <div id="accordion" style="margin-top: 40px;">
+
+                <div class="card-border-light">
+                    <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h2 class="mb-0" style="color:dodgerblue;">
+
+                                        Contatar Suporte
+                                        <span class="fa-stack fa-sm">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fas fa-headphones fa-stack-1x fa-inverse"></i>
+                                        </span>
+
+                                    </h2>
+
+                                </div>
+
+
+
+                                <button class=" btn btn-secondary" style="">
+                                    <a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
+                                            style="padding-left: 15px;;"></span></a>
+                                </button>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+
+
+                        <ul style="list-style-type: none;">
+
+
+
+                            <form action="{{route('enviaremail')}}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <li style=""><strong> NOME:&nbsp;&nbsp;&nbsp;</strong>
+                                        <input input type="text" name="nome" class="form-control"
+                                            value="{{Auth::user()->name}}" readonly>
+                                    </li>
+                                </div>
+                                <div class="form-group">
+                                    <li style=""><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong>
+                                        <input type="email" name="email" class="form-control"
+                                            value="{{Auth::user()->email}}" readonly>
+                                    </li>
+                                </div>
+                                <div class="form-group">
+                                    <li style=""><strong> TELEFONE DE CONTATO:&nbsp;&nbsp;&nbsp;</strong>
+                                        <input type="text" id="phone_contact" name="telefone" class="form-control">
+                                    </li>
+                                </div>
+                                <div class="form-group">
+                                    <li style=""><strong> MENSAGEM:&nbsp;&nbsp;&nbsp;</strong>
+                                        <textarea rows="6" class="form-control" name="mensagem"
+                                            style="height:100px;"></textarea>
+                                    </li>
+                                </div>
+                                <div class="form-group" style="text-align: end;">
+                                    <button class="btn btn-primary">Enviar</button>
+                                </div>
+                            </form>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-1 col-md-1"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
+
+@extends('adminlte::page')
+
+
 @section('content')
 
 <div class="card border">
-    <div class= "card-body">  
-      <h5>Contato - Suporte Técnico</h5>
+    <div class="card-body">
+        <h5>Contato - Suporte Técnico</h5>
 
 
         <form action="{{route('enviaremail')}}" method="post">
-            @csrf        
-            <div class="form-group">
-                <label>Nome</label>
-                <input input type="text" name="nome" class="form-control" value="{{Auth::user()->name}}" readonly>
-            </div>         
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" value="{{Auth::user()->email}}" readonly >
-            </div>   
-            <div class="form-group">
-                <label>Telefone de Contato</label>
-                <input type="text" id="phone_contact" name="telefone" class="form-control">
-            </div>           
-            <div class="form-group">
-                <label>Mensagem</label>
-                <textarea rows="6" class="form-control" name="mensagem" style="height:100px;"></textarea>
-            </div>
-            <div class="col-md-6">
-                <button class="btn btn-primary">Enviar</button>
-            </div>
-        </form>    
-    </div>
+@csrf
+<div class="form-group">
+    <label>Nome</label>
+    <input input type="text" name="nome" class="form-control" value="{{Auth::user()->name}}" readonly>
+</div>
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" value="{{Auth::user()->email}}" readonly>
+</div>
+<div class="form-group">
+    <label>Telefone de Contato</label>
+    <input type="text" id="phone_contact" name="telefone" class="form-control">
+</div>
+<div class="form-group">
+    <label>Mensagem</label>
+    <textarea rows="6" class="form-control" name="mensagem" style="height:100px;"></textarea>
+</div>
+<div class="col-md-6">
+    <button class="btn btn-primary">Enviar</button>
+</div>
+</form>
+</div>
 </div>
 
-@endsection
+@endsection --}}

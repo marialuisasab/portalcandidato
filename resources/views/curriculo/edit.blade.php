@@ -37,6 +37,8 @@
 
 							<div class="row">
 								<div class="col-sm">
+
+
 									<h2 class="mb-0" style="color:dodgerblue;">
 										Dados Pessoais
 										<span class="fa-stack fa-sm">
@@ -389,8 +391,8 @@
 									value="{{$c->idcurriculo}}">
 							</li>
 						</div>
-
-						{{-- @if($errors->any())
+						{{-- 
+						@if($errors->any())
 						<div class="card-footer">
 							@foreach($errors->all() as $error)
 							<div class="alert alert-danger" role="alert">
@@ -399,22 +401,32 @@
 					@endforeach
 				</div>
 				@endif --}}
-				<br>
 
-				<div class="form-group" style="text-align: end;">
-					<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-							style="padding-left: 15px;"></button>
-					<button class=" btn btn-danger" style="color:red;" type="cancel">
-						<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
-								style="padding-left: 15px;"></span></a>
-					</button>
-				</div>
-				</form>
-				</ul>
+
+				{{-- @if($errors->any())
+				<div class="card-footer">
+					<div class="alert alert-danger" role="alert">
+						{{$success}}
 			</div>
 		</div>
+		@endif --}}
 
+		<br>
+
+		<div class="form-group" style="text-align: end;">
+			<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+					style="padding-left: 15px;"></button>
+			<button class=" btn btn-danger" style="color:red;" type="cancel">
+				<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+						style="padding-left: 15px;"></span></a>
+			</button>
+		</div>
+		</form>
+		</ul>
 	</div>
+</div>
+
+</div>
 </div>
 </div>
 <div class="col-xs-1 col-md-1">

@@ -1,14 +1,72 @@
 // const {
 //     ready
 // } = require("jquery");
+// FIND UTILIZADO PARA PESQUISAR SOBRE O DOMN    FORM[NAME="FORMLOGIN"]').SUBMIT(FUNCTION (EVENT)){
+// VAR EMAIL = $THIS.FUNC('INPUT#EMAIL').VAL();
+// }
 
 $(function () {
 
     $("#estado").change(function () {
-        alert("ajkdhaksj");
+        var valoriduser = $("#idformendereco").val();
 
-        $('#estado').append("<div>Este elemento não pode ser em branco</div>");
+
+        var id_estado = $("#estado").val();
+        // alert(id_estado);
+
+        // $.get('/get-cidades/' + id_estado, function (cidade) {
+        // $('select[name=cidade]').empty();
+        // $.each(cidades, function (key, value) {
+        // $('select[name=cidade]').append('<option value=' + value.id + '>' + value.cidade + '</option>');
+        // });
+        // });
+
+        if (id_estado != '') {
+
+            $.get('/get-cidades/' + id_estado, function (cidades) {
+                $('select[name=cidade_idcidade]').empty();
+                $.each(cidades, function (key, value) {
+                    $('select[name=cidade_idcidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
+                    console.log(value);
+                });
+            });
+
+
+        } else {
+            $.get('/get-cidades', function (resultado) {
+                $('select[name=cidade_idcidade]').empty();
+                $('select[name=cidade_idcidade]').append("<option> Selecionar </option>");
+
+            });
+        }
+
     });
+
+
+
+    // $("#estado").change(function () {
+    //     var valoriduser = $("#idformendereco").val();
+
+
+    //     var id_estado = $("#estado").val();
+    //     // alert(id_estado);
+
+    //     $.ajax({
+    //         url: '/endereco/editar/' + valoriduser,
+    //         type: 'GET',
+    //         data: {
+    //             id_estado: id_estado,
+
+    //         },
+    //         success: function (data) {
+    //             // window.location.reload();
+    //             alert("ok");
+    //         }
+    //     });
+
+
+
+    // });
 
 
     $('#botaosalvarend').click(function () {
@@ -17,7 +75,7 @@ $(function () {
         if (valor == null) {
             $('#estado').append("<div>Este elemento não pode ser em branco</div>");
         }
-        alert(valor);
+        // alert(valor);
 
         // var SelectEstado = document.querySelector("#estado");
         // SelectEstado.addEventListener("change", function () {
@@ -50,34 +108,34 @@ $(function () {
     //  $("#collapseOne").click(className = "collapse");
 
 
-    $("#estado").change(function () {
-        // window.document.getElementById("genero").style.background = "#32CD32";
-        // window.document.getElementById("genero").style.color = "#32CD32";
-        // window.document.getElementById("genero").value = 1;
-        // document.getElementById('genero').value = this.value;
+    // $('#estado').change(function () {
+    //     // window.document.getElementById("genero").style.background = "#32CD32";
+    //     // window.document.getElementById("genero").style.color = "#32CD32";
+    //     // window.document.getElementById("genero").value = 1;
+    //     // document.getElementById('genero').value = this.value;
 
-        // window.document.getElementById('#collapseOne').addClass('collapse');
-        // document.location.reload(true);
-    });
-
-
+    //     // window.document.getElementById('#collapseOne').addClass('collapse');
+    //     // document.location.reload(true);
+    // });
 
 
-    $('#estado').change(function () { // pega o evento do form submit
-        $.ajax({ // create an AJAX call...
-            data: $(this).serialize(), // pega os dados do form
-            type: $(this).attr('method'), // GET ou POST
-            url: $(this).attr('action'), // pega a url no form action
-            success: function (response) { // quando bem sucedido
 
-                // $('#complemento').append("<option> Test</option>");
-                // $('#complemento').val(data.value)
 
-                // $('#idcidadeselect').html(response); // atualiza o DIV
-            }
-        });
-        return false;
-    });
+    // $('#estado').change(function () { // pega o evento do form submit
+    //     $.ajax({ // create an AJAX call...
+    //         data: $(this).serialize(), // pega os dados do form
+    //         // type: $(this).attr('method'), // GET ou POST
+    //         // url: "/endereco.php" // pega a url no form action
+    //         // success: function (response) { // quando bem sucedido
+
+    //         // $('#complemento').append("<option> Test</option>");
+    //         // $('#complemento').val(data.value)
+
+    //         // $('#idcidadeselect').html(response); // atualiza o DIV
+
+    //     });
+    //     return false;
+    // });
 
 
 });
@@ -100,5 +158,10 @@ $(document).ready(function ($) {
 
         }
     });
+
+});
+
+$("document").ready(function () {
+    $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });

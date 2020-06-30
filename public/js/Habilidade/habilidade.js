@@ -6,7 +6,8 @@ $(function () {
             var valorconfirm = confirm("Quer realmente excluir esta habilidade??");
             if (valorconfirm) {
                 location.href = "/habilidade/excluir/" + this.value;
-                alert("Habilidade excluida!")
+                // alert("Habilidade excluida!");
+                ;
             } else {
                 // location.href = "cancel";
 
@@ -14,5 +15,10 @@ $(function () {
         });
 
     }
+
+});
+
+$("document").ready(function () {
+    $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });

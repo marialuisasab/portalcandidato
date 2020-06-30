@@ -1,12 +1,16 @@
 @extends('adminlte::page')
 
-<link rel="stylesheet" href="/css/indexCurriculo.css">
+{{-- link css --}}
+<link rel="stylesheet" href="/css/dadospessoais/dadospessoais.css">
 
+{{-- script do js --}}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
 <script src="/jquerymask/jquerymasky.js"></script>
 <script src="/js/Dadospessoais/edit.js"></script>
+
+
 
 
 
@@ -31,7 +35,7 @@
 
 @section('content')
 
-
+@include('flash::message')
 <div class="container">
 
 
@@ -64,15 +68,17 @@
 										{{-- </button> --}}
 									</h2>
 								</div>
-
 								<div class="col-xs-7 col-md-6"
 									style="margin-top: 5px; margin-right: auto; text-align:end; margin-top:7px;">
+
 									<button class=" btn btn-primary" id="botaoeditar">
+
 										<a style="color: white;"
 											href="/curriculo/editar/{{Auth::user()->id}}">Editar<span class="fa fa-edit"
 												style="padding-left: 15px;"></span></a>
-									</button>
 
+									</button>
+									<div class="alert-box warning">Edite suas informações</div>
 									<button class=" btn btn-success">
 										<a style=" color: white;" href="/endereco">Proximo<span class="fas fa-forward"
 												style="padding-left: 15px;"></span>
@@ -85,6 +91,7 @@
 								</div>
 							</div>
 						</div>
+
 
 
 

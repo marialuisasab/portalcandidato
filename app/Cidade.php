@@ -14,4 +14,9 @@ class Cidade extends Model
     ];
     protected $guarded = ['idcidade'];
     protected $table = 'cidade';
+
+    public function estado()
+    {
+    return $this->belongsTo('App\Estado');
+    }
 }

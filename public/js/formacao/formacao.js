@@ -91,7 +91,7 @@ $(function () {
             var valor = confirm("Deseja realmente excluir esta formação?!");
             if (valor) {
                 location.href = '/curso/excluir/' + this.value;
-                window.onload = alert("Formação excluída!");
+                // window.onload = alert("Formação excluída!");
                 $("ul.item-ii").find("li").css("background-color", "red");
 
             } else {
@@ -106,5 +106,10 @@ $(function () {
         });
     }
 
+});
+
+
+$("document").ready(function () {
+    $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });

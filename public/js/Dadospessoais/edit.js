@@ -7,19 +7,16 @@ $(function () {
         var exemp = this.value;
 
         $("#genero").append("<option value=exemp.value> Test</option>");
-
-
-
     });
 
 
-
-
-
-
-
-
-
+    $("#botaoeditar").mouseover(function () {
+        $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
+        // $('<div>', {
+        //     class: 'alext-box secondary',
+        //     text: 'Não temos nada a dizer'
+        // }).appendTo('#botaoeditar');
+    });
 
 
     // Selecionando opções de exibir ou não a carteira de motorista para cadastro
@@ -235,5 +232,16 @@ $(document).ready(function ($) {
         // alert(rgvalue);
 
     });
+
+});
+
+// $("document").ready(function () {
+//     setTimeout(function () {
+//         $("div.alert").remove();
+//     }, 5000); // 5 secs
+
+// });
+$("document").ready(function () {
+    $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });

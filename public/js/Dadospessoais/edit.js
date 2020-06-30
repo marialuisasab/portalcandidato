@@ -25,15 +25,6 @@ $(function () {
 
     for (var i = 0; i < exem.length; i++) {
 
-        // exem[i].addEventListener('change', function () {
-        //     (prev) ? console.log(prev.value): null;
-        //     if (this !== prev) {
-        //         prev = this;
-        //     }
-        //     console.log(this.value)
-        // });
-
-
         exem[i].addEventListener('change', function () {
             // (prev) ? console.log(prev.value): null;
             if (this !== prev) {

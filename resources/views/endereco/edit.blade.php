@@ -184,104 +184,120 @@
 
 
 
-									<div class="form-group">
+									{{-- <div class="form-group">
 										<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 											<select class="custom-select" id="cidade" name="cidade_idcidade"
 												value="{{$e->cidade_idcidade}}">
-												<option value="">Selecionar</option>
+									<option value="">Selecionar</option>
 
-												@foreach(Helper::getCidades() as $cid)
-												@if ($cid ->estado_idestado == $e->cidade_idcidade)
-												<option value="{{$cid->idcidade}}"
-													{{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>
-													{{ $cid->nome }}</option>
-												@else
-												@endif
-												@endforeach
+									@foreach(Helper::getCidades() as $cid)
+									@if ($cid->estado_idestado == $e->estado_idestado)
+									<option value="{{$cid->idcidade}}"
+										{{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>
+										{{ $cid->nome }}</option>
+									@else
+									@endif
+									@endforeach
 
-											</select>
-										</li>
-									</div>
-
-
+									</select>
+									</li>
+						</div> --}}
 
 
+						<div class="form-group">
+							<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+								<select class="custom-select" id="cidade" name="cidade_idcidade"
+									value="{{$e->cidade_idcidade}}">
+									<option value=""></option>
+
+									@foreach(Helper::getCidades() as $cid)
+									@if ($cid->estado_idestado == $e->estado_idestado)
+									<option value="{{$cid->idcidade}}"
+										{{ $e->cidade_idcidade == $cid->idcidade ? 'selected' : '' }}>
+										{{ $cid->nome }}</option>
+									@else
+									@endif
+									@endforeach
+
+								</select>
+							</li>
+						</div>
 
 
 
 
 
-									<div class="form-group">
-										<li><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-											<select class="custom-select" id="pais_idpais" name="pais_idpais"
-												value="{{$e->pais_idpais}}">
-												<option value="">Selecionar</option>
-												@foreach(Helper::getPai() as $pai)
-												<option value="{{$pai->idpais}}"
-													{{ $e->pais_idpais == $pai->idpais ? 'selected' : '' }}>
-													{{ $pai->nome }}</option>
-												@endforeach
-												{{-- 
+
+
+						<div class="form-group">
+							<li><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+								<select class="custom-select" id="pais_idpais" name="pais_idpais"
+									value="{{$e->pais_idpais}}">
+									<option value="">Selecionar</option>
+									@foreach(Helper::getPai() as $pai)
+									<option value="{{$pai->idpais}}"
+										{{ $e->pais_idpais == $pai->idpais ? 'selected' : '' }}>
+										{{ $pai->nome }}</option>
+									@endforeach
+									{{-- 
 												<option value="" selected>País</option>
 												<option value="1">Brasil</option>
 												<option value="2">Outro</option> --}}
-											</select>
-										</li>
-									</div>
+								</select>
+							</li>
+						</div>
 
 
 
 
 
 
-									<div class="form-group">
-										<li><strong>Tem diponibilidade para mudança de cidade ou
-												estado?*&nbsp;&nbsp;&nbsp;</strong><span> </span>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" id="disp_mudanca"
-													name="disp_mudanca" value="1"
-													{{ $e->disp_mudanca == '1' ? 'checked' : '' }}>
-												<label class="form-check-label" for="disp_mudanca">Sim</label>
-											</div>
-											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="disp_mudanca"
-													value="2" id="disp_mudanca"
-													{{ $e->disp_mudanca == '2' ? 'checked' : '' }}>
-												<label class="form-check-label" for="disp_mudanca">Não</label>
-											</div>
-										</li>
-									</div>
-									{{csrf_field()}}
+						<div class="form-group">
+							<li><strong>Tem diponibilidade para mudança de cidade ou
+									estado?*&nbsp;&nbsp;&nbsp;</strong><span> </span>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" id="disp_mudanca" name="disp_mudanca"
+										value="1" {{ $e->disp_mudanca == '1' ? 'checked' : '' }}>
+									<label class="form-check-label" for="disp_mudanca">Sim</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="disp_mudanca" value="2"
+										id="disp_mudanca" {{ $e->disp_mudanca == '2' ? 'checked' : '' }}>
+									<label class="form-check-label" for="disp_mudanca">Não</label>
+								</div>
+							</li>
+						</div>
+						{{csrf_field()}}
 
-									{{-- @if($errors->any())
+						{{-- @if($errors->any())
 									<div class="card-footer">
 										@foreach($errors->all() as $error)
 										<div class="alert alert-danger" role="alert">
 											{{$error}}
-						</div>
-						@endforeach
 					</div>
-					@endif --}}
-
-					<br>
-
-					<div class="form-group" style="text-align: end;">
-						<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
-								class="fas fa-save" style="padding-left: 15px;"></button>
-						<button class=" btn btn-danger" style="color:red;" type="cancel">
-							<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
-									style="padding-left: 15px;"></span></a>
-						</button>
-					</div>
-
-
-					</form>
-					</ul>
+					@endforeach
 				</div>
-			</div>
+				@endif --}}
 
+				<br>
+
+				<div class="form-group" style="text-align: end;">
+					<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+							style="padding-left: 15px;"></button>
+					<button class=" btn btn-danger" style="color:red;" type="cancel">
+						<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+								style="padding-left: 15px;"></span></a>
+					</button>
+				</div>
+
+
+				</form>
+				</ul>
+			</div>
 		</div>
+
 	</div>
+</div>
 </div>
 <div class="col-xs-1 col-md-1">
 
@@ -291,55 +307,6 @@
 </div>
 
 @endsection
-
-
-<script>
-	$(function () {
-	
-	var id_estado = $("#estado").val();
-
-	// var estado_idestado = $("input[name=estado_idestado]").val()
-	alert(id_estado);
-	
-	if (id_estado != '') {
-	
-	$.get('/get-cidades/' + id_estado, function (cidades) {
-	$('select[name=cidade_idcidade]').empty();
-	$.each(cidades, function (key, value) {
-	$('select[name=cidade_idcidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
-	console.log(value);
-	});
-	});
-	
-	
-	} else {
-	$.get('/get-cidades', function (resultado) {
-	$('select[name=cidade_idcidade]').empty();
-	$('select[name=cidade_idcidade]').append("<option> Selecionar </option>");
-	
-	});
-	}
-
-	
-	
-
-
-	});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {{-- 
 <div class="card border">

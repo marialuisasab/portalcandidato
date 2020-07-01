@@ -184,7 +184,7 @@
 
 
 									<div class="form-group">
-										<li style=""><strong> PAÍS:&nbsp;&nbsp;&nbsp;</strong>
+										<li style=""><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
 											<select class="custom-select" id="pais_idpais" name="pais_idpais">
 												<option value="" selected>País</option>
 												@foreach(Helper::getPai () as $pais)
@@ -198,7 +198,7 @@
 
 									<div class="form-group">
 										<li><strong>DISPONIBILIDADE DE MUDANÇA PARA OUTRO ESTADO OU
-												CIDADE?:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+												CIDADE?:*&nbsp;&nbsp;&nbsp;</strong><span> </span>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio" name="disp_mudanca"
 													id="disp_mudanca" value="1">

@@ -154,9 +154,10 @@ $(document).ready(function ($) {
 
 
     // Adicionando mascara para a presenção salarial
-    $("#pretsalarial").mask("###0,00", {
+    $("#pretsalarial").mask("#,00", {
         reverse: true
     });
+
 
 
     // adicionando mascaras para telefone

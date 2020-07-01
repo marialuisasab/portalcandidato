@@ -417,7 +417,7 @@
 			<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
 					style="padding-left: 15px;"></button>
 			<button class=" btn btn-danger" style="color:red;" type="cancel">
-				<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+				<a style="color: white;">Cancelar<span class="fas fa-window-close"
 						style="padding-left: 15px;"></span></a>
 			</button>
 		</div>

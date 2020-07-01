@@ -288,9 +288,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
                 <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
 
-                    <li class="nav-header">Informações:</li>
-                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Gerênciar
-                        Perfil:</li>
+                    <li class="nav-header">Candidato:</li>
+                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}"></li>
                     {{-- <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">
                     {{Auth::user()->name}}</li> --}}
 
@@ -298,7 +297,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-user-cog "></i>
                             <p>
-                                Sobre meu perfil
+                                Sobre Meu Perfil
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>
@@ -342,12 +341,17 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-header">Gerênciar Currículo:</li>
+                    {{-- <li class="nav-header">
+                        <hr>
+                    </li> --}}
+                    <li class="nav-item has-treeview">
+                        <hr>
+                    </li>
                     <li class="nav-item has-treeview" id="idgerenciarcurriculo">
                         <a class="nav-link nav-item " href="#" id="idcadastrarcurriculo">
                             <i class="fas fa-fw fa-file-signature "></i>
                             <p>
-                                Cadastrar Curriculo
+                                Cadastrar Currículo
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>
@@ -410,12 +414,14 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-header">Gerênciar Vagas:</li>
+                    <li class="nav-item has-treeview">
+                        <hr>
+                    </li>
                     <li class="nav-item has-treeview">
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-share "></i>
                             <p>
-                                Sobre as vagas
+                                Vagas
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>
@@ -450,12 +456,15 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-header">Suporte:</li>
+                    <li class="nav-item has-treeview">
+                        <hr>
+                    </li>
+                    <li class="nav-header">Suporte Técnico:</li>
                     <li class="nav-item ">
                         <a class="nav-link  " href="http://127.0.0.1:8000/emailsuporte">
                             <i class="fas fa-fw fa-headset "></i>
                             <p>
-                                Suporte Tecnico
+                                Fale Conosco
 
                             </p>
                         </a>

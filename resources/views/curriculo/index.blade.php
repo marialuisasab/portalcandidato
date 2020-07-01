@@ -237,7 +237,8 @@
 
 
 								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
-									{{Helper::getPretensao($candDados->pretsalarial)}},00</li>
+									{{-- {{Helper::getPretensao($candDados->pretsalarial)}},00</li> --}}
+								{{Helper::getPretensao($candDados->pretsalarial)}},00</li>
 								<hr>
 
 
@@ -279,15 +280,15 @@
 
 
 								@if(($candDados->catcnh != null)&&($candDados->catcnh =='A'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>A</li>
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>A</li>
 								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='B'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>B</li>
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>B</li>
 								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='C'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>C</li>
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>C</li>
 								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='D'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>D</li>
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>D</li>
 								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='E'))
-								<li><strong>CATEGORIA DA CNH::&nbsp;&nbsp;&nbsp;</strong>E</li>
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>E</li>
 								@else
 								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										informado!</span></li>

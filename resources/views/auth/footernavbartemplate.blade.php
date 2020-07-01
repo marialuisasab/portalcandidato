@@ -47,14 +47,14 @@
           <!-- Authentication Links -->
           @guest
           <li class="nav-item active">
-            <a class="btn btn-link" href="/">
+            <a class="navbar-brand" href="/" style="color:gray;" type="button">Voltar
               <span class="fas fa-home px-2" style="font-size: 30px;"></span>
             </a>
           </li>
 
           @if (Route::has('register'))
           <li class="nav-item active">
-            <a class="btn btn-link" href=" {{ route('register') }}">
+            <a class="navbar-brand" href=" {{ route('register') }}" style="color: gray;" type="button">Registrar
               <span class=" fas fa-user-plus px-2" style="font-size: 30px;"></span>
             </a>
           </li>

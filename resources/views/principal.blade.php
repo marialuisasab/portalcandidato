@@ -69,9 +69,9 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <button type="button" class="btn btn-light" id="ImageMeuLog" style="width:10;height:10">
-              <a class="navbar-brand" href="{{ route('login') }}">
-                {{-- <img src="img/imageLogin.png" width="30" height="30" class="d-inline-block align-top" id="ImageLogin">
-              Login  --}}
+              <a class="navbar-brand" href="{{ route('login') }}" style="color: gray;">
+
+                Login
                 <span class="fas fa-sign-in-alt px-2">
                 </span>
               </a>
@@ -79,9 +79,7 @@
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-light" id="ImageMeuRegis">
-              <a class="navbar-brand" href="{{ route('register') }}">
-                {{-- <img src="img/imagemPerfil.png" width="30" height="30" class="d-inline-block align-top" id="ImageRegis">
-              Registrar conta--}}
+              <a class="navbar-brand" href="{{ route('register') }}" style="color: gray;">Registrar
                 <span class="fas fa-user-plus px-2">
                   {{-- <p class="ml-2">Registrar</p>  --}}</span></a>
             </button>

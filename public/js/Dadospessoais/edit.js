@@ -10,13 +10,13 @@ $(function () {
     });
 
 
-    $("#botaoeditar").mouseover(function () {
-        $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
-        // $('<div>', {
-        //     class: 'alext-box secondary',
-        //     text: 'Não temos nada a dizer'
-        // }).appendTo('#botaoeditar');
-    });
+    // $("#botaoeditar").mouseover(function () {
+    //     $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
+    //     // $('<div>', {
+    //     //     class: 'alext-box secondary',
+    //     //     text: 'Não temos nada a dizer'
+    //     // }).appendTo('#botaoeditar');
+    // });
 
 
     // Selecionando opções de exibir ou não a carteira de motorista para cadastro
@@ -208,12 +208,19 @@ $(document).ready(function ($) {
         }
     });
 
+
+    // Convertendo os dados novamente para que antes de serem mandados para o banco
+    // eles não tenham caracteres "."
+    // "( ou )"
+    // "-"
     $("#idformdados").submit(function () {
         var cpfValue = $("#cpf").val();
         var rgvalue = $("#rg").val();
 
-        // Remove os caracteres que não são dígitos:
+        // Remove os caracteres que não são numerais:
         cpfValue = cpfValue.replace(/\D/g, '');
+
+        // Removendo os caracteres que não são alfanumericos
         rgvalue = rgvalue.replace(/\W/g, '');
 
         // Atualiza o valor no campo do formulário:
@@ -232,6 +239,8 @@ $(document).ready(function ($) {
 //     }, 5000); // 5 secs
 
 // });
+
+// Definindo o tempo de execução do alert da pagina
 $("document").ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 

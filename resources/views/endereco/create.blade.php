@@ -78,7 +78,7 @@
 							<ul style="list-style-type: none;">
 
 
-								<form action="/endereco" method="POST" enctype="multipart/form-data" id="formidselect">
+								<form action="/endereco" method="POST" enctype="multipart/form-data" id="idformselect">
 									@csrf
 
 									<div class="form-group">

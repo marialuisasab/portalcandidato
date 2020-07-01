@@ -86,7 +86,7 @@
 							<ul style="list-style-type: none;">
 
 
-								<form action="/endereco/{{Auth::user()->id}}" method="POST">
+								<form action="/endereco/{{Auth::user()->id}}" method="POST" id="idformselect">
 									@csrf
 
 									<div class="form-group">

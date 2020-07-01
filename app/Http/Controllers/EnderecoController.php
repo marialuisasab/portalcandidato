@@ -161,7 +161,7 @@ class EnderecoController extends Controller
     public function validarFormulario($request){
         
         $regras = [
-            'cep'=>'required|size:9',
+            'cep'=>'required|size:8',
             'logradouro' => 'required|max:100',
             'bairro' => 'required|max:45',
             'numero' => 'required|integer',

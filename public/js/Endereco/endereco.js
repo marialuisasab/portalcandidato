@@ -154,9 +154,15 @@ $(document).ready(function ($) {
             N: {
                 pattern: /[\d]/
             },
-
-
         }
+    });
+
+
+    $("#idformselect").submit(function () {
+        var valor = $("#cep").val();
+        var valor = valor.replace(/\D/g, '');
+        $("#cep").val(valor);
+        // console.log(valor);
     });
 
 });

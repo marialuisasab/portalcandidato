@@ -1,12 +1,19 @@
 @extends('adminlte::page')
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
+
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
 <script src="/jquerymask/jquerymasky.js"></script>
 {{-- 
 <script src="vendor/jquery/jquery.js"></script> --}}
 <script src="/js/Dadospessoais/edit.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+    integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous">
+</script>
 
 
 @section('content')
@@ -245,16 +252,30 @@
 
                         <div class="form-group">
                             <li><strong> NATURALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="custom-select" id="naturalidade" name="naturalidade">
-                                    <option value="" selected>Selecionar</option>
-                                    {{-- @foreach($cidades as $cid)
-<option value = "{{$cid->idcidade}}">{{ $cid->nome }}</option>
-                                    @endforeach --}}S
-                                    @foreach(Helper::getCidades() as $cid)
-                                    <option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
-                                    @endforeach
-                                </select> </li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm" style="text-align: start;">
+
+                                            <select class="custom-select" id="natural" name="natural">
+                                                <option value="" selected>Selecionar</option>
+                                                @foreach(Helper::getEstados() as $est)
+                                                <option value="{{$est->idestado}}">{{ $est->nome }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-sm">
+                                            <select class="custom-select" id="naturalidade" name="naturalidade">
+                                                <option value="" selected>Selecionar</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
                         </div>
+
+
+
 
 
 
@@ -279,7 +300,8 @@
                         <div class="form-group">
                             <li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
                                 <input type="text" class="form-control" name="telefone2" id="telefone2"
-                                    placeholder="Telefone 2"> </li>
+                                    placeholder="Telefone 2">
+                            </li>
                         </div>
 
 
@@ -313,7 +335,8 @@
 
 
                                     <input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
-                                        value="2"> Não
+                                        value="2">
+                                    Não
                                     {{-- <label class="form-check-label">Não</label> --}}
                                 </div>
                             </li>

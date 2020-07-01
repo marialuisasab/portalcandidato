@@ -1,12 +1,18 @@
 @extends('adminlte::page')
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
 <script src="/js/Dadospessoais/edit.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
 {{-- <script src="/js/Dadospessoais/edit.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+	integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous">
+</script>
 
 
 
@@ -216,214 +222,252 @@
 						</div>
 
 
-						<div class="form-group">
+						{{-- <div class="form-group">
 							<li><strong> NATURALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="custom-select" id="naturalidade" name="naturalidade"
 									value="{{$c->naturalidade}}">
-									<option value="">Selecionar:</option>
-									@foreach(Helper::getCidades() as $cid)
-									<option value="{{$cid->idcidade}}"
-										{{ $c->naturalidade == $cid->idcidade ? 'selected' : '' }}>
-										{{ $cid->nome }}</option>
-									@endforeach
+						<option value="">Selecionar:</option>
+						@foreach(Helper::getCidades() as $cid)
+						<option value="{{$cid->idcidade}}" {{ $c->naturalidade == $cid->idcidade ? 'selected' : '' }}>
+							{{ $cid->nome }}</option>
+						@endforeach
 
-								</select> </li>
-						</div>
+						</select> </li>
+					</div> --}}
+
+					<div class="form-group">
+						<li><strong> NATURALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
+							<div class="container">
+								<div class="row">
+									<div class="col-sm" style="text-align: start;">
+
+										<select class="custom-select" id="natural" name="natural">
+											<option value="" selected>Selecionar</option>
+											@foreach(Helper::getEstados() as $est)
+											<option value="{{$est->idestado}}" @foreach (Helper ::getCidades() as
+												$cidades)
+												{{(($est->idestado == $cidades->estado_idestado)&&($cidades->idcidade == $c->naturalidade)) ? 'selected' : '' }}
+												@endforeach>
+												{{ $est->nome }}
+											</option>
+											@endforeach
+										</select>
+									</div>
+									<div class="col-sm">
+										<select class="custom-select" id="naturalidade" name="naturalidade">
+											<option value="" selected>Selecionar</option>
+											@foreach (Helper::getCidades() as $cida)
+											@if ($cida->idcidade == $c->naturalidade)
+											@foreach (Helper::getCidades() as $cid)
+											@if ($cid->estado_idestado == $cida ->estado_idestado)
+											<option value="{{$cid->idcidade}}"
+												{{ $cid->idcidade == $c->naturalidade ? 'selected' : '' }}>
+												{{ $cid->nome }}</option>
+											@else
+											@endif
+											@endforeach
+											@else
+											@endif
+											@endforeach
 
 
-						<div class="form-group">
-							<li><strong> TELEFONE 1:*&nbsp;&nbsp;&nbsp;</strong>
-								<input type="text"
-									class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
-									name="telefone1" id="telefone1" placeholder="Telefone 1" value="{{$c->telefone1}}">
-								@if($errors->has('telefone1'))
-								<div class="invalid-feedback">
-									{{$errors->first('telefone1')}}
+										</select>
+									</div>
+
 								</div>
-								@endif
-							</li>
-						</div>
-
-						<div class="form-group">
-							<li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
-								<input type="text" class="form-control" name="telefone2" id="telefone2"
-									placeholder="Telefone 2" value="{{$c->telefone2}}"> </li>
-						</div>
+							</div>
+						</li>
+					</div>
 
 
-						<div class=" form-group">
-							<li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
-								<select class="custom-select" id="estadocivil" name="estadocivil"
-									value="{{$c->estadocivil}}">
-									<option name="selectestadocivil" value=""
-										{{$c->estadocivil == null ? 'selected' : ''}}>Selecionar</option>
-									<option name="selectestadocivil" value="1"
-										{{$c->estadocivil == '1' ? 'selected' : ''}}>Solteiro(a)</option>
-									<option name="selectestadocivil" value="2"
-										{{$c->estadocivil == '2' ? 'selected' : ''}}>Casado(a)</option>
-									<option name="selectestadocivil" value="3"
-										{{$c->estadocivil == '3' ? 'selected' : ''}}>Divorciado(a)</option>
-									<option name="selectestadocivil" value="4"
-										{{$c->estadocivil == '4' ? 'selected' : ''}}>Viúvo(a)</option>
-									<option name="selectestadocivil" value="5"
-										{{$c->estadocivil == '5' ? 'selected' : ''}}>Separado(a)</option>
-								</select> </li>
-						</div>
-
-						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
-						<div class="form-group">
-							<li><strong>POSSUI CNH!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
-								<div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
-									<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
-										value="1">
-									Sim&nbsp;&nbsp;&nbsp;
-									{{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
-
-
-									<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
-										value="2"> Não
-									{{-- <label class="form-check-label">Não</label> --}}
-								</div>
-							</li>
-						</div>
-						@else
-
-						@endif
-
-
-						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
-						<div class="form-group" style="display: none;" id="selcatcnh">
-							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
-									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
-									<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
-									<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
-									<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
-									<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
-									<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
-								</select></li>
-						</div>
-						@else
-						<div class="form-group" id="selcatcnh">
-							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
-									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
-									<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
-									<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
-									<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
-									<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
-									<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
-								</select></li>
-						</div>
-						@endif
-
-
-
-						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
-						<div class="form-group" style="display: none;" id="seleorigcnh">
-							<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
-								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
-									<option value="">Selecionar:</option>
-									@foreach(Helper::getEstados() as $est)
-									<option value="{{$est->idestado}}"
-										{{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
-										{{ $est->nome }}</option>
-									@endforeach
-								</select>
-								{{-- <input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"
-									value="{{$c->ufcnh}}"> --}}
-							</li>
-						</div>
-						@else
-						<div class="form-group" id="seleorigcnh">
-							<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
-								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
-									<option value="">Selecionar:</option>
-									@foreach(Helper::getEstados() as $est)
-									<option value="{{$est->idestado}}"
-										{{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
-										{{ $est->nome }}</option>
-									@endforeach
-								</select>
-								{{-- <input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"
-															value="{{$c->ufcnh}}"> --}}
-							</li>
-						</div>
-
-						@endif
-
-
-
-						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
-						<div class="form-group" style="display: none;" id="numcnh">
-							<li><strong> NUMERO DA CNH:&nbsp;&nbsp;</strong><span> </span>
-								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
-									value="{{$c->cnh}}">
-							</li>
-						</div>
-						@else
-						<div class="form-group" id="numcnh">
-							<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
-								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
-									value="{{$c->cnh}}">
-							</li>
-						</div>
-						@endif
-
-
-
-						<div class="form-group">
-							<li style="word-break: break-word;"><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong>
-								<textarea class="form-control" id="sobre" rows="3" name="sobre"
-									value="">{{$c->sobre}}</textarea>
-							</li>
-						</div>
-
-
-						<div class="form-group">
-							@if(Auth::user()->foto != null)
-							<img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
-								style="max-width: 50px;">
+					<div class="form-group">
+						<li><strong> TELEFONE 1:*&nbsp;&nbsp;&nbsp;</strong>
+							<input type="text" class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
+								name="telefone1" id="telefone1" placeholder="Telefone 1" value="{{$c->telefone1}}">
+							@if($errors->has('telefone1'))
+							<div class="invalid-feedback">
+								{{$errors->first('telefone1')}}
+							</div>
 							@endif
-							<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-								{{-- observação....... --}}
-								<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
-									value="{{$c->idcurriculo}}">
-							</li>
-						</div>
-						{{-- 
+						</li>
+					</div>
+
+					<div class="form-group">
+						<li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
+							<input type="text" class="form-control" name="telefone2" id="telefone2"
+								placeholder="Telefone 2" value="{{$c->telefone2}}"> </li>
+					</div>
+
+
+					<div class=" form-group">
+						<li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
+							<select class="custom-select" id="estadocivil" name="estadocivil"
+								value="{{$c->estadocivil}}">
+								<option name="selectestadocivil" value="" {{$c->estadocivil == null ? 'selected' : ''}}>
+									Selecionar</option>
+								<option name="selectestadocivil" value="1" {{$c->estadocivil == '1' ? 'selected' : ''}}>
+									Solteiro(a)</option>
+								<option name="selectestadocivil" value="2" {{$c->estadocivil == '2' ? 'selected' : ''}}>
+									Casado(a)</option>
+								<option name="selectestadocivil" value="3" {{$c->estadocivil == '3' ? 'selected' : ''}}>
+									Divorciado(a)</option>
+								<option name="selectestadocivil" value="4" {{$c->estadocivil == '4' ? 'selected' : ''}}>
+									Viúvo(a)</option>
+								<option name="selectestadocivil" value="5" {{$c->estadocivil == '5' ? 'selected' : ''}}>
+									Separado(a)</option>
+							</select> </li>
+					</div>
+
+					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+					<div class="form-group">
+						<li><strong>POSSUI CNH!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
+								<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh" value="1">
+								Sim&nbsp;&nbsp;&nbsp;
+								{{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
+
+
+								<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh" value="2">
+								Não
+								{{-- <label class="form-check-label">Não</label> --}}
+							</div>
+						</li>
+					</div>
+					@else
+
+					@endif
+
+
+					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+					<div class="form-group" style="display: none;" id="selcatcnh">
+						<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
+								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
+								<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
+								<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
+								<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
+								<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
+								<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
+							</select></li>
+					</div>
+					@else
+					<div class="form-group" id="selcatcnh">
+						<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
+								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
+								<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
+								<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
+								<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
+								<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
+								<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
+							</select></li>
+					</div>
+					@endif
+
+
+
+					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+					<div class="form-group" style="display: none;" id="seleorigcnh">
+						<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
+								<option value="">Selecionar:</option>
+								@foreach(Helper::getEstados() as $est)
+								<option value="{{$est->idestado}}" {{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
+									{{ $est->nome }}</option>
+								@endforeach
+							</select>
+							{{-- <input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"
+									value="{{$c->ufcnh}}"> --}}
+						</li>
+					</div>
+					@else
+					<div class="form-group" id="seleorigcnh">
+						<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
+								<option value="">Selecionar:</option>
+								@foreach(Helper::getEstados() as $est)
+								<option value="{{$est->idestado}}" {{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
+									{{ $est->nome }}</option>
+								@endforeach
+							</select>
+							{{-- <input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"
+															value="{{$c->ufcnh}}"> --}}
+						</li>
+					</div>
+
+					@endif
+
+
+
+					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
+					<div class="form-group" style="display: none;" id="numcnh">
+						<li><strong> NUMERO DA CNH:&nbsp;&nbsp;</strong><span> </span>
+							<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
+								value="{{$c->cnh}}">
+						</li>
+					</div>
+					@else
+					<div class="form-group" id="numcnh">
+						<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
+								value="{{$c->cnh}}">
+						</li>
+					</div>
+					@endif
+
+
+
+					<div class="form-group">
+						<li style="word-break: break-word;"><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong>
+							<textarea class="form-control" id="sobre" rows="3" name="sobre"
+								value="">{{$c->sobre}}</textarea>
+						</li>
+					</div>
+
+
+					<div class="form-group">
+						@if(Auth::user()->foto != null)
+						<img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+							style="max-width: 50px;">
+						@endif
+						<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							{{-- observação....... --}}
+							<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
+								value="{{$c->idcurriculo}}">
+						</li>
+					</div>
+					{{-- 
 						@if($errors->any())
 						<div class="card-footer">
 							@foreach($errors->all() as $error)
 							<div class="alert alert-danger" role="alert">
 								{{$error}}
-					</div>
-					@endforeach
 				</div>
-				@endif --}}
+				@endforeach
+			</div>
+			@endif --}}
 
 
-				{{-- @if($errors->any())
+			{{-- @if($errors->any())
 				<div class="card-footer">
 					<div class="alert alert-danger" role="alert">
 						{{$success}}
-			</div>
 		</div>
-		@endif --}}
-
-		<br>
-
-		<div class="form-group" style="text-align: end;">
-			<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-					style="padding-left: 15px;"></button>
-			<button class=" btn btn-danger" style="color:red;" type="cancel">
-				<a style="color: white;">Cancelar<span class="fas fa-window-close"
-						style="padding-left: 15px;"></span></a>
-			</button>
-		</div>
-		</form>
-		</ul>
 	</div>
+	@endif --}}
+
+	<br>
+
+	<div class="form-group" style="text-align: end;">
+		<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+				style="padding-left: 15px;"></button>
+		<button class=" btn btn-danger" style="color:red;" type="cancel">
+			<a style="color: white;">Cancelar<span class="fas fa-window-close" style="padding-left: 15px;"></span></a>
+		</button>
+	</div>
+	</form>
+	</ul>
+</div>
 </div>
 
 </div>

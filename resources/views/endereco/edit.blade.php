@@ -174,7 +174,7 @@
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}"
 													{{ $e->estado_idestado == $est->idestado ? 'selected' : '' }}>
-													{{$est->uf}} </option>
+													{{$est->nome}} </option>
 												@endforeach
 											</select>
 										</li>

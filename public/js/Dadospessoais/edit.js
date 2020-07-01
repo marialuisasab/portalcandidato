@@ -232,6 +232,19 @@ $(document).ready(function ($) {
 
     });
 
+    $("#natural").change(function () {
+        var valorid = $("#natural").val();
+        // alert(valorid);
+
+        $.get('/get-cidades/' + valorid, function (cidades) {
+            $('select[name=naturalidade]').empty();
+            $.each(cidades, function (key, value) {
+                $('select[name=naturalidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
+                // console.log(value);
+            });
+        });
+    })
+
 });
 
 // $("document").ready(function () {

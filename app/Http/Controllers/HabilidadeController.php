@@ -55,13 +55,13 @@ class HabilidadeController extends Controller
         $habilidade->tipo_idtipo = $request->tipo_idtipo;
    
         if ($habilidade->save()){       
-            flash("Dados incluidos com sucesso!!!")->success();  
+            flash("Informações gravadas com sucesso!")->success();  
                 return redirect()->route('habilidades');
                         // ->with('success', 'Informações cadastradas com sucesso!');
         }else {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao gravar as informações!');
+            flash("Falha ao gravar as informações!")->error();
+            return redirect()->back();
+                        // ->with('error', 'Falha ao gravar as informações!');
         } 
     }
 
@@ -109,12 +109,12 @@ class HabilidadeController extends Controller
             $hab->tipo_idtipo = $request->tipo_idtipo;
        
             if ($hab->save()){         
-                flash("Dados incluidos com sucesso!!!")->success();
+                flash("Informações gravadas com sucesso!!!")->success();
                     return redirect()->route('habilidades');
                             // ->with('success', 'Informações cadastradas com sucesso!');
             }else {
-                return redirect()
-                            ->back()
+                flash("Falha ao gravar as informações!")->error();
+                return redirect()->back()
                             ->with('error', 'Falha ao gravar as informações!');
             } 
         }      
@@ -131,13 +131,13 @@ class HabilidadeController extends Controller
         $habilidade = Habilidade::find($id);
         if (isset($habilidade)){
             if ($habilidade->delete()){         
-                flash("Dados excluidos com sucesso!!!")->success();
+                flash("Habilidade excluída com sucesso!")->success();
                     return redirect()->route('habilidades');
                                 // ->with('success', 'Dados excluidos com sucesso!');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao excluir as informações!');
+                flash("Falha ao excluir as informações!")->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao excluir as informações!');
             }  
         }
     }

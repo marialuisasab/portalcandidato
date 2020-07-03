@@ -297,7 +297,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-user-cog "></i>
                             <p>
-                                Sobre Meu Perfil
+                                Gerenciar Meu Perfil
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>
@@ -351,7 +351,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link nav-item " href="#" id="idcadastrarcurriculo">
                             <i class="fas fa-fw fa-file-signature "></i>
                             <p>
-                                Cadastrar Currículo
+                                Gerenciar Currículo
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>
@@ -421,7 +421,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-share "></i>
                             <p>
-                                Vagas
+                                Gerenciar Minhas Vagas
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>

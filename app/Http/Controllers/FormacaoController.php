@@ -68,13 +68,12 @@ class FormacaoController extends Controller
         }               
         //dd($curso);
         if ($curso->save()){         
-            flash("Dados incluidos com sucesso!!!")->success();
+            flash("Informações gravadas com sucesso!!!")->success();
                 return redirect()->route('cursos');
                             // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
-            return redirect()
-                        ->back();
-                        flash("Falha ao gravar as informações!!!")->success();
+                        flash("Falha ao gravar as informações!!!")->error();
+            return redirect()->back();
                         
                         // ->with('error', 'Falha ao gravar as informações!');
         }          
@@ -138,13 +137,13 @@ class FormacaoController extends Controller
             }               
             //dd($curso);
             if ($curso->save()){  
-                 flash("Dados incluidos com sucesso!!!")->success();
+                 flash("Informações gravadas com sucesso!")->success();
                     return redirect()->route('cursos');
                                 // ->with('success', 'Dados editados com sucesso!');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao editar as informações!');
+                 flash("Falha ao editar as informações!")->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao editar as informações!');
             }   
         }  
     }
@@ -160,13 +159,13 @@ class FormacaoController extends Controller
         $curso = Curso::find($id);
         if (isset($curso)){
             if ($curso->delete()){    
-                flash("Dados excluidos com sucesso!!!")->success();
+                flash("Formação excluida com sucesso!")->success();
                     return redirect()->route('cursos');
                                 // ->with('success', 'Dados excluidos com sucesso!');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao excluir as informações!');
+                flash("Falha ao excluir as informações!")->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao excluir as informações!');
             }  
         }
 

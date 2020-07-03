@@ -49,23 +49,21 @@
 
 								<div class="col-xs-8 col-md-6"
 									style="margin-top: 7px; margin-left: auto; text-align: end;">
-									<button class=" btn btn-primary">
-										<a style="color:white;" href="/endereco/editar/{{Auth::user()->id}}">Editar
-											<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
-									</button>
-									<button class=" btn btn-success">
-										<a style=" color: white;" href="/cursos">Proximo<span class="fas fa-forward"
-												style="padding-left: 15px;"></span>
-										</a>
-									</button>
-									<button class=" btn btn-secondary" style="">
-										<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
-												style="padding-left: 15px;;"></span></a>
-									</button>
-
-
-
-
+									<div class="btn-group" role="group">
+										<button class=" btn btn-primary">
+											<a style="color:white;" href="/endereco/editar/{{Auth::user()->id}}">Editar
+												<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
+										</button>
+										<button class=" btn btn-success">
+											<a style=" color: white;" href="/cursos">Proximo<span class="fas fa-forward"
+													style="padding-left: 15px;"></span>
+											</a>
+										</button>
+										<button class=" btn btn-secondary" style="">
+											<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
+													style="padding-left: 15px;;"></span></a>
+										</button>
+									</div>
 
 								</div>
 							</div>

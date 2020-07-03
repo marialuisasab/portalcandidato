@@ -74,8 +74,8 @@ class Helper
     }
 
     public static function getEstado($id){
-        $estado = Estado::select('uf')->where('idestado', $id)->get()[0];
-        return $estado->uf;
+        $estado = Estado::select('nome')->where('idestado', $id)->get()[0];
+        return $estado->nome;
     }
 
     public static function getCidade($id){

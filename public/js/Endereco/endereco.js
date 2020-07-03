@@ -35,7 +35,7 @@ $(function () {
         } else {
             $.get('/get-cidades', function (resultado) {
                 $('select[name=cidade_idcidade]').empty();
-                $('select[name=cidade_idcidade]').append("<option> Selecionar </option>");
+                $('select[name=cidade_idcidade]').append("<option>  </option>");
 
             });
         }

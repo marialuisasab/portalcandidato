@@ -37,8 +37,8 @@
               <div class="container">
 
                 <div class="row">
-                  <div class="col-xs-5 col-md-5">
-                    <h2 class="mb-0" style="color:dodgerblue;">
+                  <div class="col-xs-6 col-md-6">
+                    <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
                       Experiências Profissionais
                       <span class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
@@ -48,7 +48,7 @@
                   </div>
 
 
-                  <div class="col-xs-7 col-md-2" style="margin-left: auto; margin-top: 25px;">
+                  <div class="col-xs-6 col-md-2" style="margin-left: auto; margin-top: 25px;">
                     <button class=" btn btn-secondary" type="cancel">
                       <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
                           style="padding-left: 15px;"></span></a>
@@ -138,7 +138,7 @@
                     </div>
 
                     <div class="form-group">
-                      <li><strong> ATIVIDADES:*&nbsp;&nbsp;&nbsp;</strong>
+                      <li><strong> DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
                         <textarea class="form-control {{ $errors->has('atividades') ? 'is-invalid' : ''}}"
                           name="atividades" id="atividades" rows="3">{{$exp->atividades}}</textarea>
                         @if($errors->has('atividades'))
@@ -154,7 +154,7 @@
                       <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
                           style="padding-left: 15px;"></button>
                       <button class=" btn btn-danger" style="color:red;" type="cancel">
-                        <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                        <a href="/experiencias" style="color: white;">Cancelar<span class="fas fa-window-close"
                             style="padding-left: 15px;"></span></a>
                       </button>
                     </div>

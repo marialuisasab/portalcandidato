@@ -13,8 +13,8 @@ $(function () {
             location.href = "/endereco";
 
         } else {
-            location.href = "#";
-            alert("Você deve preencher seus dados pessoais primeiro!!!");
+            // location.href = "#";
+            alert("Cadastre primeiro os Dados Pessoais!");
         }
 
     });
@@ -25,8 +25,8 @@ $(function () {
         if (valor) {
             location.href = "/cursos";
         } else {
-            location.href = "#";
-            alert("Você deve preencher seus dados pessoais primeiro!!!");
+            // location.href = "#";
+            alert("Cadastre primeiro os Dados Pessoais!");
         }
 
     });
@@ -38,8 +38,8 @@ $(function () {
         if (valor) {
             location.href = "/experiencias";
         } else {
-            location.href = "#";
-            alert("Você deve preencher seus dados pessoais primeiro!!!");
+            // location.href = "#";
+            alert("Cadastre primeiro os Dados Pessoais!");
         }
 
     });
@@ -51,8 +51,8 @@ $(function () {
         if (valor) {
             location.href = "/habilidades";
         } else {
-            location.href = "#";
-            alert("Você deve preencher seus dados pessoais primeiro!!!");
+            // location.href = "#";
+            alert("Cadastre primeiro os Dados Pessoais!");
         }
 
     });
@@ -63,8 +63,8 @@ $(function () {
         if (valor) {
             location.href = "/redessociais";
         } else {
-            location.href = "#";
-            alert("Você deve preencher seus dados pessoais primeiro!!!");
+            // location.href = "#";
+            alert("Cadastre primeiro os Dados Pessoais!");
         }
 
     });

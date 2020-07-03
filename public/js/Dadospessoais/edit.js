@@ -144,7 +144,7 @@ $(document).ready(function ($) {
 
 
     // Adicionando mascara para a CTPS
-    $("#ctps").mask('AAAAA', {
+    $("#ctps").mask('AAAAAAA', {
         translation: {
             A: {
                 pattern: /[0-9]/
@@ -154,9 +154,14 @@ $(document).ready(function ($) {
 
 
     // Adicionando mascara para a presenção salarial
-    $("#pretsalarial").mask("#,00", {
-        reverse: true
+    $("#pretsalarial").maskMoney({
+        prefix: 'R$ ',
+        allowNegative: true,
+        thousands: '.',
+        decimal: ',',
+        affixesStay: false
     });
+
 
 
 
@@ -215,8 +220,11 @@ $(document).ready(function ($) {
     // "( ou )"
     // "-"
     $("#idformdados").submit(function () {
+        // event.preventDefault();
         var cpfValue = $("#cpf").val();
         var rgvalue = $("#rg").val();
+        var valorpret = $("#pretsalarial").val();
+        // console.log(valorpret);
 
         // Remove os caracteres que não são numerais:
         cpfValue = cpfValue.replace(/\D/g, '');
@@ -224,11 +232,17 @@ $(document).ready(function ($) {
         // Removendo os caracteres que não são alfanumericos
         rgvalue = rgvalue.replace(/\W/g, '');
 
+        // Removendo os caracteres "." e ","
+        valorpret = valorpret.replace(/\D/g, '');
+
         // Atualiza o valor no campo do formulário:
         $("#cpf").val(cpfValue);
         $("#rg").val(rgvalue);
+        $("#pretsalarial").val(valorpret);
         // alert(cpfValue);
         // alert(rgvalue);
+        // console.log(valorpret);
+
 
     });
 
@@ -236,14 +250,25 @@ $(document).ready(function ($) {
         var valorid = $("#natural").val();
         // alert(valorid);
 
-        $.get('/get-cidades/' + valorid, function (cidades) {
-            $('select[name=naturalidade]').empty();
-            $.each(cidades, function (key, value) {
-                $('select[name=naturalidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
-                // console.log(value);
+        if (valorid != '') {
+            $.get('/get-cidades/' + valorid, function (cidades) {
+                $('select[name=naturalidade]').empty();
+                $.each(cidades, function (key, value) {
+                    $('select[name=naturalidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
+                    console.log(value);
+                });
             });
-        });
-    })
+        } else {
+            $.get('/get-cidades', function (result) {
+                $('select[name=naturalidade').empty();
+                $('select[name=naturalidade]').append("<option> </option>");
+
+            });
+
+        }
+
+    });
+
 
 });
 

@@ -55,13 +55,13 @@ class ExperienciaController extends Controller
         $exp->curriculo_idcurriculo = Helper::getIdCurriculo();
    
         if ($exp->save()){         
-            flash("Dados incluidos com sucesso!!!")->success();
+            flash("Informações gravadas com sucesso!")->success();
                 return redirect()->route('experiencias');
                         // ->with('success', 'informações cadastradas com sucesso!');
         }else {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao gravar as informações!');
+            flash("Falha ao gravar as informações!")->error();
+            return redirect()->back();
+                        // ->with('error', 'Falha ao gravar as informações!');
         } 
     }
 
@@ -110,13 +110,13 @@ class ExperienciaController extends Controller
             $exp->curriculo_idcurriculo = Helper::getIdCurriculo();
        
             if ($exp->save()){      
-                 flash("Dados incluidos com sucesso!!!")->success();
+                 flash("Informações gravadas com sucesso!")->success();
                     return redirect()->route('experiencias');
                                 // ->with('success', 'informações cadastradas com sucesso!');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao gravar as informações!');
+                 flash("Falha ao gravar as informações!")->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao gravar as informações!');
             } 
         }
     }
@@ -132,13 +132,13 @@ class ExperienciaController extends Controller
         $exp = Experiencia::find($id);
         if (isset($exp)){
             if ($exp->delete()){    
-                 flash("Dados excluidos com sucesso!!!")->success();
+                 flash("Experiência excluida com sucesso!!")->success();
                     return redirect()->route('experiencias');
                                 // ->with('success', 'Dados excluídos com sucesso!');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao excluir as informações!');
+                 flash("Falha ao excluir as informações!")->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao excluir as informações!');
             }  
         }
 

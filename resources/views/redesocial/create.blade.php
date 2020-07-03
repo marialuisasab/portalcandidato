@@ -75,14 +75,14 @@
                     </div>
                     @endif
                   </div>
-                  <hr>
+
                   @endforeach
                   <br>
                   <div class="form-group" style="text-align: end;">
                     <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
                         style="padding-left: 15px;"></button>
                     <button class=" btn btn-danger" style="color:red;" type="cancel">
-                      <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                      <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
                           style="padding-left: 15px;"></span></a>
                     </button>
                   </div>

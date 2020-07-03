@@ -85,9 +85,9 @@ class CurriculoController extends Controller
             $upload = $request->file('foto')->storeAs('fotos', $arquivo);
            
             if(!$upload){
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao fazer upload da imagem');
+                flash('Falha ao realizar upload da imagem')->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao fazer upload da imagem');
             }
             $c->foto = $arquivo;                  
         }
@@ -96,13 +96,13 @@ class CurriculoController extends Controller
 
         if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){            
            
-            flash('Dados incluidos com sucesso')->success();
+            flash('Informações gravadas com sucesso!')->success();
             return redirect()->route('curriculo.dados');
                             // ->with('success', 'Dados cadastrados com sucesso!');
         }else{
-            return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao gravar as informações!');
+            flash('Falha ao gravar as informações!')->error();
+            return redirect()->back();
+                            // ->with('error', 'Falha ao gravar as informações!');
         }
         
     }
@@ -133,9 +133,9 @@ class CurriculoController extends Controller
         if(isset($c)){
             return view('curriculo.edit', compact('c', 'cidades'));
         }   
-        return redirect()
-                ->back()
-                ->with('error', 'Currículo não encontrado!');
+        flash('Currículo não encontrado!')->error();
+        return redirect()->back();
+                // ->with('error', 'Currículo não encontrado!');
         
     }
 
@@ -186,9 +186,9 @@ class CurriculoController extends Controller
                 $upload = $request->file('foto')->storeAs('fotos', $arquivo);
                
                 if(!$upload){
-                    return redirect()
-                                ->back()
-                                ->with('error', 'Falha ao fazer upload da imagem');
+                    flash('Falha ao realizar upload da imagem!')->error();
+                    return redirect()->back();
+                                // ->with('error', 'Falha ao fazer upload da imagem');
                 }
                 $c->foto = $arquivo;                  
             }
@@ -196,17 +196,17 @@ class CurriculoController extends Controller
             if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){         
               
                             // ->with('success', 'Dados cadastrados com sucesso!');
-                         flash('dados incluidos com sucesso')->success();
+                         flash('Informações gravadas com sucesso!')->success();
                            return redirect()->route('curriculo.dados');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao gravar as informações!');
+                         flash('Falha ao gravar as informações!')->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao gravar as informações!');
             }
         }
-        return redirect()
-                ->back()
-                ->with('error', 'Currículo não encontrado!');
+         flash('Currículo não encontrado!')->error();
+        return redirect()->back();
+                // ->with('error', 'Currículo não encontrado!');
     }
 
     /**

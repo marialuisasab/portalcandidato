@@ -63,13 +63,13 @@ class EnderecoController extends Controller
         //dd($e);
         if ($e->save() && $this->updateCurriculo($e->idendereco)){     
               
-                flash('Dados incluidos com sucesso')->success();
+                flash('Informações gravadas com sucesso!')->success();
                 return redirect()->route('endereco');
                             // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao gravar as informações!');
+                flash('Falha ao gravar as informações!')->error();
+            return redirect()->back();
+                        // ->with('error', 'Falha ao gravar as informações!');
         }        
     }
 
@@ -124,13 +124,13 @@ class EnderecoController extends Controller
 
             if ($e->save()){         
                   
-                    flash('dados incluidos com sucesso')->success();
+                    flash('Informações gravadas com sucesso!')->success();
                     return redirect()->route('endereco');
                                 // ->with('success', 'Dados cadastrados com sucesso!');
             }else {
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao gravar as informações!');
+                    flash('Falha ao gravar as informações!')->error();
+                return redirect()->back();
+                            // ->with('error', 'Falha ao gravar as informações!');
             }  
         }      
     }

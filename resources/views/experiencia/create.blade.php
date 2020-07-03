@@ -28,8 +28,8 @@
         <div class="card-header" id="headingOne" style="background-color: aliceblue;">
           <div class="container">
             <div class="row">
-              <div class="col-sm">
-                <h2 class="mb-0" style="color:dodgerblue;">
+              <div class="col-xs-6 col-md-6">
+                <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
 
                   Experiências Profissionais
                   <span class="fa-stack fa-sm">
@@ -42,7 +42,7 @@
               </div>
 
 
-              <div class="col-xs-7 col-md-2" style="margin-left: auto; margin-top:7px;">
+              <div class="col-xs-6 col-md-2" style="margin-left: auto; margin-top:25px;">
                 <div class="btn-group " role="group" aria-label="">
 
                   <button class=" btn btn-secondary" type="button">
@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="form-group">
-                  <li><strong>DESCRIÇÃO DAS ATIVIDADES:*&nbsp;&nbsp;&nbsp;</strong>
+                  <li><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
                     <textarea class="form-control {{ $errors->has('atividades') ? 'is-invalid' : ''}}" name="atividades"
                       id="atividades" rows="3"></textarea>
                     @if($errors->has('atividades'))
@@ -138,7 +138,7 @@
                   <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
                       style="padding-left: 15px;"></button>
                   <button class=" btn btn-danger" style="color:red;" type="cancel">
-                    <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                    <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
                         style="padding-left: 15px;"></span></a>
                   </button>
                 </div>

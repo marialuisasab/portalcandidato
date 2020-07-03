@@ -37,8 +37,8 @@
           <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
             <div class="container">
               <div class="row">
-                <div class="col-sm">
-                  <h2 class="mb-0" style="color:dodgerblue;">
+                <div class="col-xs-6 col-md-6">
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
 
                     Experiencias Profissionais
                     <span class="fa-stack fa-sm">
@@ -51,22 +51,23 @@
                 </div>
 
 
-                <div class="col-xs-8 col-md-8" style="margin-top: 25px; text-align:end; margin-left: auto;">
+                <div class="col-xs-6 col-md-6" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
-                  <button class=" btn btn-primary">
-                    <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
-                        style="padding-left: 15px;"></span> </a>
-                  </button>
-                  <button class=" btn btn-success">
-                    <a style=" color: white;" href="/habilidades">Proximo<span class="fas fa-forward"
-                        style="padding-left:15px;"></span>
-                    </a>
-                  </button>
-                  <button class=" btn btn-secondary">
-                    <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
-                        style="padding-left: 15px;"></span></a>
-                  </button>
-
+                  <div class="btn-group" role="group">
+                    <button class=" btn btn-primary">
+                      <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
+                          style="padding-left: 15px;"></span> </a>
+                    </button>
+                    <button class=" btn btn-success">
+                      <a style=" color: white;" href="/habilidades">Proximo<span class="fas fa-forward"
+                          style="padding-left:15px;"></span>
+                      </a>
+                    </button>
+                    <button class=" btn btn-secondary">
+                      <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
+                          style="padding-left: 15px;"></span></a>
+                    </button>
+                  </div>
 
                 </div>
               </div>
@@ -92,12 +93,10 @@
                         <span class="fa fa-edit" style="padding-left: 15px;"></span></a>
                     </button>
 
-
                     <button class=" btn btn-danger" name="botaoexcluir" value="{{$e->idexperiencia}}">
                       <a style="color: white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
                       </a>
                     </button>
-
 
                   </div>
                 </div>
@@ -134,12 +133,12 @@
 
 
                       @if ($e->atividades != null)
-                      <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS
-                          ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>{{$e->atividades}}
+                      <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;
+                        </strong>{{$e->atividades}}
                       </li>
                       @else
-                      <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS
-                          ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não Informado</span>
+                      <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
+                        <span style="color: red;">Não Informado</span>
                       </li>
                       @endif
 

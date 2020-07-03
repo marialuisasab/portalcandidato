@@ -168,8 +168,9 @@
 
 									<div class="form-group">
 										<li><strong>ESTADO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-											<select class=" custom-select" id="estado" name="estado_idestado"
-												value="{{$e->estado_idestado}}">
+											<select
+												class="form-control {{$errors->has('estado_idestado') ? 'is-invalid': ''}}"
+												id="estado" name="estado_idestado" value="{{$e->estado_idestado}}">
 												<option value="">Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}"
@@ -177,6 +178,11 @@
 													{{$est->nome}} </option>
 												@endforeach
 											</select>
+											@if($errors->has('estado_idestado'))
+											<div class="invalid-feedback">
+												{{$errors->first('estado_idestado')}}
+											</div>
+											@endif
 										</li>
 									</div>
 
@@ -206,8 +212,8 @@
 
 						<div class="form-group">
 							<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-								<select class="custom-select" id="cidade" name="cidade_idcidade"
-									value="{{$e->cidade_idcidade}}">
+								<select class="form-control {{$errors->has('cidade_idcidade') ? 'is-invalid': ''}}"
+									id="cidade" name="cidade_idcidade" value="{{$e->cidade_idcidade}}">
 									<option value=""></option>
 
 									@foreach(Helper::getCidades() as $cid)
@@ -218,8 +224,12 @@
 									@else
 									@endif
 									@endforeach
-
 								</select>
+								@if($errors->has('cidade_idcidade'))
+								<div class="invalid-feedback">
+									{{$errors->first('cidade_idcidade')}}
+								</div>
+								@endif
 							</li>
 						</div>
 
@@ -231,19 +241,20 @@
 
 						<div class="form-group">
 							<li><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-								<select class="custom-select" id="pais_idpais" name="pais_idpais"
-									value="{{$e->pais_idpais}}">
+								<select class="form-control {{$errors->has('pais_idpais') ? 'is-invalid': ''}}"
+									id="pais_idpais" name="pais_idpais" value="{{$e->pais_idpais}}">
 									<option value="">Selecionar</option>
 									@foreach(Helper::getPai() as $pai)
 									<option value="{{$pai->idpais}}"
 										{{ $e->pais_idpais == $pai->idpais ? 'selected' : '' }}>
 										{{ $pai->nome }}</option>
 									@endforeach
-									{{-- 
-												<option value="" selected>País</option>
-												<option value="1">Brasil</option>
-												<option value="2">Outro</option> --}}
 								</select>
+								@if($errors->has('pais_idpais'))
+								<div class="invalid-feedback">
+									{{$errors->first('pais_idpais')}}
+								</div>
+								@endif
 							</li>
 						</div>
 
@@ -284,8 +295,8 @@
 				<div class="form-group" style="text-align: end;">
 					<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
 							style="padding-left: 15px;"></button>
-					<button class=" btn btn-danger" style="color:red;" type="cancel">
-						<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+					<button class=" btn btn-danger" style="color:red;">
+						<a href="/endereco" style="color: white;">Cancelar<span class="fas fa-window-close"
 								style="padding-left: 15px;"></span></a>
 					</button>
 				</div>

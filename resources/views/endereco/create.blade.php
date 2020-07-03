@@ -160,7 +160,7 @@
 												name="estado_idestado" data-dependent="cidade">
 												<option value="" selected>Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
-												<option value="{{$est->idestado}}">{{ $est->uf }}</option>
+												<option value="{{$est->idestado}}">{{ $est->nome }}</option>
 												@endforeach
 											</select>
 										</li>
@@ -227,7 +227,7 @@
 						<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
 								class="fas fa-save" style="padding-left: 15px;"></button>
 						<button class=" btn btn-danger" style="color:red;" type="cancel">
-							<a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+							<a href="home" style="color: white;">Cancelar<span class="fas fa-window-close"
 									style="padding-left: 15px;"></span></a>
 						</button>
 					</div>

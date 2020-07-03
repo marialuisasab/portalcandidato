@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Portal do candidato',
+    'title' => 'Portal do Candidato',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Portal do candidato</b><p></p><b><strong>BIO</strong></b><b class="lead"><em>EXTRATUS<em></b>',
+    'logo' => '<b>Portal do Candidato</b><p></p><b><strong>BIO</strong></b><b class="lead"><em>EXTRATUS<em></b>',
     'logo_img' => false,
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,

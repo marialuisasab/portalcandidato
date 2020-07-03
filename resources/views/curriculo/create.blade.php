@@ -7,6 +7,8 @@
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script> --}}
 <script src="/jquerymask/jquerymasky.js"></script>
+<script src="/jqueryMaskMoney/jquery.maskMoney.js" type="text/javascript"></script>
+<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js " type=" text / javascript "> </script>
 {{-- 
 <script src="vendor/jquery/jquery.js"></script> --}}
 <script src="/js/Dadospessoais/edit.js"></script>
@@ -53,9 +55,9 @@
                                 <div class="col-xs-7 col-md-2" style="margin-left: auto; margin-top:7px;">
                                     <div class="btn-group " role="group" aria-label="">
 
-                                        <button class=" btn btn-secondary" type="button">
-                                            <a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
-                                                    style="padding-left: 15px;"></span></a>
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <a href="/home">Voltar<span class="fas fa-undo"
+                                                    style="padding-left: 15px; color:gray;"></span></a>
                                         </button>
                                     </div>
                                 </div>
@@ -171,12 +173,19 @@
 
                         <div class="form-group">
                             <li><strong> GENERO:*&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="custom-select" id="genero" name="genero">
+                                <select class="form-control {{$errors->has('genero') ? 'is-invalid' : ''}}" id="genero"
+                                    name="genero">
                                     <option value="" selected>Selecionar</option>
                                     <option value="F">Feminino</option>
                                     <option value="M">Masculino</option>
                                     <option value="N">Prefiro não informar</option>
-                                </select></li>
+                                </select>
+                                @if($errors->has('genero'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('genero')}}
+                                </div>
+                                @endif
+                            </li>
                         </div>
 
 
@@ -216,11 +225,17 @@
 
                         <div class="form-group">
                             <li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="custom-select" id="dfisico" name="dfisico">
+                                <select class="form-control {{$errors->has('dfisico') ? 'is-invalid' : ''}}"
+                                    id="dfisico" name="dfisico">
                                     <option value="" selected>Selecionar</option>
                                     <option value="1">Sim</option>
                                     <option value="2">Não</option>
-                                </select> </li>
+                                </select>
+                                @if($errors->has('dfisico'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('dfisico')}}
+                                </div>
+                                @endif</li>
                         </div>
 
 
@@ -230,7 +245,8 @@
 
                         <div class="form-group">
                             <li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="custom-select" id="nacionalidade" name="nacionalidade">
+                                <select class="form-control {{$errors->has('nacionalidade') ? 'is-invalid' : ''}}"
+                                    id="nacionalidade" name="nacionalidade">
                                     <option value="" selected>Selecionar</option>
                                     @foreach(Helper::getPai () as $pais)
                                     <option value="{{$pais->idpais}}">{{$pais->nome}}
@@ -240,7 +256,12 @@
                                     <option value="" selected>Selecionar</option>
                                     <option value="1">Brasileira</option>
                                     <option value="2">Outra</option> --}}
-                                </select> </li>
+                                </select>
+                                @if($errors->has('nacionalidade'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('nacionalidade')}}
+                                </div>
+                                @endif</li>
                         </div>
 
 
@@ -256,17 +277,31 @@
                                     <div class="row">
                                         <div class="col-sm" style="text-align: start;">
 
-                                            <select class="custom-select" id="natural" name="natural">
+                                            <select
+                                                class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
+                                                id="natural" name="natural">
                                                 <option value="" selected>Selecionar</option>
                                                 @foreach(Helper::getEstados() as $est)
                                                 <option value="{{$est->idestado}}">{{ $est->nome }}</option>
                                                 @endforeach
                                             </select>
+                                            @if($errors->has('naturalidade'))
+                                            <div class="invalid-feedback">
+                                                {{$errors->first('naturalidade')}}
+                                            </div>
+                                            @endif
                                         </div>
                                         <div class="col-sm">
-                                            <select class="custom-select" id="naturalidade" name="naturalidade">
+                                            <select
+                                                class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
+                                                id="naturalidade" name="naturalidade">
                                                 <option value="" selected>Selecionar</option>
                                             </select>
+                                            @if($errors->has('naturalidade'))
+                                            <div class="invalid-feedback">
+                                                {{$errors->first('naturalidade')}}
+                                            </div>
+                                            @endif
                                         </div>
 
                                     </div>
@@ -314,19 +349,25 @@
 
                         <div class="form-group">
                             <li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="custom-select" id="estadocivil" name="estadocivil">
+                                <select class="form-control {{$errors->has('estadocivil') ? 'is-invalid' : ''}}"
+                                    id="estadocivil" name="estadocivil">
                                     <option value="" selected>Selecionar</option>
                                     <option value="1">Solteiro(a)</option>
                                     <option value="2">Casado(a)</option>
                                     <option value="3">Divorciado(a)</option>
                                     <option value="4">Viúvo(a)</option>
                                     <option value="5">Separado(a)</option>
-                                </select> </li>
+                                </select>
+                                @if($errors->has('estadocivil'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('estadocivil')}}
+                                </div>
+                                @endif </li>
                         </div>
 
 
                         <div class="form-group">
-                            <li><strong>POSSUI CNH!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                            <li><strong>POSSUI CNH?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                 <div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
                                     <input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
                                         value="1">
@@ -421,11 +462,11 @@
                 @endif --}}
                 <br>
                 <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-                            style="padding-left: 15px;"></button>
-                    <button class=" btn btn-danger" style="color:red;" type="cancel">
-                        <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
-                                style="padding-left: 15px;"></span></a>
+                    <button type="submit" class="btn btn-outline-primary" id="botaosalvarend">Salvar<span
+                            class="fas fa-save" style="padding-left: 15px;"></button>
+                    <button class=" btn btn-outline-danger" type="cancel">
+                        <a href="home">Cancelar<span class="fas fa-window-close"
+                                style="padding-left: 15px; color: red;"></span></a>
                     </button>
                     {{-- <button class=" btn btn-link" style="color:red;" type="cancel">
                                 <a href="cancel" style="color: red;"><span class="fas fa-window-close"

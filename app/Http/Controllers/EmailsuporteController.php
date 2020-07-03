@@ -32,8 +32,11 @@ class EmailsuporteController extends Controller
                 ->subject('[Trabalhe Conosco - Bio Extratus] Suporte');
         }); 
         
-        return redirect()->route('home')
-            ->with('success', 'E-mail enviado com sucesso ao suporte!');
+        flash("E-mail enviado ao suporte!
+        Entraremos em contato em breve.
+        Fique atento à sua caixa de entrada.")->success();
+        return redirect()->route('home');
+            // ->with('success', 'E-mail enviado com sucesso ao suporte!');
     
     }
 }

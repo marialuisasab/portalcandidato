@@ -84,11 +84,17 @@
                   {{-- complemento  definicao pendente --}}
                   <div class="form-group">
                     <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="escolaridade" name="escolaridade">
+                      <select class="form-control {{$errors->has('escolaridade') ? 'is-invalid' : ''}}"
+                        id="escolaridade" name="escolaridade">
                         <option value="" selected>Selecionar</option>
                         <option value="1">Academica</option>
                         <option value="2">Complementar</option>
                       </select>
+                      @if($errors->has('escolaridade'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('escolaridade')}}
+                      </div>
+                      @endif
                     </li>
 
                   </div>
@@ -98,12 +104,18 @@
 
                   <div class="form-group" id="idnivel" style="display: none;">
                     <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="nivel_idnivel" name="nivel_idnivel">
+                      <select class="form-control {{$errors->has('nivel_idnivel') ? 'is-invalid' : ''}}"
+                        id="nivel_idnivel" name="nivel_idnivel">
                         <option value="" selected>Selecionar</option>
                         @foreach(Helper::getNiveis() as $n)
                         <option value="{{$n->idnivel}}">{{ $n->nome }}</option>
                         @endforeach
                       </select>
+                      @if($errors->has('nivel_idnivel'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('nivel_idnivel')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
 
@@ -113,12 +125,18 @@
 
                   <div class="form-group" id="idcateg" style="display: none;">
                     <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="categoria_idcategoria" name="categoria_idcategoria">
+                      <select class="form-control {{$errors->has('categoria_idcategoria') ? 'is-invalid' : ''}}"
+                        id="categoria_idcategoria" name="categoria_idcategoria">
                         <option value="" selected>Selecionar</option>
                         @foreach(Helper::getCategorias() as $c)
                         <option value="{{$c->idcategoria}}">{{ $c->nome }}</option>
                         @endforeach
                       </select>
+                      @if($errors->has('categoria_idcategoria'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('categoria_idcategoria')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
 
@@ -140,7 +158,7 @@
 
 
                   <div class="form-group" id="idperiodo" style="display: none;">
-                    <li><strong>PERÍODO:*&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
+                    <li><strong>PERÍODO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
                       <input type="number" class="form-control" name="periodo" placeholder="Ex.: 1/10">
                     </li>
                   </div>
@@ -185,7 +203,7 @@
 
 
                   <div class="form-group">
-                    <li><strong>INSTITUIÇÃO:*
+                    <li><strong>INSTITUIÇÃO:
                         &nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
                         <option value="" selected>Selecionar</option>
@@ -211,7 +229,7 @@
             <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
                 style="padding-left: 15px;"></button>
             <button class=" btn btn-danger" style="color:red;" type="cancel">
-              <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+              <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
                   style="padding-left: 15px;"></span></a>
             </button>
           </div>

@@ -88,11 +88,11 @@
                     <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       @if($curso->escolaridade == '1')
                       <select class="custom-select" id="escolaridade" name="escolaridade">
-                        <option value="1" {{ $curso->escolaridade == '1' ? 'selected' : ''}}>Academica</option>
+                        <option value="1">Academica</option>
                       </select>
                       @elseif($curso->escolaridade == '2')
                       <select class="custom-select" id="escolaridade" name="escolaridade">
-                        <option value="2" {{ $curso->escolaridade == '1' ? 'selected' : ''}}>Complementar</option>
+                        <option value="2">Complementar</option>
                       </select>
                       @else
                       @endif
@@ -103,7 +103,8 @@
                   @if ($curso->escolaridade =='1')
                   <div class="form-group" id="idnivel">
                     <li><strong> NÍVEL:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="nivel_idnivel" name="nivel_idnivel">
+                      <select class="form-control {{$errors->has('nivel_idnivel') ? 'is-invalid' : ''}}"
+                        id="nivel_idnivel" name="nivel_idnivel">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getNiveis() as $n)
                         <option value="{{$n->idnivel}}" {{ $curso->nivel_idnivel == $n->idnivel ? 'selected' : '' }}>
@@ -111,6 +112,11 @@
                         </option>
                         @endforeach
                       </select>
+                      @if($errors->has('nivel_idnivel'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('nivel_idnivel')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
                   @else
@@ -123,7 +129,8 @@
                   @if ($curso->escolaridade =='2')
                   <div class="form-group" id="idcateg">
                     <li><strong>CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="categoria_idcategoria" name="categoria_idcategoria">
+                      <select class="custom-select {{$errors->has('categoria_idcategoria') ? 'is-invalid' : ''}}"
+                        id="categoria_idcategoria" name="categoria_idcategoria">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getCategorias() as $c)
                         <option value="{{$c->idcategoria}}"
@@ -131,6 +138,11 @@
                           {{ $c->nome }}</option>
                         @endforeach
                       </select>
+                      @if($errors->has('categoria_idcategoria'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('categoria_idcategoria')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
                   @else
@@ -144,13 +156,19 @@
                   @if ($curso->escolaridade =='1')
                   <div class="form-group" id="idarea">
                     <li><strong> AREA:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="area_idarea" name="area_idarea">
+                      <select class="form-control {{$errors->has('area_idarea') ? 'is-invalid' : ''}}" id="area_idarea"
+                        name="area_idarea">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getAreas() as $a)
                         <option value="{{$a->idarea}}" {{ $curso->area_idarea == $a->idarea ? 'selected' : '' }}>
                           {{$a->nome }}</option>
                         @endforeach
                       </select>
+                      @if($errors->has('area_idarea'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('area_idarea')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
                   @else
@@ -161,7 +179,7 @@
 
                   @if ($curso->escolaridade =='1')
                   <div class="form-group" id="idperiodo">
-                    <li><strong>PERIODO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+                    <li><strong>PERIODO:&nbsp;&nbsp;&nbsp;</strong><span></span>
                       <input type="number" class="form-control" id="periodo" name="periodo" value="{{$curso->periodo}}"
                         placeholder="Ex: 1">
                   </div>
@@ -217,7 +235,7 @@
                   </div>
                   @else
                   <div class="form-group" id="dataconclu">
-                    <li><strong>DATA DA CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+                    <li><strong>DATA DA CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
                       <input type="date" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
                         value="{{$curso->dtfim}}">
                     </li>
@@ -235,7 +253,7 @@
 
 
                   <div class="form-group">
-                    <li><strong>INSTITUIÇÃO:*&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                    <li><strong>INSTITUIÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <select class="custom-select" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getInstituicoes() as $i)
@@ -262,7 +280,7 @@
             <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
                 style="padding-left: 15px;"></button>
             <button class=" btn btn-danger" style="color:red;" type="cancel">
-              <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+              <a href="/cursos" style="color: white;">Cancelar<span class="fas fa-window-close"
                   style="padding-left: 15px;"></span></a>
             </button>
             </form>

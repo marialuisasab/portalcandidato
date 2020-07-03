@@ -56,12 +56,13 @@ class RedesocialController extends Controller
                 $flag = true;                 
         }
         if($flag){
-            return redirect()->route('redessociais')
-                            ->with('success', 'Dados cadastrados com sucesso!');
+            flash("Informações gravadas com sucesso!")->success();
+            return redirect()->route('redessociais');
+                            // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao gravar as informações!');
+             flash("Falha ao gravar as informações!")->error();
+            return redirect()->back();
+                        // ->with('error', 'Falha ao gravar as informações!');
         }        
 
     }
@@ -114,12 +115,13 @@ class RedesocialController extends Controller
             }                
         }
         if($flag){
-            return redirect()->route('redessociais')
-                            ->with('success', 'Dados cadastrados com sucesso!');
+            flash("Informações gravadas com sucesso!")->success();
+            return redirect()->route('redessociais');
+                            // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao gravar as informações!');
+            flash("Falha ao gravar as informações!")->success();
+            return redirect()->back();
+                        // ->with('error', 'Falha ao gravar as informações!');
         }  
         
     }

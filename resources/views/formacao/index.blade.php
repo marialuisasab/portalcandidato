@@ -40,7 +40,7 @@
                   </h2>
                 </div>
                 <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
-                  <ul>
+                  <div class="btn-group" role="group">
                     <button class=" btn btn-primary">
                       <a href="/curso/novo" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
@@ -54,7 +54,7 @@
                       <a style="color: white;" href="/endereco">Voltar<span class="fas fa-undo"
                           style="padding-left:15px;"></span></a>
                     </button>
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -68,6 +68,7 @@
                 <div class="row" style="margin-top: 25px; text-align:center;">
                   <div class="col-sm">
 
+
                     <button class=" btn btn-primary">
                       <a style="color:white;" href="/curso/editar/{{$c->idcurso}}">Editar
                         <span class="fa fa-edit" style="padding-left:15px;"></span></a>
@@ -78,6 +79,7 @@
                       <a style="color:white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
                       </a>
                     </button>
+
                   </div>
                 </div>
 
@@ -130,7 +132,7 @@
                           CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtfim)}}
                       </li>
                       @endif
-                      <hr>
+
 
                     </ul>
                   </div>

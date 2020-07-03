@@ -9,6 +9,8 @@
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
 <script src="/js/Dadospessoais/edit.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
+<script src="/jqueryMaskMoney/jquery.maskMoney.js" type="text/javascript"></script>
+<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js " type=" text / javascript "> </script>
 {{-- <script src="/js/Dadospessoais/edit.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
 	integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous">
@@ -60,9 +62,9 @@
 											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
 									<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 									</button> --}}
-									<button class=" btn btn-secondary" type="cancel" style="margin-top: 10px;">
-										<a href="/curriculo" style="color: white;">Voltar<span class="fas fa-undo"
-												style="padding-left: 15px;"></span></a>
+									<button class=" btn btn-outline-secondary" type="cancel" style="margin-top: 10px;">
+										<a href="/curriculo">Voltar<span class="fas fa-undo"
+												style="padding-left: 15px; color:gray"></span></a>
 									</button>
 								</div>
 
@@ -129,7 +131,7 @@
 								<input type="text"
 									class="form-control {{$errors->has('pretsalarial') ? 'is-invalid' : ''}}"
 									placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial"
-									value="{{$c->pretsalarial}}">
+									value="{{Helper::getPretensao($c->pretsalarial)}}">
 								@if($errors->has('pretsalarial'))
 								<div class="invalid-feedback">
 									{{$errors->first('pretsalarial')}}
@@ -157,7 +159,8 @@
 
 						<div class="form-group">
 							<li><strong> GENERO:*&nbsp;&nbsp;&nbsp;</strong>
-								<select class="custom-select" id="genero" name="genero" value="{{$c->genero}}">
+								<select class="form-control {{$errors->has('genero') ? 'is-invalid' : ''}}" id="genero"
+									name="genero" value="{{$c->genero}}">
 									<option value="" id="idselecionargen" {{$c->genero == null ? 'selected' : ''}}>
 										Selecionar</option>
 									<option value="F" id="idselecionargen" {{$c->genero == 'F' ? 'selected' : ''}}>
@@ -167,6 +170,11 @@
 									<option value="N" id="idselecionargen" {{$c->genero == 'N' ? 'selected' : ''}}>
 										Prefiro não informar</option>
 								</select>
+								@if($errors->has('genero'))
+								<div class="invalid-feedback">
+									{{$errors->first('genero')}}
+								</div>
+								@endif
 							</li>
 						</div>
 
@@ -194,19 +202,26 @@
 
 						<div class="form-group">
 							<li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
-								<select class="custom-select" id="dfisico" name="dfisico" value="{{$c->dfisico}}">
+								<select class="form-control {{$errors->has('dfisico') ? 'is-invalid' : ''}}"
+									id="dfisico" name="dfisico" value="{{$c->dfisico}}">
 									<option value="" {{$c->dfisico == null ? 'selected' : ''}} selected>Selecionar
 									</option>
 									<option value="1" {{$c->dfisico == '1' ? 'selected' : ''}}>Sim</option>
 									<option value="2" {{$c->dfisico == '2' ? 'selected' : ''}}>Não</option>
-								</select> </li>
+								</select>
+								@if($errors->has('dfisico'))
+								<div class="invalid-feedback">
+									{{$errors->first('dfisico')}}
+								</div>
+								@endif
+							</li>
 						</div>
 
 
 						<div class="form-group">
 							<li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
-								<select class="custom-select" id="nacionalidade" name="nacionalidade"
-									value="{{$c->nacionalidade}}">
+								<select class="form-control {{$errors->has('nacionalidade') ? 'is-invalid' : ''}}"
+									id="nacionalidade" name="nacionalidade" value="{{$c->nacionalidade}}">
 									{{-- <option value="">Selecionar</option>
 									<option value="1">Brasileira</option>
 									<option value="2">Outra</option> --}}
@@ -218,7 +233,12 @@
 										{{ $c->nacionalidade == $pai->idpais ? 'selected' : '' }}>
 										{{ $pai->nome }}</option>
 									@endforeach
-								</select> </li>
+								</select>
+								@if($errors->has('nacionalidade'))
+								<div class="invalid-feedback">
+									{{$errors->first('nacionalidade')}}
+								</div>
+								@endif</li>
 						</div>
 
 
@@ -241,7 +261,9 @@
 								<div class="row">
 									<div class="col-sm" style="text-align: start;">
 
-										<select class="custom-select" id="natural" name="natural">
+										<select
+											class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
+											id="natural" name="natural">
 											<option value="" selected>Selecionar</option>
 											@foreach(Helper::getEstados() as $est)
 											<option value="{{$est->idestado}}" @foreach (Helper ::getCidades() as
@@ -252,9 +274,16 @@
 											</option>
 											@endforeach
 										</select>
+										@if($errors->has('naturalidade'))
+										<div class="invalid-feedback">
+											{{$errors->first('naturalidade')}}
+										</div>
+										@endif
 									</div>
 									<div class="col-sm">
-										<select class="custom-select" id="naturalidade" name="naturalidade">
+										<select
+											class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
+											id="naturalidade" name="naturalidade">
 											<option value="" selected>Selecionar</option>
 											@foreach (Helper::getCidades() as $cida)
 											@if ($cida->idcidade == $c->naturalidade)
@@ -269,9 +298,12 @@
 											@else
 											@endif
 											@endforeach
-
-
 										</select>
+										@if($errors->has('naturalidade'))
+										<div class="invalid-feedback">
+											{{$errors->first('naturalidade')}}
+										</div>
+										@endif
 									</div>
 
 								</div>
@@ -301,8 +333,8 @@
 
 					<div class=" form-group">
 						<li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
-							<select class="custom-select" id="estadocivil" name="estadocivil"
-								value="{{$c->estadocivil}}">
+							<select class="form-control {{$errors->has('estadocivil') ? 'is-invalid' : ''}}"
+								id="estadocivil" name="estadocivil" value="{{$c->estadocivil}}">
 								<option name="selectestadocivil" value="" {{$c->estadocivil == null ? 'selected' : ''}}>
 									Selecionar</option>
 								<option name="selectestadocivil" value="1" {{$c->estadocivil == '1' ? 'selected' : ''}}>
@@ -315,12 +347,18 @@
 									Viúvo(a)</option>
 								<option name="selectestadocivil" value="5" {{$c->estadocivil == '5' ? 'selected' : ''}}>
 									Separado(a)</option>
-							</select> </li>
+							</select>
+							@if($errors->has('estadocivil'))
+							<div class="invalid-feedback">
+								{{$errors->first('estadocivil')}}
+							</div>
+							@endif
+						</li>
 					</div>
 
 					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 					<div class="form-group">
-						<li><strong>POSSUI CNH!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+						<li><strong>POSSUI CNH?&nbsp;&nbsp;&nbsp;</strong><span> </span>
 							<div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
 								<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh" value="1">
 								Sim&nbsp;&nbsp;&nbsp;
@@ -459,10 +497,11 @@
 	<br>
 
 	<div class="form-group" style="text-align: end;">
-		<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+		<button type="submit" class="btn btn-outline-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
 				style="padding-left: 15px;"></button>
-		<button class=" btn btn-danger" style="color:red;" type="cancel">
-			<a style="color: white;">Cancelar<span class="fas fa-window-close" style="padding-left: 15px;"></span></a>
+		<button class=" btn btn-outline-danger" type="cancel">
+			<a href="/curriculo">Cancelar<span class="fas fa-window-close"
+					style="padding-left: 15px; color:red;"></span></a>
 		</button>
 	</div>
 	</form>

@@ -28,8 +28,8 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-5 col-md-5">
-                  <h2 class="mb-0" style="color:dodgerblue;">
-                    Habilidades
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                    Habilidades e Idiomas
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
                       <i class="fas fa-user-graduate fa-stack-1x fa-inverse"></i>
@@ -72,13 +72,19 @@
 
                   <div class="form-group">
                     <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="tipo" name="tipo_idtipo">
+                      <select class="form-control {{$errors->has('tipo_idtipo') ? 'is-invalid' : ''}}" id="tipo"
+                        name="tipo_idtipo">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getTiposHab() as $tp)
                         <option value="{{$tp->idtipo}}" {{$hab->tipo_idtipo == $tp->idtipo ? 'selected' : '' }}>
                           {{$tp->nome}}</option>
                         @endforeach
                       </select>
+                      @if($errors->has('tipo_idtipo'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('tipo_idtipo')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
 
@@ -101,12 +107,18 @@
 
                   <div class="form-group" id="idnivel">
                     <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select" id="nivel" name="nivel">
+                      <select class="form-control {{ $errors->has('nivel') ? 'is-invalid' : ''}}" id="nivel"
+                        name="nivel">
                         <option value="">Selecionar</option>
                         <option value="1" {{$hab->nivel == 1 ? 'selected' : '' }}>Básico</option>
                         <option value="2" {{$hab->nivel == 2 ? 'selected' : '' }}>Intermediário</option>
                         <option value="3" {{$hab->nivel == 3 ? 'selected' : '' }}>Avançado</option>
                       </select>
+                      @if($errors->has('nivel'))
+                      <div class="invalid-feedback">
+                        {{$errors->first('nivel')}}
+                      </div>
+                      @endif
                     </li>
                   </div>
 
@@ -115,7 +127,7 @@
                     <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
                         style="padding-left: 15px;"></button>
                     <button class=" btn btn-danger" style="color:red;" type="cancel">
-                      <a href="cancel" style="color: white;">Cancelar<span class="fas fa-window-close"
+                      <a href="/habilidades" style="color: white;">Cancelar<span class="fas fa-window-close"
                           style="padding-left: 15px;"></span></a>
                     </button>
                   </div>

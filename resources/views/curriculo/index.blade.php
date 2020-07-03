@@ -8,7 +8,9 @@
 	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
 </script>
 <script src="/jquerymask/jquerymasky.js"></script>
+<script src="/jqueryMaskMoney/jquery.maskMoney.js" type="text/javascript"></script>
 <script src="/js/Dadospessoais/edit.js"></script>
+<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js " type=" text / javascript "> </script>
 
 
 
@@ -71,23 +73,24 @@
 								<div class="col-xs-7 col-md-6"
 									style="margin-top: 5px; margin-right: auto; text-align:end; margin-top:7px;">
 
-									<button class=" btn btn-primary" id="botaoeditar">
+									<div class="btn-group" role="group">
+										<button class=" btn btn-outline-primary" id="botaoeditar">
 
-										<a style="color: white;"
-											href="/curriculo/editar/{{Auth::user()->id}}">Editar<span class="fa fa-edit"
-												style="padding-left: 15px;"></span></a>
+											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar<span
+													class="fa fa-edit" style="padding-left: 15px;"></span></a>
 
-									</button>
-									<div class="alert-box warning">Edite suas informações</div>
-									<button class=" btn btn-success">
-										<a style=" color: white;" href="/endereco">Proximo<span class="fas fa-forward"
-												style="padding-left: 15px;"></span>
-										</a>
-									</button>
-									<button class=" btn btn-secondary" type="cancel">
-										<a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
-												style="padding-left: 15px;"></span></a>
-									</button>
+										</button>
+										<div class="alert-box warning">Edite suas informações</div>
+										<button class=" btn btn-outline-success">
+											<a href="/endereco">Proximo<span class="fas fa-forward"
+													style="padding-left: 15px;color:green;"></span>
+											</a>
+										</button>
+										<button class=" btn btn-outline-secondary" type="cancel">
+											<a href="/home">Voltar<span class="fas fa-undo"
+													style="padding-left: 15px; color:gray"></span></a>
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -207,18 +210,18 @@
 								@endforeach
 								<hr>
 
-								@foreach(Helper::getCidades() as $cid)
-								@if($cid->idcidade == $candDados->naturalidade)
+
+
+
 								@if($candDados->naturalidade != null)
-								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$cid->nome}}
+								<li><strong>
+										NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCidade($candDados->naturalidade)}}
 								</li>
 								@else
 								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										cadastrado!</span></li>
 								@endif
-								@else
-								@endif
-								@endforeach
+
 								<hr>
 
 
@@ -238,7 +241,7 @@
 
 								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
 									{{-- {{Helper::getPretensao($candDados->pretsalarial)}},00</li> --}}
-								{{Helper::getPretensao($candDados->pretsalarial)}},00</li>
+								{{Helper::setPretensao($candDados->pretsalarial)}},00</li>
 								<hr>
 
 

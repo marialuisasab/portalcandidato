@@ -95,8 +95,19 @@ class Helper
 
     public static function getInstituicoes(){
         $instituicoes = Instituicao::orderBy('nome','ASC')->get();
-        return $instituicoes;
+        return $instituicoes->status;
     }
+
+    public static function getInstituicoesId($id){
+     $instituicoes = Instituicao::where('idinstituicao', $id)->orderBy('nome','ASC')->get()[0];
+     return $instituicoes->nome;
+    }
+
+    public static function getInstitui(){
+    $instituicoes = Instituicao::orderBy('nome','ASC')->get();
+    return $instituicoes;
+    }
+
 
     public static function getAreas(){
         $areas = Area::orderBy('nome','ASC')->get();

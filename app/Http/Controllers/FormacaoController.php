@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Curso;
 use Helper;
+use App\Instituicao;
 
 class FormacaoController extends Controller
 {   
@@ -198,4 +199,15 @@ class FormacaoController extends Controller
 
         $request->validate($regras, $mensagens);
     }
-}
+
+
+    public function getInstituicoes($id){
+         $instituicoes = Instituicao::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
+         return $instituicoes;
+         }
+    
+
+    
+    }
+
+   

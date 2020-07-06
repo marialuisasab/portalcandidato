@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/get-instituicoes/{id}','FormacaoController@getInstituicoes');
 Route::get('/get-cidades','HomeController@getiCidadesvazias');
 Route::get('/get-cidades/{estado}','HomeController@getiCidades');
 Route::get('/home', 'HomeController@index')->name('home');

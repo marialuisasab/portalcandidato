@@ -96,17 +96,34 @@ $(function () {
 
             } else {
                 // location.href = 'can';
-
-
-
-
             }
-
-
         });
     }
 
+
+    $('#selectinstituicao').change(function () {
+        var valoridestado = $('#selectinstituicao').val();
+        // alert(valoridestado);
+
+        if (valoridestado != '') {
+            $.get('/get-instituicoes/' + valoridestado, function (instituicoes) {
+
+                $('select[name=instituicao_idinstituicao]').empty();
+                $.each(instituicoes, function (key, value) {
+                    $('select[name=instituicao_idinstituicao]').append('<option value=' + value.idinstituicao + '>' + value.nome + '</option>');
+                    // console.log(value);
+                });
+            });
+        } else {
+            $('select[name=instituicao_idinstituicao]').empty();
+            $('select[name=instituicao_idinstituicao]').append("<option> </option");
+            // console.log(value);
+        }
+    });
+
 });
+
+
 
 
 $("document").ready(function () {

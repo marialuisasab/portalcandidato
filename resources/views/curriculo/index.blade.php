@@ -241,7 +241,7 @@
 
 								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
 									{{-- {{Helper::getPretensao($candDados->pretsalarial)}},00</li> --}}
-								{{Helper::setPretensao($candDados->pretsalarial)}},00</li>
+								{{Helper::getPretensao($candDados->pretsalarial)}}</li>
 								<hr>
 
 

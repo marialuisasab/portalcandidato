@@ -131,7 +131,7 @@
 								<input type="text"
 									class="form-control {{$errors->has('pretsalarial') ? 'is-invalid' : ''}}"
 									placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial"
-									value="{{Helper::getPretensao($c->pretsalarial)}}">
+									value="{{Helper::setPretensao($c->pretsalarial)}}">
 								@if($errors->has('pretsalarial'))
 								<div class="invalid-feedback">
 									{{$errors->first('pretsalarial')}}

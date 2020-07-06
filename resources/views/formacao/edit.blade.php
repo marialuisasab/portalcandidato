@@ -1,8 +1,9 @@
 @extends('adminlte::page')
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
+</script>
 
 <script src="/js/formacao/formacao.js"></script>
 
@@ -97,6 +98,47 @@
                       @else
                       @endif
                     </li>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm">
+                          <strong>ESTADO DA INSTITUIÇÃO:
+                            &nbsp;&nbsp;&nbsp;</strong>
+                          <select class="form-control" id="selectinstituicao" name="selectinstituicao">
+                            <option value="">Selecionar</option>
+                            @foreach (Helper::getEstados() as $est)
+                            <option value="{{$est->idestado}}" @foreach (Helper::getInstitui() as $inst)
+                              {{(($est->idestado == $inst->estado_idestado) && ($inst->idinstituicao == $curso->instituicao_idinstituicao)) ?'selected' : ''}}
+                              @endforeach>
+                              {{$est->nome}}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="col-sm">
+                          <strong>INSTITUIÇÃO:
+                            &nbsp;&nbsp;&nbsp;</strong>
+                          <select class="form-control" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
+                            <option value="" selected>Selecionar</option>
+                            @foreach (Helper::getInstitui() as $ist)
+                            @if ($ist->idinstituicao == $curso->instituicao_idinstituicao)
+                            @foreach (Helper::getInstitui() as $institui)
+                            @if ($institui->estado_idestado == $ist ->estado_idestado)
+                            <option value="{{$institui->idinstituicao}}"
+                              {{ $institui->idinstituicao == $curso->instituicao_idinstituicao? 'selected' : '' }}>
+                              {{ $institui->nome }}</option>
+                            @else
+                            @endif
+                            @endforeach
+                            @else
+                            @endif
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
 
@@ -243,58 +285,50 @@
                   @endif
 
 
-                  {{-- <div class="form-group" style="display: none;" id="previconcl">
-                    <li style=""><strong> PREVISÃO DE CONCLUSÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="date" class="form-control" name="dtfim" placeholder=""> </li>
-                  </div> --}}
 
-
-
-
-
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <li><strong>INSTITUIÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <select class="custom-select" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getInstituicoes() as $i)
                         <option value="{{$i->idinstituicao}}"
-                          {{ $curso->instituicao_idinstituicao == $i->idinstituicao ? 'selected' : '' }}>
-                          {{ $i->nome }}</option>
-                        @endforeach
-                      </select>
-                    </li>
-                  </div>
+                  {{ $curso->instituicao_idinstituicao == $i->idinstituicao ? 'selected' : '' }}>
+                  {{ $i->nome }}</option>
+                  @endforeach
+                  </select>
+                  </li>
+            </div> --}}
 
-                  {{-- @if($errors->any())
+            {{-- @if($errors->any())
                   <div class="card-footer">
                     @foreach($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                       {{$error}}
-            </div>
-            @endforeach
           </div>
-          @endif --}}
-
-          <br>
-          <div class="form-group " style="text-align: end;">
-            <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-                style="padding-left: 15px;"></button>
-            <button class=" btn btn-danger" style="color:red;" type="cancel">
-              <a href="/cursos" style="color: white;">Cancelar<span class="fas fa-window-close"
-                  style="padding-left: 15px;"></span></a>
-            </button>
-            </form>
-            </ul>
-          </div>
+          @endforeach
         </div>
+        @endif --}}
 
+        <br>
+        <div class="form-group " style="text-align: end;">
+          <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+              style="padding-left: 15px;"></button>
+          <button class=" btn btn-danger" style="color:red;" type="cancel">
+            <a href="/cursos" style="color: white;">Cancelar<span class="fas fa-window-close"
+                style="padding-left: 15px;"></span></a>
+          </button>
+          </form>
+          </ul>
+        </div>
       </div>
+
     </div>
   </div>
-  <div class="col-xs-1 col-md-1">
+</div>
+<div class="col-xs-1 col-md-1">
 
 
-  </div>
+</div>
 </div>
 </div>
 

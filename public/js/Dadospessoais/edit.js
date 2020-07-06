@@ -159,7 +159,7 @@ $(document).ready(function ($) {
         allowNegative: true,
         thousands: '.',
         decimal: ',',
-        affixesStay: false
+        affixesStay: true
     });
 
 
@@ -235,13 +235,16 @@ $(document).ready(function ($) {
         // Removendo os caracteres "." e ","
         valorpret = valorpret.replace(/\D/g, '');
 
+
+
+
         // Atualiza o valor no campo do formulário:
         $("#cpf").val(cpfValue);
         $("#rg").val(rgvalue);
         $("#pretsalarial").val(valorpret);
         // alert(cpfValue);
         // alert(rgvalue);
-        // console.log(valorpret);
+        console.log(valorpret);
 
 
     });
@@ -259,12 +262,9 @@ $(document).ready(function ($) {
                 });
             });
         } else {
-            $.get('/get-cidades', function (result) {
-                $('select[name=naturalidade').empty();
-                $('select[name=naturalidade]').append("<option> </option>");
 
-            });
-
+            $('select[name=naturalidade').empty();
+            $('select[name=naturalidade]').append("<option> </option>");
         }
 
     });

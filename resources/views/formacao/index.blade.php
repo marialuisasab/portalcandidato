@@ -90,6 +90,17 @@
                       <li class="item-11"><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong> {{$c->nome}}
                       </li>
                       <hr>
+
+                      @if ($c->formacao != null)
+                      <li class="item-2"><strong>
+                          INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{Helper::getInstituicoesId($c->instituicao_idinstituicao)}}
+                      </li>
+                      @else
+                      <li class="item-2"><strong>
+                          INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não informado</span>
+                      </li>
+                      @endif
+                      <hr>
                       @if($c->escolaridade == '1')
 
                       <li class="item-2"><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong>
@@ -102,11 +113,18 @@
                       <hr>
 
 
+                      @if ($c->periodo != null)
                       <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
                       </li>
-                      <hr>
+                      @else
+                      <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">Não
+                          Informado!</span>
+                      </li>
+                      @endif
                       @else
                       @endif
+
+                      <hr>
 
 
                       @if ($c->escolaridade == '2')

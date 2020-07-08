@@ -40,7 +40,7 @@
 
 			<div id="accordion" style="margin-top: 40px;">
 				<div class="card-border-light">
-					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
+					<div class="card-header" id="headingOne" style="background-color: white;">
 						<div class="container">
 
 							<div class="row">
@@ -62,7 +62,8 @@
 											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
 									<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 									</button> --}}
-									<button class=" btn btn-outline-secondary" type="cancel" style="margin-top: 10px;">
+									<button class=" btn btn-outline-secondary" type="cancel" style="margin-top: 10px;"
+										title="Voltar ">
 										<a href="/curriculo">Voltar<span class="fas fa-undo"
 												style="padding-left: 15px; color:gray"></span></a>
 									</button>
@@ -86,8 +87,8 @@
 
 						<div class="form-group">
 							<li><strong> NOME:*&nbsp;&nbsp;&nbsp;</strong>
-								<input type="text" class="form-control" name="nome" id="nome"
-									placeholder="Nome Completo" value="{{Auth::user()->name}}">
+								<input type="text" class="form-control" name="nome" id="nome" autofocus
+									placeholder="Nome Completo" value="{{Auth::user()->name}}" title="Nome">
 							</li>
 						</div>
 
@@ -96,7 +97,8 @@
 						<div class="form-group">
 							<li><strong> CPF:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}"
-									maxlength="11" name="cpf" id="cpf" placeholder="CPF" value="{{$c->cpf}}">
+									maxlength="11" name="cpf" id="cpf" placeholder="CPF" value="{{$c->cpf}}"
+									title="Documento CPF">
 								@if($errors->has('cpf'))
 								<div class="invalid-feedback">
 									{{$errors->first('cpf')}}
@@ -109,7 +111,8 @@
 						<div class="form-group">
 							<li><strong> RG:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control {{$errors->has('rg') ? 'is-invalid' : ''}}"
-									maxlength="11" name="rg" id="rg" placeholder="RG" value="{{$c->rg}}">
+									maxlength="11" name="rg" id="rg" placeholder="RG" value="{{$c->rg}}"
+									title="Documento de Identidade">
 								@if($errors->has('rg'))
 								<div class="invalid-feedback">
 									{{$errors->first('rg')}}
@@ -122,7 +125,7 @@
 						<div class="form-group">
 							<li><strong> CTPS:&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="ctps" id="ctps" placeholder="CTPS"
-									value="{{$c->ctps}}">
+									value="{{$c->ctps}}" title="Numero da Carteira de Trabalho">
 							</li>
 						</div>
 
@@ -131,7 +134,8 @@
 								<input type="text"
 									class="form-control {{$errors->has('pretsalarial') ? 'is-invalid' : ''}}"
 									placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial"
-									value="{{Helper::setPretensao($c->pretsalarial)}}">
+									value="{{Helper::getPretensao($c->pretsalarial)}}"
+									title="Valor Pretendido para Salário">
 								@if($errors->has('pretsalarial'))
 								<div class="invalid-feedback">
 									{{$errors->first('pretsalarial')}}
@@ -146,7 +150,7 @@
 								<input type="date"
 									class="form-control {{$errors->has('dtnascimento') ? 'is-invalid' : ''}}"
 									placeholder="Ex.: dd/mm/aaaa" name="dtnascimento" id="dtnascimento"
-									value="{{$c->dtnascimento}}">
+									value="{{$c->dtnascimento}}" title="Data de Nascimento">
 								@if($errors->has('dtnascimento'))
 								<div class="invalid-feedback">
 									{{$errors->first('dtnascimento')}}
@@ -160,7 +164,7 @@
 						<div class="form-group">
 							<li><strong> GENERO:*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="form-control {{$errors->has('genero') ? 'is-invalid' : ''}}" id="genero"
-									name="genero" value="{{$c->genero}}">
+									name="genero" value="{{$c->genero}}" title="Genero">
 									<option value="" id="idselecionargen" {{$c->genero == null ? 'selected' : ''}}>
 										Selecionar</option>
 									<option value="F" id="idselecionargen" {{$c->genero == 'F' ? 'selected' : ''}}>
@@ -181,7 +185,8 @@
 						<div class="form-group">
 							<li style=""><strong> NOME DA MÃE:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control {{$errors->has('nomemae') ? 'is-invalid' : ''}}"
-									name="nomemae" id="nomemae" placeholder="Nome da mãe" value="{{$c->nomemae}}">
+									name="nomemae" id="nomemae" placeholder="Nome da mãe" value="{{$c->nomemae}}"
+									title="Nome da Sua Mãe">
 								@if($errors->has('nomemae'))
 								<div class="invalid-feedback">
 									{{$errors->first('nomemae')}}
@@ -195,7 +200,7 @@
 						<div class="form-group">
 							<li><strong> NOME DO PAI:&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="nomepai" id="nomepai"
-									placeholder="Nome do pai" value="{{$c->nomepai}}">
+									placeholder="Nome do pai" value="{{$c->nomepai}}" title="Nome do Seu Pai">
 							</li>
 						</div>
 
@@ -203,7 +208,7 @@
 						<div class="form-group">
 							<li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="form-control {{$errors->has('dfisico') ? 'is-invalid' : ''}}"
-									id="dfisico" name="dfisico" value="{{$c->dfisico}}">
+									id="dfisico" name="dfisico" value="{{$c->dfisico}}" title="Deficiência Fisíca">
 									<option value="" {{$c->dfisico == null ? 'selected' : ''}} selected>Selecionar
 									</option>
 									<option value="1" {{$c->dfisico == '1' ? 'selected' : ''}}>Sim</option>
@@ -221,8 +226,9 @@
 						<div class="form-group">
 							<li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="form-control {{$errors->has('nacionalidade') ? 'is-invalid' : ''}}"
-									id="nacionalidade" name="nacionalidade" value="{{$c->nacionalidade}}">
-									{{-- <option value="">Selecionar</option>
+									id="nacionalidade" name="nacionalidade" value="{{$c->nacionalidade}}"
+									title="Informe Sua Nacionalidade">
+									{{-- <option value="">Selecionar</option>   
 									<option value="1">Brasileira</option>
 									<option value="2">Outra</option> --}}
 
@@ -263,7 +269,7 @@
 
 										<select
 											class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-											id="natural" name="natural">
+											id="natural" name="natural" title="Estado de Origem">
 											<option value="" selected>Selecionar</option>
 											@foreach(Helper::getEstados() as $est)
 											<option value="{{$est->idestado}}" @foreach (Helper ::getCidades() as
@@ -283,7 +289,7 @@
 									<div class="col-sm">
 										<select
 											class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-											id="naturalidade" name="naturalidade">
+											id="naturalidade" name="naturalidade" title="Cidade de Origem">
 											<option value="" selected>Selecionar</option>
 											@foreach (Helper::getCidades() as $cida)
 											@if ($cida->idcidade == $c->naturalidade)
@@ -315,7 +321,8 @@
 					<div class="form-group">
 						<li><strong> TELEFONE 1:*&nbsp;&nbsp;&nbsp;</strong>
 							<input type="text" class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
-								name="telefone1" id="telefone1" placeholder="Telefone 1" value="{{$c->telefone1}}">
+								name="telefone1" id="telefone1" placeholder="Telefone 1" value="{{$c->telefone1}}"
+								title="Telefone Principal">
 							@if($errors->has('telefone1'))
 							<div class="invalid-feedback">
 								{{$errors->first('telefone1')}}
@@ -327,14 +334,15 @@
 					<div class="form-group">
 						<li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
 							<input type="text" class="form-control" name="telefone2" id="telefone2"
-								placeholder="Telefone 2" value="{{$c->telefone2}}"> </li>
+								placeholder="Telefone 2" value="{{$c->telefone2}}" title="Segunda Opção de Telefone">
+						</li>
 					</div>
 
 
 					<div class=" form-group">
 						<li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
 							<select class="form-control {{$errors->has('estadocivil') ? 'is-invalid' : ''}}"
-								id="estadocivil" name="estadocivil" value="{{$c->estadocivil}}">
+								id="estadocivil" name="estadocivil" value="{{$c->estadocivil}}" title="Estado Civil">
 								<option name="selectestadocivil" value="" {{$c->estadocivil == null ? 'selected' : ''}}>
 									Selecionar</option>
 								<option name="selectestadocivil" value="1" {{$c->estadocivil == '1' ? 'selected' : ''}}>
@@ -379,7 +387,8 @@
 					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 					<div class="form-group" style="display: none;" id="selcatcnh">
 						<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
+							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}"
+								title="Categoria da CNH">
 								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
 								<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
 								<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
@@ -391,7 +400,8 @@
 					@else
 					<div class="form-group" id="selcatcnh">
 						<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}">
+							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}"
+								title="Categoria da CNH">
 								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
 								<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
 								<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
@@ -407,7 +417,8 @@
 					@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 					<div class="form-group" style="display: none;" id="seleorigcnh">
 						<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
-							<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
+							<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}"
+								title="Estado de Origem da CNH">
 								<option value="">Selecionar:</option>
 								@foreach(Helper::getEstados() as $est)
 								<option value="{{$est->idestado}}" {{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
@@ -421,7 +432,8 @@
 					@else
 					<div class="form-group" id="seleorigcnh">
 						<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
-							<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}">
+							<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}"
+								title="Estado de Origem da CNH">
 								<option value="">Selecionar:</option>
 								@foreach(Helper::getEstados() as $est)
 								<option value="{{$est->idestado}}" {{ $c->ufcnh == $est->idestado ? 'selected' : '' }}>
@@ -441,14 +453,14 @@
 					<div class="form-group" style="display: none;" id="numcnh">
 						<li><strong> NUMERO DA CNH:&nbsp;&nbsp;</strong><span> </span>
 							<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
-								value="{{$c->cnh}}">
+								value="{{$c->cnh}}" title="Numero da CNH">
 						</li>
 					</div>
 					@else
 					<div class="form-group" id="numcnh">
 						<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
 							<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
-								value="{{$c->cnh}}">
+								value="{{$c->cnh}}" title="Numerp da CNH">
 						</li>
 					</div>
 					@endif
@@ -457,8 +469,8 @@
 
 					<div class="form-group">
 						<li style="word-break: break-word;"><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong>
-							<textarea class="form-control" id="sobre" rows="3" name="sobre"
-								value="">{{$c->sobre}}</textarea>
+							<textarea class="form-control" id="sobre" rows="3" name="sobre" value=""
+								title="Objetivos Pessoais">{{$c->sobre}}</textarea>
 						</li>
 					</div>
 
@@ -471,7 +483,7 @@
 						<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 							{{-- observação....... --}}
 							<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
-								value="{{$c->idcurriculo}}">
+								value="{{$c->idcurriculo}}" title="Alterar Foto de Perfil">
 						</li>
 					</div>
 					{{-- 
@@ -498,8 +510,8 @@
 
 	<div class="form-group" style="text-align: end;">
 		<button type="submit" class="btn btn-outline-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-				style="padding-left: 15px;"></button>
-		<button class=" btn btn-outline-danger" type="cancel">
+				style="padding-left: 15px;" title="Confirmar Alterações"></button>
+		<button class=" btn btn-outline-danger" type="cancel" title="Cancelar Edição">
 			<a href="/curriculo">Cancelar<span class="fas fa-window-close"
 					style="padding-left: 15px; color:red;"></span></a>
 		</button>

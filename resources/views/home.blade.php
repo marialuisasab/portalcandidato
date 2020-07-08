@@ -24,31 +24,30 @@
 @section('content_header')
 
 <div class="container">
-  <div class="row" style="margin-top: 15px;">
+  <div class="row" style="text-align: center; margin-top: 5px;">
 
     <div class="col-sm">
       <ul>
-
-        <a href="curriculo"><strong><span class="fas fa-eye "
-              style="font-size: 20px; text-align: center;color:dodgerblue;">Visualizar Curriculo</span></strong></a>
+        <a href="curriculo" type="button" title="Visualizar Curriculo"><strong><span class="fas fa-eye "
+              style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);;">Visualizar
+              Curriculo</span></strong></a>
       </ul>
-
     </div>
 
     <div class="col-sm"></div>
     <div class="col-sm">
       <ul>
 
-        <a href="/curriculo/editar/{{Auth::user()->id}}"><strong><span class="fa fa-edit"
-              style="font-size: 20px; text-align: center; color:dodgerblue;">Editar Perfil</span></strong></a>
+        <a href="/curriculo/editar/{{Auth::user()->id}}" type="button" title="Editar Perfil"><strong><span
+              class="fa fa-edit" style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Editar
+              Perfil</span></strong></a>
       </ul>
     </div>
     <div class="col-sm"></div>
-
     <div class="col-sm">
       <ul>
-        <a href="/"><strong><span class="fas fa-undo"
-              style="font-size: 20px; text-align: center; color:dodgerblue;">Voltar</span></strong></a>
+        <a href="/" type="button" title="Voltar a pagina inicial"><strong><span class="fas fa-undo"
+              style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar</span></strong></a>
       </ul>
     </div>
 
@@ -70,7 +69,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-sm" style="background-color: white; border-top-style:solid">
+    <div class="col-sm" style="background-color: white;">
       <div class="box box-primary">
         <div class="box-body box-profile">
 
@@ -116,13 +115,13 @@
 
 
 
-              <div class="card text-white bg-secondary mb-3" style="text-align: center; margin-top: -20px;">
+              <div class="card text-white bg-info mb-3" style="text-align: center; margin-top: -20px;">
                 <h5 style="text-align: center; font-family: Palatino Linotype, Book Antiqua, Palatino, serif">Sobre Mim:
                 </h5>
                 <hr>
                 <div class="card-body">
 
-                  <p class="card-text" style="text-align: justify">{{$item->sobre}}</p>
+                  <p class="card-text" style="text-align: justify;">{{$item->sobre}}</p>
 
                 </div>
               </div>
@@ -160,7 +159,8 @@
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="#" class="small-box-footer toltipclass" data-toggle="tooltip" title="Visualizar Agendamentos">Mais
+          Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -175,7 +175,8 @@
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="#" class="small-box-footer" data-toggle="tooltip" title="Visualizar Processos">Mais Informações <i
+            class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -190,7 +191,8 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="#" class="small-box-footer" data-toggle="tooltip" title="Informações Pendentes">Mais Informações <i
+            class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -205,7 +207,8 @@
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="#" class="small-box-footer" data-toggle="tooltip" title="Novas Vagas">Mais Informações <i
+            class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->

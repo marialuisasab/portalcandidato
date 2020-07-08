@@ -16,7 +16,7 @@
     <div class="input-group mb-3">
       <label for="name"></label>
       <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-        value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nome">
+        value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nome" title="Insira seu nome">
       <div class="input-group-append">
         <span class="input-group-text" id="basic-addon2">
           <span class="fas fa-address-card" id="NomeID"></span></span>
@@ -31,7 +31,7 @@
     <div class="input-group mb-3" id="emaillogin">
       <label for="email"></label>
       <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-        value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+        value="{{ old('email') }}" required autocomplete="email" placeholder="Email" title="Insira seu email">
       <div class="input-group-append">
         <span class="input-group-text" id="basic-addon2">
           <span class="fas fa-envelope-square" id="TamEnvelopeReg"></span>
@@ -47,7 +47,7 @@
     <div class="input-group mb-3" id="senhalogin">
       <label for="password"></label>
       <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"
-        required autocomplete="new-password" placeholder="Senha">
+        required autocomplete="new-password" placeholder="Senha" title="Insira sua senha">
       <div class="input-group-append">
         <span class="input-group-text" id="basic-addon2">
           <span class="fas fa-key" id="TamChave"></span>
@@ -64,7 +64,7 @@
     <div class="input-group mb-3">
       <label for="password-confirm"></label>
       <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
-        autocomplete="new-password" placeholder="Confirmar Senha">
+        autocomplete="new-password" placeholder="Confirmar Senha" title="Insira novamente sua senha">
       <div class="input-group-append">
         <span class="input-group-text" id="basic-addon2">
           <span class="fas fa-check-double" id="checksenha"></span>

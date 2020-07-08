@@ -44,4 +44,8 @@ $(function () {
         window.document.getElementById("IdBuscar").style.background = "#00BFFF";
         // window.document.getElementById("IdBuscar").style.color = "#00BFFF";
     });
+
+
+    $("[data-toggle=tooltip]").tooltip();
+
 });

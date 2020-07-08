@@ -70,4 +70,15 @@ $(function () {
     });
 
 
+    $("#idajuda").mousemove(function () {
+        $("div.dropdown-menu").fadeIn(300).delay(1500).fadeOut(400);
+    });
+    $("#idajuda").mouseout(function () {
+        $("div.dropdown-menu").fadeOut(100);
+    });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 });

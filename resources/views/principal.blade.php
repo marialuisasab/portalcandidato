@@ -68,7 +68,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <button type="button" class="btn btn-light" id="ImageMeuLog" style="width:10;height:10">
+            <button type="button" class="btn btn-light btn-sm" id="ImageMeuLog" style="font-size:10px;"
+              data-placement="bottton" title="Entrar no sistema">
               <a class="navbar-brand" href="{{ route('login') }}" style="color: gray;">
 
                 Login
@@ -78,7 +79,7 @@
             </button>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-light" id="ImageMeuRegis">
+            <button type="button" class="btn btn-light btn-sm" id="ImageMeuRegis" title="Registrar novo usuário">
               <a class="navbar-brand" href="{{ route('register') }}" style="color: gray;">Registrar
                 <span class="fas fa-user-plus px-2">
                   {{-- <p class="ml-2">Registrar</p>  --}}</span></a>
@@ -87,7 +88,7 @@
           <li class="nav-item dropdown mt-2">
             <div class="btn-group ml-4" role="group" aria-label="Button group with nested dropdown"
               style="width: -40px;">
-              <div class="btn-group" role="group">
+              <div class="btn-group" role="group" title="Idiomas">
                 <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   <img src="img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top" alt="">
@@ -95,15 +96,15 @@
 
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="" title="Português">
                     <img src="img/ImagemBrasil.png" role="button" width="40" height="30"
                       class="d-inline-block align-top" alt=""></a>
 
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="" title="Spanish">
                     <img src="img/ImagemEspanha.jpg" role="button" width="40" height="30"
                       class="d-inline-block align-top" alt=""></a>
 
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="" title="English">
                     <img src="img/ImagemIngles.jpg" role="button" width="40" height="30"
                       class="d-inline-block align-top" alt=""></a>
 
@@ -170,7 +171,8 @@
         <ul>
 
           <form class="form-inline ml-auto">
-            <input class="form-control mr-sm-2" type="text" placeholder="Buscar vaga" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..." aria-label="Search"
+              title="Buscar por vaga">
             <button class="btn btn-info btn-rounded btn-sm my-0" type="submit" id="IdBuscar">
               <h3 class="font-italic" style="font-size: 15px;"><strong><span
                     class="fas fa-search mr-2"></span>Buscar</strong></h3>
@@ -220,12 +222,11 @@
                       <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
                         data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
                         style="color:white">
-                        Visualizar</a>
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar">
-                        Cadastrar</a>
-
-                      <a class="btn btn-info ml-4" href="/">
-                        <span class="fas fa-envelope" style="font-size: 35px;"></span>
+                        <b title="Visualizar vaga">Visualizar</b></a>
+                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar"
+                        title="Cadastrar na vaga">
+                        <b>Cadastrar</b></a> <a class="btn btn-info ml-4" href="/">
+                        <span class="fas fa-envelope" style="font-size: 35px;" title="Enviar para um amigo"></span>
 
                       </a>
 
@@ -295,12 +296,12 @@
                       <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
                         data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
                         style="color:white">
-                        Visualizar</a>
+                        <b title="Visualizar vaga">Visualizar</b> </a>
                       <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar">
-                        Cadastrar</a>
+                        <b title="Cadastrar na vaga">Cadastrar</b> </a>
 
                       <a class="btn btn-info ml-4" href="/">
-                        <span class="fas fa-envelope" style="font-size: 35px;">
+                        <span class="fas fa-envelope" style="font-size: 35px;" title="Enviar vaga para um amigo">
                       </a>
 
                     </div>
@@ -361,11 +362,11 @@
                       <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
                         data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
                         style="color:white">
-                        Visualizar</a>
+                        <b title="Visualizar vaga">Visualizar</b> </a>
                       <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar">
-                        Cadastrar</a>
+                        <b title="Cadastrar na vaga">Cadastrar</b> </a>
                       <a class="btn btn-info ml-4" href="/">
-                        <span class="fas fa-envelope" style="font-size: 35px;">
+                        <span class="fas fa-envelope" style="font-size: 35px;" title="Enviar vaga para um amigo">
                       </a>
 
                     </div>

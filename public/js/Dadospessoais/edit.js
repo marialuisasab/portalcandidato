@@ -233,7 +233,8 @@ $(document).ready(function ($) {
         rgvalue = rgvalue.replace(/\W/g, '');
 
         // Removendo os caracteres "." e ","
-        valorpret = valorpret.replace(/\D/g, '');
+        valorpret = valorpret.replace(/[\R$.]+/g, '');
+        // valorpret = valorpret.
 
 
 
@@ -244,7 +245,7 @@ $(document).ready(function ($) {
         $("#pretsalarial").val(valorpret);
         // alert(cpfValue);
         // alert(rgvalue);
-        console.log(valorpret);
+        // console.log(valorpret);
 
 
     });

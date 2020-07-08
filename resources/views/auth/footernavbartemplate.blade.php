@@ -47,20 +47,22 @@
           <!-- Authentication Links -->
           @guest
           <li class="nav-item active">
-            <a class="navbar-brand" href="/" style="color:gray;" type="button">Voltar
+            <a class="navbar-brand" href="/" style="color:gray;" type="button"
+              title="Voltar para a pagina principal">Voltar
               <span class="fas fa-home px-2" style="font-size: 30px;"></span>
             </a>
           </li>
 
           @if (Route::has('register'))
           <li class="nav-item active">
-            <a class="navbar-brand" href=" {{ route('register') }}" style="color: gray;" type="button">Registrar
+            <a class="navbar-brand" href=" {{ route('register') }}" style="color: gray;" type="button"
+              title="Registrar novo usuário">Registrar
               <span class=" fas fa-user-plus px-2" style="font-size: 30px;"></span>
             </a>
           </li>
 
           <li class="nav-item dropdown">
-            <ul style="margin-left: auto;">
+            <ul style="margin-left: auto;" title="Idiomas">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="px-25" src="/img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top"
@@ -68,18 +70,18 @@
               </a>
 
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="" title="Português">
                   <img src="/img/ImagemBrasil.png" role="button" width="40" height="30" class="d-inline-block align-top"
                     alt="">
                 </a>
 
                 <a class="dropdown-item" href="">
                   <img src="/img/ImagemEspanha.jpg" role="button" width="40" height="30"
-                    class="d-inline-block align-top" alt="">
+                    class="d-inline-block align-top" alt="" title="Spanish">
                 </a>
                 <a class="dropdown-item" href="">
                   <img src="/img/ImagemIngles.jpg" role="button" width="40" height="30" class="d-inline-block align-top"
-                    alt="">
+                    alt="" title="English">
                 </a>
               </div>
             </ul>

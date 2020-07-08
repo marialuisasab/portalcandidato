@@ -256,6 +256,7 @@ return [
                     'text' => 'Dados Pessoais',
                     'icon' =>'fas fa-fw fa-id-card',
                     'url' => '/curriculo',
+                     'data-toggle' =>'tooltip',
                 ],
                 [
                 'text' => 'Endereço',

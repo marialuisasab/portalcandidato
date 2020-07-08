@@ -45,6 +45,9 @@ class Helper
         return Carbon::parse(str_replace('-', '/',$stringData))->format('d/m/Y'); 
     }    
 
+    public static function setPretensao($valor){
+    return str_replace(',','.',$valor);
+    }
     public static function getPretensao($valor){
         return 'R$'.$valor;
     }

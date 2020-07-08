@@ -91,7 +91,7 @@
                       </li>
                       <hr>
 
-                      @if ($c->formacao != null)
+                      @if ($c->instituicao_idinstituicao != null)
                       <li class="item-2"><strong>
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{Helper::getInstituicoesId($c->instituicao_idinstituicao)}}
                       </li>

@@ -119,10 +119,10 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
             {{--}Inicio do navbar{{--}}
             <nav class="main-header navbar {{config('adminlte.classes_topnav_nav', 'navbar-expand-md')}} {{config('adminlte.classes_topnav', 'navbar-white navbar-light')}}"
-                style="background-color: aliceblue">
-                <ul class="navbar-nav">
+                style="background-color:  #CDD7BC; border: none;">
+                <ul class=" navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#"
+                        <a class="nav-link" data-widget="pushmenu" href="#" style="color:#ffffff;"
                             @if(config('adminlte.sidebar_collapse_remember')) data-enable-remember="true" @endif
                             @if(!config('adminlte.sidebar_collapse_remember_no_transition'))
                             data-no-transition-after-reload="false" @endif
@@ -138,8 +138,11 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 </ul>
 
 
-
-
+                {{-- <img src="img/imagemBioextratus.png" alt="imagem bioextratus" style="width:100px; heigth: 50px;"> --}}
+                {{-- 
+                <a href="/" class="logo" title="Bio Extratus"
+                    style="color:#ffffff; margin-top: -10px;"><b><strong>BIO</strong></b>EXTRATUS</a> --}}
+                {{-- <button class="btn btn-primary"></button> --}}
 
 
                 {{--}}Espaço ao lado do toogle do navbar{{--}}
@@ -152,15 +155,46 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     @each('adminlte::partials.menu-item-top-nav-right', $adminlte->menu(), 'item')
                     @if(Auth::user())
                     @if(config('adminlte.usermenu_enabled'))
+
+
+
+
+                    {{-- inserindo imagem foto user --}}
+                    <a href="" class="mr-2">
+                        @if(Auth::user()->foto != null)
+                        <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+                            style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
+                        @else
+                        <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"
+                            alt="Usuário sem foto"
+                            style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
+                        @endif
+                    </a>
+
                     <li class="nav-item dropdown user-menu">
+                        <a href="#" class="nav-link dropdown-toggle mt-2">
+                            <span class="fas fa-bell" title="Mensagens"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown user-menu">
+                        <a href="#" class="nav-link dropdown-toggle mr-2 mt-2">
+                            <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
+                                title="Precisa de ajuda?!"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown user-menu">
+
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             @if(config('adminlte.usermenu_image'))
                             <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2"
                                 alt="{{ Auth::user()->name }}">
                             @endif
-                            <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline"
-                                @endif>{{ Auth::user()->name }}</span>
+                            <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline" @endif
+                                style="color:#ffffff;" title="Pressione para sair">{{ Auth::user()->name }}</span>
                         </a>
+
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             @if(!View::hasSection('usermenu_header') && config('adminlte.usermenu_header'))
                             <li
@@ -252,9 +286,9 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
     {{--}}Inicio do Menu do portal{{--}}
     <aside class="main-sidebar {{config('adminlte.classes_sidebar', 'sidebar-dark-primary elevation-4')}}"
-        style="position: fixed;">
+        style="position: fixed; background-color: #658f69;">
         @if(config('adminlte.logo_img_xl'))
-        <a href="{{ $dashboard_url }}" class="brand-link logo-switch">
+        <a href=" {{ $dashboard_url }}" class="brand-link logo-switch">
             <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
                 alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}"
                 class="{{config('adminlte.logo_img_class', 'brand-image-xl')}} logo-xs">
@@ -272,7 +306,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             </span>
         </a>
         @endif
-        <div class="sidebar">
+        <div>
 
             {{--}}Menu informações dentro do menu{{--}}
 
@@ -296,10 +330,10 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <li class="nav-item has-treeview">
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-user-cog "></i>
-                            <p>
+                            <p style="color:rgb(224, 224, 235);">
                                 Gerenciar Meu Perfil
 
-                                <i class="fas fa-angle-left right"></i>
+                                <i class=" fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
@@ -350,7 +384,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <li class="nav-item has-treeview" id="idgerenciarcurriculo">
                         <a class="nav-link nav-item " href="#" id="idcadastrarcurriculo">
                             <i class="fas fa-fw fa-file-signature "></i>
-                            <p>
+                            <p style="color:rgb(224, 224, 235);">
                                 Gerenciar Currículo
 
                                 <i class="fas fa-angle-left right"></i>
@@ -420,7 +454,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <li class="nav-item has-treeview">
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-share "></i>
-                            <p>
+                            <p style="color:rgb(224, 224, 235);">
                                 Gerenciar Minhas Vagas
 
                                 <i class="fas fa-angle-left right"></i>
@@ -463,7 +497,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <li class="nav-item ">
                         <a class="nav-link  " href="http://127.0.0.1:8000/emailsuporte">
                             <i class="fas fa-fw fa-headset "></i>
-                            <p>
+                            <p style="color:rgb(224, 224, 235);">
                                 Fale Conosco
 
                             </p>
@@ -486,7 +520,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             @endif
 
             {{--}}Cabeçalho do painel perfil, meus processos e etc{{--}}
-            <section class="content-header" style="background-color: white;">
+            <section class="content-header" style="background-color:  #658f69;">
                 <div class="{{config('adminlte.classes_content_header', 'container-fluid')}}">
                     @yield('content_header')
                 </div>
@@ -495,8 +529,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
             {{--}}Conteudo do perfil, dados pessoais e etc background{{--}}
             <section class="content"
-                style="height: auto !important; min-height: 0px !important; background-color: white;">
-                <div class="{{config('adminlte.classes_content', 'container-fluid')}}">
+                style="height: auto !important; min-height: 0px !important; background-color:  white;">
+                <div class=" {{config('adminlte.classes_content', 'container-fluid')}}">
                     @yield('content')
                 </div>
             </section>
@@ -515,8 +549,9 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
 
 
-    <footer class="main-footer" style="background-color: #26272b;">
-        <div class="container">
+    {{-- <footer class="main-footer" style="background-color: #26272b;"> #CDD7BC; "background-color: rgba(236, 242, 243, 0.911);" --}}
+    <footer class="main-footer" style="background-color:  #CDD7BC;">
+        <div class=" container">
 
             <div class="row">
                 <div class="col-xs-4 col-md-4"></div>

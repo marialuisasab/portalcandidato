@@ -67,7 +67,7 @@ class CurriculoController extends Controller
         $c->dtatualizacao = Date('Y-m-d');
         $c->nomepai = mb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
         $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
-        $c->pretsalarial = $request->pretsalarial;
+        $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
         $c->dfisico =  $request->dfisico;
         $c->genero =  $request->genero;
         $c->sobre = $request->sobre;
@@ -164,7 +164,7 @@ class CurriculoController extends Controller
             $c->dtatualizacao = Date('Y-m-d');
             $c->nomepai = mb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
             $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
-            $c->pretsalarial = $request->pretsalarial;
+            $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
             $c->dfisico = $request->dfisico;
             $c->genero = $request->genero;
             $c->sobre = $request->sobre;

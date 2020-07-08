@@ -53,7 +53,7 @@
 
 			<div id="accordion" style="margin-top: 40px;">
 				<div class="card-border-light">
-					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
+					<div class="card-header" id="headingOne" style="background-color: white;">
 						<div class="container">
 							<div class="row">
 								<div class="col-sm">
@@ -241,7 +241,7 @@
 
 								<li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
 									{{-- {{Helper::getPretensao($candDados->pretsalarial)}},00</li> --}}
-								{{Helper::getPretensao($candDados->pretsalarial)}}</li>
+								{{Helper::getPretensao($candDados->pretsalarial)}},00</li>
 								<hr>
 
 

@@ -67,7 +67,7 @@ class CurriculoController extends Controller
         $c->dtatualizacao = Date('Y-m-d');
         $c->nomepai = mb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
         $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
-        $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
+        $c->pretsalarial = $request->pretsalarial;
         $c->dfisico =  $request->dfisico;
         $c->genero =  $request->genero;
         $c->sobre = $request->sobre;
@@ -164,7 +164,7 @@ class CurriculoController extends Controller
             $c->dtatualizacao = Date('Y-m-d');
             $c->nomepai = mb_convert_case($request->nomepai, MB_CASE_TITLE, "UTF-8");
             $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
-            $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
+            $c->pretsalarial = $request->pretsalarial;
             $c->dfisico = $request->dfisico;
             $c->genero = $request->genero;
             $c->sobre = $request->sobre;
@@ -250,10 +250,10 @@ class CurriculoController extends Controller
         }
 
         $mensagens = [
-            'required' => 'Este campo não poderá estar em branco! :attribute ',//mensagem genérica
+            'required' => 'Este campo não poderá estar em branco!',//mensagem genérica
             'cpf.unique' => 'Já existe um registro com este CPF em nosso cadastro',//mensagem específica
-            'max' => 'O tamanho do campo deve ser de até :max caracteres :attribute',
-            'integer' => 'Digite apenas números neste campo :attribute',
+            'max' => 'O tamanho do campo deve ser de até :max caracteres',
+            'integer' => 'Digite apenas números neste campo',
         ];
 
         $request->validate($regras, $mensagens);

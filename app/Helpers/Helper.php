@@ -24,14 +24,14 @@ class Helper
         return $id->idcurriculo;
     }
 
-     public static function getIdCurriculomenu(){
-     $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
-     if(count($id)==0){
-        return false;
-    } else {
-       return true;
+    public static function getIdCurriculomenu(){
+        $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+        if(count($id)==0){
+            return false;
+        } else {
+            return true;
+        }
     }
-     }
    
     public static function setData($stringData){
         if(!isset($stringData))
@@ -43,14 +43,10 @@ class Helper
         if(!isset($stringData))
             return null;
         return Carbon::parse(str_replace('-', '/',$stringData))->format('d/m/Y'); 
-    }
-
-    public static function setPretensao($valor){
-        return str_replace(',','.',$valor);
-    }
+    }    
 
     public static function getPretensao($valor){
-        return 'R$'.str_replace('.',',',$valor);
+        return 'R$'.$valor;
     }
 
     public static function getEstados(){

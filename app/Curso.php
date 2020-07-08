@@ -19,6 +19,7 @@ class Curso extends Model
     	'periodo',
     	'categoria_idcategoria',
     	'status',
+        'escola'
     ];
     protected $guarded = ['idcurso'];
     protected $table = 'curso';

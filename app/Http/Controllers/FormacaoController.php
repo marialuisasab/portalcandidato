@@ -57,6 +57,7 @@ class FormacaoController extends Controller
         $curso->curriculo_idcurriculo = Helper::getIdCurriculo();
         $curso->instituicao_idinstituicao = $request->instituicao_idinstituicao;
         $curso->status = '1';
+        $curso->escola = mb_convert_case($request->escola, MB_CASE_TITLE, "UTF-8");
 
         if($request->escolaridade == '1'){            
             $curso->area_idarea = $request->area_idarea;//so para escolaridade sim        
@@ -126,6 +127,7 @@ class FormacaoController extends Controller
             $curso->curriculo_idcurriculo = Helper::getIdCurriculo();
             $curso->instituicao_idinstituicao = $request->instituicao_idinstituicao;
             $curso->status = '1';
+            $curso->escola = mb_convert_case($request->escola, MB_CASE_TITLE, "UTF-8");
 
             if($request->escolaridade == '1'){            
                 $curso->area_idarea = $request->area_idarea;//so para escolaridade sim        
@@ -192,7 +194,7 @@ class FormacaoController extends Controller
         }
         
         $mensagens = [
-            'required' => 'Este campo não poderá estar em branco! :attribute',//mensagem genérica
+            'required' => 'Este campo não poderá estar em branco!',//mensagem genérica
             'max' => 'O tamanho do campo deve ser de até :max',
             'integer' => 'Digite apenas números neste campo',
         ];
@@ -202,12 +204,12 @@ class FormacaoController extends Controller
 
 
     public function getInstituicoes($id){
-         $instituicoes = Instituicao::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
-         return $instituicoes;
-         }
-    
-
-    
+        $instituicoes = Instituicao::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
+        return $instituicoes;
     }
+    
 
-   
+    
+}
+
+

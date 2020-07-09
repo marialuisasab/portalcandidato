@@ -11,6 +11,8 @@ $(function () {
             // $('#nivel_idnivel').style.display = 'block';
             document.getElementById("idnivel").style.display = 'block';
             document.getElementById("idcategoria").style.display = 'none';
+            document.getElementById("idnomeescola").style.display = 'none';
+
 
 
             $("#nivel_idnivel").change(function () {
@@ -49,18 +51,6 @@ $(function () {
 
 
             // $('#idperiodo').style.display = 'none';
-        }
-
-
-
-        if (this.value == '2') {
-            document.getElementById("idcateg").style.display = 'block';
-
-
-        } else {
-            document.getElementById("idcateg").style.display = 'none';
-
-
         }
 
 

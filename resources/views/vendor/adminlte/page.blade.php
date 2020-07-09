@@ -331,7 +331,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-user-cog "></i>
                             <p style="color:rgb(224, 224, 235);">
-                                Gerenciar Meu Perfil
+                                Gerenciar Perfil
 
                                 <i class=" fas fa-angle-left right"></i>
                             </p>
@@ -455,26 +455,26 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-share "></i>
                             <p style="color:rgb(224, 224, 235);">
-                                Gerenciar Minhas Vagas
+                                Gerenciar Vagas
 
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                <a class="nav-link  " href="{{route('vagas')}}">
                                     <i class="fas fa-fw fa-bullhorn "></i>
                                     <p>
-                                        Vagas Disponíveis
+                                        Vagas Abertas
 
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                <a class="nav-link  " href="{{route('minhasvagas')}}">
                                     <i class="fas fa-fw fa-tasks "></i>
                                     <p>
-                                        Histórico de participações
+                                        Minhas Vagas
 
                                     </p>
                                 </a>

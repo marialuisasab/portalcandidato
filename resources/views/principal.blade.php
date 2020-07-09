@@ -182,9 +182,9 @@
         </ul>
 
         {{-- Tipo acocordin --}}
-
+        
         <div id="accordion">
-
+        @foreach($vagas as $v)
           <div class="card">
 
             <div class="card-header" id="headingOne">
@@ -194,31 +194,24 @@
 
                     <h4>
                       <a href="/">
-                        <p>Vaga para ...</p>
+                        <p>{{$v->titulo}}</p>
                       </a>
                     </h4>
                     <hr>
                   </div>
                 </div>
                 <div class="row">
-
                   <div class="col-sm">
-
                     <div class="pull-left">
                       <div class="meta-tag">
-                        <span class="badge badge-light ">Alvinopolis -MG
-                          <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top"
-                            alt="">
-                        </span>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>{{$v->local}} 
                       </div>
                     </div>
-
                   </div>
+                  <div class="col-sm"> </div>
+                  <!--
                   <div class="col-sm">
-
-                  </div>
-                  <div class="col-sm">
-                    <div class="btn-group-vertical">
+                    <div class="btn-group">                      
                       <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
                         data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
                         style="color:white">
@@ -232,163 +225,27 @@
 
                     </div>
                   </div>
-
+                -->
+                  <div class="col-sm">                 
+                    <div class="col-sm">
+                      <button class="btn btn-info ml-4">
+                          <a style="color:white;" href="/vaga/principal/{{$v->idvaga}}">
+                            <b>Visualizar Vaga</b>
+                            <span class="fa fa-eye" style="padding-left: 10px;"></span>
+                        </a>
+                      </button>                                        
+                    </div>                    
+                  </div>               
                 </div>
-
               </div>
-
             </div>
-
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                {{$v->descricao}}
               </div>
             </div>
           </div>
-
-
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-
-
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-
-                    <h4>
-                      <a href="/">
-                        <p>Vaga para ...</p>
-                      </a>
-                    </h4>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row">
-
-                  <div class="col-sm">
-                    {{-- <div class="footer-links">
-                                  <p class="fas fa-map-marked-alt">  Rodovia Km1, MG-123 - Zona Rural</p></li>
-                                  <p class="fas fa-phone"> (031) 3855-3000</p></li>
-                                  <p class="fas fa-envelope"> rh@bioextratus.com.br </p></li>
-                                </div> --}}
-
-                    <div class="pull-left">
-                      <div class="meta-tag">
-                        <span class="badge badge-light ">Alvinopolis -MG
-                          <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top"
-                            alt="">
-                        </span>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-sm">
-
-                  </div>
-                  <div class="col-sm">
-                    <div class="btn-group-vertical">
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                        style="color:white">
-                        <b title="Visualizar vaga">Visualizar</b> </a>
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar">
-                        <b title="Cadastrar na vaga">Cadastrar</b> </a>
-
-                      <a class="btn btn-info ml-4" href="/">
-                        <span class="fas fa-envelope" style="font-size: 35px;" title="Enviar vaga para um amigo">
-                      </a>
-
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header" id="headingThree">
-
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-
-                    <h4>
-                      <a href="/">
-                        <p>Vaga para...</p>
-                      </a>
-                    </h4>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm">
-
-                    <div class="pull-left">
-                      <div class="meta-tag">
-                        <span class="badge badge-light ">Alvinopolis -MG
-                          <img src="img/ImagemLocalizacao.png" width="70" height="40" class="d-inline-block align-top"
-                            alt="">
-                        </span>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-sm">
-
-                  </div>
-                  <div class="col-sm">
-                    <div class="btn-group-vertical">
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                        style="color:white">
-                        <b title="Visualizar vaga">Visualizar</b> </a>
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar">
-                        <b title="Cadastrar na vaga">Cadastrar</b> </a>
-                      <a class="btn btn-info ml-4" href="/">
-                        <span class="fas fa-envelope" style="font-size: 35px;" title="Enviar vaga para um amigo">
-                      </a>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
       {{--}} Fim do row{{--}}
     </div>

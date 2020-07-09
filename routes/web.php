@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
-});
+//Route::get('/', function () {
+//    return view('principal');
+//});
+Route::get('/', 'VagaController@indexPrincipal');
 
 Auth::routes();
 Route::get('/get-instituicoes/{id}','FormacaoController@getInstituicoes');
@@ -73,7 +74,16 @@ Route::get('/redesocial/excluir/{id}', 'RedesocialController@destroy')->name('re
 Route::get('/emailsuporte', 'EmailsuporteController@index')->name('contatosuporte');
 Route::post('/emailsuporte/enviar', 'EmailsuporteController@enviar')->name('enviaremail');
 
-
+Route::get('/vagas', 'VagaController@index')->name('vagas');
+Route::get('/minhasvagas', 'VagaController@minhasvagas')->name('minhasvagas');
+Route::get('/vaga/novo', 'VagaController@create')->name('vaga.novo');
+Route::get('/vaga/editar/{id}', 'VagaController@edit')->name('vaga.editar');
+Route::get('/vaga/{id}', 'VagaController@show');
+Route::get('/vaga/principal/{id}', 'VagaController@showPrincipal');
+Route::post('/vaga/{id}', 'VagaController@update');
+Route::get('/vaga/candidatar/{id}', 'VagaController@candidatar');
+Route::post('/vaga', 'VagaController@store');
+Route::get('/vaga/excluir/{id}', 'VagaController@destroy')->name('vaga.excluir');
 
 Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
 

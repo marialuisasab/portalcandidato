@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Vaga;
+use App\CurriculoVaga;
+use Helper;
 use Illuminate\Http\Request;
 
 class VagaController extends Controller
@@ -12,8 +14,15 @@ class VagaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('curriculo.dados');
+    {   
+        $vagas = Vaga::where("status", 1)->get();
+        return view('vaga.index', compact(['vagas']));
+    }
+
+    public function indexPrincipal()
+    {   
+        $vagas = Vaga::where("status", 1)->get();
+        return view('principal', compact(['vagas']));
     }
 
     /**
@@ -23,7 +32,7 @@ class VagaController extends Controller
      */
     public function create()
     {
-        //
+        return view('vaga.create');
     }
 
     /**
@@ -45,8 +54,17 @@ class VagaController extends Controller
      */
     public function show($id)
     {
-        //
+        $vaga = Vaga::where('idvaga', $id)->get()[0];
+       
+        return view('vaga.show', compact(['vaga']));
     }
+    
+    public function showPrincipal($id)
+    {
+        $vaga = Vaga::where('idvaga', $id)->get()[0];       
+        return view('vaga.principal', compact(['vaga']));
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -56,7 +74,7 @@ class VagaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('vaga.edit');
     }
 
     /**
@@ -81,4 +99,44 @@ class VagaController extends Controller
     {
         //
     }
+
+    public function candidatar($vaga){
+        $candidato = Helper::getIdCurriculo();
+        $candidatou = CurriculoVaga::where('curriculo_idcurriculo', $candidato)
+                                           ->where('vaga_idvaga',$vaga)
+                                           ->where("status", 1)->get(); 
+        if (count($candidatou)==0){
+            $dados = new CurriculoVaga();           
+            $dados->curriculo_idcurriculo = $candidato;
+            $dados->vaga_idvaga = $vaga;
+            $dados->status = 1;
+            $dados->dtcandidatura = Date('Y-m-d');
+            if($dados->save()){
+                flash('Candidatura realizada com sucesso!')->success();
+                return redirect()->route('minhasvagas');//redirecionar para MINHAS VAGAS
+            }else {
+                flash("Falha ao gravar as informações!")->error();
+                return redirect()->back();
+            }
+        }else {
+            flash('Você já está participando deste processo seletivo! Vá para: Gerenciar Vagas > Minhas Vagas, para acompanhar o andamento.')->success();
+            return redirect()->back();;//redirecionar para MINHAS VAGAS
+        }
+    }
+
+    public function minhasvagas(){
+        $cand = Helper::getIdCurriculo();
+        $processos = CurriculoVaga::where('curriculo_idcurriculo', $cand)->get();
+        $vagas = array();
+        if(count($processos)>0){
+            foreach ($processos as $p => $value) {
+                
+                $vagas[] = Vaga::where("status", 1)
+                            ->where("idvaga", $value->vaga_idvaga)->get()[0];
+            }        
+        }
+        //dd($processos,$vagas);
+        return view('vaga.minhasvagas', compact(['processos'], ['vagas']));        
+    }
+
 }

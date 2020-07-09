@@ -178,11 +178,12 @@ class CurriculoController extends Controller
             if($request->hasFile('foto') && $request->file('foto')->isValid()){
                 if($user->foto){
                     $nomeArquivo = $user->foto;
+                    $arquivo = $nomeArquivo;
                 }else{
                     $nomeArquivo = $user->id.Str::kebab($user->name);
+                    $extensao = $request->file('foto')->extension();
+                    $arquivo = "{$nomeArquivo}.{$extensao}";
                 }                
-                $extensao = $request->file('foto')->extension();
-                $arquivo = "{$nomeArquivo}.{$extensao}";
                 $upload = $request->file('foto')->storeAs('fotos', $arquivo);
                
                 if(!$upload){

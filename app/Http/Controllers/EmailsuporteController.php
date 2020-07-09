@@ -25,7 +25,7 @@ class EmailsuporteController extends Controller
         $data = $request->all();
 
         Mail::send('email.template', $data, function ($message) {
-            $message->from(env('MAIL_FROM_ADDRESS'))
+            $message->from('automatico@bioextratus.com.br')
                 ->to('protheus@bioextratus.com.br')
                 ->bcc('marialuisasab@gmail.com')
                 ->replyTo(Auth::user()->email)
@@ -35,8 +35,6 @@ class EmailsuporteController extends Controller
         flash("E-mail enviado ao suporte!
         Entraremos em contato em breve.
         Fique atento à sua caixa de entrada.")->success();
-        return redirect()->route('home');
-            // ->with('success', 'E-mail enviado com sucesso ao suporte!');
-    
+        return redirect()->route('home');    
     }
 }

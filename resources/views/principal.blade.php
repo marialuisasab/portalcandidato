@@ -250,7 +250,7 @@
       {{--}} Fim do row{{--}}
     </div>
   </div>
-
+</div>
   <!-- Conteudo --parte central //-->
   <!-- Site footer -->
   <footer class="site-footer mt-5">

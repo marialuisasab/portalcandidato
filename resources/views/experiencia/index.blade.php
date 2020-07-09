@@ -34,13 +34,13 @@
       <div id="accordion" style="margin-top: 40px;">
 
         <div class="card-border-light">
-          <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+          <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-xs-6 col-md-6">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
 
-                    Experiencias Profissionais
+                    Experiências Profissionais
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
                       <i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>
@@ -54,16 +54,16 @@
                 <div class="col-xs-6 col-md-6" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
                   <div class="btn-group" role="group">
-                    <button class=" btn btn-primary">
+                    <button class=" btn btn-primary" title="Adicionar Experiência">
                       <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left: 15px;"></span> </a>
                     </button>
-                    <button class=" btn btn-success">
+                    <button class=" btn btn-success" title="Cadastrar Habilidades">
                       <a style=" color: white;" href="/habilidades">Proximo<span class="fas fa-forward"
                           style="padding-left:15px;"></span>
                       </a>
                     </button>
-                    <button class=" btn btn-secondary">
+                    <button class=" btn btn-secondary" title="Voltar">
                       <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
                           style="padding-left: 15px;"></span></a>
                     </button>
@@ -88,12 +88,13 @@
                 <div class="row" style="margin-top: 25px; text-align:center;">
                   <div class="col-sm">
 
-                    <button class=" btn btn-primary">
+                    <button class=" btn btn-primary" title="Editar Experiência">
                       <a style="color:white;" href="/experiencia/editar/{{$e->idexperiencia}}">Editar
                         <span class="fa fa-edit" style="padding-left: 15px;"></span></a>
                     </button>
 
-                    <button class=" btn btn-danger" name="botaoexcluir" value="{{$e->idexperiencia}}">
+                    <button class=" btn btn-danger" name="botaoexcluir" value="{{$e->idexperiencia}}"
+                      title="Excluir Experiência">
                       <a style="color: white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
                       </a>
                     </button>

@@ -30,7 +30,7 @@
 			<div id="accordion" style="margin-top: 40px;">
 
 				<div class="card-border-light">
-					<div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+					<div class="card-header" id="headingTwo" style="background-color: white;">
 						<div class="container">
 							<div class="row">
 								<div class="col-sm">
@@ -50,16 +50,16 @@
 								<div class="col-xs-8 col-md-6"
 									style="margin-top: 7px; margin-left: auto; text-align: end;">
 									<div class="btn-group" role="group">
-										<button class=" btn btn-primary">
+										<button class=" btn btn-primary" title="Editar Endereço">
 											<a style="color:white;" href="/endereco/editar/{{Auth::user()->id}}">Editar
 												<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
 										</button>
-										<button class=" btn btn-success">
+										<button class=" btn btn-success" title="Cadastrar Formação">
 											<a style=" color: white;" href="/cursos">Proximo<span class="fas fa-forward"
 													style="padding-left: 15px;"></span>
 											</a>
 										</button>
-										<button class=" btn btn-secondary" style="">
+										<button class=" btn btn-secondary" style="" title="Voltar">
 											<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;;"></span></a>
 										</button>
@@ -111,12 +111,12 @@
 								<hr>
 
 								<li><strong>
-										CIDADE:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCidade($e->cidade_idcidade)}}
+										ESTADO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getEstado($e->estado_idestado)}}
 								</li>
 								<hr>
 
 								<li><strong>
-										ESTADO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getEstado($e->estado_idestado)}}
+										CIDADE:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCidade($e->cidade_idcidade)}}
 								</li>
 								<hr>
 

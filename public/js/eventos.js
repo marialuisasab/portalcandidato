@@ -45,7 +45,9 @@ $(function () {
         // window.document.getElementById("IdBuscar").style.color = "#00BFFF";
     });
 
+});
 
-    $("[data-toggle=tooltip]").tooltip();
+$("document").ready(function () {
+    $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });

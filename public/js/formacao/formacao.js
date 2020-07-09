@@ -8,17 +8,39 @@ $(function () {
 
         if (this.value == '1') {
 
-            //     $('#nivel_idnivel').style.display = 'block';
+            // $('#nivel_idnivel').style.display = 'block';
             document.getElementById("idnivel").style.display = 'block';
-            document.getElementById("idperiodo").style.display = 'block';
-            document.getElementById("idarea").style.display = 'block';
+            document.getElementById("idcategoria").style.display = 'none';
 
+
+            $("#nivel_idnivel").change(function () {
+                var valorid = $("#nivel_idnivel").val();
+                // alert(valorid);
+                var vetorEscolFund = ['1', '2', '3', '4', '5', '6']
+                if ($.inArray(valorid, vetorEscolFund) !== -1) {
+                    document.getElementById("idnomeescola").style.display = 'block';
+                    document.getElementById("idarea").style.display = 'none';
+                    document.getElementById("idperiodo").style.display = 'none';
+                    document.getElementById("idmostrarinstituicao").style.display = 'none';
+
+
+                } else {
+                    document.getElementById("idmostrarinstituicao").style.display = 'block';
+                    document.getElementById("idperiodo").style.display = 'block';
+                    document.getElementById("idarea").style.display = 'block';
+                    document.getElementById("idnomeescola").style.display = 'none';
+
+                };
+
+            });
             // $('#idperiodo').style.display = 'block';
 
 
 
         } else {
-
+            document.getElementById("idcategoria").style.display = 'block';
+            document.getElementById("idnomeescola").style.display = 'block';
+            document.getElementById("idmostrarinstituicao").style.display = 'none';
             document.getElementById("idnivel").style.display = 'none';
             document.getElementById("idperiodo").style.display = 'none';
             document.getElementById("idarea").style.display = 'none';

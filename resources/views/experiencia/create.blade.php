@@ -25,7 +25,7 @@
 
     <div id="accordion" style="margin-top: 40px;">
       <div class="card-border-light">
-        <div class="card-header" id="headingOne" style="background-color: aliceblue;">
+        <div class="card-header" id="headingOne" style="background-color: white;">
           <div class="container">
             <div class="row">
               <div class="col-xs-6 col-md-6">
@@ -45,7 +45,7 @@
               <div class="col-xs-6 col-md-2" style="margin-left: auto; margin-top:25px;">
                 <div class="btn-group " role="group" aria-label="">
 
-                  <button class=" btn btn-secondary" type="button">
+                  <button class=" btn btn-secondary" type="button" title="Voltar">
                     <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
                         style="padding-left: 15px;"></span></a>
                   </button>
@@ -69,7 +69,7 @@
                 <div class="form-group">
                   <li><strong> NOME DA EMPRESA:*&nbsp;&nbsp;&nbsp;</strong>
                     <input type="text" class="form-control {{ $errors->has('empresa') ? 'is-invalid' : ''}}"
-                      name="empresa">
+                      name="empresa" title="Nome da Empresa">
                     @if($errors->has('empresa'))
                     <div class="invalid-feedback">
                       {{$errors->first('empresa')}}
@@ -79,9 +79,9 @@
                 </div>
 
                 <div class="form-group">
-                  <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
+                  <li><strong> DATA DE INiCIO:*&nbsp;&nbsp;&nbsp;</strong>
                     <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
-                      name="dtinicio">
+                      name="dtinicio" title="Data de Inicio">
                     @if($errors->has('dtinicio'))
                     <div class="invalid-feedback">
                       {{$errors->first('dtinicio')}}
@@ -106,13 +106,14 @@
 
                 <div class="form-group" style="display: none;" id="datatermino">
                   <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
-                    <input type="date" class="form-control" name="dtfim">
+                    <input type="date" class="form-control" name="dtfim" title="Data de Saída">
                   </li>
                 </div>
 
                 <div class="form-group">
                   <li><strong>CARGO:*&nbsp;&nbsp;&nbsp;</strong>
-                    <input type="text" class="form-control {{ $errors->has('cargo') ? 'is-invalid' : ''}}" name="cargo">
+                    <input type="text" class="form-control {{ $errors->has('cargo') ? 'is-invalid' : ''}}" name="cargo"
+                      title="Cargo Exercido">
                     @if($errors->has('cargo'))
                     <div class="invalid-feedback">
                       {{$errors->first('cargo')}}
@@ -124,7 +125,7 @@
                 <div class="form-group">
                   <li><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
                     <textarea class="form-control {{ $errors->has('atividades') ? 'is-invalid' : ''}}" name="atividades"
-                      id="atividades" rows="3"></textarea>
+                      id="atividades" rows="3" title="Descrição das Atividades"></textarea>
                     @if($errors->has('atividades'))
                     <div class="invalid-feedback">
                       {{$errors->first('atividades')}}
@@ -135,9 +136,9 @@
 
                 <br>
                 <div class="form-group" style="text-align: end;">
-                  <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
-                      style="padding-left: 15px;"></button>
-                  <button class=" btn btn-danger" style="color:red;" type="cancel">
+                  <button type="submit" class="btn btn-primary" id="botaosalvarend"
+                    title="Confirmar Alterações">Salvar<span class="fas fa-save" style="padding-left: 15px;"></button>
+                  <button class=" btn btn-danger" style="color:red;" type="cancel" title="Cancelar Alterações">
                     <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
                         style="padding-left: 15px;"></span></a>
                   </button>

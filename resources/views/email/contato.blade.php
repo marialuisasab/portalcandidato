@@ -30,7 +30,7 @@
             <div id="accordion" style="margin-top: 40px;">
 
                 <div class="card-border-light">
-                    <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+                    <div class="card-header" id="headingTwo" style="background-color: white;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm">
@@ -47,10 +47,9 @@
                                 </div>
 
 
-
-                                <button class=" btn btn-secondary" style="">
-                                    <a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
-                                            style="padding-left: 15px;;"></span></a>
+                                <button class=" btn btn-secondary" type="button" title="Voltar">
+                                    <a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
+                                            style="padding-left: 15px;"></span></a>
                                 </button>
 
 
@@ -80,28 +79,29 @@
                                 <div class="form-group">
                                     <li style=""><strong> NOME:&nbsp;&nbsp;&nbsp;</strong>
                                         <input input type="text" name="nome" class="form-control"
-                                            value="{{Auth::user()->name}}" readonly>
+                                            value="{{Auth::user()->name}}" readonly title="Nome">
                                     </li>
                                 </div>
                                 <div class="form-group">
                                     <li style=""><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong>
                                         <input type="email" name="email" class="form-control"
-                                            value="{{Auth::user()->email}}" readonly>
+                                            value="{{Auth::user()->email}}" readonly title="Email">
                                     </li>
                                 </div>
                                 <div class="form-group">
                                     <li style=""><strong> TELEFONE DE CONTATO:&nbsp;&nbsp;&nbsp;</strong>
-                                        <input type="text" id="phone_contact" name="telefone" class="form-control">
+                                        <input type="text" id="phone_contact" name="telefone" class="form-control"
+                                            title="Telefone Principal">
                                     </li>
                                 </div>
                                 <div class="form-group">
                                     <li style=""><strong> MENSAGEM:&nbsp;&nbsp;&nbsp;</strong>
-                                        <textarea rows="6" class="form-control" name="mensagem"
-                                            style="height:100px;"></textarea>
+                                        <textarea rows="6" class="form-control" name="mensagem" style="height:100px;"
+                                            placeholder="Deixe seu recado..." title="Insira a Mensagem"></textarea>
                                     </li>
                                 </div>
                                 <div class="form-group" style="text-align: end;">
-                                    <button class="btn btn-primary">Enviar</button>
+                                    <button class="btn btn-primary" title="Enviar Mensagem">Enviar</button>
                                 </div>
                             </form>
                         </ul>

@@ -74,19 +74,18 @@
 									style="margin-top: 5px; margin-right: auto; text-align:end; margin-top:7px;">
 
 									<div class="btn-group" role="group">
-										<button class=" btn btn-outline-primary" id="botaoeditar">
-
+										<button class=" btn btn-outline-primary" id="botaoeditar"
+											title="Editar Dados Pessoais">
 											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar<span
 													class="fa fa-edit" style="padding-left: 15px;"></span></a>
-
 										</button>
 										<div class="alert-box warning">Edite suas informações</div>
-										<button class=" btn btn-outline-success">
+										<button class=" btn btn-outline-success" title="Cadastrar Endereço">
 											<a href="/endereco">Proximo<span class="fas fa-forward"
 													style="padding-left: 15px;color:green;"></span>
 											</a>
 										</button>
-										<button class=" btn btn-outline-secondary" type="cancel">
+										<button class=" btn btn-outline-secondary" type="cancel" title="Voltar">
 											<a href="/home">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px; color:gray"></span></a>
 										</button>

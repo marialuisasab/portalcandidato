@@ -59,7 +59,7 @@
 										</button>
 										--}}
 										<button class=" btn btn-secondary" type="button" value="{{Auth::user()->id}}"
-											id="idformendereco">
+											id="idformendereco" title="Voltar">
 											<a href="/curriculo" style="color: white;">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;"></span></a>
 										</button>
@@ -85,7 +85,7 @@
 										<li><strong> CEP*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{ $errors->has('cep') ? 'is-invalid' : ''}}"
-												name="cep" id="cep" placeholder="Informe o seu CEP">
+												name="cep" id="cep" placeholder="Informe o seu CEP" title="CEP">
 											@if($errors->has('cep'))
 											<div class="invalid-feedback">
 												{{$errors->first('cep')}}
@@ -98,11 +98,11 @@
 
 
 									<div class="form-group">
-										<li><strong> LOGRADOURO*:&nbsp;&nbsp;&nbsp;</strong>
+										<li><strong> Rua*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('logradouro') ? 'is-invalid' : ''}}"
 												name="logradouro" id="logradouro"
-												placeholder="Ex.: Rua/Praça/ Ladeira ...">
+												placeholder="Ex.: Rua/Praça/ Ladeira ..." title="Rua">
 											@if($errors->has('logradouro'))
 											<div class="invalid-feedback">
 												{{$errors->first('logradouro')}}
@@ -119,7 +119,8 @@
 										<li><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('bairro') ? 'is-invalid' : ''}}"
-												name="bairro" id="bairro" placeholder="Informe o seu bairro">
+												name="bairro" id="bairro" placeholder="Informe o seu bairro"
+												title="Bairro">
 											@if($errors->has('bairro'))
 											<div class="invalid-feedback">
 												{{$errors->first('bairro')}}
@@ -135,7 +136,8 @@
 										<li><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('numero') ? 'is-invalid' : ''}}"
-												name="numero" id="numero" placeholder="numero">
+												name="numero" id="numero" placeholder="numero"
+												title="Numero Residencial">
 											@if($errors->has('numero'))
 											<div class="invalid-feedback">
 												{{$errors->first('numero')}}
@@ -150,21 +152,27 @@
 										<li><strong>COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control"
 												placeholder="Ex.:Casa, apartamento, etc..." name="complemento"
-												id="complemento"></li>
+												id="complemento" title="Complemento"></li>
 									</div>
 
 									{{-- <form method="GET" action="/endereco" id="ID_DO_FORMULARIO"> --}}
 									<div class="form-group">
 										<li><strong> ESTADO*:&nbsp;&nbsp;&nbsp;</strong>
-											<select class="form-control unput-lg dynamic" id="estado"
-												name="estado_idestado" data-dependent="cidade">
+											<select
+												class="form-control {{$errors->has('estado_idestado') ? 'is-invalid' : ''}}"
+												id="estado" name="estado_idestado" title="Estado">
 												<option value="" selected>Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}">{{ $est->nome }}</option>
 												@endforeach
 											</select>
+											@if($errors->has('estado_idestado'))
+											<div class="invalid-feedback">
+												{{$errors->first('estado_idestado')}}
+											</div>
+											@endif
 										</li>
-										{{csrf_field()}}
+
 									</div>
 									{{-- </form> --}}
 
@@ -172,12 +180,19 @@
 
 									<div class="form-group" id="idcidadeselect">
 										<li><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
-											<select class="custom-select" id="cidade" name="cidade_idcidade">
+											<select
+												class="custom-select {{$errors->has('cidade_idcidade') ? 'is-invalid' : ''}}"
+												id="cidade" name="cidade_idcidade" title="Cidade">
 												<option value="" selected>Selecionar</option>
 												{{-- @foreach(Helper::getCidades() as $cid)
 												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
 												@endforeach --}}
 											</select>
+											@if($errors->has('cidade_idcidade'))
+											<div class="invalid-feedback">
+												{{$errors->first('cidade_idcidade')}}
+											</div>
+											@endif
 										</li>
 									</div>
 
@@ -185,13 +200,23 @@
 
 									<div class="form-group">
 										<li style=""><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
-											<select class="custom-select" id="pais_idpais" name="pais_idpais">
+											<select
+												class="custom-select {{$errors->has('pais_idpais') ? 'is-invalid' : ''}}"
+												id="pais_idpais" name="pais_idpais" title="País">
 												<option value="" selected>País</option>
 												@foreach(Helper::getPai () as $pais)
 												<option value="{{$pais->idpais}}">{{$pais->nome}}
 												</option>
 												@endforeach
-											</select> </li>
+											</select>
+											@if ($errors->has('pais_idpais'))
+											<div class="invalid-feedback">
+												{{$errors->first('pais_idpais')}}
+											</div>
+											@else
+
+											@endif
+										</li>
 									</div>
 
 
@@ -224,9 +249,10 @@
 
 					<br>
 					<div class="form-group" style="text-align: end;">
-						<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span
-								class="fas fa-save" style="padding-left: 15px;"></button>
-						<button class=" btn btn-danger" style="color:red;" type="cancel">
+						<button type="submit" class="btn btn-primary" id="botaosalvarend"
+							title="Confirmar Alterações">Salvar<span class="fas fa-save"
+								style="padding-left: 15px;"></button>
+						<button class=" btn btn-danger" style="color:red;" type="cancel" title="Cancelar Alterações">
 							<a href="home" style="color: white;">Cancelar<span class="fas fa-window-close"
 									style="padding-left: 15px;"></span></a>
 						</button>

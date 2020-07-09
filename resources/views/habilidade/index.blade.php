@@ -29,7 +29,7 @@
       <div id="accordion" style="margin-top: 40px;">
 
         <div class="card-border-light">
-          <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+          <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-xs-5 col-md-5">
@@ -49,18 +49,18 @@
                 <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
 
                   <div class="btn-group" role="group">
-                    <button class=" btn btn-primary">
+                    <button class=" btn btn-primary" title="Adicionar Habilidade">
                       <a href="{{route('habilidade.novo')}}" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
                     </button>
 
-                    <button class=" btn btn-success">
+                    <button class=" btn btn-success" title="Cadastrar Redes Sociais">
                       <a style=" color: white;" href="redessociais">Proximo
                         <span class="fas fa-forward" style="padding-left:15px;"></span>
                       </a>
                     </button>
 
-                    <button class=" btn btn-secondary">
+                    <button class=" btn btn-secondary" title="Voltar">
                       <a style="color: white;" href="/experiencias">Voltar<span class="fas fa-undo"
                           style="padding-left:15px;"></span></a>
                     </button>
@@ -86,13 +86,14 @@
                 <div class="row" style="margin-top: 25px; text-align:center;">
                   <div class="col-sm">
 
-                    <button class=" btn btn-primary">
+                    <button class=" btn btn-primary" title="Editar Habilidade">
                       <a style="color:white;" href="/habilidade/editar/{{$i->idhabilidade}}">Editar
                         <span class="fa fa-edit" style="padding-left:15px;"></span></a>
                     </button>
 
 
-                    <button class=" btn btn-danger" name="botaoexcluirhabil" value="{{$i->idhabilidade}}">
+                    <button class=" btn btn-danger" name="botaoexcluirhabil" value="{{$i->idhabilidade}}"
+                      title="Excluir Habilidade">
                       <a style=" color:white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
                       </a>
                     </button>

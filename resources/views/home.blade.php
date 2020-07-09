@@ -64,7 +64,7 @@
 
 
 
-
+@include('flash::message')
 
 <div class="container">
   <div class="row">

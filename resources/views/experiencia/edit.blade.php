@@ -49,7 +49,7 @@
 
 
                   <div class="col-xs-6 col-md-2" style="margin-left: auto; margin-top: 25px;">
-                    <button class=" btn btn-secondary" type="cancel">
+                    <button class=" btn btn-secondary" type="cancel" title="Voltar">
                       <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
                           style="padding-left: 15px;"></span></a>
                     </button>
@@ -70,7 +70,7 @@
                     <div class="form-group">
                       <li><strong> NOME DA EMPRESA:*&nbsp;&nbsp;&nbsp;</strong>
                         <input type="text" class="form-control {{ $errors->has('empresa') ? 'is-invalid' : ''}}"
-                          name="empresa" value="{{$exp->empresa}}">
+                          name="empresa" value="{{$exp->empresa}}" title="Nome da Empresa">
                         @if($errors->has('empresa'))
                         <div class="invalid-feedback">
                           {{$errors->first('empresa')}}
@@ -80,9 +80,9 @@
                     </div>
 
                     <div class="form-group">
-                      <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
+                      <li><strong> DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong>
                         <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
-                          name="dtinicio" value="{{$exp->dtinicio}}">
+                          name="dtinicio" value="{{$exp->dtinicio}}" title="Data de Inicio">
                         @if($errors->has('dtinicio'))
                         <div class="invalid-feedback">
                           {{$errors->first('dtinicio')}}
@@ -113,13 +113,15 @@
                     @if ($exp->dtfim == null)
                     <div class="form-group" style="display: none;" id="datatermino">
                       <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="date" class="form-control" name="dtfim" value="{{Helper::getData($exp->dtfim)}}">
+                        <input type="date" class="form-control" name="dtfim" value="{{Helper::getData($exp->dtfim)}}"
+                          title="Data de Saída">
                       </li>
                     </div>
                     @else
                     <div class="form-group" id="datatermino">
                       <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="date" class="form-control" name="dtfim" value="{{$exp->dtfim}}">
+                        <input type="date" class="form-control" name="dtfim" value="{{$exp->dtfim}}"
+                          title="Data de Saída">
                       </li>
                     </div>
                     @endif
@@ -128,7 +130,7 @@
                     <div class="form-group">
                       <li><strong> CARGO:*&nbsp;&nbsp;&nbsp;</strong>
                         <input type="text" class="form-control {{ $errors->has('cargo') ? 'is-invalid' : ''}}"
-                          name="cargo" value="{{$exp->cargo}}">
+                          name="cargo" value="{{$exp->cargo}}" title="Cargo Exercido">
                         @if($errors->has('cargo'))
                         <div class="invalid-feedback">
                           {{$errors->first('cargo')}}
@@ -140,7 +142,8 @@
                     <div class="form-group">
                       <li><strong> DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
                         <textarea class="form-control {{ $errors->has('atividades') ? 'is-invalid' : ''}}"
-                          name="atividades" id="atividades" rows="3">{{$exp->atividades}}</textarea>
+                          name="atividades" id="atividades" rows="3"
+                          title="Descrição das Atividades">{{$exp->atividades}}</textarea>
                         @if($errors->has('atividades'))
                         <div class="invalid-feedback">
                           {{$errors->first('atividades')}}
@@ -151,11 +154,12 @@
 
                     <br>
                     <div class="form-group" style="text-align: end;">
-                      <button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+                      <button type="submit" class="btn btn-primary" id="botaosalvarend"
+                        title="Concluir Alterações">Salvar<span class="fas fa-save"
                           style="padding-left: 15px;"></button>
                       <button class=" btn btn-danger" style="color:red;" type="cancel">
-                        <a href="/experiencias" style="color: white;">Cancelar<span class="fas fa-window-close"
-                            style="padding-left: 15px;"></span></a>
+                        <a href="/experiencias" style="color: white;" title="Cancelar Alterações">Cancelar<span
+                            class="fas fa-window-close" style="padding-left: 15px;"></span></a>
                       </button>
                     </div>
 

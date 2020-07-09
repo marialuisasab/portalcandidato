@@ -33,7 +33,7 @@
 
 			<div id="accordion" style="margin-top: 40px;">
 				<div class="card-border-light">
-					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
+					<div class="card-header" id="headingOne" style="background-color: white;">
 
 
 
@@ -67,7 +67,7 @@
 										</button>
 										--}}
 										<button class=" btn btn-secondary" type="cancel" style="margin-top: 10px;"
-											id="idformendereco" value="{{Auth::user()->id}}">
+											id="idformendereco" value="{{Auth::user()->id}}" title="Voltar">
 											<a href="/endereco" style="color: white;">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;"></span></a>
 										</button>
@@ -93,8 +93,8 @@
 										<li><strong> CEP:*&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{ $errors->has('cep') ? 'is-invalid' : ''}}"
-												name="cep" id="cep" placeholder="Informe o novo CEP"
-												value="{{$e->cep}}">
+												name="cep" id="cep" placeholder="Informe o novo CEP" value="{{$e->cep}}"
+												title="CEP">
 											@if($errors->has('cep'))
 											<div class="invalid-feedback">
 												{{$errors->first('cep')}}
@@ -113,7 +113,8 @@
 											<input type="text"
 												class="form-control {{$errors->has('logradouro') ? 'is-invalid' : ''}}"
 												name="logradouro" id="logradouro"
-												placeholder="Ex.: Rua/Praça/ Ladeira ..." value="{{$e->logradouro}}">
+												placeholder="Ex.: Rua/Praça/ Ladeira ..." value="{{$e->logradouro}}"
+												title="Rua">
 											@if($errors->has('logradouro'))
 											<div class="invalid-feedback">
 												{{$errors->first('logradouro')}}
@@ -127,7 +128,8 @@
 										<li><strong>BAIRRO:*&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('bairro') ? 'is-invalid' : ''}}"
-												name="bairro" id="bairro" placeholder="Bairro" value="{{$e->bairro}}">
+												name="bairro" id="bairro" placeholder="Bairro" value="{{$e->bairro}}"
+												title="Bairro">
 											@if($errors->has('bairro'))
 											<div class="invalid-feedback">
 												{{$errors->first('bairro')}}
@@ -143,7 +145,8 @@
 										<li><strong> NUMERO:*&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('numero') ? 'is-invalid' : ''}}"
-												name="numero" id="numero" placeholder="numero" value="{{$e->numero}}">
+												name="numero" id="numero" placeholder="numero" value="{{$e->numero}}"
+												title="Numero Residencial">
 											@if($errors->has('numero'))
 											<div class="invalid-feedback">
 												{{$errors->first('numero')}}
@@ -160,7 +163,8 @@
 									<div class="form-group">
 										<li><strong>COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control" placeholder="Ex.:9999,99"
-												name="complemento" id="complemento" value="{{$e->complemento}}"></li>
+												name="complemento" id="complemento" value="{{$e->complemento}}"
+												title="Complemento"></li>
 
 									</div>
 
@@ -170,7 +174,8 @@
 										<li><strong>ESTADO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 											<select
 												class="form-control {{$errors->has('estado_idestado') ? 'is-invalid': ''}}"
-												id="estado" name="estado_idestado" value="{{$e->estado_idestado}}">
+												id="estado" name="estado_idestado" value="{{$e->estado_idestado}}"
+												title="Estado">
 												<option value="">Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}"
@@ -213,7 +218,7 @@
 						<div class="form-group">
 							<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="form-control {{$errors->has('cidade_idcidade') ? 'is-invalid': ''}}"
-									id="cidade" name="cidade_idcidade" value="{{$e->cidade_idcidade}}">
+									id="cidade" name="cidade_idcidade" value="{{$e->cidade_idcidade}}" title="Cidade">
 									<option value=""></option>
 
 									@foreach(Helper::getCidades() as $cid)
@@ -242,7 +247,7 @@
 						<div class="form-group">
 							<li><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="form-control {{$errors->has('pais_idpais') ? 'is-invalid': ''}}"
-									id="pais_idpais" name="pais_idpais" value="{{$e->pais_idpais}}">
+									id="pais_idpais" name="pais_idpais" value="{{$e->pais_idpais}}" title="País">
 									<option value="">Selecionar</option>
 									@foreach(Helper::getPai() as $pai)
 									<option value="{{$pai->idpais}}"
@@ -293,9 +298,10 @@
 				<br>
 
 				<div class="form-group" style="text-align: end;">
-					<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+					<button type="submit" class="btn btn-primary" id="botaosalvarend"
+						title="Confirmar Alterações">Salvar<span class="fas fa-save"
 							style="padding-left: 15px;"></button>
-					<button class=" btn btn-danger" style="color:red;">
+					<button class=" btn btn-danger" style="color:red;" title="Cancelar Alterações">
 						<a href="/endereco" style="color: white;">Cancelar<span class="fas fa-window-close"
 								style="padding-left: 15px;"></span></a>
 					</button>

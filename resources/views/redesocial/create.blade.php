@@ -18,7 +18,7 @@
 
       <div id="accordion" style="margin-top: 40px;">
         <div class="card-border-light">
-          <div class="card-header" id="headingOne" style="background-color: aliceblue;">
+          <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-xs-5 col-md-5">
@@ -42,8 +42,8 @@
 
                     </button> --}}
 
-                    <button class=" btn btn-secondary" type="button" style="margin-top: 10px;">
-                      <a href="" style="color: white;">Voltar<span class="fas fa-undo"
+                    <button class=" btn btn-secondary" type="button" style="margin-top: 10px;" title="Voltar">
+                      <a href="\habilidades" style="color: white;">Voltar<span class="fas fa-undo"
                           style="padding-left: 15px;"></span></a>
                     </button>
                   </div>
@@ -68,7 +68,7 @@
                     <label for="redesocial_idredesocial">{{$rs->nome}}</label>
                     <input type="hidden" name="redesocial_idredesocial[]" value="{{$rs->idredesocial}}">
                     <input type="text" class="form-control {{ $errors->has('link') ? 'is-invalid' : ''}}" name="link[]"
-                      placeholder="Link">
+                      placeholder="Link" title="Link do Perfil no {{$rs->nome}}">
                     @if($errors->has('link'))
                     <div class="invalid-feedback">
                       {{$errors->first('link')}}
@@ -79,9 +79,9 @@
                   @endforeach
                   <br>
                   <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
-                        style="padding-left: 15px;"></button>
-                    <button class=" btn btn-danger" style="color:red;" type="cancel">
+                    <button type="submit" class="btn btn-primary" title="Confirmar Alterações">Salvar<span
+                        class="fas fa-save" style="padding-left: 15px;"></button>
+                    <button class=" btn btn-danger" style="color:red;" type="cancel" title="Cancelar Alterações">
                       <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
                           style="padding-left: 15px;"></span></a>
                     </button>

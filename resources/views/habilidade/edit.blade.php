@@ -24,7 +24,7 @@
 
       <div id="accordion" style="margin-top: 40px;">
         <div class="card-border-light">
-          <div class="card-header" id="headingOne" style="background-color: aliceblue;">
+          <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-xs-5 col-md-5">
@@ -48,8 +48,8 @@
 
                     </button> --}}
 
-                    <button class=" btn btn-secondary" type="button">
-                      <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
+                    <button class=" btn btn-secondary" type="button" title="Voltar">
+                      <a href="/habilidades" style="color: white;">Voltar<span class="fas fa-undo"
                           style="padding-left: 15px;"></span></a>
                     </button>
                   </div>
@@ -73,7 +73,7 @@
                   <div class="form-group">
                     <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="form-control {{$errors->has('tipo_idtipo') ? 'is-invalid' : ''}}" id="tipo"
-                        name="tipo_idtipo">
+                        name="tipo_idtipo" title="Categoria">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getTiposHab() as $tp)
                         <option value="{{$tp->idtipo}}" {{$hab->tipo_idtipo == $tp->idtipo ? 'selected' : '' }}>
@@ -93,7 +93,7 @@
                   <div class="form-group">
                     <li><strong>DESCRIÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" name="nome"
-                        value="{{$hab->nome}}">
+                        value="{{$hab->nome}}" title="Descrição da Habilidade">
                       @if($errors->has('nome'))
                       <div class="invalid-feedback">
                         {{$errors->first('nome')}}
@@ -108,7 +108,7 @@
                   <div class="form-group" id="idnivel">
                     <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="form-control {{ $errors->has('nivel') ? 'is-invalid' : ''}}" id="nivel"
-                        name="nivel">
+                        name="nivel" title="Nível de Aprimoramento">
                         <option value="">Selecionar</option>
                         <option value="1" {{$hab->nivel == 1 ? 'selected' : '' }}>Básico</option>
                         <option value="2" {{$hab->nivel == 2 ? 'selected' : '' }}>Intermediário</option>
@@ -124,9 +124,9 @@
 
                   <br>
                   <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
-                        style="padding-left: 15px;"></button>
-                    <button class=" btn btn-danger" style="color:red;" type="cancel">
+                    <button type="submit" class="btn btn-primary" title="Confirmar Alterações">Salvar<span
+                        class="fas fa-save" style="padding-left: 15px;"></button>
+                    <button class=" btn btn-danger" style="color:red;" type="cancel" title="Cancelar Alterações">
                       <a href="/habilidades" style="color: white;">Cancelar<span class="fas fa-window-close"
                           style="padding-left: 15px;"></span></a>
                     </button>

@@ -27,7 +27,7 @@
       <div id="accordion" style="margin-top: 40px;">
 
         <div class="card-border-light">
-          <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+          <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-xs-5 col-md-5">
@@ -41,17 +41,17 @@
                 </div>
                 <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
                   <div class="btn-group" role="group">
-                    <button class=" btn btn-primary">
+                    <button class=" btn btn-primary" title="Adicionar Formação">
                       <a href="/curso/novo" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
                     </button>
                     <button class=" btn btn-success">
-                      <a style=" color: white;" href="/experiencias">Proximo<span class="fas fa-forward"
-                          style="padding-left:15px;"></span>
+                      <a style=" color: white;" href="/experiencias" title="Cadastrar Experiências ">Proximo<span
+                          class="fas fa-forward" style="padding-left:15px;"></span>
                       </a>
                     </button>
                     <button class=" btn btn-secondary">
-                      <a style="color: white;" href="/endereco">Voltar<span class="fas fa-undo"
+                      <a style="color: white;" href="/endereco" title="Voltar">Voltar<span class="fas fa-undo"
                           style="padding-left:15px;"></span></a>
                     </button>
                   </div>
@@ -69,13 +69,14 @@
                   <div class="col-sm">
 
 
-                    <button class=" btn btn-primary">
+                    <button class=" btn btn-primary" title="Editar Formação">
                       <a style="color:white;" href="/curso/editar/{{$c->idcurso}}">Editar
                         <span class="fa fa-edit" style="padding-left:15px;"></span></a>
                     </button>
 
 
-                    <button class=" btn btn-danger" name="idexcluirforma" value="{{$c->idcurso}}">
+                    <button class=" btn btn-danger" name="idexcluirforma" value="{{$c->idcurso}}"
+                      title="Excluir Formação">
                       <a style="color:white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
                       </a>
                     </button>
@@ -91,6 +92,19 @@
                       </li>
                       <hr>
 
+
+                      @if ($c->escolaridade == '2')
+                      <li class="item-2"><strong>
+                          CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
+                      </li>
+                      <hr>
+                      @else
+                      @endif
+
+
+
+
+                      @if ($c->escolaridade == '1')
                       @if ($c->instituicao_idinstituicao != null)
                       <li class="item-2"><strong>
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{Helper::getInstituicoesId($c->instituicao_idinstituicao)}}
@@ -100,13 +114,25 @@
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não informado</span>
                       </li>
                       @endif
+                      @else
+                      @if ($c->escola != null)
+                      <li class="item-2"><strong>
+                          INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{$c->escola}}
+                      </li>
+                      @else
+                      <li class="item-2"><strong>
+                          INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não informado</span>
+                      </li>
+                      @endif
+                      @endif
                       <hr>
-                      @if($c->escolaridade == '1')
 
+                      @if($c->escolaridade == '1')
                       <li class="item-2"><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong>
                         {{Helper::getNivel($c->nivel_idnivel)}}
                       </li>
                       <hr>
+
 
                       <li class="item-2"><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}
                       </li>
@@ -116,24 +142,19 @@
                       @if ($c->periodo != null)
                       <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
                       </li>
+                      <hr>
                       @else
                       <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong> <span style="color: red;">Não
                           Informado!</span>
                       </li>
+                      <hr>
                       @endif
                       @else
                       @endif
 
-                      <hr>
 
 
-                      @if ($c->escolaridade == '2')
-                      <li class="item-2"><strong>
-                          CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
-                      </li>
-                      <hr>
-                      @else
-                      @endif
+
 
                       <li class="item-2"><strong>
                           DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtinicio)}}

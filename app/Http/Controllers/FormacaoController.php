@@ -211,5 +211,3 @@ class FormacaoController extends Controller
 
     
 }
-
-

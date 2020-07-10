@@ -82,7 +82,7 @@ class CurriculoController extends Controller
             $extensao = $request->file('foto')->extension();
             $arquivo = "{$nomeArquivo}.{$extensao}";
 
-            $upload = $request->file('foto')->storeAs('fotos', $arquivo);
+            $upload = $request->file('foto')->move('fotos', $arquivo);
            
             if(!$upload){
                 flash('Falha ao realizar upload da imagem')->error();
@@ -184,7 +184,7 @@ class CurriculoController extends Controller
                     $extensao = $request->file('foto')->extension();
                     $arquivo = "{$nomeArquivo}.{$extensao}";
                 }                
-                $upload = $request->file('foto')->storeAs('fotos', $arquivo);
+                $upload = $request->file('foto')->move('fotos', $arquivo);
                
                 if(!$upload){
                     flash('Falha ao realizar upload da imagem!')->error();

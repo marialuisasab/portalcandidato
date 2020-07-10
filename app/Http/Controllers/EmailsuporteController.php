@@ -25,7 +25,7 @@ class EmailsuporteController extends Controller
         $data = $request->all();
 
         Mail::send('email.template', $data, function ($message) {
-            $message->from('automatico@bioextratus.com.br')
+            $message->from(env('MAIL_FROM_ADDRESS'))
                 ->to('protheus@bioextratus.com.br')
                 ->bcc('marialuisasab@gmail.com')
                 ->replyTo(Auth::user()->email)

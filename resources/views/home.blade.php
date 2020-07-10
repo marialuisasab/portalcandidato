@@ -75,7 +75,7 @@
 
           <div class="card-body" style="text-align: center;">
             @if(Auth::user()->foto != null)
-            <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+            <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
               style="max-width: 200px; text-align: center; border-radius: 50%;">
             @else
             <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png" alt="Usuário sem foto">

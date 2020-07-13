@@ -35,12 +35,11 @@
 
             <div id="accordion" style="margin-top: 40px;">
                 <div class="card-border-light">
-                    <div class="card-header" id="headingOne" style="background-color: aliceblue;">
+                    <div class="card-header" id="headingOne" style="background-color: white;">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm">
-                                    <h2 class="mb-0" style="color:dodgerblue;">
-
+                                <div class="col-">
+                                    <h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
                                         Dados Pessoais
                                         <span class="fa-stack fa-sm">
                                             <i class="fas fa-circle fa-stack-2x"></i>
@@ -52,13 +51,15 @@
                                 </div>
 
 
-                                <div class="col-xs-7 col-md-2" style="margin-left: auto; margin-top:7px;">
+                                <div class="col-xs-7 col-2" style="margin-left: auto; margin-top:7px;">
                                     <div class="btn-group " role="group" aria-label="">
 
-                                        <button class="btn btn-outline-secondary" type="button" title="Voltar">
-                                            <a href="/home">Voltar<span class="fas fa-undo"
-                                                    style="padding-left: 15px; color:gray;"></span></a>
-                                        </button>
+
+
+                                        <a class="btn btn-secondary btn-sm" type="button" title="Voltar"
+                                            href="/home">Voltar <span class="fas fa-undo"
+                                                style="padding-left: 15pr; color:gray; font-size:12px;"></span></a>
+
                                     </div>
                                 </div>
                             </div>
@@ -448,7 +449,7 @@
 
                         <div class="form-group">
                             @if(Auth::user()->foto != null)
-                            <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+                            <img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
                                 style="max-width: 50px;">
                             @endif
                             <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>

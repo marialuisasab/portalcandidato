@@ -6,6 +6,7 @@
 
 <script src="/vendor/jquery/jquery.js"></script>
 <script src="/js/menujs/menuiteracao.js"></script>
+<link rel="stylesheet" href="/css/page.css">
 
 
 
@@ -149,8 +150,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
 
                 @endif
-                <ul
-                    class="navbar-nav ml-auto @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))order-1 order-md-3 navbar-no-expand @endif">
+                <ul class="navbar-nav ml-auto @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))order-1 order-md-3 navbar-no-expand @endif"
+                    style="list-style-type: none;">
                     @yield('content_top_nav_right')
                     @each('adminlte::partials.menu-item-top-nav-right', $adminlte->menu(), 'item')
                     @if(Auth::user())
@@ -160,90 +161,120 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
 
                     {{-- inserindo imagem foto user --}}
-                    <a href="" class="mr-2">
+                    {{-- <a href="" class="mr-2">
                         @if(Auth::user()->foto != null)
-                        <img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
-                            style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
-                        @else
-                        <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"
-                            alt="Usuário sem foto"
-                            style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
-                        @endif
-                    </a>
-
-                    <li class="nav-item dropdown user-menu">
+                        <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
+                    style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
+                    @else
+                    <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"
+                        alt="Usuário sem foto"
+                        style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
+                    @endif
+                    </a> --}}
+                    {{-- sino de alerta --}}
+                    {{-- <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle mt-2">
                             <span class="fas fa-bell" title="Mensagens"></span>
                         </a>
-                    </li>
-
-                    <li class="nav-item dropdown user-menu">
+                    </li> --}}
+                    {{-- ajuda --}}
+                    {{-- <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle mr-2 mt-2">
                             <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
                                 title="Precisa de ajuda?!"></span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item dropdown user-menu">
+                        <div class="btn-group" role="group" aria-label="Exemplo básico">
 
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <a href="" class="imagem mr-5">
+                                @if(Auth::user()->foto != null)
+                                <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
+                                    style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
+                                @else
+                                <img class="profile-user-img img-responsive img-circle" src="/img/usuariopadrao.png"
+                                    alt="Usuário sem foto"
+                                    style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
+                                @endif
+                            </a>
+
+
+                            <a href="#" class="sino mr-5 mt-3">
+                                <span class="fas fa-bell" title="Mensagens"></span>
+                            </a>
+
+                            <a href="#" class="mr-5 mt-3">
+                                <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
+                                    title="Precisa de ajuda?!"></span>
+                            </a>
+                        </div>
+                </ul>
+
+                <ul class="navbar-nav" style="list-style-type: none;">
+                    {{-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> --}}
+                    <a href="#" data-toggle="dropdown">
+                        @if(config('adminlte.usermenu_image'))
+                        <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2"
+                            alt="{{ Auth::user()->name }}">
+                        @endif
+                        <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline mt-50px" @endif
+                            style="color:#ffffff; " title="Pressione para sair">{{ Auth::user()->name }}</span>
+                    </a>
+
+
+                    {{-- segundo ul --}}
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        @if(!View::hasSection('usermenu_header') && config('adminlte.usermenu_header'))
+                        <li
+                            class="user-header {{ config('adminlte.usermenu_header_class', 'bg-primary') }} @if(!config('adminlte.usermenu_image'))h-auto @endif">
                             @if(config('adminlte.usermenu_image'))
-                            <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2"
+                            <img src="{{ Auth::user()->adminlte_image() }}" class="img-circle elevation-2"
                                 alt="{{ Auth::user()->name }}">
                             @endif
-                            <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline" @endif
-                                style="color:#ffffff;" title="Pressione para sair">{{ Auth::user()->name }}</span>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            @if(!View::hasSection('usermenu_header') && config('adminlte.usermenu_header'))
-                            <li
-                                class="user-header {{ config('adminlte.usermenu_header_class', 'bg-primary') }} @if(!config('adminlte.usermenu_image'))h-auto @endif">
-                                @if(config('adminlte.usermenu_image'))
-                                <img src="{{ Auth::user()->adminlte_image() }}" class="img-circle elevation-2"
-                                    alt="{{ Auth::user()->name }}">
+                            <p class="@if(!config('adminlte.usermenu_image'))mt-0 @endif">
+                                {{ Auth::user()->name }}
+                                @if(config('adminlte.usermenu_desc'))
+                                <small>{{ Auth::user()->adminlte_desc() }}</small>
                                 @endif
-                                <p class="@if(!config('adminlte.usermenu_image'))mt-0 @endif">
-                                    {{ Auth::user()->name }}
-                                    @if(config('adminlte.usermenu_desc'))
-                                    <small>{{ Auth::user()->adminlte_desc() }}</small>
-                                    @endif
-                                </p>
-                            </li>
-                            @else
-                            @yield('usermenu_header')
+                            </p>
+                        </li>
+                        @else
+                        @yield('usermenu_header')
+                        @endif
+                        @each('adminlte::partials.menu-item-top-nav-user', $adminlte->menu(), 'item')
+                        @hasSection('usermenu_body')
+                        <li class="user-body">
+                            @yield('usermenu_body')
+                        </li>
+                        @endif
+                        <li class="user-footer">
+                            @if($profile_url)
+                            <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
                             @endif
-                            @each('adminlte::partials.menu-item-top-nav-user', $adminlte->menu(), 'item')
-                            @hasSection('usermenu_body')
-                            <li class="user-body">
-                                @yield('usermenu_body')
-                            </li>
-                            @endif
-                            <li class="user-footer">
-                                @if($profile_url)
-                                <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
+                            {{-- sair clicando no nome no page (navbar de cima) --}}
+                            <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif" href="#"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
+                            </a>
+                            <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
+                                @if(config('adminlte.logout_method'))
+                                {{ method_field(config('adminlte.logout_method')) }}
                                 @endif
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                    {{-- </ul> --}}
 
-                                <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif"
-                                    href="#"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
-                                </a>
-                                <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
-                                    @if(config('adminlte.logout_method'))
-                                    {{ method_field(config('adminlte.logout_method')) }}
-                                    @endif
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
                     </li>
 
                     @else
-                    <li class="nav-item">
+                    <li class=" nav-item">
                         <a class="nav-link" href="#"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
+                            <i class="fa fa-fw fa-power-off"></i>
+                            {{ __('adminlte::adminlte.log_out') }}
                         </a>
                         <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
                             @if(config('adminlte.logout_method'))
@@ -392,7 +423,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item ">
-                                <a class="nav-link " href="http://127.0.0.1:8000/curriculo" id="iddados">
+                                <a class="nav-link " href="{{route('curriculo.dados')}}" id="iddados">
                                     <i class="fas fa-fw fa-id-card "></i>
                                     <p>
                                         Dados Pessoais
@@ -520,7 +551,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             @endif
 
             {{--}}Cabeçalho do painel perfil, meus processos e etc{{--}}
-            <section class="content-header" style="background-color:  #658f69;">
+            <section class="content-header" style="background-color:  #658f69;" id="menu">
                 <div class="{{config('adminlte.classes_content_header', 'container-fluid')}}">
                     @yield('content_header')
                 </div>

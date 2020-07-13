@@ -39,7 +39,7 @@
 
 						<div class="container">
 							<div class="row">
-								<div class="col-sm">
+								<div class="col-">
 									<h2 class="mb-0" style="color:dodgerblue;">
 										Endereço
 										<span class="fa-stack fa-sm">
@@ -52,7 +52,7 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-2" style="margin-left: auto;">
+								<div class="col-xs-8 col-2" style="margin-left: auto;">
 									<div class="btn-group " role="group" aria-label="">
 
 
@@ -66,8 +66,8 @@
 
 										</button>
 										--}}
-										<button class=" btn btn-secondary" type="cancel" style="margin-top: 10px;"
-											id="idformendereco" value="{{Auth::user()->id}}" title="Voltar">
+										<button class=" btn btn-secondary btn-sm" type="cancel" id="idformendereco"
+											style="height:30px;" value="{{Auth::user()->id}}" title="Voltar">
 											<a href="/endereco" style="color: white;">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;"></span></a>
 										</button>
@@ -80,7 +80,7 @@
 
 
 					</div>
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<div id=" collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body" style="box-sizing: border-box;">
 
 							<ul style="list-style-type: none;">

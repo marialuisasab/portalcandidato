@@ -44,10 +44,8 @@
 						<div class="container">
 
 							<div class="row">
-								<div class="col-sm">
-
-
-									<h2 class="mb-0" style="color:dodgerblue;">
+								<div class="col-">
+									<h2 class="mb-0" style="color:dodgerblue; font-size: 25px;">
 										Dados Pessoais
 										<span class="fa-stack fa-sm">
 											<i class="fas fa-circle fa-stack-2x"></i>
@@ -57,15 +55,15 @@
 								</div>
 
 
-								<div class="col-xs-7 col-md-2" style="margin-left: auto;">
+								<div class="col-xs-7 col-2" style="margin-left: auto;">
 									{{-- <button class=" btn btn-link">
 											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar</a>
 									<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 									</button> --}}
-									<button class=" btn btn-outline-secondary" type="cancel" style="margin-top: 10px;"
-										title="Voltar ">
-										<a href="/curriculo">Voltar<span class="fas fa-undo"
-												style="padding-left: 15px; color:gray"></span></a>
+
+									<button class=" btn btn-secondary btn-sm" style="height:30px;" title="Voltar ">
+										<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
+												style="padding-left: 15px; color:white"></span></a>
 									</button>
 								</div>
 
@@ -477,7 +475,7 @@
 
 					<div class="form-group">
 						@if(Auth::user()->foto != null)
-						<img src="{{url('storage/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+						<img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
 							style="max-width: 50px;">
 						@endif
 						<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>

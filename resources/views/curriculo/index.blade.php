@@ -56,7 +56,7 @@
 					<div class="card-header" id="headingOne" style="background-color: white;">
 						<div class="container">
 							<div class="row">
-								<div class="col-sm">
+								<div class="col-xs">
 									<h2 class="mb-0" style="color:dodgerblue;">
 										{{-- <button
 											class="d-flex align-items-center justify-content-between btn btn-link collapsed"
@@ -72,23 +72,21 @@
 								</div>
 								<div class="col-xs-7 col-md-6"
 									style="margin-top: 5px; margin-right: auto; text-align:end; margin-top:7px;">
-
 									<div class="btn-group" role="group">
-										<button class=" btn btn-outline-primary" id="botaoeditar"
-											title="Editar Dados Pessoais">
-											<a href="/curriculo/editar/{{Auth::user()->id}}">Editar<span
-													class="fa fa-edit" style="padding-left: 15px;"></span></a>
+										<button class=" btn btn-primary" title="Editar Dados Pessoais ">
+											<a style="color:white;" href="/curriculo/editar/{{Auth::user()->id}}">Editar
+												<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
 										</button>
-										<div class="alert-box warning">Edite suas informações</div>
-										<button class=" btn btn-outline-success" title="Cadastrar Endereço">
-											<a href="/endereco">Proximo<span class="fas fa-forward"
-													style="padding-left: 15px;color:green;"></span>
+										<button class=" btn btn-success" title="Cadastrar Formação">
+											<a style=" color: white;" href="/endereco">Proximo<span
+													class="fas fa-forward" style="padding-left: 15px;"></span>
 											</a>
 										</button>
-										<button class=" btn btn-outline-secondary" type="cancel" title="Voltar">
-											<a href="/home">Voltar<span class="fas fa-undo"
-													style="padding-left: 15px; color:gray"></span></a>
+										<button class=" btn btn-secondary" style="" title="Voltar">
+											<a style="color: white;" href="/home">Voltar<span class="fas fa-undo"
+													style="padding-left: 15px;;"></span></a>
 										</button>
+
 									</div>
 								</div>
 							</div>
@@ -105,8 +103,8 @@
 							<ul style="list-style-type: none;">
 
 								@if(Auth::user()->foto != null)
-								<h2> <img src="{{url('storage/fotos/'.Auth::user()->foto)}}"
-										alt="{{Auth::user()->name}}" style="max-width: 120px; border-radius: 50%;">
+								<h2> <img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+										style="max-width: 120px; border-radius: 50%;">
 								</h2>
 								@else
 								<h2> <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"

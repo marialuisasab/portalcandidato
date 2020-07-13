@@ -28,11 +28,11 @@
         <div class="card-header" id="headingOne" style="background-color: white;">
           <div class="container">
             <div class="row">
-              <div class="col-xs-6 col-md-6">
-                <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+              <div class="col-" style="text-align: center;">
+                <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size: 25px;">
 
                   Experiências Profissionais
-                  <span class="fa-stack fa-sm">
+                  <span class=" fa-stack fa-sm">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>
                   </span>
@@ -42,10 +42,10 @@
               </div>
 
 
-              <div class="col-xs-6 col-md-2" style="margin-left: auto; margin-top:25px;">
+              <div class="col-xs-8 col-2" style="margin-left: auto;">
                 <div class="btn-group " role="group" aria-label="">
 
-                  <button class=" btn btn-secondary" type="button" title="Voltar">
+                  <button class=" btn btn-secondary btn-sm" type="button" title="Voltar" style="height:30px;">
                     <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
                         style="padding-left: 15px;"></span></a>
                   </button>

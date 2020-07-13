@@ -106,11 +106,14 @@
                     <li><strong> NÍVEL:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="form-control {{$errors->has('nivel_idnivel') ? 'is-invalid' : ''}}"
                         id="nivel_idnivel" name="nivel_idnivel" title="Nivel de Escolaridade">
-                        <option value="">Selecionar</option>
+                        {{-- <option value="">Selecionar</option> --}}
                         @foreach(Helper::getNiveis() as $n)
+                        @if ($curso->nivel_idnivel == $n->idnivel)
                         <option value="{{$n->idnivel}}" {{ $curso->nivel_idnivel == $n->idnivel ? 'selected' : '' }}>
                           {{ $n->nome }}
                         </option>
+                        @else
+                        @endif
                         @endforeach
                       </select>
                       @if($errors->has('nivel_idnivel'))

@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <title>@yield('titulo','Trabalhe Conosco')</title>
 
-
   {{-- link font icones --}}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -42,29 +41,64 @@
 
   <script src="js/eventos.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--
+  <style type="text/css">
+    .page-header {
+      background-image: url("img/panoramica1920x670.png") ;
+      -moz-background-size: cover;    /* Mozilla*/
+      -o-background-size: cover;      /* Opera*/
+      background-repeat: no-repeat;
+      height: 670px;     
+      width: 100%;
+      padding-top: 100px;
+      text-align: center;
+      color: white;
+      font-size: 30px;
+    }
+    
+  </style>
+-->
+  <style type="text/css">
+        
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
 
-  {{--
-  Pagina principal da aplicação --}}
+    .bio-image {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("img/panoramica1920x670.png");
+      height: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
 
+    .bio-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
 
+  </style>
 </head>
 
 <body class="idBodyPrincipal">
 
   <div class="pos-f-t">
-
     <ul class="navbar-nav mr-auto">
-
     </ul>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="img/ImagemBioextratus.png" width="130" height="50" class="d-inline-block align-top" alt="">
+        <img src="img/logo400_96.png" width="133" height="32" class="d-inline-block align-top" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
@@ -107,57 +141,54 @@
                   <a class="dropdown-item" href="" title="English">
                     <img src="img/ImagemIngles.jpg" role="button" width="40" height="30"
                       class="d-inline-block align-top" alt=""></a>
-
                 </div>
               </div>
             </div>
           </li>
-
         </ul>
-
       </div>
     </nav>
-
   </div>
 
-  <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-
-      <div class="carousel-inner ">
-
-        <div class="carousel-item active">
-          <a href="https://loja.bioextratus.com.br">
-            <img class="img-thumbnail d-block w-100" src="img/ImagemEstrutura.jpg" alt="Primeiro Slide"
-              style="height: 420px;">
-            <div class="carousel-caption d-none d-md-block">
-              {{-- <h1>Bio Extratus Cosmetic Natural LTDA</h1>
-                    <h5>Seja também um de nossos colaboradores!!!</h5> --}}
-            </div>
-          </a>
-        </div>
-
-      </div>
+    
+  <div class="bio-image">
+    <div class="bio-text">
+      <h1><i>Portal do Candidato <b>Bio Extratus</b></i></h1>
+      <h5>Cadastre seu currículo na plataforma e venha trabalhar conosco!</h5>
     </div>
   </div>
-
+  <!--
+  <div class="page-header">
+    <h1><i>Portal do Candidato <b>Bio Extratus</b></i></h1>
+    <p>Cadastre seu currículo na plataforma e venha trabalhar conosco!</p> 
+    <h5>Caso não encontre uma vaga adequada, faça sua inscrição e seu currículo ficará em nosso banco de talentos</h5>  
+  </div>
+-->
   <div class="container">
-
     <div class="row justify-content-md-center" style="margin-top: 40px;">
-
       <br>
       <div class="col mr-auto">
-
-        <p class="SOBRENOS"><span class="sobrenosspan"><strong
-              style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">NOSSA
-              RECEITA DE SUCESSO</strong></span>
-          <br style="margin: 0px; font-family: open_sansregular, sans-serif; text-decoration: none;">“Os nossos
-          preciosos ingredientes são as pessoas que compõem a nossa empresa, funcionários, distribuidores e clientes. A
-          relação honesta, bem sucedida e prazerosa que se estabeleceu entre a empresa e todos que a cercam e torna a
-          Bio Extratus uma marca sólida, que continua sonhando e ousando para atingir as suas metas, com um enorme
-          compromisso social e respeito ao meio-ambiente.”</p>
-
+        <p class="SOBRENOS">
+          <span class="sobrenosspan">
+          <strong style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">
+            NOSSA RECEITA DE SUCESSO
+          </strong>
+          </span>
+          <br style="margin: 0px; font-family: open_sansregular, sans-serif; text-decoration: none;">
+            Os nossos
+            preciosos ingredientes são as pessoas que compõem a nossa empresa, funcionários, distribuidores e clientes. A
+            relação honesta, bem sucedida e prazerosa que se estabeleceu entre a empresa e todos que a cercam e torna a
+            Bio Extratus uma marca sólida, que continua sonhando e ousando para atingir as suas metas, com um enorme
+            compromisso social e respeito ao meio-ambiente.</p>
+        <p class="SOBRENOS">  
+            <span class="sobrenosspan">
+            <strong style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">
+              NOSSO MUITO OBRIGADO
+            </strong>
+            </span>
+            <br style="margin: 0px; font-family: open_sansregular, sans-serif; text-decoration:none;">
+            Pelo companheirismo, dedicação e vontade de vencer a cada dia, gostaríamos de agradecer a todos que nos cercam. Sem vocês, o sonho não se tornaria realidade.
+          </p>
       </div>
     </div>
 
@@ -166,22 +197,16 @@
   <div class="container">
     <div class="row justify-content-md-center" style="margin-top: 40px;">
       <div class="col">
-
-        {{-- Tipo acocordin --}}
         <ul>
-
           <form class="form-inline ml-auto">
             <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..." aria-label="Search"
               title="Buscar por vaga">
             <button class="btn btn-info btn-rounded btn-sm my-0" type="submit" id="IdBuscar">
               <h3 class="font-italic" style="font-size: 15px;"><strong><span
                     class="fas fa-search mr-2"></span>Buscar</strong></h3>
-
             </button>
           </form>
         </ul>
-
-        {{-- Tipo acocordin --}}
         
         <div id="accordion">
         @foreach($vagas as $v)
@@ -190,64 +215,93 @@
             <div class="card-header" id="headingOne">
               <div class="container">
                 <div class="row">
-                  <div class="col">
-
-                    <h4>
-                      <a href="/">
-                        <p>{{$v->titulo}}</p>
-                      </a>
+                  <div class="col-sm">
+                    <h4>                      
+                        {{$v->titulo}}                 
                     </h4>
-                    <hr>
                   </div>
+                  <div class="col-sm">
+                    <div class="btn-group btn-group-sm flex-wrap" data-toggle="buttons"> 
+                    <button class="btn btn-info">
+                        <a href="#vaga{{$v->idvaga}}" style="color:white;" data-toggle="collapse" data-target="#vaga{{$v->idvaga}}" aria-expanded="false" aria-controls="vaga{{$v->idvaga}}">
+                          <b>Mais Informações</b>
+                          <span class="fa fa-eye" style="padding-left: 10px;"></span>
+                        </a>
+                      </button>                  
+                      <button class="btn btn-info " >
+                        <a href="" style="color:white;">
+                          <b>Compartilhar</b>
+                          <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>  
+                        </a>
+                      </button>  
+                      <button class="btn btn-info ">
+                        <a name="idcadastrar" href="" id="IDcadastrar" style="color:white;">
+                          <b>Candidatar</b>
+                          <span class="fa fa-check" style="padding-left: 10px;"></span>
+                        </a> 
+                      </button>                                                                 
+                    </div>
+                  </div> 
                 </div>
+                <hr>
                 <div class="row">
                   <div class="col-sm">
                     <div class="pull-left">
                       <div class="meta-tag">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>{{$v->local}} 
+                        <i class="fa fa-map-marker-alt" style="padding-right: 10px;" aria-hidden="true"></i>{{$v->local}} 
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm"> </div>
-                  <!--
-                  <div class="col-sm">
-                    <div class="btn-group">                      
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                        style="color:white">
-                        <b title="Visualizar vaga">Visualizar</b></a>
-                      <a name="idcadastrar" class="btn btn-info ml-4" role="button" href="/" id="IDcadastrar"
-                        title="Cadastrar na vaga">
-                        <b>Cadastrar</b></a> <a class="btn btn-info ml-4" href="/">
-                        <span class="fas fa-envelope" style="font-size: 35px;" title="Enviar para um amigo"></span>
-
-                      </a>
-
-                    </div>
-                  </div>
-                -->
-                  <div class="col-sm">                 
-                    <div class="col-sm">
-                      <button class="btn btn-info ml-4">
-                          <a style="color:white;" href="/vaga/principal/{{$v->idvaga}}">
-                            <b>Visualizar Vaga</b>
-                            <span class="fa fa-eye" style="padding-left: 10px;"></span>
-                        </a>
-                      </button>                                        
-                    </div>                    
-                  </div>               
+                  <div class="col-sm"> </div>               
                 </div>
               </div>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="vaga{{$v->idvaga}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-                {{$v->descricao}}
+                <div class="row" >
+                  <div class="col-sm">
+                    <ul></ul>
+                    <ul style="list-style-type: none; margin-right: auto;">                     
+                      @if($v->pcd == 1)                               
+                        <li>&nbsp;&nbsp;&nbsp;
+                          DESTINADA A PESSOAS COM DEFICIÊNCIA
+                        </li>
+                        <hr>
+                      @endif                       
+                      <li><strong> DATA DE PUBLICAÇÃO DA VAGA:&nbsp;&nbsp;&nbsp;</strong>           {{Helper::getData($v->dtinicio)}}
+                      </li>
+                      <hr>
+                      <li><strong> PREVISÃO DE ENCERRAMENTO:&nbsp;&nbsp;&nbsp;</strong> 
+                        {{Helper::getData($v->dtprazo)}}
+                      </li>
+                      <hr>
+                      <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>  
+                        {{$v->quant}}
+                      </li>
+                      <hr>
+                      <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>  
+                        {{$v->descricao}}
+                      </li>
+                      <hr>
+                      <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>  
+                        {{$v->requisitos}}
+                      </li>
+                      <hr> 
+                      <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
+                        @if($v->tpvaga == 1)   
+                          Fixa
+                        @else
+                          Temporária
+                        @endif            
+                      </li>                                                        
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         @endforeach
       </div>
-      {{--}} Fim do row{{--}}
     </div>
   </div>
 </div>

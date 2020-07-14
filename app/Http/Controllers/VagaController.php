@@ -130,18 +130,24 @@ class VagaController extends Controller
     }
 
     public function minhasvagas(){
-        $cand = Helper::getIdCurriculo();
-        $processos = CurriculoVaga::where('curriculo_idcurriculo', $cand)->get();
-        $vagas = array();
-        if(count($processos)>0){
-            foreach ($processos as $p => $value) {
-                
-                $vagas[] = Vaga::where("status", 1)
-                            ->where("idvaga", $value->vaga_idvaga)->get()[0];
-            }        
+
+        if(Helper::getIdCurriculomenu()){
+            $cand = Helper::getIdCurriculo();
+            $processos = CurriculoVaga::where('curriculo_idcurriculo', $cand)->get();
+            $vagas = array();
+            if(count($processos)>0){
+                foreach ($processos as $p => $value) {
+                    
+                    $vagas[] = Vaga::where("status", 1)
+                                ->where("idvaga", $value->vaga_idvaga)->get()[0];
+                }        
+            }
+            
+            return view('vaga.minhasvagas', compact(['processos'], ['vagas']));  
+        } else{
+            return view('vaga.minhasvagas');
         }
-        
-        return view('vaga.minhasvagas', compact(['processos'], ['vagas']));        
+
     }
 
 }

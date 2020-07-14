@@ -47,9 +47,10 @@
 					</div>
 
 					<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-						@if(count($processos)>0)
+						@if(isset($processos) && count($processos)>0)
 						<div class="card-body">
-							@for($i = 0; $i < sizeof($processos);$i++) <div class="container">
+							@for($i = 0; $i < sizeof($processos);$i++) 
+								<div class="container">
 								<!--<div class="row" style="margin-top: 25px; text-align:center;">
 	                  <div class="col-sm">
 	                    <button class=" btn btn-primary">
@@ -112,7 +113,7 @@
 					</div>
 					@else
 					<div class="card-footer" style="background-color: white;">
-						<h5 style="color:red;text-align:center;"><i class="fas fa-times"></i>Você ainda
+						<h5 style="color:red;text-align:center;"><i class="fas fa-times"></i> Você ainda
 							não se candidatou à nenhuma vaga!
 							<br>Mantenha
 							seu currículo atualizado e não

@@ -138,20 +138,48 @@
 
   <div class="row">
 
-
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <!--<h3>44</h3>-->
+          <p style="text-align: center;">Completar curriculo</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="{{route('curriculo.dados')}}" class="small-box-footer" data-toggle="tooltip" title="Informações Pendentes">
+          Mais Informações <i class="fa fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-red">
+        <div class="inner">
+          <!--<h3>65</h3>-->
+          <p style="text-align: center;">Vagas Disponíveis</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-pie-graph"></i>
+        </div>
+        <a href="{{route('vagas')}}" class="small-box-footer" data-toggle="tooltip" title="Novas Vagas">
+          Mais Informações <i class="fa fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-blue">
         <div class="inner">
-          <h3>150</h3>
+          <!--<h3>150</h3>-->
 
-          <p style="text-align: center;">Agendamentos</p>
+          <p style="text-align: center;">Suporte Técnico</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="#" class="small-box-footer toltipclass" data-toggle="tooltip" title="Visualizar Agendamentos">Mais
-          Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{route('contatosuporte')}}" class="small-box-footer toltipclass" data-toggle="tooltip" title="Visualizar Agendamentos">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -159,52 +187,18 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-          <p style="text-align: center">Meus Processos</p>
+          <!--<h3>53<sup style="font-size: 20px">%</sup></h3>-->
+          <p style="text-align: center">Minhas Vagas</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="#" class="small-box-footer" data-toggle="tooltip" title="Visualizar Processos">Mais Informações <i
+        <a href="{{route('minhasvagas')}}" class="small-box-footer" data-toggle="tooltip" title="Visualizar Processos">Mais Informações <i
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-yellow">
-        <div class="inner">
-          <h3>44</h3>
-
-          <p style="text-align: center;">Completar curriculo</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-person-add"></i>
-        </div>
-        <a href="#" class="small-box-footer" data-toggle="tooltip" title="Informações Pendentes">Mais Informações <i
-            class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-red">
-        <div class="inner">
-          <h3>65</h3>
-
-          <p style="text-align: center;">Alerta de Vagas</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-pie-graph"></i>
-        </div>
-        <a href="#" class="small-box-footer" data-toggle="tooltip" title="Novas Vagas">Mais Informações <i
-            class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
   </div>
-
+  
 </div>
 
 

@@ -353,11 +353,12 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
                 <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
 
-                    <li class="nav-header">Candidato:</li>
-                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}"></li>
+                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do Candidato</li>
+                   <!-- <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}"></li>
+                    
                     {{-- <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">
                     {{Auth::user()->name}}</li> --}}
-
+                    
                     <li class="nav-item has-treeview">
                         <a class="nav-link nav-item " href="#">
                             <i class="fas fa-fw fa-user-cog "></i>
@@ -369,16 +370,15 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                <a class="nav-link  " href="#">
                                     <i class="fas fa-fw fa-user-edit "></i>
                                     <p>
                                         Meu Perfil
-
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                <a class="nav-link  " href="#">
                                     <i class="fas fa-fw fa-file-alt "></i>
                                     <p>
                                         Imprimir Curriculo
@@ -387,7 +387,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                <a class="nav-link" href="#">
                                     <i class="fas fa-fw fa-lock-open "></i>
                                     <p>
                                         Alterar Senha
@@ -396,7 +396,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
+                                <a class="nav-link  " href="{{route('logout')}}">
                                     <i class="fas fa-fw fa-sign-out-alt "></i>
                                     <p>
                                         Sair
@@ -406,13 +406,30 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </li>
                         </ul>
                     </li>
+
                     {{-- <li class="nav-header">
                         <hr>
                     </li> --}}
                     <li class="nav-item has-treeview">
                         <hr>
                     </li>
-                    <li class="nav-item has-treeview" id="idgerenciarcurriculo">
+                -->                
+                    <li class="nav-item" >
+                        <hr>
+                    </li>                      
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" href="{{route('home')}}">
+                            <i class="fas fa-fw fa-home "></i>
+                            <p style="color:rgb(224, 224, 235);">
+                                Início
+                            </p>
+                        </a>
+                    </li>
+                    
+                    <hr>
+                    
+                    <li class="nav-header">Gerenciar Currículo</li>
+                    <!--<li class="nav-item has-treeview" id="idgerenciarcurriculo">
                         <a class="nav-link nav-item " href="#" id="idcadastrarcurriculo">
                             <i class="fas fa-fw fa-file-signature "></i>
                             <p style="color:rgb(224, 224, 235);">
@@ -421,88 +438,79 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item ">
-                                <a class="nav-link " href="{{route('curriculo.dados')}}" id="iddados">
-                                    <i class="fas fa-fw fa-id-card "></i>
-                                    <p>
-                                        Dados Pessoais
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" id="idenderecomenu" type="button">
-                                    <i class="fas fa-fw fa-map-marked-alt "></i>
-                                    <p>
-                                        Endereço
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link  " id="idformacaomenu" type="button">
-                                    <i class="fas fa-fw fa-user-graduate "></i>
-                                    <p>
-                                        Formação e Cursos
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link  " id="idexperienciasmenu" type="button">
-                                    <i class="fas fa-fw fa-user-tie "></i>
-                                    <p>
-                                        Experiência Profissional
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                {{-- <a class="nav-link  " href="http://127.0.0.1:8000/habilidades"> --}}
-                                <a class="nav-link  " id="idhabilidadesmenu" type="button">
-                                    <i class="fas fa-fw fa-language "></i>
-                                    <p>
-                                        Habilidades e Ferramentas
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link  " id="idredessociaismenu" type="button">
-                                    <i class="fas fa-fw fa-hashtag "></i>
-                                    <p>
-                                        Redes Sociais
-
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
+                        <ul class="nav nav-treeview">-->
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">
+                            <i class="fas fa-fw fa-id-card "></i>
+                            <p>
+                                Dados Pessoais
+                            </p>
+                        </a>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white; "id="idenderecomenu" type="button">
+                            <i class="fas fa-fw fa-map-marked-alt "></i>
+                            <p>
+                                Endereço
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" id="idformacaomenu" type="button">
+                            <i class="fas fa-fw fa-user-graduate "></i>
+                            <p>
+                                Formação e Cursos
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" id="idexperienciasmenu" type="button">
+                            <i class="fas fa-fw fa-user-tie "></i>
+                            <p>
+                                Experiência Profissional
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" id="idhabilidadesmenu" type="button">
+                            <i class="fas fa-fw fa fa-cogs "></i>
+                            <p>
+                                Habilidades e Ferramentas
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" id="idredessociaismenu" type="button">
+                            <i class="fas fa-fw fa-hashtag "></i>
+                            <p>
+                                Redes Sociais
+                            </p>
+                        </a>
+                    </li>
+                        <!--</ul>
+                    </li>-->
+                    
                         <hr>
-                    </li>
+                    
                     <li class="nav-item has-treeview">
-                        <a class="nav-link nav-item " href="#">
+                        <a class="nav-link nav-item" style="color:white;" href="#">
                             <i class="fas fa-fw fa-share "></i>
-                            <p style="color:rgb(224, 224, 235);">
+                            <p>
                                 Gerenciar Vagas
-
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item ">
-                                <a class="nav-link  " href="{{route('vagas')}}">
+                                <a class="nav-link" style="color:white;" href="{{route('vagas')}}">
                                     <i class="fas fa-fw fa-bullhorn "></i>
                                     <p>
                                         Vagas Abertas
-
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link  " href="{{route('minhasvagas')}}">
+                                <a class="nav-link" style="color:white;" href="{{route('minhasvagas')}}">
                                     <i class="fas fa-fw fa-tasks "></i>
                                     <p>
                                         Minhas Vagas
@@ -510,30 +518,20 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link  " href="http://127.0.0.1:8000">
-                                    <i class="fas fa-fw fa-eye "></i>
-                                    <p>
-                                        Acompanhar Processo
-
-                                    </p>
-                                </a>
-                            </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <hr>
-                    </li>
-                    <li class="nav-header">Suporte Técnico:</li>
+                    
+                    <hr>
+                    
+                    <!--<li class="nav-header" >Suporte Técnico:</li>-->
                     <li class="nav-item ">
-                        <a class="nav-link  " href="http://127.0.0.1:8000/emailsuporte">
+                        <a class="nav-link" style="color:white;" href="{{route('contatosuporte')}}">
                             <i class="fas fa-fw fa-headset "></i>
-                            <p style="color:rgb(224, 224, 235);">
+                            <p>
                                 Fale Conosco
-
                             </p>
                         </a>
-                    </li>
+                    </li>                 
 
                 </ul>
             </nav>

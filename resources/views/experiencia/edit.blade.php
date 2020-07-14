@@ -33,12 +33,12 @@
 
         <div class="card-border-light">
           <div class="card-border-light">
-            <div class="card-header" id="headingOne" style="background-color: aliceblue;">
+            <div class="card-header" id="headingOne" style="background-color: white;">
               <div class="container">
 
                 <div class="row">
-                  <div class="col-xs-6 col-md-6">
-                    <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                  <div class="col-">
+                    <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size: 25px;">
                       Experiências Profissionais
                       <span class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
@@ -48,10 +48,11 @@
                   </div>
 
 
-                  <div class="col-xs-6 col-md-2" style="margin-left: auto; margin-top: 25px;">
-                    <button class=" btn btn-secondary" type="cancel" title="Voltar">
+                  <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
+                    <button class=" btn btn-secondary" type="cancel" title="Voltar"
+                      style="height:30px; margin-top: 10px; width:70px;">
                       <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
-                          style="padding-left: 15px;"></span></a>
+                          style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                     </button>
                   </div>
 

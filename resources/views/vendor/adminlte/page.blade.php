@@ -647,7 +647,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 <img class="redesimg" src="/img/ImagemFacebook.jpg"></a></li>
                         <li><a class="twitter"
                                 href="https://www.linkedin.com/in/bio-extratus-cosmetic-natural-ltda-918900159/">{{--<i class="fa fa-linkedin"></i> --}}
-                                <img class="redesimg" src="/img/ImagemLinkedin.jpg"></a></li>
+                                <img class="redesimg" src="/img/ImagemLinkedIn.jpg"></a></li>
                         <li><a class="dribbble" href="https://www.instagram.com/bioextratus/?hl=pt-br">
                                 <img class="redesimg" src="/img/ImagemInstagram.jpg"></a></li>
                         <li><a class="youtube" href="https://www.youtube.com/bioextratusoficial">

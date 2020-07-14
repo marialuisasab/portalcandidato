@@ -42,9 +42,10 @@
 
                     </button> --}}
 
-                    <button class=" btn btn-secondary" type="button" style="margin-top: 10px;" title="Voltar">
+                    <button class=" btn btn-secondary" type="button" style="height:30px; margin-top: 10px; width:70px;"
+                      title="Voltar">
                       <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
-                          style="padding-left: 15px;"></span></a>
+                          style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                     </button>
                   </div>
                 </div>

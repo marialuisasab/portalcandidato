@@ -26,10 +26,11 @@
           <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-xs-5 col-md-5">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                <div class="col-sm-6">
+                  <h2 class="mb-0"
+                    style="color:dodgerblue; text-align: center; font-size:25px; justify-content: center;">
                     Formação Acadêmica e Cursos Complementares
-                    <span class="fa-stack fa-sm">
+                    <span class="fa-stack fa-sm" style="text-align: center">
                       <i class="fas fa-circle fa-stack-2x"></i>
                       <i class="fas fa-user-graduate fa-stack-1x fa-inverse"></i>
                     </span>
@@ -39,7 +40,7 @@
                 </div>
 
 
-                <div class="col-xs-4 col-md-4" style="margin-left: auto; text-align: end;">
+                <div class="col-xs-4 col-2" style="margin-left: auto; text-align: end;">
                   <div class="btn-group " role="group" aria-label="">
                     {{-- <button class=" btn btn-link">
 											<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
@@ -47,9 +48,10 @@
 
                     </button> --}}
 
-                    <button class=" btn btn-secondary" type="button" style="margin-top: 10px;" title="Voltar">
+                    <button class=" btn btn-secondary btn-sm" type="button"
+                      style="height:30px; margin-top: 10px; width:70px;" title="Voltar">
                       <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
-                          style="padding-left: 15px;"></span></a>
+                          style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                     </button>
                   </div>
                 </div>
@@ -84,7 +86,18 @@
 
                   {{-- complemento  definicao pendente --}}
                   <div class="form-group">
-                    <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;
+                        <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a formação??"
+                          type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
+
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <textarea name="" id="" cols="30" rows="10"
+                              style="text-align:justify;">Formação:
+    O candidato deve colocar o grau de escolaridade que possui, ou seja, quem tem nível superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico  deve selecionar a opção acadêmica!.
+    No Caso das formação complementar os usuários devem selecionar quando os mesmos forem inserir cursos profissionalizantes, especialização, aprandizagem, aprimoramento e etc. </textarea>
+                          </span>
+                        </span>
+                      </strong>
                       <select class="form-control {{$errors->has('escolaridade') ? 'is-invalid' : ''}}"
                         id="escolaridade" name="escolaridade" title="Tipo de Formação">
                         <option value="" selected>Selecionar</option>
@@ -97,11 +110,22 @@
                       </div>
                       @endif
                     </li>
+
                   </div>
 
 
                   <div class="form-group" id="idnivel" style="display: none;">
-                    <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;
+                        <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher o nível??"
+                          type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
+
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <textarea name="" id="" cols="30" rows="6"
+                              style="text-align:justify;">Nivel:
+    O candidato deve colocar o nível de escolaridade do curso, ou seja, curso superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico. </textarea>
+                          </span>
+                        </span>
+                      </strong>
                       <select class="form-control {{$errors->has('nivel_idnivel') ? 'is-invalid' : ''}}"
                         id="nivel_idnivel" name="nivel_idnivel" title="Nivel de Escolaridade">
                         <option value="" selected>Selecionar</option>

@@ -40,7 +40,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-">
-									<h2 class="mb-0" style="color:dodgerblue;">
+									<h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
 										Endereço
 										<span class="fa-stack fa-sm">
 											<i class="fas fa-circle fa-stack-2x"></i>
@@ -67,9 +67,10 @@
 										</button>
 										--}}
 										<button class=" btn btn-secondary btn-sm" type="cancel" id="idformendereco"
-											style="height:30px;" value="{{Auth::user()->id}}" title="Voltar">
+											style="height:30px; margin-top: 10px; width:70px;"
+											value="{{Auth::user()->id}}" title="Voltar">
 											<a href="/endereco" style="color: white;">Voltar<span class="fas fa-undo"
-													style="padding-left: 15px;"></span></a>
+													style="padding-left: 5px; color:white; font-size:9px;"></span></a>
 										</button>
 									</div>
 								</div>

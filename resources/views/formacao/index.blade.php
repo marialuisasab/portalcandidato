@@ -30,7 +30,7 @@
           <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-xs-5 col-md-5">
+                <div class="col-sm">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
@@ -39,18 +39,18 @@
                     </span>
                   </h2>
                 </div>
-                <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
-                  <div class="btn-group" role="group">
+                <div class="col-xs-7 col-md-7">
+                  <div class="btn-group btn-sm" role="group">
                     <button class=" btn btn-primary" title="Adicionar Formação">
                       <a href="/curso/novo" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
                     </button>
-                    <button class=" btn btn-success">
+                    <button class=" btn btn-success btn-sm">
                       <a style=" color: white;" href="/experiencias" title="Cadastrar Experiências ">Proximo<span
                           class="fas fa-forward" style="padding-left:15px;"></span>
                       </a>
                     </button>
-                    <button class=" btn btn-secondary">
+                    <button class=" btn btn-secondary btn-sm">
                       <a style="color: white;" href="/endereco" title="Voltar">Voltar<span class="fas fa-undo"
                           style="padding-left:15px;"></span></a>
                     </button>

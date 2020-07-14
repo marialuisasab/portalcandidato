@@ -28,7 +28,7 @@
 
 			<div id="accordion" style="margin-top: 40px;">
 				<div class="card-border-light">
-					<div class="card-header" id="headingOne" style="background-color: aliceblue;">
+					<div class="card-header" id="headingOne" style="background-color: white;">
 						<div class="container">
 							<div class="row">
 								<div class="col-">
@@ -44,7 +44,7 @@
 								</div>
 
 
-								<div class="col-xs-8 col-2" style="margin-left: auto;">
+								<div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
 									<div class="btn-group " role="group" aria-label="">
 										{{-- <button class=" btn btn-link">
 											<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
@@ -59,9 +59,10 @@
 										</button>
 										--}}
 										<button class=" btn btn-secondary btn-sm" type="button"
-											value="{{Auth::user()->id}}" id="idformendereco" title="Voltar">
+											value="{{Auth::user()->id}}" id="idformendereco" title="Voltar"
+											style="height:30px; margin-top: 10px; width:70px;">
 											<a href="/curriculo" style="color: white;">Voltar<span class="fas fa-undo"
-													style="padding-left: 15px;"></span></a>
+													style="padding-left: 5px; color:white; font-size:9px;"></span></a>
 										</button>
 									</div>
 								</div>

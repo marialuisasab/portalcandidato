@@ -37,7 +37,7 @@
           <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-xs-6 col-md-6">
+                <div class="col-sm">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
 
                     Experiências Profissionais
@@ -51,19 +51,19 @@
                 </div>
 
 
-                <div class="col-xs-6 col-md-6" style="margin-top: 25px; text-align:end; margin-left: auto;">
+                <div class="col-xs-8 col-md-8">
 
-                  <div class="btn-group" role="group">
-                    <button class=" btn btn-primary" title="Adicionar Experiência">
+                  <div class="btn-group btn-sm" role="group">
+                    <button class=" btn btn-primary btn-sm" title="Adicionar Experiência">
                       <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left: 15px;"></span> </a>
                     </button>
-                    <button class=" btn btn-success" title="Cadastrar Habilidades">
+                    <button class=" btn btn-success btn-sm" title="Cadastrar Habilidades">
                       <a style=" color: white;" href="/habilidades">Proximo<span class="fas fa-forward"
                           style="padding-left:15px;"></span>
                       </a>
                     </button>
-                    <button class=" btn btn-secondary" title="Voltar">
+                    <button class=" btn btn-secondary btn-sm" title="Voltar">
                       <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
                           style="padding-left: 15px;"></span></a>
                     </button>

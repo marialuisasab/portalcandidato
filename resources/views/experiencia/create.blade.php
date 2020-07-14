@@ -42,12 +42,13 @@
               </div>
 
 
-              <div class="col-xs-8 col-2" style="margin-left: auto;">
+              <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
                 <div class="btn-group " role="group" aria-label="">
 
-                  <button class=" btn btn-secondary btn-sm" type="button" title="Voltar" style="height:30px;">
+                  <button class=" btn btn-secondary btn-sm" type="button" title="Voltar"
+                    style="height:30px; margin-top: 10px; width:70px;">
                     <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
-                        style="padding-left: 15px;"></span></a>
+                        style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                   </button>
                 </div>
               </div>

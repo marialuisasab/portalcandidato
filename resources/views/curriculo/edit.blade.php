@@ -61,9 +61,10 @@
 									<span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
 									</button> --}}
 
-									<button class=" btn btn-secondary btn-sm" style="height:30px;" title="Voltar ">
+									<button class=" btn btn-secondary btn-sm" style="height:30px; margin-top: 10px;"
+										title="Voltar ">
 										<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
-												style="padding-left: 15px; color:white"></span></a>
+												style="padding-left: 5px; color:white; font-size:9px;"></span></a>
 									</button>
 								</div>
 
@@ -72,7 +73,7 @@
 					</div>
 
 
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<div id=" collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body" style="box-sizing: border-box;">
 							<ul style="list-style-type: none;">
 								<form action="/curriculo/{{$c->users_id}}" method="POST" enctype="multipart/form-data"
@@ -144,7 +145,8 @@
 
 
 						<div class="form-group">
-							<li><strong>DATA DE NASCIMENTO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<li><strong>DATA DE
+									NASCIMENTO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<input type="date"
 									class="form-control {{$errors->has('dtnascimento') ? 'is-invalid' : ''}}"
 									placeholder="Ex.: dd/mm/aaaa" name="dtnascimento" id="dtnascimento"
@@ -209,8 +211,10 @@
 									id="dfisico" name="dfisico" value="{{$c->dfisico}}" title="Deficiência Fisíca">
 									<option value="" {{$c->dfisico == null ? 'selected' : ''}} selected>Selecionar
 									</option>
-									<option value="1" {{$c->dfisico == '1' ? 'selected' : ''}}>Sim</option>
-									<option value="2" {{$c->dfisico == '2' ? 'selected' : ''}}>Não</option>
+									<option value="1" {{$c->dfisico == '1' ? 'selected' : ''}}>
+										Sim</option>
+									<option value="2" {{$c->dfisico == '2' ? 'selected' : ''}}>
+										Não</option>
 								</select>
 								@if($errors->has('dfisico'))
 								<div class="invalid-feedback">
@@ -387,7 +391,8 @@
 						<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}"
 								title="Categoria da CNH">
-								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
+								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar
+								</option>
 								<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
 								<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
 								<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
@@ -400,7 +405,8 @@
 						<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 							<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}"
 								title="Categoria da CNH">
-								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar</option>
+								<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar
+								</option>
 								<option value="A" {{$c->catcnh == 'A' ? 'selected' : '' }}>A</option>
 								<option value="B" {{$c->catcnh == 'B' ? 'selected' : '' }}>B</option>
 								<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>

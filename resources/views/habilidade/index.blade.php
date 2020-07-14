@@ -32,8 +32,8 @@
           <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-xs-5 col-md-5">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                <div class="col-sm">
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size:25px;">
 
                     Habilidades e Idiomas
                     <span class="fa-stack fa-sm">
@@ -46,21 +46,21 @@
                 </div>
 
 
-                <div class="col-xs-7 col-md-7" style="margin-top: 25px; text-align:end; margin-left: auto;">
+                <div class="col-xs-7 col-md-7" style=" text-align:end; margin-left: auto;">
 
-                  <div class="btn-group" role="group">
+                  <div class="btn-group btn-sm" role="group">
                     <button class=" btn btn-primary" title="Adicionar Habilidade">
                       <a href="{{route('habilidade.novo')}}" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
                     </button>
 
-                    <button class=" btn btn-success" title="Cadastrar Redes Sociais">
+                    <button class=" btn btn-success btn-sm" title="Cadastrar Redes Sociais">
                       <a style=" color: white;" href="redessociais">Proximo
                         <span class="fas fa-forward" style="padding-left:15px;"></span>
                       </a>
                     </button>
 
-                    <button class=" btn btn-secondary" title="Voltar">
+                    <button class=" btn btn-secondary btn-sm" title="Voltar">
                       <a style="color: white;" href="/experiencias">Voltar<span class="fas fa-undo"
                           style="padding-left:15px;"></span></a>
                     </button>

@@ -37,8 +37,8 @@
 
             <div class="container">
               <div class="row">
-                <div class="col-xs-6 col-md-6">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                <div class="col-sm-6">
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size: 25px;">
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
@@ -50,10 +50,11 @@
                 </div>
 
 
-                <div class="col-xs-6 col-md-5" style="margin-left: auto; text-align:end; margin-top: 25px;">
-                  <button class=" btn btn-secondary" type="button" title="Voltar">
+                <div class="col-xs-4 col-2" style="margin-left: auto; text-align:end;">
+                  <button class=" btn btn-secondary" type="button" title="Voltar"
+                    style="height:30px; margin-top: 10px; width:70px;">
                     <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
-                        style="padding-left: 15px;"></span></a>
+                        style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                   </button>
 
                 </div>
@@ -87,7 +88,18 @@
                   </div>
 
                   <div class="form-group">
-                    <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong>TIPO DE FORMAÇÃO:*&nbsp;&nbsp;&nbsp;
+                        <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a formação??"
+                          type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
+
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <textarea name="" id="" cols="30" rows="10"
+                              style="text-align:justify;">Formação:
+                          O candidato deve colocar o grau de escolaridade que possui, ou seja, quem tem nível superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico  deve selecionar a opção acadêmica!.
+                          No Caso das formação complementar os usuários devem selecionar quando os mesmos forem inserir cursos profissionalizantes, especialização, aprandizagem, aprimoramento e etc. </textarea>
+                          </span>
+                        </span>
+                      </strong>
                       @if($curso->escolaridade == '1')
                       <select class="custom-select" id="escolaridade" name="escolaridade" title="Tipo de Formação">
                         <option value="1">Academica</option>
@@ -99,6 +111,7 @@
                       @else
                       @endif
                     </li>
+
                   </div>
 
                   @if ($curso->escolaridade =='1')

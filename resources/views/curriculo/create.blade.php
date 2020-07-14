@@ -55,10 +55,11 @@
                                     <div class="btn-group " role="group" aria-label="">
 
 
-
-                                        <a class="btn btn-secondary btn-sm" type="button" title="Voltar"
-                                            href="/home">Voltar <span class="fas fa-undo"
-                                                style="padding-left: 15pr; color:gray; font-size:12px;"></span></a>
+                                        <button class=" btn btn-secondary btn-sm"
+                                            style="height:30px; margin-top: 10px; width:70px;" title="Voltar ">
+                                            <a style="color: white;" hrehref="/home">Voltar<span class="fas fa-undo"
+                                                    style="padding-left: 5px; color:white; font-size:9px;"></span></a>
+                                        </button>
 
                                     </div>
                                 </div>

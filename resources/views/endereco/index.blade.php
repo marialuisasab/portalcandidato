@@ -34,7 +34,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm">
-									<h2 class="mb-0" style="color:dodgerblue;">
+									<h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
 
 										Endereço
 										<span class="fa-stack fa-sm">
@@ -47,19 +47,19 @@
 								</div>
 
 
-								<div class="col-xs-8 col-md-6"
+								<div class="col-xs-8 col-md-8"
 									style="margin-top: 7px; margin-left: auto; text-align: end;">
-									<div class="btn-group" role="group">
-										<button class=" btn btn-primary" title="Editar Endereço">
+									<div class="btn-group btn-sm" role="group">
+										<button class=" btn btn-primary btn-sm" title="Editar Endereço">
 											<a style="color:white;" href="/endereco/editar/{{Auth::user()->id}}">Editar
 												<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
 										</button>
-										<button class=" btn btn-success" title="Cadastrar Formação">
+										<button class=" btn btn-success btn-sm" title="Cadastrar Formação">
 											<a style=" color: white;" href="/cursos">Proximo<span class="fas fa-forward"
 													style="padding-left: 15px;"></span>
 											</a>
 										</button>
-										<button class=" btn btn-secondary" style="" title="Voltar">
+										<button class=" btn btn-secondary btn-sm" style="" title="Voltar">
 											<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;;"></span></a>
 										</button>

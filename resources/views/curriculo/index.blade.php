@@ -56,8 +56,8 @@
 					<div class="card-header" id="headingOne" style="background-color: white;">
 						<div class="container">
 							<div class="row">
-								<div class="col-xs">
-									<h2 class="mb-0" style="color:dodgerblue;">
+								<div class="col-sm">
+									<h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
 										{{-- <button
 											class="d-flex align-items-center justify-content-between btn btn-link collapsed"
 											data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
@@ -70,19 +70,19 @@
 										{{-- </button> --}}
 									</h2>
 								</div>
-								<div class="col-xs-7 col-md-6"
-									style="margin-top: 5px; margin-right: auto; text-align:end; margin-top:7px;">
-									<div class="btn-group" role="group">
-										<button class=" btn btn-primary" title="Editar Dados Pessoais ">
+								<div class="col-xs-8 col-md-8"
+									style="margin-top: 5px; margin-right: auto; text-align:end;">
+									<div class="btn-group btn-sm" role="group">
+										<button class=" btn btn-primary btn-sm" title="Editar Dados Pessoais ">
 											<a style="color:white;" href="/curriculo/editar/{{Auth::user()->id}}">Editar
 												<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
 										</button>
-										<button class=" btn btn-success" title="Cadastrar Formação">
+										<button class=" btn btn-success btn-sm" title="Cadastrar Formação">
 											<a style=" color: white;" href="/endereco">Proximo<span
 													class="fas fa-forward" style="padding-left: 15px;"></span>
 											</a>
 										</button>
-										<button class=" btn btn-secondary" style="" title="Voltar">
+										<button class=" btn btn-secondary btn-sm" style="" title="Voltar">
 											<a style="color: white;" href="/home">Voltar<span class="fas fa-undo"
 													style="padding-left: 15px;;"></span></a>
 										</button>

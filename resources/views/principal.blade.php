@@ -84,6 +84,15 @@
     }
 
   </style>
+  <script>   
+    function copiarLink() {
+      var linkCopiado = document.getElementById("link");
+      linkCopiado.select();
+      document.execCommand("copy");
+      alert("Link de compartilhamento copiado!"+ linkCopiado.value);
+    }
+  </script>
+
 </head>
 
 <body class="idBodyPrincipal">
@@ -227,19 +236,18 @@
                           <b>Mais Informações</b>
                           <span class="fa fa-eye" style="padding-left: 10px;"></span>
                         </a>
-                      </button>                  
-                      <button class="btn btn-info " >
-                        <a href="" style="color:white;">
-                          <b>Compartilhar</b>
-                          <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>  
-                        </a>
-                      </button>  
-                      <button class="btn btn-info ">
-                        <a name="idcadastrar" href="" id="IDcadastrar" style="color:white;">
-                          <b>Candidatar</b>
+                      </button>              
+                      <button class="btn btn-info">
+                        <a name="" href="/vaga/{{$v->idvaga}}" id="" style="color:white;">
+                          <b>Candidate-se</b>
                           <span class="fa fa-check" style="padding-left: 10px;"></span>
                         </a> 
-                      </button>                                                                 
+                      </button>    
+                      <input type="hidden" onClick="this.select();" name="link" id="link" value="{{env('APP_URL')}}">
+                      <button class="btn btn-info" onClick="copiarLink()">
+                        <b>Compartilhe</b>
+                        <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>                     
+                      </button>            
                     </div>
                   </div> 
                 </div>
@@ -301,6 +309,29 @@
             </div>
           </div>
         @endforeach
+        <div class="card" style="text-align: center;">
+          <div class="card-header" id="headingOne">
+            <div class="container">
+              <div class="row">                  <h5>                      
+                    Caso não tenha encontrado uma vaga que lhe interesse no momento, não se preocupe, deixe seus dados cadastrados em nosso <u>Banco de Talentos</u>. <br>Continue acompanhando esta página, pois serão publicadas novas vagas.                                         
+                </h5>         
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col">                                              
+                  <h4>
+                    Clique aqui para acessar a plataforma e realizar o cadastro!
+                  </h4> 
+                  <button class="btn btn-info ">
+                    <a name="cadastrar" href="{{route('home')}}" style="color:white;">
+                      <b>Cadastre-se</b>                      
+                    </a> 
+                  </button> 
+                </div>
+              </div>                
+            </div>
+          </div>            
+        </div>
       </div>
     </div>
   </div>

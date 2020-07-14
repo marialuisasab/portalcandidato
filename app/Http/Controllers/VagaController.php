@@ -5,6 +5,7 @@ use App\Vaga;
 use App\CurriculoVaga;
 use Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VagaController extends Controller
 {
@@ -54,17 +55,15 @@ class VagaController extends Controller
      */
     public function show($id)
     {
-        $vaga = Vaga::where('idvaga', $id)->get()[0];
-       
+        if(is_null(Auth::user())){  
+            $this->middleware('auth');
+            flash('É necessário autenticar no sistema antes de se candidatar a uma vaga!')->error();
+            return redirect()->route('login');
+        } 
+        $vaga = Vaga::where('idvaga', $id)->get()[0];       
         return view('vaga.show', compact(['vaga']));
     }
     
-    public function showPrincipal($id)
-    {
-        $vaga = Vaga::where('idvaga', $id)->get()[0];       
-        return view('vaga.principal', compact(['vaga']));
-    }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -101,27 +100,33 @@ class VagaController extends Controller
     }
 
     public function candidatar($vaga){
-        $candidato = Helper::getIdCurriculo();
-        $candidatou = CurriculoVaga::where('curriculo_idcurriculo', $candidato)
-                                           ->where('vaga_idvaga',$vaga)
-                                           ->where("status", 1)->get(); 
-        if (count($candidatou)==0){
-            $dados = new CurriculoVaga();           
-            $dados->curriculo_idcurriculo = $candidato;
-            $dados->vaga_idvaga = $vaga;
-            $dados->status = 1;
-            $dados->dtcandidatura = Date('Y-m-d');
-            if($dados->save()){
-                flash('Candidatura realizada com sucesso!')->success();
-                return redirect()->route('minhasvagas');//redirecionar para MINHAS VAGAS
+
+        if(Helper::getIdCurriculomenu()){
+            $candidato = Helper::getIdCurriculo();
+            $candidatou = CurriculoVaga::where('curriculo_idcurriculo', $candidato)
+                                               ->where('vaga_idvaga',$vaga)
+                                               ->where("status", 1)->get(); 
+            if (count($candidatou)==0){
+                $dados = new CurriculoVaga();           
+                $dados->curriculo_idcurriculo = $candidato;
+                $dados->vaga_idvaga = $vaga;
+                $dados->status = 1;
+                $dados->dtcandidatura = Date('Y-m-d');
+                if($dados->save()){
+                    flash('Candidatura realizada com sucesso!')->success();
+                    return redirect()->route('minhasvagas');//redirecionar para MINHAS VAGAS
+                }else {
+                    flash("Falha ao gravar as informações!")->error();
+                    return redirect()->back();
+                }
             }else {
-                flash("Falha ao gravar as informações!")->error();
-                return redirect()->back();
+                flash('Você já está participando deste processo seletivo! Vá para: Gerenciar Vagas > Minhas Vagas, para acompanhar o andamento.')->error();
+                return redirect()->back();;//redirecionar para MINHAS VAGAS
             }
-        }else {
-            flash('Você já está participando deste processo seletivo! Vá para: Gerenciar Vagas > Minhas Vagas, para acompanhar o andamento.')->success();
-            return redirect()->back();;//redirecionar para MINHAS VAGAS
-        }
+        }   else{
+            flash('É necessário cadastrar seus dados no sistema antes de se candidatar a uma vaga!<br>Acesse no menu lateral: <i><b>Gerenciar Currículo > Dados Pessoais</i></b>, para iniciar o seu cadastro.')->error();
+            return redirect()->back();
+        }  
     }
 
     public function minhasvagas(){
@@ -135,7 +140,7 @@ class VagaController extends Controller
                             ->where("idvaga", $value->vaga_idvaga)->get()[0];
             }        
         }
-        //dd($processos,$vagas);
+        
         return view('vaga.minhasvagas', compact(['processos'], ['vagas']));        
     }
 

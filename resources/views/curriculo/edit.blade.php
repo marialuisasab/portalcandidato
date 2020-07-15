@@ -487,7 +487,7 @@
 						<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 							{{-- observação....... --}}
 							<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
-								value="{{$c->idcurriculo}}" title="Alterar Foto de Perfil">
+								accept='image/*' value="{{$c->idcurriculo}}" title="Alterar Foto de Perfil">
 						</li>
 					</div>
 					{{-- 

@@ -69,7 +69,8 @@
             <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
               style="max-width: 200px; text-align: center; border-radius: 50%;">
             @else
-            <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png" alt="Usuário sem foto">
+            <img class="profile-user-img img-responsive img-circle" src="/img/imagemuserPadrao.jpg"
+              alt="Usuário sem foto">
             @endif
           </div>
 
@@ -148,7 +149,8 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="{{route('curriculo.dados')}}" class="small-box-footer" data-toggle="tooltip" title="Informações Pendentes">
+        <a href="{{route('curriculo.dados')}}" class="small-box-footer" data-toggle="tooltip"
+          title="Informações Pendentes">
           Mais Informações <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
@@ -179,7 +181,8 @@
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="{{route('contatosuporte')}}" class="small-box-footer toltipclass" data-toggle="tooltip" title="Visualizar Agendamentos">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{route('contatosuporte')}}" class="small-box-footer toltipclass" data-toggle="tooltip"
+          title="Visualizar Agendamentos">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -193,12 +196,12 @@
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="{{route('minhasvagas')}}" class="small-box-footer" data-toggle="tooltip" title="Visualizar Processos">Mais Informações <i
-            class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{route('minhasvagas')}}" class="small-box-footer" data-toggle="tooltip"
+          title="Visualizar Processos">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
   </div>
-  
+
 </div>
 
 

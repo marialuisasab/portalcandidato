@@ -36,7 +36,8 @@
 
                 <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
                   <div class="btn-group btn-sm " role="group" aria-label="">
-                    <button class=" btn btn-success btn-sm" style="height:30px; margin-top: 10px; width:70px;">
+                    <button class=" btn btn-success btn-sm" style="height:30px; margin-top: 10px; width:70px;"
+                      title="Vagas">
                       <a href="/vagas" style="color:white;">Vagas</a>
                       <span class="fas fa-bullhorn" style="padding-left: 5px; color:white; font-size:9px;"></span>
                     </button>

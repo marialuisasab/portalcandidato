@@ -91,7 +91,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
                     alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}"
                     class="{{ config('adminlte.logo_img_class', 'brand-image img-circle elevation-3') }}"
-                    style="opacity: .8">                
+                    style="opacity: .8">
             </a>
             @endif
 
@@ -136,30 +136,34 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     @yield('content_top_nav_right')
                     @each('adminlte::partials.menu-item-top-nav-right', $adminlte->menu(), 'item')
                     @if(Auth::user())
-                    @if(config('adminlte.usermenu_enabled'))   
-                    <!-- HOME E AJUDA -->                 
+                    @if(config('adminlte.usermenu_enabled'))
+                    <!-- HOME E AJUDA -->
                     <li class="nav-item dropdown user-menu">
                         <div class="btn-group" role="group" aria-label="Exemplo básico">
                             <a href="{{route('home')}}" class="sino mr-5 mt-3">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
                             <a href="#" class="mr-5 mt-3">
-                                <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda" title="Precisa de ajuda?"></span>
+                                <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
+                                    title="Precisa de ajuda?"></span>
                             </a>
                         </div>
                     </li>
                 </ul>
 
-                <ul class="navbar-nav" style="list-style-type: none;">                    
+                <ul class="navbar-nav" style="list-style-type: none;">
                     <a href="#" data-toggle="dropdown">
                         @if(Auth::user()->foto != null)
-                            <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
+                        <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
                             style="max-width: 50px; text-align: center; border-radius: 50%; margin-right:10px;">
                         @else
-                            <img class="profile-user-img img-responsive img-circle" src="/img/usuariopadrao.png" alt="Usuário sem foto" style="max-width: 50px; text-align: center; border-radius: 50%; margin-right: 10px;">
-                        @endif                           
+                        <img class="profile-user-img img-responsive img-circle" src="/img/imagemuserPadrao.jpg"
+                            alt="Usuário sem foto"
+                            style="max-width: 50px; text-align: center; border-radius: 50%; margin-right: 10px;">
+                        @endif
                         <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline mt-50px" @endif
-                            style="color:#ffffff; margin-right: 10px; " title="Pressione para sair">{{ Auth::user()->name }}</span>
+                            style="color:#ffffff; margin-right: 10px; "
+                            title="Pressione para sair">{{ Auth::user()->name }}</span>
                     </a>
 
 
@@ -190,10 +194,11 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         @endif
                         <li class="user-footer">
                             @if($profile_url)
-                                <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
+                            <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
                             @endif
                             {{-- sair clicando no nome no page (navbar de cima) --}}
-                            <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif" href="#"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
                             </a>
                             <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
@@ -204,8 +209,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </form>
                         </li>
                     </ul>
-              
-            </li>
+
+                    </li>
 
                     @else
                     <li class=" nav-item">
@@ -277,102 +282,103 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         @endif
         <div>
 
-        {{--}}Menu informações dentro do menu{{--}}
+            {{--}}Menu informações dentro do menu{{--}}
 
-        <nav class="mt-2">
-            
-            <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
-                <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do Candidato</li>
-                <li class="nav-header">Gerenciar Currículo</li>                    
-                <li class="nav-item">
-                    <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">
-                        <i class="fas fa-fw fa-id-card "></i>
-                        <p>
-                            Dados Pessoais
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" style="color:white; "id="idenderecomenu" type="button">
-                        <i class="fas fa-fw fa-map-marked-alt "></i>
-                        <p>
-                            Endereço
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" style="color:white;" id="idformacaomenu" type="button">
-                        <i class="fas fa-fw fa-user-graduate "></i>
-                        <p>
-                            Formação e Cursos
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color:white;" id="idexperienciasmenu" type="button">
-                        <i class="fas fa-fw fa-user-tie "></i>
-                        <p>
-                            Experiência Profissional
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" style="color:white;" id="idhabilidadesmenu" type="button">
-                        <i class="fas fa-fw fa fa-cogs "></i>
-                        <p>
-                            Habilidades e Ferramentas
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" style="color:white;" id="idredessociaismenu" type="button">
-                        <i class="fas fa-fw fa-hashtag "></i>
-                        <p>
-                            Redes Sociais
-                        </p>
-                    </a>
-                </li>                    
-                <hr>                    
-                <li class="nav-item has-treeview">
-                    <a class="nav-link nav-item" style="color:white;" href="#">
-                        <i class="fas fa-fw fa-share "></i>
-                        <p>
-                            Gerenciar Vagas
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a class="nav-link" style="color:white;" href="{{route('vagas')}}">
-                                <i class="fas fa-fw fa-bullhorn "></i>
-                                <p>
-                                    Vagas Abertas
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" style="color:white;" href="{{route('minhasvagas')}}">
-                                <i class="fas fa-fw fa-tasks "></i>
-                                <p>
-                                    Minhas Vagas
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>                    
-                <hr>                    
-                <li class="nav-item ">
-                    <a class="nav-link" style="color:white;" href="{{route('contatosuporte')}}">
-                        <i class="fas fa-fw fa-headset "></i>
-                        <p>
-                            Fale Conosco
-                        </p>
-                    </a>
-                </li>    
-            </ul>
-        </nav>
-    </div>
-    {{--}} fim do menu do portal{{--}}
+            <nav class="mt-2">
+
+                <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
+                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do
+                        Candidato</li>
+                    <li class="nav-header">Gerenciar Currículo</li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">
+                            <i class="fas fa-fw fa-id-card "></i>
+                            <p>
+                                Dados Pessoais
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white; " id="idenderecomenu" type="button">
+                            <i class="fas fa-fw fa-map-marked-alt "></i>
+                            <p>
+                                Endereço
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" id="idformacaomenu" type="button">
+                            <i class="fas fa-fw fa-user-graduate "></i>
+                            <p>
+                                Formação e Cursos
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" id="idexperienciasmenu" type="button">
+                            <i class="fas fa-fw fa-user-tie "></i>
+                            <p>
+                                Experiência Profissional
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" id="idhabilidadesmenu" type="button">
+                            <i class="fas fa-fw fa fa-cogs "></i>
+                            <p>
+                                Habilidades e Ferramentas
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" id="idredessociaismenu" type="button">
+                            <i class="fas fa-fw fa-hashtag "></i>
+                            <p>
+                                Redes Sociais
+                            </p>
+                        </a>
+                    </li>
+                    <hr>
+                    <li class="nav-item has-treeview">
+                        <a class="nav-link nav-item" style="color:white;" href="#">
+                            <i class="fas fa-fw fa-share "></i>
+                            <p>
+                                Gerenciar Vagas
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item ">
+                                <a class="nav-link" style="color:white;" href="{{route('vagas')}}">
+                                    <i class="fas fa-fw fa-bullhorn "></i>
+                                    <p>
+                                        Vagas Abertas
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" style="color:white;" href="{{route('minhasvagas')}}">
+                                    <i class="fas fa-fw fa-tasks "></i>
+                                    <p>
+                                        Minhas Vagas
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" href="{{route('contatosuporte')}}">
+                            <i class="fas fa-fw fa-headset "></i>
+                            <p>
+                                Fale Conosco
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {{--}} fim do menu do portal{{--}}
     </aside>
     @endif
 
@@ -400,7 +406,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         </div>
         @endif
     </div>
-    
+
     <footer class="main-footer" style="background-color:  #CDD7BC;">
         <div class=" container">
             <div class="row">
@@ -442,7 +448,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bio Extratus Cosmetics Natural
+                    <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bio Extratus
+                        Cosmetics Natural
                         <a href="https://bioextratus.com.br/">Site Oficial</a>.
                     </p>
                 </div>

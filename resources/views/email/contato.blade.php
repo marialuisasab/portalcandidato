@@ -33,8 +33,8 @@
                     <div class="card-header" id="headingTwo" style="background-color: white;">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm">
-                                    <h2 class="mb-0" style="color:dodgerblue;">
+                                <div class="col-">
+                                    <h2 class="mb-0" style="color:dodgerblue; font-size: 25px;">
 
                                         Contatar Suporte
                                         <span class="fa-stack fa-sm">
@@ -47,11 +47,15 @@
                                 </div>
 
 
-                                <button class=" btn btn-secondary" type="button" title="Voltar">
-                                    <a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
-                                            style="padding-left: 15px;"></span></a>
-                                </button>
-
+                                <div class="col-xs-8 col-2" style="text-align: end; margin-left: auto;">
+                                    <div class="btn-group" role="group" aria-label="">
+                                        <button class=" btn btn-secondary btn-sm" type="button" title="Voltar"
+                                            style="height:30px; margin-top: 10px; width:70px;">
+                                            <a href="/home" style="color: white;">Voltar<span class="fas fa-undo"
+                                                    style="padding-left: 5px; color:white; font-size:9px;"></span></a>
+                                        </button>
+                                    </div>
+                                </div>
 
 
 

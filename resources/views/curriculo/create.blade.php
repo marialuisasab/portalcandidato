@@ -455,7 +455,7 @@
                             @endif
                             <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                 <input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
-                                    title="Alterar Foto de Perfil">
+                                    title="Alterar Foto de Perfil" accept='image/*' style="max-width: 50px;">
                             </li>
 
                         </div>

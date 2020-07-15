@@ -51,7 +51,7 @@
                 </div>
 
 
-                <div class="col-xs-8 col-md-8" style="text-align: end;">
+                <div class="col-xs-8 col-md-6" style="text-align: end;">
 
                   <div class="btn-group btn-sm" role="group">
                     <button class=" btn btn-primary btn-sm" title="Adicionar Experiência">

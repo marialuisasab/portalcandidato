@@ -26,7 +26,7 @@
           <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-">
                   <h2 class="mb-0"
                     style="color:dodgerblue; text-align: center; font-size:25px; justify-content: center;">
                     Formação Acadêmica e Cursos Complementares
@@ -203,7 +203,7 @@
 
                   <div class="form-group" id="idperiodo" style="display: none;">
                     <li><strong>PERÍODO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
-                      <input type="number" class="form-control" name="periodo" placeholder="Ex.: 1/10"
+                      <input type="number" class="form-control" name="periodo" placeholder="Ex.: 1º,2º,3º..."
                         title="Período Atual">
                     </li>
                   </div>

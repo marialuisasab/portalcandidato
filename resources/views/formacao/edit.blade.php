@@ -37,7 +37,7 @@
 
             <div class="container">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size: 25px;">
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
@@ -51,7 +51,7 @@
 
 
                 <div class="col-xs-4 col-2" style="margin-left: auto; text-align:end;">
-                  <button class=" btn btn-secondary" type="button" title="Voltar"
+                  <button class=" btn btn-secondary btn-sm" type="button" title="Voltar"
                     style="height:30px; margin-top: 10px; width:70px;">
                     <a href="/cursos" style="color: white;">Voltar<span class="fas fa-undo"
                         style="padding-left: 5px; color:white; font-size:9px;"></span></a>

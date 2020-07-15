@@ -36,11 +36,10 @@
 
                 <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
                   <div class="btn-group btn-sm " role="group" aria-label="">
-                    {{-- <button class=" btn btn-link">
-											<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
-                    <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
-
-                    </button> --}}
+                    <button class=" btn btn-success btn-sm" style="height:30px; margin-top: 10px; width:70px;">
+                      <a href="/vagas" style="color:white;">Vagas</a>
+                      <span class="fas fa-bullhorn" style="padding-left: 5px; color:white; font-size:9px;"></span>
+                    </button>
 
                     <button class=" btn btn-secondary btn-sm" type="button"
                       style="height:30px; margin-top: 10px; width:70px;">
@@ -69,7 +68,7 @@
                     <li><strong> {{$rs->nome}}:&nbsp;&nbsp;&nbsp;</strong>
                       <input type="hidden" name="redesocial_idredesocial[]" value="{{$rs->idredesocial}}">
                       <input type="text" class="form-control {{ $errors->has('link') ? 'is-invalid' : ''}}"
-                        name="link[]" placeholder="Link"
+                        name="link[]" placeholder="Link" title="Link do Perfil no {{$rs->nome}}"
                         value="{{$redes[$key]->redesocial_idredesocial == $rs->idredesocial ? $redes[$key]->link : ''}}">
                       @if($errors->has('link'))
                       <div class="invalid-feedback">

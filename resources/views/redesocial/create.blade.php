@@ -36,11 +36,10 @@
 
                 <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
                   <div class="btn-group " role="group" aria-label="">
-                    {{-- <button class=" btn btn-link">
-											<a href="/curriculo/editar/{{Auth::user()->id}}" >Editar</a>
-                    <span class="fa fa-edit" style="font-size: 25px; text-align: center;"></span>
-
-                    </button> --}}
+                    <button class=" btn btn-success btn-sm" style="height:30px; margin-top: 10px; width:70px;">
+                      <a href="/vagas" style="color:white;">Vagas</a>
+                      <span class="fas fa-bullhorn" style="padding-left: 5px; color:white; font-size:9px;"></span>
+                    </button>
 
                     <button class=" btn btn-secondary btn-sm" type="button"
                       style="height:30px; margin-top: 10px; width:70px;" title="Voltar">

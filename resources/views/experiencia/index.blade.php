@@ -38,7 +38,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size:25px;">
 
                     Experiências Profissionais
                     <span class="fa-stack fa-sm">
@@ -51,7 +51,7 @@
                 </div>
 
 
-                <div class="col-xs-8 col-md-8">
+                <div class="col-xs-8 col-md-8" style="text-align: end;">
 
                   <div class="btn-group btn-sm" role="group">
                     <button class=" btn btn-primary btn-sm" title="Adicionar Experiência">

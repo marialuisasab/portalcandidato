@@ -31,7 +31,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                  <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size:25px;">
                     Formação Acadêmica e Cursos Complementares
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
@@ -39,9 +39,9 @@
                     </span>
                   </h2>
                 </div>
-                <div class="col-xs-7 col-md-7">
+                <div class="col-xs-8 col-md-8" style="margin-top: 5px; margin-right: auto; text-align:end;">
                   <div class="btn-group btn-sm" role="group">
-                    <button class=" btn btn-primary" title="Adicionar Formação">
+                    <button class=" btn btn-primary btn-sm" title="Adicionar Formação">
                       <a href="/curso/novo" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
                     </button>
@@ -164,7 +164,7 @@
                       @if($c->dtfim == null)
                       <li class="item-2"><strong> DATA DE CONCLUSÃO:&nbsp;&nbsp;&nbsp;</strong> <span
                           style="color: red;">Não
-                          informado!</span>
+                          Concluido!</span>
                       </li>
                       @else
                       <li class="item-2"><strong> DATA DE

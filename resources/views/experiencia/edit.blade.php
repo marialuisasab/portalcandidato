@@ -49,7 +49,7 @@
 
 
                   <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
-                    <button class=" btn btn-secondary" type="cancel" title="Voltar"
+                    <button class=" btn btn-secondary btn-sm" type="cancel" title="Voltar"
                       style="height:30px; margin-top: 10px; width:70px;">
                       <a href="/experiencias" style="color: white;">Voltar<span class="fas fa-undo"
                           style="padding-left: 5px; color:white; font-size:9px;"></span></a>

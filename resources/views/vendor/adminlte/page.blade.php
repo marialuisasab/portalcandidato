@@ -1,15 +1,8 @@
 @extends('adminlte::master')
-{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script> --}}
-{{-- <script src="/jquerymask/jquerymasky.js"></script> --}}
 
 <script src="/vendor/jquery/jquery.js"></script>
 <script src="/js/menujs/menuiteracao.js"></script>
 <link rel="stylesheet" href="/css/page.css">
-
-
-
 
 @section('adminlte_css')
 @stack('css')
@@ -98,10 +91,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}"
                     alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}"
                     class="{{ config('adminlte.logo_img_class', 'brand-image img-circle elevation-3') }}"
-                    style="opacity: .8">
-                <span class="brand-text font-weight-light {{ config('adminlte.classes_brand_text') }}">
-                    {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
-                </span>
+                    style="opacity: .8">                
             </a>
             @endif
 
@@ -138,16 +128,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     @yield('content_top_nav_left')
                 </ul>
 
-
-                {{-- <img src="img/imagemBioextratus.png" alt="imagem bioextratus" style="width:100px; heigth: 50px;"> --}}
-                {{-- 
-                <a href="/" class="logo" title="Bio Extratus"
-                    style="color:#ffffff; margin-top: -10px;"><b><strong>BIO</strong></b>EXTRATUS</a> --}}
-                {{-- <button class="btn btn-primary"></button> --}}
-
-
                 {{--}}Espaço ao lado do toogle do navbar{{--}}
-
 
                 @endif
                 <ul class="navbar-nav ml-auto @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))order-1 order-md-3 navbar-no-expand @endif"
@@ -155,71 +136,30 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     @yield('content_top_nav_right')
                     @each('adminlte::partials.menu-item-top-nav-right', $adminlte->menu(), 'item')
                     @if(Auth::user())
-                    @if(config('adminlte.usermenu_enabled'))
-
-
-
-
-                    {{-- inserindo imagem foto user --}}
-                    {{-- <a href="" class="mr-2">
-                        @if(Auth::user()->foto != null)
-                        <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
-                    style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
-                    @else
-                    <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"
-                        alt="Usuário sem foto"
-                        style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
-                    @endif
-                    </a> --}}
-                    {{-- sino de alerta --}}
-                    {{-- <li class="nav-item dropdown user-menu">
-                        <a href="#" class="nav-link dropdown-toggle mt-2">
-                            <span class="fas fa-bell" title="Mensagens"></span>
-                        </a>
-                    </li> --}}
-                    {{-- ajuda --}}
-                    {{-- <li class="nav-item dropdown user-menu">
-                        <a href="#" class="nav-link dropdown-toggle mr-2 mt-2">
-                            <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
-                                title="Precisa de ajuda?!"></span>
-                        </a>
-                    </li> --}}
-
+                    @if(config('adminlte.usermenu_enabled'))   
+                    <!-- HOME E AJUDA -->                 
                     <li class="nav-item dropdown user-menu">
                         <div class="btn-group" role="group" aria-label="Exemplo básico">
-
-                            <a href="" class="imagem mr-5">
-                                @if(Auth::user()->foto != null)
-                                <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
-                                    style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
-                                @else
-                                <img class="profile-user-img img-responsive img-circle" src="/img/usuariopadrao.png"
-                                    alt="Usuário sem foto"
-                                    style="max-width: 50px; text-align: center; border-radius: 50%; margin-leth: 30px;">
-                                @endif
+                            <a href="{{route('home')}}" class="sino mr-5 mt-3">
+                                <span class="fas fa-home" title="Início"></span>
                             </a>
-
-
-                            <a href="#" class="sino mr-5 mt-3">
-                                <span class="fas fa-bell" title="Mensagens"></span>
-                            </a>
-
                             <a href="#" class="mr-5 mt-3">
-                                <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
-                                    title="Precisa de ajuda?!"></span>
+                                <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda" title="Precisa de ajuda?"></span>
                             </a>
                         </div>
+                    </li>
                 </ul>
 
-                <ul class="navbar-nav" style="list-style-type: none;">
-                    {{-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> --}}
+                <ul class="navbar-nav" style="list-style-type: none;">                    
                     <a href="#" data-toggle="dropdown">
-                        @if(config('adminlte.usermenu_image'))
-                        <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2"
-                            alt="{{ Auth::user()->name }}">
-                        @endif
+                        @if(Auth::user()->foto != null)
+                            <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
+                            style="max-width: 50px; text-align: center; border-radius: 50%; margin-right:10px;">
+                        @else
+                            <img class="profile-user-img img-responsive img-circle" src="/img/usuariopadrao.png" alt="Usuário sem foto" style="max-width: 50px; text-align: center; border-radius: 50%; margin-right: 10px;">
+                        @endif                           
                         <span @if(config('adminlte.usermenu_image'))class="d-none d-md-inline mt-50px" @endif
-                            style="color:#ffffff; " title="Pressione para sair">{{ Auth::user()->name }}</span>
+                            style="color:#ffffff; margin-right: 10px; " title="Pressione para sair">{{ Auth::user()->name }}</span>
                     </a>
 
 
@@ -250,11 +190,10 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         @endif
                         <li class="user-footer">
                             @if($profile_url)
-                            <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ $profile_url }}" class="btn btn-default btn-flat">Profile</a>
                             @endif
                             {{-- sair clicando no nome no page (navbar de cima) --}}
-                            <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif" href="#"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a class="btn btn-default btn-flat float-right @if(!$profile_url)btn-block @endif" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
                             </a>
                             <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
@@ -265,9 +204,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             </form>
                         </li>
                     </ul>
-                    {{-- </ul> --}}
-
-                    </li>
+              
+            </li>
 
                     @else
                     <li class=" nav-item">
@@ -339,207 +277,102 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         @endif
         <div>
 
-            {{--}}Menu informações dentro do menu{{--}}
+        {{--}}Menu informações dentro do menu{{--}}
 
-            <nav class="mt-2">
-                {{-- <ul class="nav nav-pills nav-sidebar flex-column {{config('adminlte.classes_sidebar_nav', '')}}"
-                data-widget="treeview" role="menu" @if(config('adminlte.sidebar_nav_animation_speed') !=300)
-                data-animation-speed="{{config('adminlte.sidebar_nav_animation_speed')}}" @endif
-                @if(!config('adminlte.sidebar_nav_accordion')) data-accordion="false" @endif>
-                @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
-
-                </ul> --}}
-
-
-                <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
-
-                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do Candidato</li>
-                   <!-- <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}"></li>
-                    
-                    {{-- <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">
-                    {{Auth::user()->name}}</li> --}}
-                    
-                    <li class="nav-item has-treeview">
-                        <a class="nav-link nav-item " href="#">
-                            <i class="fas fa-fw fa-user-cog "></i>
-                            <p style="color:rgb(224, 224, 235);">
-                                Gerenciar Perfil
-
-                                <i class=" fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item ">
-                                <a class="nav-link  " href="#">
-                                    <i class="fas fa-fw fa-user-edit "></i>
-                                    <p>
-                                        Meu Perfil
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link  " href="#">
-                                    <i class="fas fa-fw fa-file-alt "></i>
-                                    <p>
-                                        Imprimir Curriculo
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-fw fa-lock-open "></i>
-                                    <p>
-                                        Alterar Senha
-
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link  " href="{{route('logout')}}">
-                                    <i class="fas fa-fw fa-sign-out-alt "></i>
-                                    <p>
-                                        Sair
-
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    {{-- <li class="nav-header">
-                        <hr>
-                    </li> --}}
-                    <li class="nav-item has-treeview">
-                        <hr>
-                    </li>
-                -->                
-                    <li class="nav-item" >
-                        <hr>
-                    </li>                      
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" href="{{route('home')}}">
-                            <i class="fas fa-fw fa-home "></i>
-                            <p style="color:rgb(224, 224, 235);">
-                                Início
-                            </p>
-                        </a>
-                    </li>
-                    
-                    <hr>
-                    
-                    <li class="nav-header">Gerenciar Currículo</li>
-                    <!--<li class="nav-item has-treeview" id="idgerenciarcurriculo">
-                        <a class="nav-link nav-item " href="#" id="idcadastrarcurriculo">
-                            <i class="fas fa-fw fa-file-signature "></i>
-                            <p style="color:rgb(224, 224, 235);">
-                                Gerenciar Currículo
-
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">-->
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">
-                            <i class="fas fa-fw fa-id-card "></i>
-                            <p>
-                                Dados Pessoais
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white; "id="idenderecomenu" type="button">
-                            <i class="fas fa-fw fa-map-marked-alt "></i>
-                            <p>
-                                Endereço
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" id="idformacaomenu" type="button">
-                            <i class="fas fa-fw fa-user-graduate "></i>
-                            <p>
-                                Formação e Cursos
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:white;" id="idexperienciasmenu" type="button">
-                            <i class="fas fa-fw fa-user-tie "></i>
-                            <p>
-                                Experiência Profissional
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" id="idhabilidadesmenu" type="button">
-                            <i class="fas fa-fw fa fa-cogs "></i>
-                            <p>
-                                Habilidades e Ferramentas
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" id="idredessociaismenu" type="button">
-                            <i class="fas fa-fw fa-hashtag "></i>
-                            <p>
-                                Redes Sociais
-                            </p>
-                        </a>
-                    </li>
-                        <!--</ul>
-                    </li>-->
-                    
-                        <hr>
-                    
-                    <li class="nav-item has-treeview">
-                        <a class="nav-link nav-item" style="color:white;" href="#">
-                            <i class="fas fa-fw fa-share "></i>
-                            <p>
-                                Gerenciar Vagas
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item ">
-                                <a class="nav-link" style="color:white;" href="{{route('vagas')}}">
-                                    <i class="fas fa-fw fa-bullhorn "></i>
-                                    <p>
-                                        Vagas Abertas
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" style="color:white;" href="{{route('minhasvagas')}}">
-                                    <i class="fas fa-fw fa-tasks "></i>
-                                    <p>
-                                        Minhas Vagas
-
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <hr>
-                    
-                    <!--<li class="nav-header" >Suporte Técnico:</li>-->
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" href="{{route('contatosuporte')}}">
-                            <i class="fas fa-fw fa-headset "></i>
-                            <p>
-                                Fale Conosco
-                            </p>
-                        </a>
-                    </li>                 
-
-                </ul>
-            </nav>
-        </div>
-
-
-
-        {{--}} fim do menu do portal{{--}}
+        <nav class="mt-2">
+            
+            <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
+                <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do Candidato</li>
+                <li class="nav-header">Gerenciar Currículo</li>                    
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">
+                        <i class="fas fa-fw fa-id-card "></i>
+                        <p>
+                            Dados Pessoais
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" style="color:white; "id="idenderecomenu" type="button">
+                        <i class="fas fa-fw fa-map-marked-alt "></i>
+                        <p>
+                            Endereço
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" style="color:white;" id="idformacaomenu" type="button">
+                        <i class="fas fa-fw fa-user-graduate "></i>
+                        <p>
+                            Formação e Cursos
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" id="idexperienciasmenu" type="button">
+                        <i class="fas fa-fw fa-user-tie "></i>
+                        <p>
+                            Experiência Profissional
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" style="color:white;" id="idhabilidadesmenu" type="button">
+                        <i class="fas fa-fw fa fa-cogs "></i>
+                        <p>
+                            Habilidades e Ferramentas
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" style="color:white;" id="idredessociaismenu" type="button">
+                        <i class="fas fa-fw fa-hashtag "></i>
+                        <p>
+                            Redes Sociais
+                        </p>
+                    </a>
+                </li>                    
+                <hr>                    
+                <li class="nav-item has-treeview">
+                    <a class="nav-link nav-item" style="color:white;" href="#">
+                        <i class="fas fa-fw fa-share "></i>
+                        <p>
+                            Gerenciar Vagas
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item ">
+                            <a class="nav-link" style="color:white;" href="{{route('vagas')}}">
+                                <i class="fas fa-fw fa-bullhorn "></i>
+                                <p>
+                                    Vagas Abertas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" style="color:white;" href="{{route('minhasvagas')}}">
+                                <i class="fas fa-fw fa-tasks "></i>
+                                <p>
+                                    Minhas Vagas
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>                    
+                <hr>                    
+                <li class="nav-item ">
+                    <a class="nav-link" style="color:white;" href="{{route('contatosuporte')}}">
+                        <i class="fas fa-fw fa-headset "></i>
+                        <p>
+                            Fale Conosco
+                        </p>
+                    </a>
+                </li>    
+            </ul>
+        </nav>
+    </div>
+    {{--}} fim do menu do portal{{--}}
     </aside>
     @endif
 
@@ -567,21 +400,9 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         </div>
         @endif
     </div>
-
-    {{-- @hasSection('footer') --}}
-    {{-- <footer class="main-footer"> --}}
-    {{-- <footer class="site-footer mt-5" id="idfooter">
-
-            @yield('footer')
-        </footer>    @endif--}}
-
-
-
-
-    {{-- <footer class="main-footer" style="background-color: #26272b;"> #CDD7BC; "background-color: rgba(236, 242, 243, 0.911);" --}}
+    
     <footer class="main-footer" style="background-color:  #CDD7BC;">
         <div class=" container">
-
             <div class="row">
                 <div class="col-xs-4 col-md-4"></div>
                 <div class="col-sm-4 col-md-4">
@@ -590,12 +411,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 <div class="col-sm-4 col-md-4"></div>
             </div>
             <div class="row" style="margin-top: 10px; ">
-                <div class="col-sm-2 col-md-2">
-
-                </div>
-
+                <div class="col-sm-2 col-md-2"></div>
                 <div class="col-xs-4 col-md-4">
-
                     <ul class="footer-links">
                         <li>
                             <p class="fas fa-map-marked-alt"> Rodovia Km1, MG-123 - Zona Rural</p>
@@ -603,14 +420,12 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <li>
                             <p class="fas fa-phone"> (031) 3855-3000</p>
                         </li>
-                        <li>
+                        <!--<li>
                             <p class="fas fa-envelope"> rh@bioextratus.com.br </p>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
-
                 <div class="col-xs-4 col-md-4">
-
                     <ul class="footer-links">
                         <li>
                             <p class="fas fa-road"> Alvinópolis - MG, CEP: 35950-000</p>
@@ -618,28 +433,20 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <li>
                             <p class="fas fa-registered"> CNPJ: 02.176.615/0001-07</p>
                         </li>
-                </div>
-                <div class="col-xs-2 col-md-2 ">
-
-
                     </ul>
                 </div>
+                <div class="col-xs-2 col-md-2 "></div>
             </div>
-
         </div>
         <hr>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bioextratus
-                        Cosmetics Natural
-                        <a href="https:https://loja.bioextratus.com.br">Site Oficial</a>.
+                    <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bio Extratus Cosmetics Natural
+                        <a href="https://bioextratus.com.br/">Site Oficial</a>.
                     </p>
                 </div>
-
                 <div class="col-md-4 col-sm-6 col-xs-12">
-
                     <ul class="social-icons">
                         <li><a class="facebook" href="https://www.facebook.com/bioextratus/">
                                 <img class="redesimg" src="/img/ImagemFacebook.jpg"></a></li>
@@ -657,8 +464,6 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             </div>
         </div>
     </footer>
-
-
 
     @if(config('adminlte.right_sidebar'))
     <aside class="control-sidebar control-sidebar-{{config('adminlte.right_sidebar_theme')}}">

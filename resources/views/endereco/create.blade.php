@@ -83,7 +83,7 @@
 									@csrf
 
 									<div class="form-group">
-										<li><strong> CEP*:&nbsp;&nbsp;&nbsp;</strong>
+										<li id="idlicep"><strong> CEP*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{ $errors->has('cep') ? 'is-invalid' : ''}}"
 												name="cep" id="cep" placeholder="Informe o seu CEP" title="CEP">
@@ -99,7 +99,7 @@
 
 
 									<div class="form-group">
-										<li><strong> Rua*:&nbsp;&nbsp;&nbsp;</strong>
+										<li id="idlilogr"><strong> Rua*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('logradouro') ? 'is-invalid' : ''}}"
 												name="logradouro" id="logradouro"
@@ -117,7 +117,7 @@
 
 
 									<div class="form-group">
-										<li><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
+										<li id="idlibairro"><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('bairro') ? 'is-invalid' : ''}}"
 												name="bairro" id="bairro" placeholder="Informe o seu bairro"
@@ -134,7 +134,7 @@
 
 
 									<div class="form-group">
-										<li><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
+										<li id="idlinumero"><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text"
 												class="form-control {{$errors->has('numero') ? 'is-invalid' : ''}}"
 												name="numero" id="numero" placeholder="numero"
@@ -158,7 +158,7 @@
 
 									{{-- <form method="GET" action="/endereco" id="ID_DO_FORMULARIO"> --}}
 									<div class="form-group">
-										<li><strong> ESTADO*:&nbsp;&nbsp;&nbsp;</strong>
+										<li id="idliestado"><strong> ESTADO*:&nbsp;&nbsp;&nbsp;</strong>
 											<select
 												class="form-control {{$errors->has('estado_idestado') ? 'is-invalid' : ''}}"
 												id="estado" name="estado_idestado" title="Estado">
@@ -180,7 +180,8 @@
 
 
 									<div class="form-group" id="idcidadeselect">
-										<li><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
+										<li id="idlicidade"><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span
+												style="color: red;"></span>
 											<select
 												class="custom-select {{$errors->has('cidade_idcidade') ? 'is-invalid' : ''}}"
 												id="cidade" name="cidade_idcidade" title="Cidade">
@@ -200,7 +201,7 @@
 
 
 									<div class="form-group">
-										<li style=""><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
+										<li style="" id="idlipais"><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
 											<select
 												class="custom-select {{$errors->has('pais_idpais') ? 'is-invalid' : ''}}"
 												id="pais_idpais" name="pais_idpais" title="País">

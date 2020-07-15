@@ -40,6 +40,7 @@ $(function () {
             // });
         }
 
+
     });
 
 
@@ -137,6 +138,69 @@ $(function () {
     //     return false;
     // });
 
+    $("#idformselect").submit(function () {
+        // var valorcep = $("#cep").val();
+        // if (valorcep == '') {
+        //     event.preventDefault();
+        //     $("#cep").addClass('is-invalid');
+        //     $('<div>', {
+        //         class: 'invalid-feedback',
+        //         text: 'Você deve preencher o cep corretamente!'
+        //     }).appendTo('#idlicep');
+        //     $("div.invalid-feedback").fadeIn(300).delay(1500).fadeOut(400);
+        // }
+
+        // function validavazio(atributo, atributo2, atributo3) {
+        //     var valoratributo = $(atributo).val();
+        //     if (valoratributo == '') {
+        //         validaFomr(atributo, atributo2, atributo3);
+        //     }
+        //     $(atributo).removeClass('is-invalid');
+        // }
+        // validavazio('#cep', '#idlicep', 'cep');
+        // validavazio('#logradouro', '#idlilogr', 'logradouro');
+        // validavazio('#estado', '#idliestado', 'estado');
+        // validavazio('#numero', '#idlinumero', 'numero');
+        // validavazio('#bairro', '#idlibairro', 'bairro');
+        // validavazio('#cidade', '#idlicidade', 'cidade');
+        // validavazio('#pais_idpais', '#idlipais', 'pais');
+
+
+        validaFomr('#cep', '#idlicep', 'cep');
+        validaFomr('#logradouro', '#idlilogr', 'logradouro');
+        validaFomr('#estado', '#idliestado', 'estado');
+        validaFomr('#numero', '#idlinumero', 'numero');
+        validaFomr('#bairro', '#idlibairro', 'bairro');
+        validaFomr('#cidade', '#idlicidade', 'cidade');
+        validaFomr('#pais_idpais', '#idlipais', 'pais');
+
+
+
+        function validaFomr(atributo, li, name) {
+            var valorcep = $(atributo).val();
+            if (valorcep == '') {
+                event.preventDefault();
+                $(atributo).addClass('is-invalid');
+                // $('<div>', {
+                //     class: 'invalid-feedback',
+                //     text: 'Você deve o ' + name + ' corretamente'
+                // }).appendTo(li);
+                // $("div.invalid-feedback").fadeIn(300).delay(1500).fadeOut(400);
+            } else {
+                $(atributo).removeClass('is-invalid');
+
+            }
+        }
+
+
+
+
+    });
+    // var docep = document.getElementById("cep");
+    // docep.addEventListener("input", function () {
+    //     var valorcep = this.value;
+    //     console.log(valorcep);
+    // });
 
 });
 

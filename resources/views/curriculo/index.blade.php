@@ -73,7 +73,8 @@
 								<div class="col-xs-8 col-md-8"
 									style="margin-top: 5px; margin-right: auto; text-align:end;">
 									<div class="btn-group btn-sm" role="group">
-										<button class=" btn btn-primary btn-sm" title="Editar Dados Pessoais ">
+										<button class=" btn btn-primary btn-sm" title="Editar Dados Pessoais "
+											id="botaoeditar">
 											<a style="color:white;" href="/curriculo/editar/{{Auth::user()->id}}">Editar
 												<span class="fa fa-edit" style="padding-left: 15px;"></span></a>
 										</button>

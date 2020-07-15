@@ -12,10 +12,10 @@ $(function () {
 
     // $("#botaoeditar").mouseover(function () {
     //     $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
-    //     // $('<div>', {
-    //     //     class: 'alext-box secondary',
-    //     //     text: 'Não temos nada a dizer'
-    //     // }).appendTo('#botaoeditar');
+    //     $('<div>', {
+    //         class: 'alext-box secondary',
+    //         text: 'Não temos nada a dizer'
+    //     }).appendTo('#botaoeditar');
     // });
 
 

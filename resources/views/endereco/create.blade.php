@@ -87,11 +87,11 @@
 											<input type="text"
 												class="form-control {{ $errors->has('cep') ? 'is-invalid' : ''}}"
 												name="cep" id="cep" placeholder="Informe o seu CEP" title="CEP">
-											@if($errors->has('cep'))
-											<div class="invalid-feedback">
-												{{$errors->first('cep')}}
+
+											<div class="invalid-feedback" style="display: none;" id="menserrocep">
+												Você deve preencher o CEP!
 											</div>
-											@endif
+
 										</li>
 									</div>
 
@@ -104,11 +104,11 @@
 												class="form-control {{$errors->has('logradouro') ? 'is-invalid' : ''}}"
 												name="logradouro" id="logradouro"
 												placeholder="Ex.: Rua/Praça/ Ladeira ..." title="Rua">
-											@if($errors->has('logradouro'))
-											<div class="invalid-feedback">
-												{{$errors->first('logradouro')}}
+
+											<div class="invalid-feedback" style="display: none" id="menserrologra">
+												Você deve preencher a Rua!
 											</div>
-											@endif
+
 										</li>
 									</div>
 
@@ -122,11 +122,9 @@
 												class="form-control {{$errors->has('bairro') ? 'is-invalid' : ''}}"
 												name="bairro" id="bairro" placeholder="Informe o seu bairro"
 												title="Bairro">
-											@if($errors->has('bairro'))
-											<div class="invalid-feedback">
-												{{$errors->first('bairro')}}
+											<div class="invalid-feedback" style="display: none;" id="menserrobairro">
+												Você deve preencher o Bairro!
 											</div>
-											@endif
 										</li>
 									</div>
 
@@ -139,11 +137,9 @@
 												class="form-control {{$errors->has('numero') ? 'is-invalid' : ''}}"
 												name="numero" id="numero" placeholder="numero"
 												title="Numero Residencial">
-											@if($errors->has('numero'))
-											<div class="invalid-feedback">
-												{{$errors->first('numero')}}
+											<div class="invalid-feedback" style="display: none;" id="menserronumero">
+												Você deve preencher o Numero!
 											</div>
-											@endif
 										</li>
 									</div>
 
@@ -167,11 +163,9 @@
 												<option value="{{$est->idestado}}">{{ $est->nome }}</option>
 												@endforeach
 											</select>
-											@if($errors->has('estado_idestado'))
-											<div class="invalid-feedback">
-												{{$errors->first('estado_idestado')}}
+											<div class="invalid-feedback" style="display: none;" id="menserroestado">
+												Você deve preencher o Estado!
 											</div>
-											@endif
 										</li>
 
 									</div>
@@ -190,11 +184,9 @@
 												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
 												@endforeach --}}
 											</select>
-											@if($errors->has('cidade_idcidade'))
-											<div class="invalid-feedback">
-												{{$errors->first('cidade_idcidade')}}
+											<div class="invalid-feedback" style="display: none;" id="menserrocidade">
+												Você deve preencher o Cidade!
 											</div>
-											@endif
 										</li>
 									</div>
 
@@ -211,13 +203,9 @@
 												</option>
 												@endforeach
 											</select>
-											@if ($errors->has('pais_idpais'))
-											<div class="invalid-feedback">
-												{{$errors->first('pais_idpais')}}
+											<div class="invalid-feedback" style="display: none;" id="menserropais">
+												Você deve preencher o País!
 											</div>
-											@else
-
-											@endif
 										</li>
 									</div>
 

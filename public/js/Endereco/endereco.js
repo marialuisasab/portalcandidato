@@ -165,33 +165,29 @@ $(function () {
         // validavazio('#cidade', '#idlicidade', 'cidade');
         // validavazio('#pais_idpais', '#idlipais', 'pais');
 
+        // chamadas da fução de validção
+        validaFomr('#cep', '#idlicep', 'cep', 'menserrocep');
+        validaFomr('#logradouro', '#idlilogr', 'logradouro', 'menserrologra');
+        validaFomr('#estado', '#idliestado', 'estado', 'menserroestado');
+        validaFomr('#numero', '#idlinumero', 'numero', 'menserronumero');
+        validaFomr('#bairro', '#idlibairro', 'bairro', 'menserrobairro');
+        validaFomr('#cidade', '#idlicidade', 'cidade', 'menserrocidade');
+        validaFomr('#pais_idpais', '#idlipais', 'pais', 'menserropais');
 
-        validaFomr('#cep', '#idlicep', 'cep');
-        validaFomr('#logradouro', '#idlilogr', 'logradouro');
-        validaFomr('#estado', '#idliestado', 'estado');
-        validaFomr('#numero', '#idlinumero', 'numero');
-        validaFomr('#bairro', '#idlibairro', 'bairro');
-        validaFomr('#cidade', '#idlicidade', 'cidade');
-        validaFomr('#pais_idpais', '#idlipais', 'pais');
-
-
-
-        function validaFomr(atributo, li, name) {
+        // Validação do formulario
+        function validaFomr(atributo, li, name, mensagem) {
             var valorcep = $(atributo).val();
             if (valorcep == '') {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
-                // $('<div>', {
-                //     class: 'invalid-feedback',
-                //     text: 'Você deve o ' + name + ' corretamente'
-                // }).appendTo(li);
-                // $("div.invalid-feedback").fadeIn(300).delay(1500).fadeOut(400);
+                document.getElementById(mensagem).style.display = 'block';
+                // $("div.alext-box").fadeIn(300).delay(1500).fadeOut(400);
             } else {
                 $(atributo).removeClass('is-invalid');
-
+                document.getElementById(mensagem).style.display = 'none';
+                // $("div.alext-box").fadeOut();
             }
         }
-
 
 
 

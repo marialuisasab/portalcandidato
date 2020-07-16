@@ -84,9 +84,8 @@
 
 									<div class="form-group">
 										<li id="idlicep"><strong> CEP*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text"
-												class="form-control {{ $errors->has('cep') ? 'is-invalid' : ''}}"
-												name="cep" id="cep" placeholder="Informe o seu CEP" title="CEP">
+											<input type="text" class="form-control " name="cep" id="cep"
+												placeholder="Informe o seu CEP" title="CEP">
 
 											<div class="invalid-feedback" style="display: none;" id="menserrocep">
 												Você deve preencher o CEP!
@@ -100,9 +99,7 @@
 
 									<div class="form-group">
 										<li id="idlilogr"><strong> Rua*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text"
-												class="form-control {{$errors->has('logradouro') ? 'is-invalid' : ''}}"
-												name="logradouro" id="logradouro"
+											<input type="text" class="form-control " name="logradouro" id="logradouro"
 												placeholder="Ex.: Rua/Praça/ Ladeira ..." title="Rua">
 
 											<div class="invalid-feedback" style="display: none" id="menserrologra">
@@ -118,10 +115,8 @@
 
 									<div class="form-group">
 										<li id="idlibairro"><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text"
-												class="form-control {{$errors->has('bairro') ? 'is-invalid' : ''}}"
-												name="bairro" id="bairro" placeholder="Informe o seu bairro"
-												title="Bairro">
+											<input type="text" class="form-control " name="bairro" id="bairro"
+												placeholder="Informe o seu bairro" title="Bairro">
 											<div class="invalid-feedback" style="display: none;" id="menserrobairro">
 												Você deve preencher o Bairro!
 											</div>
@@ -133,12 +128,10 @@
 
 									<div class="form-group">
 										<li id="idlinumero"><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text"
-												class="form-control {{$errors->has('numero') ? 'is-invalid' : ''}}"
-												name="numero" id="numero" placeholder="numero"
-												title="Numero Residencial">
+											<input type="text" class="form-control " name="numero" id="numero"
+												placeholder="numero" title="Numero Residencial">
 											<div class="invalid-feedback" style="display: none;" id="menserronumero">
-												Você deve preencher o Numero!
+												Você deve preencher o Número!
 											</div>
 										</li>
 									</div>
@@ -155,9 +148,8 @@
 									{{-- <form method="GET" action="/endereco" id="ID_DO_FORMULARIO"> --}}
 									<div class="form-group">
 										<li id="idliestado"><strong> ESTADO*:&nbsp;&nbsp;&nbsp;</strong>
-											<select
-												class="form-control {{$errors->has('estado_idestado') ? 'is-invalid' : ''}}"
-												id="estado" name="estado_idestado" title="Estado">
+											<select class="form-control " id="estado" name="estado_idestado"
+												title="Estado">
 												<option value="" selected>Selecionar</option>
 												@foreach(Helper::getEstados() as $est)
 												<option value="{{$est->idestado}}">{{ $est->nome }}</option>
@@ -176,9 +168,8 @@
 									<div class="form-group" id="idcidadeselect">
 										<li id="idlicidade"><strong>CIDADE*:&nbsp;&nbsp;&nbsp;</strong><span
 												style="color: red;"></span>
-											<select
-												class="custom-select {{$errors->has('cidade_idcidade') ? 'is-invalid' : ''}}"
-												id="cidade" name="cidade_idcidade" title="Cidade">
+											<select class="custom-select " id="cidade" name="cidade_idcidade"
+												title="Cidade">
 												<option value="" selected>Selecionar</option>
 												{{-- @foreach(Helper::getCidades() as $cid)
 												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
@@ -194,9 +185,8 @@
 
 									<div class="form-group">
 										<li style="" id="idlipais"><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
-											<select
-												class="custom-select {{$errors->has('pais_idpais') ? 'is-invalid' : ''}}"
-												id="pais_idpais" name="pais_idpais" title="País">
+											<select class="custom-select " id="pais_idpais" name="pais_idpais"
+												title="País">
 												<option value="" selected>País</option>
 												@foreach(Helper::getPai () as $pais)
 												<option value="{{$pais->idpais}}">{{$pais->nome}}

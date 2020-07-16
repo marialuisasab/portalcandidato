@@ -166,18 +166,18 @@ $(function () {
         // validavazio('#pais_idpais', '#idlipais', 'pais');
 
         // chamadas da fução de validção
-        validaFomr('#cep', '#idlicep', 'cep', 'menserrocep');
-        validaFomr('#logradouro', '#idlilogr', 'logradouro', 'menserrologra');
-        validaFomr('#estado', '#idliestado', 'estado', 'menserroestado');
-        validaFomr('#numero', '#idlinumero', 'numero', 'menserronumero');
-        validaFomr('#bairro', '#idlibairro', 'bairro', 'menserrobairro');
-        validaFomr('#cidade', '#idlicidade', 'cidade', 'menserrocidade');
-        validaFomr('#pais_idpais', '#idlipais', 'pais', 'menserropais');
+        validaFomr('#cep', 'menserrocep');
+        validaFomr('#logradouro', 'menserrologra');
+        validaFomr('#estado', 'menserroestado');
+        validaFomr('#numero', 'menserronumero');
+        validaFomr('#bairro', 'menserrobairro');
+        validaFomr('#cidade', 'menserrocidade');
+        validaFomr('#pais_idpais', 'menserropais');
 
         // Validação do formulario
-        function validaFomr(atributo, li, name, mensagem) {
-            var valorcep = $(atributo).val();
-            if (valorcep == '') {
+        function validaFomr(atributo, mensagem) {
+            var valor = $(atributo).val();
+            if (valor == '') {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(mensagem).style.display = 'block';

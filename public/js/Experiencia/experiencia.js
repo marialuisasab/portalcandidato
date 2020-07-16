@@ -51,6 +51,36 @@ $(function () {
     }
 
 
+
+
+
+    $("#idformexp").submit(function () {
+
+        validaForm('#idnomeemp', 'mensempre');
+        validaForm('#iddataini', 'mensdataini');
+        validaForm('#idcargo', 'menscargo');
+
+
+
+        function validaForm(atributo, messagem) {
+            var valor = $(atributo).val();
+            if (valor == '') {
+                event.preventDefault();
+                $(atributo).addClass('is-invalid');
+                document.getElementById(messagem).style.display = 'block';
+            } else {
+
+                $(atributo).removeClass('is-invalid');
+                document.getElementById(messagem).style.display = 'none';
+            }
+
+        }
+
+
+
+    });
+
+
 });
 $(document).ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");

@@ -65,30 +65,30 @@
               <div class="card-body">
 
                 <ul style="list-style-type: none;">
-                  <form action="/experiencia/{{$exp->idexperiencia}}" method="POST">
+                  <form action="/experiencia/{{$exp->idexperiencia}}" method="POST" id="idformexp">
                     @csrf
 
                     <div class="form-group">
                       <li><strong> NOME DA EMPRESA:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="text" class="form-control {{ $errors->has('empresa') ? 'is-invalid' : ''}}"
-                          name="empresa" value="{{$exp->empresa}}" title="Nome da Empresa">
-                        @if($errors->has('empresa'))
-                        <div class="invalid-feedback">
-                          {{$errors->first('empresa')}}
+                        <input type="text" class="form-control " name="empresa" value="{{$exp->empresa}}"
+                          title="Nome da Empresa" id="idnomeemp">
+
+                        <div class="invalid-feedback" id="mensempre" style="display: none;">
+                          Você deve inserir o nome da empresa!
                         </div>
-                        @endif
+
                       </li>
                     </div>
 
                     <div class="form-group">
                       <li><strong> DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
-                          name="dtinicio" value="{{$exp->dtinicio}}" title="Data de Inicio">
-                        @if($errors->has('dtinicio'))
-                        <div class="invalid-feedback">
-                          {{$errors->first('dtinicio')}}
+                        <input type="date" class="form-control " name="dtinicio" value="{{$exp->dtinicio}}"
+                          title="Data de Inicio" id="iddataini">
+
+                        <div class="invalid-feedback" id="mensdataini" style="display: none;">
+                          Você deve inserir a data de inicio!
                         </div>
-                        @endif
+
                       </li>
                     </div>
 
@@ -130,13 +130,13 @@
 
                     <div class="form-group">
                       <li><strong> CARGO:*&nbsp;&nbsp;&nbsp;</strong>
-                        <input type="text" class="form-control {{ $errors->has('cargo') ? 'is-invalid' : ''}}"
-                          name="cargo" value="{{$exp->cargo}}" title="Cargo Exercido">
-                        @if($errors->has('cargo'))
-                        <div class="invalid-feedback">
-                          {{$errors->first('cargo')}}
+                        <input type="text" class="form-control " name="cargo" value="{{$exp->cargo}}"
+                          title="Cargo Exercido" id="idcargo">
+
+                        <div class="invalid-feedback" id="menscargo" style="display: none;">
+                          Você deve inserir o cargo
                         </div>
-                        @endif
+
                       </li>
                     </div>
 

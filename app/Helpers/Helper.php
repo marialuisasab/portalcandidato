@@ -63,7 +63,7 @@ class Helper
     }
 
     public static function getPai(){
-    $pais = Pais::orderBy('nome','ASC')->get();
+    $pais = Pais::orderBy('idpais','ASC')->get();
     return $pais;
     }
 

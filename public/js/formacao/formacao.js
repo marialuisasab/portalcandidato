@@ -133,6 +133,7 @@ $(function () {
         }
     });
 
+
 });
 
 
@@ -140,5 +141,35 @@ $(function () {
 
 $("document").ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
+
+    $("#idfomrformacao").submit(function () {
+
+        validaForm('#nome', 'mensdesc');
+        validaForm('#escolaridade', 'mensescol');
+        validaForm('#dtinicio', 'mensdtinicio');
+
+        var valorselectescol = $("#escolaridade").val();
+        if (valorselectescol == '1') {
+            validaForm('#nivel_idnivel', 'mensnivel');
+            validaForm('#area_idarea', 'mensarea');
+        } else if (valorselectescol == '2') {
+            validaForm('#categoria_idcategoria', 'menscategoria');
+        }
+
+        function validaForm(atributo, messagem) {
+            var valor = $(atributo).val();
+            if (valor == '') {
+                event.preventDefault();
+                $(atributo).addClass('is-invalid');
+                document.getElementById(messagem).style.display = 'block';
+
+            } else {
+
+                $(atributo).removeClass('is-invalid');
+                document.getElementById(messagem).style.display = 'none';
+            }
+        }
+    });
+
 
 });

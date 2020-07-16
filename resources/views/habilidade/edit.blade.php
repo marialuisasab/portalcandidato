@@ -1,5 +1,11 @@
 @extends('adminlte::page')
+{{-- importação do jquery --}}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
 
+{{-- importação do arquivo JS --}}
+<script src="/js/Habilidade/habilidade.js"></script>
 @section('content')
 
 
@@ -68,24 +74,21 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/habilidade/{{$hab->idhabilidade}}" method="POST">
+                <form action="/habilidade/{{$hab->idhabilidade}}" method="POST" id="idformhabil">
                   @csrf
 
                   <div class="form-group">
                     <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="form-control {{$errors->has('tipo_idtipo') ? 'is-invalid' : ''}}" id="tipo"
-                        name="tipo_idtipo" title="Categoria">
+                      <select class="form-control " id="tipo" name="tipo_idtipo" title="Categoria">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getTiposHab() as $tp)
                         <option value="{{$tp->idtipo}}" {{$hab->tipo_idtipo == $tp->idtipo ? 'selected' : '' }}>
                           {{$tp->nome}}</option>
                         @endforeach
                       </select>
-                      @if($errors->has('tipo_idtipo'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('tipo_idtipo')}}
+                      <div class="invalid-feedback" id="menstipo" style="display: none;">
+                        Você precisa preencher a categoria!
                       </div>
-                      @endif
                     </li>
                   </div>
 
@@ -93,13 +96,11 @@
                   {{-- complemento  definicao pendente --}}
                   <div class="form-group">
                     <li><strong>DESCRIÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" name="nome"
-                        value="{{$hab->nome}}" title="Descrição da Habilidade">
-                      @if($errors->has('nome'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('nome')}}
+                      <input type="text" class="form-control " name="nome" value="{{$hab->nome}}"
+                        title="Descrição da Habilidade" id="descricao">
+                      <div class="invalid-feedback" id="mensdescri" style="display: none;">
+                        Você precisa preencher a descrição!
                       </div>
-                      @endif
                     </li>
                   </div>
 
@@ -108,18 +109,15 @@
 
                   <div class="form-group" id="idnivel">
                     <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="form-control {{ $errors->has('nivel') ? 'is-invalid' : ''}}" id="nivel"
-                        name="nivel" title="Nível de Aprimoramento">
+                      <select class="form-control " id="nivel" name="nivel" title="Nível de Aprimoramento">
                         <option value="">Selecionar</option>
                         <option value="1" {{$hab->nivel == 1 ? 'selected' : '' }}>Básico</option>
                         <option value="2" {{$hab->nivel == 2 ? 'selected' : '' }}>Intermediário</option>
                         <option value="3" {{$hab->nivel == 3 ? 'selected' : '' }}>Avançado</option>
                       </select>
-                      @if($errors->has('nivel'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('nivel')}}
+                      <div class="invalid-feedback" id="mensnivel" style="display: none;">
+                        Você precisa preencher o nível!
                       </div>
-                      @endif
                     </li>
                   </div>
 

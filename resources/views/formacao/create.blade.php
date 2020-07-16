@@ -68,18 +68,17 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/curso" method="POST" enctype="multipart/form-data">
+                <form action="/curso" method="POST" enctype="multipart/form-data" id="idfomrformacao">
                   @csrf
 
                   <div class="form-group">
                     <li><strong> DESCRIÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" name="nome"
-                        placeholder="Descrição do Curso" title="Descrição do Curso">
-                      @if($errors->has('nome'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('nome')}}
+                      <input type="text" class="form-control " name="nome" placeholder="Descrição do Curso"
+                        title="Descrição do Curso" id="nome">
+
+                      <div class="invalid-feedback" id="mensdesc" style="display: none;">
+                        Você precisa preencher a descrição!
                       </div>
-                      @endif
                     </li>
                   </div>
 
@@ -98,17 +97,14 @@
                           </span>
                         </span>
                       </strong>
-                      <select class="form-control {{$errors->has('escolaridade') ? 'is-invalid' : ''}}"
-                        id="escolaridade" name="escolaridade" title="Tipo de Formação">
+                      <select class="form-control " id="escolaridade" name="escolaridade" title="Tipo de Formação">
                         <option value="" selected>Selecionar</option>
                         <option value="1">Academica</option>
                         <option value="2">Complementar</option>
                       </select>
-                      @if($errors->has('escolaridade'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('escolaridade')}}
+                      <div class="invalid-feedback" id="mensescol" style="display: none;">
+                        Você precisa preencher a descrição!
                       </div>
-                      @endif
                     </li>
 
                   </div>
@@ -133,11 +129,11 @@
                         <option value="{{$n->idnivel}}">{{ $n->nome }}</option>
                         @endforeach
                       </select>
-                      @if($errors->has('nivel_idnivel'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('nivel_idnivel')}}
+
+                      <div class="invalid-feedback" id="mensnivel" style="display:none;">
+                        Você precisa preencher o nível!
                       </div>
-                      @endif
+
                     </li>
                   </div>
 
@@ -149,6 +145,10 @@
                         <option value="{{$c->idcategoria}}">{{ $c->nome }}</option>
                         @endforeach
                       </select>
+                      <div class="invalid-feedback" id="menscategoria" style="display: none;">
+                        Você precisa preencher a categoria!
+                      </div>
+                    </li>
                   </div>
 
 
@@ -195,6 +195,9 @@
                         <option value="{{$a->idarea}}">{{$a->nome }}</option>
                         @endforeach
                       </select>
+                      <div class="invalid-feedback" id="mensarea" style="display:none;">
+                        Você precisa preencher o nível!
+                      </div>
                     </li>
                   </div>
 
@@ -204,7 +207,10 @@
                   <div class="form-group" id="idperiodo" style="display: none;">
                     <li><strong>PERÍODO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"></span>
                       <input type="number" class="form-control" name="periodo" placeholder="Ex.: 1º,2º,3º..."
-                        title="Período Atual">
+                        title="Período Atual" id="periodo">
+                      <div class="invalid-feedback" id="mensperiodo" style="display:none;">
+                        Você precisa preencher o nível!
+                      </div>
                     </li>
                   </div>
 
@@ -213,12 +219,12 @@
                   <div class="form-group">
                     <li><strong> DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
-                        name="dtinicio" placeholder="" title="Inicio do Curso">
-                      @if($errors->has('dtinicio'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('dtinicio')}}
+                        name="dtinicio" placeholder="" title="Inicio do Curso" id="dtinicio">
+
+                      <div class="invalid-feedback" style="display: none" id="mensdtinicio">
+                        Você precisa preencher a data de inicio!
                       </div>
-                      @endif</li>
+                    </li>
                   </div>
 
                   <div class="form-group">

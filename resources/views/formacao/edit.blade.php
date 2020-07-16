@@ -71,19 +71,17 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/curso/{{$curso->idcurso}}" method="POST">
+                <form action="/curso/{{$curso->idcurso}}" method="POST" id="idfomrformacao">
                   @csrf
 
                   <div class="form-group">
                     <li><strong> DESCRIÇÃO DO CURSO:*&nbsp;&nbsp;&nbsp;</strong>
-                      <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" name="nome"
-                        id="nome" placeholder="Informe a descrição ou nome do curso" value="{{$curso->nome}}"
+                      <input type="text" class="form-control " name="nome" id="nome"
+                        placeholder="Informe a descrição ou nome do curso" value="{{$curso->nome}}"
                         title="Descrição do Curso">
-                      @if($errors->has('nome'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('nome')}}
+                      <div class="invalid-feedback" id="mensdesc" style="display: none;">
+                        Você precisa preencher a descrição!
                       </div>
-                      @endif
                     </li>
                   </div>
 
@@ -104,10 +102,16 @@
                       <select class="custom-select" id="escolaridade" name="escolaridade" title="Tipo de Formação">
                         <option value="1">Academica</option>
                       </select>
+                      <div class="invalid-feedback" id="mensescol" style="display: none;">
+                        Você precisa preencher a formação!
+                      </div>
                       @elseif($curso->escolaridade == '2')
                       <select class="custom-select" id="escolaridade" name="escolaridade" title="Tipo de Formação">
                         <option value="2">Complementar</option>
                       </select>
+                      <div class="invalid-feedback" id="mensescol" style="display: none;">
+                        Você precisa preencher a formação!
+                      </div>
                       @else
                       @endif
                     </li>
@@ -117,8 +121,8 @@
                   @if ($curso->escolaridade =='1')
                   <div class="form-group" id="idnivel">
                     <li><strong> NÍVEL:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="form-control {{$errors->has('nivel_idnivel') ? 'is-invalid' : ''}}"
-                        id="nivel_idnivel" name="nivel_idnivel" title="Nivel de Escolaridade">
+                      <select class="form-control " id="nivel_idnivel" name="nivel_idnivel"
+                        title="Nivel de Escolaridade">
                         {{-- <option value="">Selecionar</option> --}}
                         @foreach(Helper::getNiveis() as $n)
                         @if ($curso->nivel_idnivel == $n->idnivel)
@@ -129,11 +133,9 @@
                         @endif
                         @endforeach
                       </select>
-                      @if($errors->has('nivel_idnivel'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('nivel_idnivel')}}
+                      <div class="invalid-feedback" id="mensnivel" style="display:none;">
+                        Você precisa preencher o nível!
                       </div>
-                      @endif
                     </li>
                   </div>
                   @else
@@ -145,8 +147,8 @@
                   @if ($curso->escolaridade =='2')
                   <div class="form-group" id="idcateg">
                     <li><strong>CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
-                      <select class="custom-select {{$errors->has('categoria_idcategoria') ? 'is-invalid' : ''}}"
-                        id="categoria_idcategoria" name="categoria_idcategoria" title="Categoria do Curso">
+                      <select class="custom-select " id="categoria_idcategoria" name="categoria_idcategoria"
+                        title="Categoria do Curso">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getCategorias() as $c)
                         <option value="{{$c->idcategoria}}"
@@ -154,11 +156,9 @@
                           {{ $c->nome }}</option>
                         @endforeach
                       </select>
-                      @if($errors->has('categoria_idcategoria'))
-                      <div class="invalid-feedback">
-                        {{$errors->first('categoria_idcategoria')}}
+                      <div class="invalid-feedback" id="menscategoria" style="display: none;">
+                        Você precisa preencher a categoria!
                       </div>
-                      @endif
                     </li>
                   </div>
                   @else
@@ -237,19 +237,16 @@
             @if ($curso->escolaridade =='1')
             <div class="form-group" id="idarea">
               <li><strong> AREA:*&nbsp;&nbsp;&nbsp;</strong>
-                <select class="form-control {{$errors->has('area_idarea') ? 'is-invalid' : ''}}" id="area_idarea"
-                  name="area_idarea" title="Area de Atuação">
+                <select class="form-control " id="area_idarea" name="area_idarea" title="Area de Atuação">
                   <option value="">Selecionar</option>
                   @foreach(Helper::getAreas() as $a)
                   <option value="{{$a->idarea}}" {{ $curso->area_idarea == $a->idarea ? 'selected' : '' }}>
                     {{$a->nome }}</option>
                   @endforeach
                 </select>
-                @if($errors->has('area_idarea'))
-                <div class="invalid-feedback">
-                  {{$errors->first('area_idarea')}}
+                <div class="invalid-feedback" id="mensarea" style="display:none;">
+                  Você precisa preencher a area de atuação!
                 </div>
-                @endif
               </li>
             </div>
             @else
@@ -274,14 +271,12 @@
 
 
             <div class="form-group">
-              <li><strong>DATA DE INiCIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-                <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
-                  name="dtinicio" placeholder="Ex.: 01/01/2010" value="{{$curso->dtinicio}}" title="Data de Inicio">
-                @if($errors->has('dtinicio'))
-                <div class="invalid-feedback">
-                  {{$errors->first('dtinicio')}}
+              <li><strong>DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+                <input type="date" class="form-control " name="dtinicio" placeholder="Ex.: 01/01/2010"
+                  value="{{$curso->dtinicio}}" id="dtinicio" title="Data de Inicio">
+                <div class="invalid-feedback" style="display: none" id="mensdtinicio">
+                  Você precisa preencher a data de inicio!
                 </div>
-                @endif
               </li>
             </div>
 

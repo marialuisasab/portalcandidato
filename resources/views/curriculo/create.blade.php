@@ -3,14 +3,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js">
 </script>
 
-{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script> --}}
 <script src="/jquerymask/jquerymasky.js"></script>
 <script src="/jqueryMaskMoney/jquery.maskMoney.js" type="text/javascript"></script>
 <script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js " type=" text / javascript "> </script>
-{{-- 
-<script src="vendor/jquery/jquery.js"></script> --}}
+
 <script src="/js/Dadospessoais/edit.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
@@ -78,11 +74,7 @@
 
                                 <form action="/curriculo" method="POST" enctype="multipart/form-data" id="idformdados">
                                     @csrf
-                                    {{-- <div class="form-group">
-<label for = "nome">Nome</label>
-<input type="text" class="form-control" name="nome" id="nome" placeholder="Nome Completo" value="{{Auth::user()->name}}">
-                        </div> --}}
-
+                                    
                         <div class="form-group">
                             <li><strong> NOME:*&nbsp;&nbsp;&nbsp;</strong>
                                 <input type="text" class="form-control" name="nome" id="nome"
@@ -229,7 +221,7 @@
 
 
                         <div class="form-group">
-                            <li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
+                            <li><strong> DEFICIENTE FÍSICO?*&nbsp;&nbsp;&nbsp;</strong>
                                 <select class="form-control {{$errors->has('dfisico') ? 'is-invalid' : ''}}"
                                     id="dfisico" name="dfisico" title="Deficiência Fisíca">
                                     <option value="" selected>Selecionar</option>
@@ -252,15 +244,12 @@
                             <li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
                                 <select class="form-control {{$errors->has('nacionalidade') ? 'is-invalid' : ''}}"
                                     id="nacionalidade" name="nacionalidade" title="Informe Sua Nacionalidade">
-                                    <option value="" selected>Selecionar</option>
+                                    <option value="">Selecionar</option>
+                                    <option value="1" selected>Brasil</option>
                                     @foreach(Helper::getPai () as $pais)
                                     <option value="{{$pais->idpais}}">{{$pais->nome}}
                                     </option>
-                                    @endforeach
-                                    {{--                                     
-                                    <option value="" selected>Selecionar</option>
-                                    <option value="1">Brasileira</option>
-                                    <option value="2">Outra</option> --}}
+                                    @endforeach                                   
                                 </select>
                                 @if($errors->has('nacionalidade'))
                                 <div class="invalid-feedback">
@@ -376,14 +365,10 @@
                                 <div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
                                     <input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
                                         value="1">
-                                    Sim&nbsp;&nbsp;&nbsp;
-                                    {{-- <label class="form-check-label">Sim&nbsp;&nbsp;&nbsp;</label> --}}
-
-
+                                    Sim&nbsp;&nbsp;&nbsp;                                  
                                     <input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
-                                        value="2">
-                                    Não
-                                    {{-- <label class="form-check-label">Não</label> --}}
+                                        value="2">    
+                                    Não                                    
                                 </div>
                             </li>
                         </div>
@@ -417,9 +402,7 @@
                                     @foreach(Helper::getEstados() as $esta)
                                     <option value="{{$esta->idestado}}">{{ $esta->nome }}</option>
                                     @endforeach
-                                </select>
-
-                                {{-- <input type="text" class="form-control" name="ufcnh" id="ufcnh" placeholder="UF"></li> --}}
+                                </select>                               
                         </div>
 
 
@@ -443,31 +426,16 @@
                         </div>
 
 
-
-
-
-
-
                         <div class="form-group">
                             @if(Auth::user()->foto != null)
                             <img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
                                 style="max-width: 50px;">
                             @endif
-                            <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                <input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
-                                    title="Alterar Foto de Perfil" accept='image/*' style="max-width: 50px;">
+                            <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong>
+                                <input type="file" class="form-control-file" id="foto" name="foto" title="Alterar Foto de Perfil" accept='image/*'>
                             </li>
 
                         </div>
-                        {{-- @if($errors->any())
-                        <div class="card-footer">
-                            @foreach($errors->all() as $error)
-                            <div class="alert alert-danger" role="alert">
-                                {{$error}}
-                    </div>
-                    @endforeach
-                </div>
-                @endif --}}
                 <br>
                 <div class="form-group" style="text-align: end;">
                     <button type="submit" class="btn btn-outline-primary" id="botaosalvarend"
@@ -477,10 +445,6 @@
                         <a href="home">Cancelar<span class="fas fa-window-close"
                                 style="padding-left: 15px; color: red;"></span></a>
                     </button>
-                    {{-- <button class=" btn btn-link" style="color:red;" type="cancel">
-                                <a href="cancel" style="color: red;"><span class="fas fa-window-close"
-                                        style="font-size: 25px; text-align: center;">Cancelar</span></a>
-                            </button> --}}
                 </div>
                 </form>
                 </ul>

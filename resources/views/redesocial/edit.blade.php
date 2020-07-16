@@ -21,18 +21,15 @@
           <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-">
+                <div class="col-sm">
                   <h2 class="mb-0" style="color:dodgerblue; font-size: 25px;">
                     Redes Sociais
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
                       <i class="fas fa-hashtag fa-stack-1x fa-inverse"></i>
                     </span>
-
                   </h2>
-
-                </div>
-
+                </div>                
 
                 <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
                   <div class="btn-group btn-sm " role="group" aria-label="">
@@ -44,7 +41,7 @@
 
                     <button class=" btn btn-secondary btn-sm" type="button"
                       style="height:30px; margin-top: 10px; width:70px;">
-                      <a href="" style="color: white;">Voltar<span class="fas fa-undo"
+                      <a href="/redessociais" style="color: white;">Voltar<span class="fas fa-undo"
                           style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                     </button>
                   </div>
@@ -82,12 +79,14 @@
 
                   @endforeach
                   <br>
-                  <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
-                      style="padding-left: 15px;"></button>
-                  <button class=" btn btn-danger" style="color:red;" type="cancel">
-                    <a href="/redessociais" style="color: white;">Cancelar<span class="fas fa-window-close"
-                        style="padding-left: 15px;"></span></a>
-                  </button>
+                  <div class="form-group" style="text-align: end;">
+                    <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
+                        style="padding-left: 15px;"></button>
+                    <button class=" btn btn-danger" style="color:red;" type="cancel">
+                      <a href="/redessociais" style="color: white;">Cancelar<span class="fas fa-window-close"
+                          style="padding-left: 15px;"></span></a>
+                    </button>
+                  </div>
                 </form>
               </ul>
             </div>

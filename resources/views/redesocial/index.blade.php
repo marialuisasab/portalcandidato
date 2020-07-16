@@ -29,11 +29,11 @@
       <div id="accordion" style="margin-top: 40px;">
 
         <div class="card-border-light">
-          <div class="card-header" id="headingTwo" style="background-color: aliceblue;">
+          <div class="card-header" id="headingTwo" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-sm">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center;">
+                  <h2 class="mb-0" style="color:dodgerblue; font-size: 25px;">
                     Redes Sociais
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
@@ -74,6 +74,16 @@
               </div>
               @endforeach
             </div>
+          </div>
+          <div class="form-group" style="text-align: center;">
+            <button class=" btn btn-secondary" type="button">
+              <a href="/home" style="color: white;">Início<span class="fas fa-home"
+                  style="padding-left: 5px; color:white;"></span></a>
+            </button>
+            <button class="btn btn-success" title="Vagas">
+              <a href="/vagas" style="color:white;">Vagas Abertas</a>
+              <span class="fas fa-bullhorn" style="padding-left: 5px; color:white;"></span>
+            </button>              
           </div>
         </div>
       </div>

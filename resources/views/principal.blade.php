@@ -41,23 +41,7 @@
 
   <script src="js/eventos.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!--
-  <style type="text/css">
-    .page-header {
-      background-image: url("img/panoramica1920x670.png") ;
-      -moz-background-size: cover;    /* Mozilla*/
-      -o-background-size: cover;      /* Opera*/
-      background-repeat: no-repeat;
-      height: 670px;     
-      width: 100%;
-      padding-top: 100px;
-      text-align: center;
-      color: white;
-      font-size: 30px;
-    }
-    
-  </style>
--->
+
   <style type="text/css">
         
     body, html {
@@ -85,12 +69,22 @@
 
   </style>
   <script>   
-    function copiarLink() {
-      var linkCopiado = document.getElementById("link");
-      linkCopiado.select();
-      document.execCommand("copy");
-      alert("Link de compartilhamento copiado!"+ linkCopiado.value);
-    }
+    function setClipboard(value) {
+      var success = true;
+      var tempInput = document.createElement("input");
+      tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+      tempInput.value = value;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      success = document.execCommand("copy");
+      if(success){
+        alert('Link de compartilhamento copiado!');
+        document.body.removeChild(tempInput);
+      }else {
+        alert('Falha ao copiar o link de compartilhamento!');
+      }
+      
+  }
   </script>
 
 </head>
@@ -242,9 +236,8 @@
                           <b>Candidate-se</b>
                           <span class="fa fa-check" style="padding-left: 10px;"></span>
                         </a> 
-                      </button>    
-                      <input type="hidden" onClick="this.select();" name="link" id="link" value="{{env('APP_URL')}}">
-                      <button class="btn btn-info" onClick="copiarLink()">
+                      </button>                          
+                      <button class="btn btn-info" onClick="setClipboard('Veja as vagas de trabalho disponíveis no site da Bio Extratus: www.trabalheconosco.bioextratus.com.br')">
                         <b>Compartilhe</b>
                         <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>                     
                       </button>            

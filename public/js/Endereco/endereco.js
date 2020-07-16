@@ -27,7 +27,7 @@ $(function () {
                 $('select[name=cidade_idcidade]').empty();
                 $.each(cidades, function (key, value) {
                     $('select[name=cidade_idcidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
-                    console.log(value);
+                    // console.log(value);
                 });
             });
 
@@ -70,37 +70,37 @@ $(function () {
     // });
 
 
-    $('#botaosalvarend').click(function () {
-        var valor = $('#estado').val();
+    // $('#botaosalvarend').click(function () {
+    //     var valor = $('#estado').val();
 
-        if (valor == null) {
-            $('#estado').append("<div>Este elemento não pode ser em branco</div>");
-        }
-        // alert(valor);
+    //     if (valor == null) {
+    //         $('#estado').append("<div>Este elemento não pode ser em branco</div>");
+    //     }
+    // alert(valor);
 
-        // var SelectEstado = document.querySelector("#estado");
-        // SelectEstado.addEventListener("change", function () {
-        //     var valor = this.value;
-        //     alert(valor);
+    // var SelectEstado = document.querySelector("#estado");
+    // SelectEstado.addEventListener("change", function () {
+    //     var valor = this.value;
+    //     alert(valor);
 
 
-        // campotelefone.addEventListener("input", function () {
+    // campotelefone.addEventListener("input", function () {
 
-        //     var valor = this.value;
-        //     var valor1 = valor.length;
+    //     var valor = this.value;
+    //     var valor1 = valor.length;
 
-        //     console.log(this.value);
-        //     var SPMaskBehavior = function (valor1) {
-        //             return val.replace(/\D/g, '').length === 11 ? '(00) 90000-0000' : '(00) 9000-0000';
-        //         },
-        //         spOptions = {
-        //             onKeyPress: function (val, e, field, options) {
-        //                 field.mask(SPMaskBehavior.apply({}, arguments), options);
-        //             }
-        //         };
-        // });
+    //     console.log(this.value);
+    //     var SPMaskBehavior = function (valor1) {
+    //             return val.replace(/\D/g, '').length === 11 ? '(00) 90000-0000' : '(00) 9000-0000';
+    //         },
+    //         spOptions = {
+    //             onKeyPress: function (val, e, field, options) {
+    //                 field.mask(SPMaskBehavior.apply({}, arguments), options);
+    //             }
+    //         };
+    // });
 
-    });
+    // });
 
     // window.document.getElementById("genero").style.background = "#32CD32";
     // window.document.getElementById("genero").style.color = "#32CD32";

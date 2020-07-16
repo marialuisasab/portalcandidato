@@ -89,6 +89,9 @@
 								<input type="text" class="form-control" name="nome" id="nome" autofocus
 									placeholder="Nome Completo" value="{{Auth::user()->name}}" title="Nome">
 							</li>
+							<div class="invalid-feedback" id="mensnome" style="display: none;">
+								Você precisa preencher o nome!
+							</div>
 						</div>
 
 
@@ -98,11 +101,9 @@
 								<input type="text" class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}"
 									maxlength="11" name="cpf" id="cpf" placeholder="CPF" value="{{$c->cpf}}"
 									title="Documento CPF">
-								@if($errors->has('cpf'))
-								<div class="invalid-feedback">
-									{{$errors->first('cpf')}}
+								<div class="invalid-feedback" id="menscpf" style="display: none;">
+									Você precisa preencher o CPF!
 								</div>
-								@endif
 							</li>
 						</div>
 
@@ -112,11 +113,9 @@
 								<input type="text" class="form-control {{$errors->has('rg') ? 'is-invalid' : ''}}"
 									maxlength="11" name="rg" id="rg" placeholder="RG" value="{{$c->rg}}"
 									title="Documento de Identidade">
-								@if($errors->has('rg'))
-								<div class="invalid-feedback">
-									{{$errors->first('rg')}}
+								<div class="invalid-feedback" id="mensrg" style="display: none;">
+									Você precisa preencher o RG!
 								</div>
-								@endif
 							</li>
 						</div>
 
@@ -135,11 +134,10 @@
 									placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial"
 									value="{{Helper::getPretensao($c->pretsalarial)}}"
 									title="Valor Pretendido para Salário">
-								@if($errors->has('pretsalarial'))
-								<div class="invalid-feedback">
-									{{$errors->first('pretsalarial')}}
+								<div class="invalid-feedback" id="menspretsala" style="display: none;">
+									Você precisa preencher a sua pretenção salarial!
 								</div>
-								@endif</li>
+							</li>
 
 						</div>
 
@@ -151,11 +149,9 @@
 									class="form-control {{$errors->has('dtnascimento') ? 'is-invalid' : ''}}"
 									placeholder="Ex.: dd/mm/aaaa" name="dtnascimento" id="dtnascimento"
 									value="{{$c->dtnascimento}}" title="Data de Nascimento">
-								@if($errors->has('dtnascimento'))
-								<div class="invalid-feedback">
-									{{$errors->first('dtnascimento')}}
+								<div class="invalid-feedback" id="mensdtnasc" style="display: none;">
+									Você precisa preencher a data do seu nascimento!
 								</div>
-								@endif
 						</div>
 						</li>
 
@@ -174,11 +170,9 @@
 									<option value="N" id="idselecionargen" {{$c->genero == 'N' ? 'selected' : ''}}>
 										Prefiro não informar</option>
 								</select>
-								@if($errors->has('genero'))
-								<div class="invalid-feedback">
-									{{$errors->first('genero')}}
+								<div class="invalid-feedback" id="mensgenero" style="display: none;">
+									Você precisa preencher o genero!
 								</div>
-								@endif
 							</li>
 						</div>
 
@@ -187,11 +181,9 @@
 								<input type="text" class="form-control {{$errors->has('nomemae') ? 'is-invalid' : ''}}"
 									name="nomemae" id="nomemae" placeholder="Nome da mãe" value="{{$c->nomemae}}"
 									title="Nome da Sua Mãe">
-								@if($errors->has('nomemae'))
-								<div class="invalid-feedback">
-									{{$errors->first('nomemae')}}
+								<div class="invalid-feedback" id="mensmae" style="display: none;">
+									Você precisa preencher o nome de sua mãe!
 								</div>
-								@endif
 							</li>
 						</div>
 
@@ -216,11 +208,9 @@
 									<option value="2" {{$c->dfisico == '2' ? 'selected' : ''}}>
 										Não</option>
 								</select>
-								@if($errors->has('dfisico'))
-								<div class="invalid-feedback">
-									{{$errors->first('dfisico')}}
+								<div class="invalid-feedback" id="mensdtfisico" style="display: none;">
+									Você precisa preencher se é deficiente fisico!
 								</div>
-								@endif
 							</li>
 						</div>
 
@@ -242,11 +232,10 @@
 										{{ $pai->nome }}</option>
 									@endforeach
 								</select>
-								@if($errors->has('nacionalidade'))
-								<div class="invalid-feedback">
-									{{$errors->first('nacionalidade')}}
+								<div class="invalid-feedback" id="mensnacional" style="display: none;">
+									Você precisa selecionar a sua nacionalidade!
 								</div>
-								@endif</li>
+							</li>
 						</div>
 
 
@@ -269,9 +258,8 @@
 								<div class="row">
 									<div class="col-sm" style="text-align: start;">
 
-										<select
-											class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-											id="natural" name="natural" title="Estado de Origem">
+										<select class="form-control " id="natural" name="natural"
+											title="Estado de Origem">
 											<option value="" selected>Selecionar</option>
 											@foreach(Helper::getEstados() as $est)
 											<option value="{{$est->idestado}}" @foreach (Helper ::getCidades() as
@@ -282,11 +270,9 @@
 											</option>
 											@endforeach
 										</select>
-										@if($errors->has('naturalidade'))
-										<div class="invalid-feedback">
-											{{$errors->first('naturalidade')}}
+										<div class="invalid-feedback" id="mensnatural" style="display: none;">
+											Você precisa selecionar a sua naturalidade!
 										</div>
-										@endif
 									</div>
 									<div class="col-sm">
 										<select
@@ -307,13 +293,10 @@
 											@endif
 											@endforeach
 										</select>
-										@if($errors->has('naturalidade'))
-										<div class="invalid-feedback">
-											{{$errors->first('naturalidade')}}
+										<div class="invalid-feedback" id="mensnaturalidade" style="display: none;">
+											Você precisa selecionar a sua naturalidade!
 										</div>
-										@endif
 									</div>
-
 								</div>
 							</div>
 						</li>
@@ -321,15 +304,13 @@
 
 
 					<div class="form-group">
-						<li><strong> TELEFONE 1:*&nbsp;&nbsp;&nbsp;</strong>
+						<li><strong> TELEFONE PRINCIPAL:*&nbsp;&nbsp;&nbsp;</strong>
 							<input type="text" class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
 								name="telefone1" id="telefone1" placeholder="Telefone 1" value="{{$c->telefone1}}"
 								title="Telefone Principal">
-							@if($errors->has('telefone1'))
-							<div class="invalid-feedback">
-								{{$errors->first('telefone1')}}
+							<div class="invalid-feedback" id="menstelefone" style="display: none;">
+								Você precisa selecionar o telefone!
 							</div>
-							@endif
 						</li>
 					</div>
 
@@ -358,11 +339,9 @@
 								<option name="selectestadocivil" value="5" {{$c->estadocivil == '5' ? 'selected' : ''}}>
 									Separado(a)</option>
 							</select>
-							@if($errors->has('estadocivil'))
-							<div class="invalid-feedback">
-								{{$errors->first('estadocivil')}}
+							<div class="invalid-feedback" id="mensestadociv" style="display: none;">
+								Você precisa selecionar o seu estado civil!
 							</div>
-							@endif
 						</li>
 					</div>
 
@@ -474,7 +453,8 @@
 					<div class="form-group">
 						<li style="word-break: break-word;"><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong>
 							<textarea class="form-control" id="sobre" rows="3" name="sobre" value=""
-								title="Objetivos Pessoais">{{$c->sobre}}</textarea>
+								title="Objetivos Pessoais"
+								placeholder="Descreva seus objetivos...">{{$c->sobre}}</textarea>
 						</li>
 					</div>
 

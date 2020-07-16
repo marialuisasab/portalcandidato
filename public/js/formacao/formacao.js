@@ -162,9 +162,7 @@ $("document").ready(function () {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(messagem).style.display = 'block';
-
             } else {
-
                 $(atributo).removeClass('is-invalid');
                 document.getElementById(messagem).style.display = 'none';
             }

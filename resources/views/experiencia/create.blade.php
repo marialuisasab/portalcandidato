@@ -121,7 +121,8 @@
                 <div class="form-group">
                   <li><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
                     <textarea class="form-control {{ $errors->has('atividades') ? 'is-invalid' : ''}}" name="atividades"
-                      id="atividades" rows="3" title="Descrição das Atividades"></textarea>
+                      id="atividades" rows="3" title="Descrição das Atividades"
+                      placeholder="Descreva as atividades exercidas..."></textarea>
                     @if($errors->has('atividades'))
                     <div class="invalid-feedback">
                       {{$errors->first('atividades')}}

@@ -214,6 +214,51 @@ $(document).ready(function ($) {
     // "( ou )"
     // "-"
     $("#idformdados").submit(function () {
+
+
+        validaForm('#nome', 'mensnome');
+        validaForm('#cpf', 'menscpf');
+        validaForm('#rg', 'mensrg');
+        validaForm('#pretsalarial', 'menspretsala');
+        validaForm('#dtnascimento', 'mensdtnasc');
+        validaForm('#genero', 'mensgenero');
+        validaForm('#nomemae', 'mensmae');
+        validaForm('#dfisico', 'mensdtfisico');
+        validaForm('#nacionalidade', 'mensnacional');
+        validaForm('#naturalidade', 'mensnaturalidade');
+        validaForm('#natural', 'mensnatural');
+        validaForm('#telefone1', 'menstelefone');
+        validaForm('#estadocivil', 'mensestadociv');
+
+
+
+
+
+
+        function validaForm(atributo, messagem) {
+            var valor = $(atributo).val();
+            if (valor == '') {
+                event.preventDefault();
+                $(atributo).addClass('is-invalid');
+                document.getElementById(messagem).style.display = 'block';
+
+            } else {
+                $(atributo).removeClass('is-invalid');
+                document.getElementById(messagem).style.display = 'none';
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         // event.preventDefault();
         var cpfValue = $("#cpf").val();
         var rgvalue = $("#rg").val();
@@ -241,7 +286,6 @@ $(document).ready(function ($) {
         // alert(rgvalue);
         // console.log(valorpret);
 
-
     });
 
     $("#natural").change(function () {
@@ -253,7 +297,7 @@ $(document).ready(function ($) {
                 $('select[name=naturalidade]').empty();
                 $.each(cidades, function (key, value) {
                     $('select[name=naturalidade]').append('<option value=' + value.idcidade + '>' + value.nome + '</option>');
-                    console.log(value);
+                    // console.log(value);
                 });
             });
         } else {

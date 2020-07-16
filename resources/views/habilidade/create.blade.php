@@ -72,7 +72,17 @@
                   @csrf
 
                   <div class="form-group">
-                    <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong> CATEGORIA:*&nbsp;&nbsp;&nbsp;
+                        <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a categoria??"
+                          type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
+
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <textarea name="" id="" cols="30" rows="6"
+                              style="text-align:justify;">Categoria:
+                                                O candidato deve colocar a categoria em que esta habilidade pertence, ou seja, se é uma habilidade relacionada a area da informática (Linguagens de Programação, desenvolvimento, suporte e etc), pacote office (Word, Excel, Power Point e etc), Idiomas (Português, Ingles, Espanhol e etc). </textarea>
+                          </span>
+                        </span>
+                      </strong>
                       <select class="form-control " id="tipo" name="tipo_idtipo" title="Categoria">
                         <option value="" selected>Selecione</option>
                         @foreach(Helper::getTiposHab() as $tp)

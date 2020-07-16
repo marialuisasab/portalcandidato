@@ -106,7 +106,7 @@
 
 
 									<div class="form-group">
-										<li id="idlilogr"><strong> LOGRADOURO:*&nbsp;&nbsp;&nbsp;</strong>
+										<li id="idlilogr"><strong> RUA:*&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control " name="logradouro" id="logradouro"
 												placeholder="Ex.: Rua/Praça/ Ladeira ..." value="{{$e->logradouro}}"
 												title="Rua">

@@ -93,8 +93,8 @@
                           <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <textarea name="" id="" cols="30" rows="10"
                               style="text-align:justify;">Formação:
-                          O candidato deve colocar o grau de escolaridade que possui, ou seja, quem tem nível superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico  deve selecionar a opção acadêmica!.
-                          No Caso das formação complementar os usuários devem selecionar quando os mesmos forem inserir cursos profissionalizantes, especialização, aprandizagem, aprimoramento e etc. </textarea>
+                          O candidato deve colocar o grau de escolaridade que possui, ou seja, quem tem nível superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico  deve selecionar a opção acadêmica.
+                          No caso da formação complementar os usuários devem selecionar quando os mesmos forem inserir cursos profissionalizantes, especialização, aprandizagem, aprimoramento e etc. </textarea>
                           </span>
                         </span>
                       </strong>
@@ -146,7 +146,17 @@
 
                   @if ($curso->escolaridade =='2')
                   <div class="form-group" id="idcateg">
-                    <li><strong>CATEGORIA:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong>CATEGORIA:*&nbsp;&nbsp;&nbsp;
+                        <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a categoria??"
+                          type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
+
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <textarea name="" id="" cols="30" rows="6"
+                              style="text-align:justify;">Categoria:
+    O candidato deve colocar a categoria em que este curso complementar pertence, ou seja, se é um curso complementar de, aprimoramento, idiomas, certificação, etc. </textarea>
+                          </span>
+                        </span>
+                      </strong>
                       <select class="custom-select " id="categoria_idcategoria" name="categoria_idcategoria"
                         title="Categoria do Curso">
                         <option value="">Selecionar</option>
@@ -172,7 +182,15 @@
                       <div class="row">
                         <div class="col-sm">
                           <strong>ESTADO DA INSTITUIÇÃO:
-                            &nbsp;&nbsp;&nbsp;</strong>
+                            &nbsp;&nbsp;&nbsp;
+                            <span class="fas fa-question-circle dropdown-toggle" title="Estado da instituição??"
+                              type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
+
+                              <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <textarea name="" id="" cols="30" rows="3" style="text-align:justify;">Estado da instituição:   
+    Você deve selecionar o estado que a instituição pertence. </textarea>
+                              </span>
+                            </span></strong>
                           <select class="form-control" id="selectinstituicao" name="selectinstituicao"
                             title="Localidade da Instituição">
                             <option value="">Selecionar</option>

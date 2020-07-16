@@ -22,17 +22,17 @@
 
     <div class="col-xs-10 col-md-10">
 
-      <div id="accordion" style="margin-top: 40px;">
+     <div id="accordion" style="margin-top: 40px;">
         <div class="card-border-light">
           <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
                 <div class="col-">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size:25px;">
-                    Habilidades e Idiomas
+                    Habilidades e Ferramentas
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fas fa-user-graduate fa-stack-1x fa-inverse"></i>
+                      <i class="fas fas fa-cogs  fa-stack-1x fa-inverse"></i>
                     </span>
 
                   </h2>

@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group">
-                      <li><strong> DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong>
+                      <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
                         <input type="date" class="form-control " name="dtinicio" value="{{$exp->dtinicio}}"
                           title="Data de Inicio" id="iddataini">
 
@@ -96,7 +96,7 @@
 
                     @if ($exp->dtfim == null)
                     <div class="form-group">
-                      <li><strong>TRABALHA NESTA EMPRESA ATUALMENTE!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                      <li><strong>TRABALHA NESTA EMPRESA ATUALMENTE?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                         <div class="form-check form-check-inline" id="idtrabalhoatual" name="idtrabalhoatual">
                           <input class="form-check-input" type="radio" name="trabalho" id="trabalho" value="1">
                           Sim&nbsp;&nbsp;&nbsp;
@@ -113,14 +113,14 @@
 
                     @if ($exp->dtfim == null)
                     <div class="form-group" style="display: none;" id="datatermino">
-                      <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
+                      <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>
                         <input type="date" class="form-control" name="dtfim" value="{{Helper::getData($exp->dtfim)}}"
                           title="Data de Saída">
                       </li>
                     </div>
                     @else
                     <div class="form-group" id="datatermino">
-                      <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
+                      <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>
                         <input type="date" class="form-control" name="dtfim" value="{{$exp->dtfim}}"
                           title="Data de Saída">
                       </li>

@@ -25,37 +25,33 @@
     </div>
 
     <div class="col-xs-10 col-md-10">
-
       <div id="accordion" style="margin-top: 40px;">
-
         <div class="card-border-light">
-          <div class="card-header" id="headingTwo" style="background-color: white;">
+          <div class="card-header" id="headingOne" style="background-color: white;">
             <div class="container">
               <div class="row">
-                <div class="col-sm">
+                <div class="col-">
                   <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size:25px;">
-
-                    Habilidades e Idiomas
+                    Habilidades e Ferramentas
                     <span class="fa-stack fa-sm">
                       <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fas fa-language fa-stack-1x fa-inverse"></i>
+                      <i class="fas fas fa-cogs  fa-stack-1x fa-inverse"></i>
                     </span>
 
                   </h2>
 
                 </div>
 
-
                 <div class="col-xs-7 col-md-7" style=" text-align:end; margin-left: auto;">
 
                   <div class="btn-group btn-sm" role="group">
-                    <button class=" btn btn-primary" title="Adicionar Habilidade">
+                    <button class=" btn btn-primary btn-sm" title="Adicionar Habilidade">
                       <a href="{{route('habilidade.novo')}}" style="color: white;">Adicionar<span class="fa fa-plus"
                           style="padding-left:15px;"></span> </a>
                     </button>
 
                     <button class=" btn btn-success btn-sm" title="Cadastrar Redes Sociais">
-                      <a style=" color: white;" href="redessociais">Proximo
+                      <a style=" color: white;" href="redessociais">Próximo
                         <span class="fas fa-forward" style="padding-left:15px;"></span>
                       </a>
                     </button>
@@ -69,8 +65,6 @@
 
                 </div>
               </div>
-
-
             </div>
 
 

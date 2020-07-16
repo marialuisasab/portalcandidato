@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="form-group">
-                  <li><strong>TRABALHA NESTA EMPRESA ATUALMENTE!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                  <li><strong>TRABALHA NESTA EMPRESA ATUALMENTE?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                     <div class="form-check form-check-inline" id="idtrabalhoatual" name="idtrabalhoatual">
                       <input class="form-check-input" type="radio" name="trabalho" id="trabalho" value="1">
                       Sim&nbsp;&nbsp;&nbsp;
@@ -103,7 +103,7 @@
 
 
                 <div class="form-group" style="display: none;" id="datatermino">
-                  <li><strong> DATA DE SAÍDA:*&nbsp;&nbsp;&nbsp;</strong>
+                  <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>
                     <input type="date" class="form-control" name="dtfim" title="Data de Saída">
                   </li>
                 </div>

@@ -47,13 +47,19 @@ class RedesocialController extends Controller
     public function store(Request $request)
     {   
         $flag = false;
+        $todosnull = true;
         foreach ($request->link as $key => $value){        
             $rede = new RedeSocialCurriculo();           
             $rede->curriculo_idcurriculo = Helper::getIdCurriculo();
             $rede->redesocial_idredesocial = $request->redesocial_idredesocial[$key];
             $rede->link = $request->link[$key];
-            if($rede->save())
-                $flag = true;                 
+            if(!is_null($rede->link)){
+                $todosnull = false;
+            }
+            if(!$todosnull){
+                if($rede->save())
+                    $flag = true;   
+            }              
         }
         if($flag){
             flash("Informações gravadas com sucesso!")->success();

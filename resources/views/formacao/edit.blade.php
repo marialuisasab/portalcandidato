@@ -289,7 +289,7 @@
 
 
             <div class="form-group">
-              <li><strong>DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+              <li><strong>DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong><span></span>
                 <input type="date" class="form-control " name="dtinicio" placeholder="Ex.: 01/01/2010"
                   value="{{$curso->dtinicio}}" id="dtinicio" title="Data de Inicio">
                 <div class="invalid-feedback" style="display: none" id="mensdtinicio">
@@ -302,7 +302,7 @@
 
             @if ($curso->dtfim == null)
             <div class="form-group">
-              <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+              <li><strong>JA CONCLUIU O CURSO?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                 <div class="form-check form-check-inline" id="idconcluicurso" name="checkcurso">
                   <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1">
                   Sim&nbsp;&nbsp;&nbsp;

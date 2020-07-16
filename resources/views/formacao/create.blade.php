@@ -111,7 +111,7 @@
 
 
                   <div class="form-group" id="idnivel" style="display: none;">
-                    <li><strong> NIVEL:*&nbsp;&nbsp;&nbsp;
+                    <li><strong> NÍVEL:*&nbsp;&nbsp;&nbsp;
                         <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher o nível??"
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
@@ -206,7 +206,7 @@
 
 
                   <div class="form-group" style="display: none;" id="idarea">
-                    <li><strong> AREA:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong> ÁREA:*&nbsp;&nbsp;&nbsp;</strong>
                       <select class="custom-select" id="area_idarea" name="area_idarea" title="Area de Atuação">
                         <option value="" selected>Selecionar</option>
                         @foreach(Helper::getAreas() as $a)
@@ -235,7 +235,7 @@
 
 
                   <div class="form-group">
-                    <li><strong> DATA DE INICIO:*&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
                       <input type="date" class="form-control {{ $errors->has('dtinicio') ? 'is-invalid' : ''}}"
                         name="dtinicio" placeholder="" title="Inicio do Curso" id="dtinicio">
 
@@ -246,7 +246,7 @@
                   </div>
 
                   <div class="form-group">
-                    <li><strong>JA CONCLUI O CURSO!?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                    <li><strong>JA CONCLUIU O CURSO?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                       <div class="form-check form-check-inline" id="idconcluicurso" name="checkcurso">
                         <input class="form-check-input" type="radio" name="idconclui" id="idconclui" value="1">
                         Sim&nbsp;&nbsp;&nbsp;

@@ -31,27 +31,27 @@
 
     <div class="col-xs-10 col-md-10">
 
+     
       <div id="accordion" style="margin-top: 40px;">
-
         <div class="card-border-light">
-          <div class="card-header" id="headingTwo" style="background-color: white;">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm">
-                  <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size:25px;">
+          <div class="card-border-light">
+            <div class="card-header" id="headingOne" style="background-color: white;">
+              <div class="container">
 
-                    Experiências Profissionais
-                    <span class="fa-stack fa-sm">
-                      <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>
-                    </span>
+                <div class="row">
+                  <div class="col-">
+                    <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size: 25px;">
+                      Experiências Profissionais
+                      <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </h2>
+                  </div>
 
-                  </h2>
-
-                </div>
 
 
-                <div class="col-xs-8 col-md-6" style="text-align: end;">
+                <div class="col-xs-8 col-md-6" style="text-align: end; margin-left: auto;">
 
                   <div class="btn-group btn-sm" role="group">
                     <button class=" btn btn-primary btn-sm" title="Adicionar Experiência">
@@ -59,7 +59,7 @@
                           style="padding-left: 15px;"></span> </a>
                     </button>
                     <button class=" btn btn-success btn-sm" title="Cadastrar Habilidades">
-                      <a style=" color: white;" href="/habilidades">Proximo<span class="fas fa-forward"
+                      <a style=" color: white;" href="/habilidades">Próximo<span class="fas fa-forward"
                           style="padding-left:15px;"></span>
                       </a>
                     </button>

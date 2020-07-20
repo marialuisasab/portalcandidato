@@ -108,7 +108,7 @@
               data-placement="bottton" title="Entrar no sistema">
               <a class="navbar-brand" href="{{ route('login') }}" style="color: gray;">
 
-                Login
+                Entrar
                 <span class="fas fa-sign-in-alt px-2">
                 </span>
               </a>

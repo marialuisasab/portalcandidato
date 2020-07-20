@@ -124,7 +124,7 @@
 
 
 
-    <footer class="site-footer mt-5" id="idfooter">
+    <footer class="site-footer mt-5" id="idfooter" style="background-color: #CDD7BC;">
       <div class="container">
         <div class="row">
           <div class="col-xs-4 col-md-4"></div>

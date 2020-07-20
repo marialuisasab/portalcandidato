@@ -175,7 +175,6 @@
 
 
 
-
 									{{-- <div class="form-group">
 										<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 											<select class="custom-select" id="cidade" name="cidade_idcidade"

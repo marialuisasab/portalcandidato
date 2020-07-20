@@ -181,6 +181,9 @@ $(function () {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(mensagem).style.display = 'block';
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
                 // $("div.alext-box").fadeIn(300).delay(1500).fadeOut(400);
             } else {
                 $(atributo).removeClass('is-invalid');

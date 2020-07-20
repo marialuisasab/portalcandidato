@@ -31,6 +31,9 @@ $(function () {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(messagem).style.display = 'block';
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
 
             } else {
 

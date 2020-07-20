@@ -19,6 +19,7 @@ $(function () {
                 var valorid = $("#nivel_idnivel").val();
                 // alert(valorid);
                 var vetorEscolFund = ['1', '2', '3', '4', '5', '6']
+                var vetorvalorComperiodo = ['7', '9', '11', '13'];
                 if ($.inArray(valorid, vetorEscolFund) !== -1) {
                     document.getElementById("idnomeescola").style.display = 'block';
                     document.getElementById("idarea").style.display = 'none';
@@ -26,13 +27,18 @@ $(function () {
                     document.getElementById("idmostrarinstituicao").style.display = 'none';
 
 
-                } else {
+                } else if ($.inArray(valorid, vetorvalorComperiodo) !== -1) {
                     document.getElementById("idmostrarinstituicao").style.display = 'block';
-                    document.getElementById("idperiodo").style.display = 'block';
                     document.getElementById("idarea").style.display = 'block';
+                    document.getElementById("idperiodo").style.display = 'block';
                     document.getElementById("idnomeescola").style.display = 'none';
 
-                };
+                } else {
+                    document.getElementById("idmostrarinstituicao").style.display = 'block';
+                    document.getElementById("idarea").style.display = 'block';
+                    document.getElementById("idperiodo").style.display = 'none';
+                    document.getElementById("idnomeescola").style.display = 'none';
+                }
 
             });
             // $('#idperiodo').style.display = 'block';
@@ -162,6 +168,9 @@ $("document").ready(function () {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(messagem).style.display = 'block';
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
             } else {
                 $(atributo).removeClass('is-invalid');
                 document.getElementById(messagem).style.display = 'none';

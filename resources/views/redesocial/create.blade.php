@@ -1,4 +1,10 @@
 @extends('adminlte::page')
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+
+{{-- importação do arquivo JS --}}
+<script src="/js/RedesSociais/RedesScociais.js"></script>
 
 @section('content')
 
@@ -62,7 +68,7 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/redesocial" method="POST">
+                <form action="/redesocial" method="POST" id="idsubmitredes">
                   @csrf
                   @foreach(Helper::getRedes() as $rs)
                   <div class="form-group">
@@ -80,8 +86,8 @@
                   @endforeach
                   <br>
                   <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-primary" title="Confirmar Alterações">Salvar<span
-                        class="fas fa-save" style="padding-left: 15px;"></button>
+                    <button type="submit" class="btn btn-primary" title="Confirmar Alterações"
+                      id="idsalvarredes">Salvar<span class="fas fa-save" style="padding-left: 15px;"></button>
                     <button class=" btn btn-danger" style="color:red;" type="cancel" title="Cancelar Alterações">
                       <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
                           style="padding-left: 15px;"></span></a>

@@ -1,5 +1,11 @@
 @extends('adminlte::page')
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+
+{{-- importação do arquivo JS --}}
+<script src="/js/RedesSociais/RedesScociais.js"></script>
 @section('content')
 
 
@@ -29,7 +35,7 @@
                       <i class="fas fa-hashtag fa-stack-1x fa-inverse"></i>
                     </span>
                   </h2>
-                </div>                
+                </div>
 
                 <div class="col-xs-8 col-2" style="margin-left: auto; text-align: end;">
                   <div class="btn-group btn-sm " role="group" aria-label="">
@@ -59,7 +65,7 @@
               <ul style="list-style-type: none;">
 
 
-                <form action="/redesocial/{{$id}}" method="POST">
+                <form action="/redesocial/{{$id}}" method="POST" id="idsubmitredes">
                   @csrf
                   @foreach(Helper::getRedes() as $key => $rs)
                   <div class="form-group">
@@ -80,7 +86,7 @@
                   @endforeach
                   <br>
                   <div class="form-group" style="text-align: end;">
-                    <button type="submit" class="btn btn-primary">Salvar<span class="fas fa-save"
+                    <button type="submit" class="btn btn-primary" id="idsalvarredes">Salvar<span class="fas fa-save"
                         style="padding-left: 15px;"></button>
                     <button class=" btn btn-danger" style="color:red;" type="cancel">
                       <a href="/redessociais" style="color: white;">Cancelar<span class="fas fa-window-close"

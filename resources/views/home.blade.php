@@ -82,21 +82,24 @@
 
           <div style="text-justify:  center;">
 
-            <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
+            <h3 class="profile-username text-center" style="font-family: Arial, Helvetica, sans-serif;">
+              {{Auth::user()->name}}</h3>
 
-            <p class="text-muted text-center">Ultimo cargo... EX: Software Engineer</p>
+            {{-- <p class="text-muted text-center">Ultimo cargo... EX: Software Engineer</p> --}}
             @foreach($candidato as $item)
             <ul style="text-align: center;">
 
               @if($item->telefone1!= null)
-              <p style="padding-left: 10px;"><strong class="lead">Telefone:</strong> {{$item->telefone1}}</p>
+              <p style="padding-left: 10px; margin-right: 50px; margin-top: 30px;"><strong class="lead"
+                  style="font-family: Arial, Helvetica, sans-serif;">Telefone:</strong> {{$item->telefone1}}</p>
               @else
               <p style="padding-left: 10px;"><strong class="lead">Sem informações cadastradas!!!</strong> </p>
               @endif
 
 
 
-              <p style="padding-left: 10px;"><strong style="font">Email:</strong><em
+              <p style="padding-left: 10px;"><strong class="lead"
+                  style="font-family: Arial, Helvetica, sans-serif;">Email:</strong><em
                   style="padding-left: 10px;">{{Auth::user()->email}}</em></p>
 
 
@@ -176,7 +179,7 @@
         <div class="inner">
           <!--<h3>150</h3>-->
 
-          <p style="text-align: center;">Suporte Técnico</p>
+          <p style="text-align: center;">Fale Conosco</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>

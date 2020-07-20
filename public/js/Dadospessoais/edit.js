@@ -1,15 +1,5 @@
 $(function () {
-    $("#genero").change(function () {
-        // window.document.getElementById("genero").style.background = "#32CD32";
-        // window.document.getElementById("genero").style.color = "#32CD32";
-        // window.document.getElementById("genero").value = 1;
-        // document.getElementById('genero').value = this.value;
-        var exemp = this.value;
-
-        $("#genero").append("<option value=exemp.value> Test</option>");
-    });
-
-
+    // $("#genero").append("<option value=exemp.value> Test</option>");
     // $("#botaoeditar").mouseover(function () {
     //     $("div.warning").fadeIn(300).delay(1500).fadeOut(400);
     //     $('<div>', {
@@ -127,7 +117,7 @@ $(document).ready(function ($) {
     $('#rg').mask('AA-SS.SSS.SSS', {
         'translation': {
             A: {
-                pattern: /[A-Za-z]/
+                pattern: /[A-Za-z0-9]/
             },
             S: {
                 pattern: /[A-Za-z0-9]/
@@ -241,6 +231,9 @@ $(document).ready(function ($) {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(messagem).style.display = 'block';
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
 
             } else {
                 $(atributo).removeClass('is-invalid');

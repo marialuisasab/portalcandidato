@@ -43,8 +43,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <style type="text/css">
-        
-    body, html {
+    body,
+    html {
       height: 100%;
       margin: 0;
     }
@@ -66,9 +66,8 @@
       transform: translate(-50%, -50%);
       color: white;
     }
-
   </style>
-  <script>   
+  <script>
     function setClipboard(value) {
       var success = true;
       var tempInput = document.createElement("input");
@@ -153,7 +152,7 @@
     </nav>
   </div>
 
-    
+
   <div class="bio-image">
     <div class="bio-text">
       <h1><i>Portal do Candidato <b>Bio Extratus</b></i></h1>
@@ -173,25 +172,28 @@
       <div class="col mr-auto">
         <p class="SOBRENOS">
           <span class="sobrenosspan">
-          <strong style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">
-            NOSSA RECEITA DE SUCESSO
-          </strong>
+            <strong
+              style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">
+              NOSSA RECEITA DE SUCESSO
+            </strong>
           </span>
           <br style="margin: 0px; font-family: open_sansregular, sans-serif; text-decoration: none;">
-            Os nossos
-            preciosos ingredientes são as pessoas que compõem a nossa empresa, funcionários, distribuidores e clientes. A
-            relação honesta, bem sucedida e prazerosa que se estabeleceu entre a empresa e todos que a cercam e torna a
-            Bio Extratus uma marca sólida, que continua sonhando e ousando para atingir as suas metas, com um enorme
-            compromisso social e respeito ao meio-ambiente.</p>
-        <p class="SOBRENOS">  
-            <span class="sobrenosspan">
-            <strong style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">
+          Os nossos
+          preciosos ingredientes são as pessoas que compõem a nossa empresa, funcionários, distribuidores e clientes. A
+          relação honesta, bem sucedida e prazerosa que se estabeleceu entre a empresa e todos que a cercam e torna a
+          Bio Extratus uma marca sólida, que continua sonhando e ousando para atingir as suas metas, com um enorme
+          compromisso social e respeito ao meio-ambiente.</p>
+        <p class="SOBRENOS">
+          <span class="sobrenosspan">
+            <strong
+              style="margin: 0px; font-family: open_sansregular, sans-serif; font-weight: 700; text-decoration: none;">
               NOSSO MUITO OBRIGADO
             </strong>
-            </span>
-            <br style="margin: 0px; font-family: open_sansregular, sans-serif; text-decoration:none;">
-            Pelo companheirismo, dedicação e vontade de vencer a cada dia, gostaríamos de agradecer a todos que nos cercam. Sem vocês, o sonho não se tornaria realidade.
-          </p>
+          </span>
+          <br style="margin: 0px; font-family: open_sansregular, sans-serif; text-decoration:none;">
+          Pelo companheirismo, dedicação e vontade de vencer a cada dia, gostaríamos de agradecer a todos que nos
+          cercam. Sem vocês, o sonho não se tornaria realidade.
+        </p>
       </div>
     </div>
 
@@ -203,132 +205,139 @@
         <ul>
           <form class="form-inline ml-auto">
             <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..." aria-label="Search"
-              title="Buscar por vaga">
+              title="Buscar por vaga" id="buscarvaga">
             <button class="btn btn-info btn-rounded btn-sm my-0" type="submit" id="IdBuscar">
               <h3 class="font-italic" style="font-size: 15px;"><strong><span
                     class="fas fa-search mr-2"></span>Buscar</strong></h3>
             </button>
           </form>
         </ul>
-        
+
         <div id="accordion">
-        @foreach($vagas as $v)
-          <div class="card">
+          @foreach($vagas as $v)
+          <div class="card" id="idvagas">
 
             <div class="card-header" id="headingOne">
               <div class="container">
                 <div class="row">
                   <div class="col-sm">
-                    <h4>                      
-                        {{$v->titulo}}                 
+                    <h4 class="info-vaga">
+                      {{$v->titulo}}
                     </h4>
                   </div>
                   <div class="col-sm">
-                    <div class="btn-group btn-group-sm flex-wrap" data-toggle="buttons"> 
-                    <button class="btn btn-info">
-                        <a href="#vaga{{$v->idvaga}}" style="color:white;" data-toggle="collapse" data-target="#vaga{{$v->idvaga}}" aria-expanded="false" aria-controls="vaga{{$v->idvaga}}">
+                    <div class="btn-group btn-group-sm flex-wrap" data-toggle="buttons">
+                      <button class="btn btn-info">
+                        <a href="#vaga{{$v->idvaga}}" style="color:white;" data-toggle="collapse"
+                          data-target="#vaga{{$v->idvaga}}" aria-expanded="false" aria-controls="vaga{{$v->idvaga}}">
                           <b>Mais Informações</b>
                           <span class="fa fa-eye" style="padding-left: 10px;"></span>
                         </a>
-                      </button>              
+                      </button>
                       <button class="btn btn-info">
                         <a name="" href="/vaga/{{$v->idvaga}}" id="" style="color:white;">
                           <b>Candidate-se</b>
                           <span class="fa fa-check" style="padding-left: 10px;"></span>
-                        </a> 
-                      </button>                          
-                      <button class="btn btn-info" onClick="setClipboard('Veja as vagas de trabalho disponíveis no site da Bio Extratus: www.trabalheconosco.bioextratus.com.br')">
+                        </a>
+                      </button>
+                      <button class="btn btn-info"
+                        onClick="setClipboard('Veja as vagas de trabalho disponíveis no site da Bio Extratus: www.trabalheconosco.bioextratus.com.br')">
                         <b>Compartilhe</b>
-                        <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>                     
-                      </button>            
+                        <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>
+                      </button>
                     </div>
-                  </div> 
+                  </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm">
                     <div class="pull-left">
                       <div class="meta-tag">
-                        <i class="fa fa-map-marker-alt" style="padding-right: 10px;" aria-hidden="true"></i>{{$v->local}} 
+                        <i class="fa fa-map-marker-alt" style="padding-right: 10px;"
+                          aria-hidden="true"></i>{{$v->local}}
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm"> </div>               
+                  <div class="col-sm"> </div>
                 </div>
               </div>
             </div>
             <div id="vaga{{$v->idvaga}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-                <div class="row" >
+                <div class="row">
                   <div class="col-sm">
                     <ul></ul>
-                    <ul style="list-style-type: none; margin-right: auto;">                     
-                      @if($v->pcd == 1)                               
-                        <li>&nbsp;&nbsp;&nbsp;
-                          DESTINADA A PESSOAS COM DEFICIÊNCIA
-                        </li>
-                        <hr>
-                      @endif                       
-                      <li><strong> DATA DE PUBLICAÇÃO DA VAGA:&nbsp;&nbsp;&nbsp;</strong>           {{Helper::getData($v->dtinicio)}}
+                    <ul style="list-style-type: none; margin-right: auto;">
+                      @if($v->pcd == 1)
+                      <li>&nbsp;&nbsp;&nbsp;
+                        DESTINADA A PESSOAS COM DEFICIÊNCIA
                       </li>
                       <hr>
-                      <li><strong> PREVISÃO DE ENCERRAMENTO:&nbsp;&nbsp;&nbsp;</strong> 
+                      @endif
+                      <li><strong> DATA DE PUBLICAÇÃO DA VAGA:&nbsp;&nbsp;&nbsp;</strong>
+                        {{Helper::getData($v->dtinicio)}}
+                      </li>
+                      <hr>
+                      <li><strong> PREVISÃO DE ENCERRAMENTO:&nbsp;&nbsp;&nbsp;</strong>
                         {{Helper::getData($v->dtprazo)}}
                       </li>
                       <hr>
-                      <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>  
+                      <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
                         {{$v->quant}}
                       </li>
                       <hr>
-                      <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>  
+                      <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                         {{$v->descricao}}
                       </li>
                       <hr>
-                      <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>  
+                      <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
                         {{$v->requisitos}}
                       </li>
-                      <hr> 
+                      <hr>
                       <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
-                        @if($v->tpvaga == 1)   
-                          Fixa
+                        @if($v->tpvaga == 1)
+                        Fixa
                         @else
-                          Temporária
-                        @endif            
-                      </li>                                                        
+                        Temporária
+                        @endif
+                      </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        @endforeach
-        <div class="card" style="text-align: center;">
-          <div class="card-header" id="headingOne">
-            <div class="container">
-              <div class="row">                  <h5>                      
-                    Caso não tenha encontrado uma vaga que lhe interesse no momento, não se preocupe, deixe seus dados cadastrados em nosso <u>Banco de Talentos</u>. <br>Continue acompanhando esta página, pois serão publicadas novas vagas.                                         
-                </h5>         
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col">                                              
-                  <h4>
-                    Clique aqui para acessar a plataforma e realizar o cadastro!
-                  </h4> 
-                  <button class="btn btn-info ">
-                    <a name="cadastrar" href="{{route('home')}}" style="color:white;">
-                      <b>Cadastre-se</b>                      
-                    </a> 
-                  </button> 
+          @endforeach
+          <div class="card" style="text-align: center;">
+            <div class="card-header" id="headingOne">
+              <div class="container">
+                <div class="row">
+                  <h5>
+                    Caso não tenha encontrado uma vaga que lhe interesse no momento, não se preocupe, deixe seus dados
+                    cadastrados em nosso <u>Banco de Talentos</u>. <br>Continue acompanhando esta página, pois serão
+                    publicadas novas vagas.
+                  </h5>
                 </div>
-              </div>                
+                <hr>
+                <div class="row">
+                  <div class="col">
+                    <h4>
+                      Clique aqui para acessar a plataforma e realizar o cadastro!
+                    </h4>
+                    <button class="btn btn-info ">
+                      <a name="cadastrar" href="{{route('home')}}" style="color:white;">
+                        <b>Cadastre-se</b>
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>            
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <!-- Conteudo --parte central //-->
   <!-- Site footer -->
   <footer class="site-footer mt-5">

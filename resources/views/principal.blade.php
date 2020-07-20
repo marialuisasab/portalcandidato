@@ -214,6 +214,30 @@
         </ul>
 
         <div id="accordion">
+          <div class="card" style="text-align: center;">
+            <div class="card-header" id="headingOne">
+              <div class="container">
+                <div class="row">
+                  <h5>                    
+                    Veja abaixo as vagas disponíveis, ou, caso não encontre uma vaga que lhe interesse no momento, não se preocupe, deixe seus dados cadastrados em nosso <u>Banco de Talentos</u>. 
+                  </h5>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col">
+                    <h4>
+                      Clique aqui para acessar a plataforma e realizar o cadastro!
+                    </h4>
+                    <button class="btn btn-info ">
+                      <a name="cadastrar" href="{{route('home')}}" style="color:white;">
+                        <b>Banco de Talentos</b>
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           @foreach($vagas as $v)
           <div class="card" id="idvagas">
 
@@ -307,33 +331,7 @@
               </div>
             </div>
           </div>
-          @endforeach
-          <div class="card" style="text-align: center;">
-            <div class="card-header" id="headingOne">
-              <div class="container">
-                <div class="row">
-                  <h5>
-                    Caso não tenha encontrado uma vaga que lhe interesse no momento, não se preocupe, deixe seus dados
-                    cadastrados em nosso <u>Banco de Talentos</u>. <br>Continue acompanhando esta página, pois serão
-                    publicadas novas vagas.
-                  </h5>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col">
-                    <h4>
-                      Clique aqui para acessar a plataforma e realizar o cadastro!
-                    </h4>
-                    <button class="btn btn-info ">
-                      <a name="cadastrar" href="{{route('home')}}" style="color:white;">
-                        <b>Cadastre-se</b>
-                      </a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach          
         </div>
       </div>
     </div>

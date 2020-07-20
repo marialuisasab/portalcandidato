@@ -43,10 +43,17 @@
                 </div>
                 <div class="col-xs-8 col-md-8" style=" text-align:end; margin-left: auto;">
                   <div class="btn-group btn-sm" role="group">
+                    @if(count($redes)==0)
+                      <button class=" btn btn-primary btn-sm">
+                        <a style="color:white;" href="/redesocial/novo">Adicionar
+                        <span class="fa fa-plus" style="padding-left:15px;"></span></a>
+                      </button>
+                    @else
                     <button class=" btn btn-primary btn-sm">
                       <a style="color:white;" href="/redesocial/editar/{{Helper::getIdCurriculo()}}">Editar
                         <span class="fa fa-edit" style="padding-left:15px;"></span></a>
                     </button>
+                    @endif
                     <button class=" btn btn-secondary btn-sm">
                       <a style="color: white;" href="/experiencias">Voltar<span class="fas fa-undo"
                           style="padding-left:15px;"></span></a>
@@ -58,6 +65,13 @@
           </div>
           <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
+              @if(count($redes)==0)              
+              <div class="card-footer" style="background-color: white;">
+                <h5 style="color:red;text-align:center;"> 
+                  Clique em 'Adicionar' para inserir suas redes sociais, ou prossiga para as 'Vagas Abertas'
+                </h5>                
+              </div>
+              @endif
               @foreach($redes as $rs)
               <div class="container">
                 <div class="row" style="margin-top: 25px;">

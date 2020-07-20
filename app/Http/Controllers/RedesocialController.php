@@ -23,8 +23,8 @@ class RedesocialController extends Controller
         $idcurriculo = Helper::getIdCurriculo();
         $redes = RedeSocialCurriculo::where('curriculo_idcurriculo', $idcurriculo)->get();
         
-        if(count($redes)==0)
-            return view('redesocial.create');
+       // if(count($redes)==0)
+            //return view('redesocial.create');
         return view('redesocial.index', compact('redes'));
     }
 
@@ -61,12 +61,18 @@ class RedesocialController extends Controller
                     $flag = true;   
             }              
         }
+
         if($flag){
             flash("Informações gravadas com sucesso!")->success();
             return redirect()->route('redessociais');
                             // ->with('success', 'Dados cadastrados com sucesso!');
         }else {
-             flash("Falha ao gravar as informações!")->error();
+            if($todosnull){
+                flash("Para salvar, adicione pelo menos uma rede social, ou então, cancele.")->error();            
+            }else {
+                flash("Falha ao gravar as informações!")->error();
+            
+            }
             return redirect()->back();
                         // ->with('error', 'Falha ao gravar as informações!');
         }        

@@ -8,6 +8,7 @@
 
 @section('content')
 
+@include('flash::message')
 
 <div class="container">
 
@@ -89,7 +90,7 @@
                     <button type="submit" class="btn btn-primary" title="Confirmar Alterações"
                       id="idsalvarredes">Salvar<span class="fas fa-save" style="padding-left: 15px;"></button>
                     <button class=" btn btn-danger" style="color:red;" type="cancel" title="Cancelar Alterações">
-                      <a href="/home" style="color: white;">Cancelar<span class="fas fa-window-close"
+                      <a href="/redessociais" style="color: white;">Cancelar<span class="fas fa-window-close"
                           style="padding-left: 15px;"></span></a>
                     </button>
                   </div>

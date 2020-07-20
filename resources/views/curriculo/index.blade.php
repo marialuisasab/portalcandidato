@@ -279,21 +279,13 @@
 								<hr>
 
 
-
-								@if(($candDados->catcnh != null)&&($candDados->catcnh =='A'))
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>A</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='B'))
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>B</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='C'))
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>C</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='D'))
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>D</li>
-								@elseif(($candDados->catcnh != null)&&($candDados->catcnh =='E'))
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>E</li>
-								@else
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										informado!</span></li>
+								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>
+								@if($candDados->catcnh == null)
+									<span style="color: red;"> Não informado!</span>
+								@else 
+									{{$candDados->catcnh}}
 								@endif
+								
 								<hr>
 
 

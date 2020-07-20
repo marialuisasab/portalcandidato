@@ -377,6 +377,10 @@
 								<option value="C" {{$c->catcnh == 'C' ? 'selected' : '' }}>C</option>
 								<option value="D" {{$c->catcnh == 'D' ? 'selected' : '' }}>D</option>
 								<option value="E" {{$c->catcnh == 'E' ? 'selected' : '' }}>E</option>
+								<option value="AB" {{$c->catcnh == 'AB' ? 'selected' : '' }}>AB</option>
+								<option value="AC" {{$c->catcnh == 'AC' ? 'selected' : '' }}>AC</option>
+								<option value="AD" {{$c->catcnh == 'AD' ? 'selected' : '' }}>AD</option>
+								<option value="AE" {{$c->catcnh == 'AE' ? 'selected' : '' }}>AE</option>
 							</select></li>
 					</div>
 					@else

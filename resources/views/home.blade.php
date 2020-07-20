@@ -83,12 +83,18 @@
           <div style="text-justify:  center;">
 
             <h3 class="profile-username text-center" style="font-family: Arial, Helvetica, sans-serif;">
-              {{Auth::user()->name}}</h3>
+             Seja Bem-Vindo(a), {{Auth::user()->name}}</h3>
+            
+            @if(count($candidato)==0)
+            <ul style="text-align: center;">
+              Você ainda não cadastrou o seu currículo.<br><br>
+              Acesse o <b>menu lateral</b> ou o <b>box amarelo</b> abaixo para iniciar o cadastro.<br>
+              Caso ainda haja alguma dúvida, consulte o <b>manual do usuário</b> no ícone de ajuda do menu superior.
+            </ul>
+            @endif
 
-            {{-- <p class="text-muted text-center">Ultimo cargo... EX: Software Engineer</p> --}}
             @foreach($candidato as $item)
             <ul style="text-align: center;">
-
               @if($item->telefone1!= null)
               <p style="padding-left: 10px; margin-right: 50px; margin-top: 30px;"><strong class="lead"
                   style="font-family: Arial, Helvetica, sans-serif;">Telefone:</strong> {{$item->telefone1}}</p>
@@ -147,13 +153,13 @@
       <div class="small-box bg-yellow">
         <div class="inner">
           <!--<h3>44</h3>-->
-          <p style="text-align: center;">Completar curriculo</p>
+          <p style="text-align: center;">Completar currículo</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
         <a href="{{route('curriculo.dados')}}" class="small-box-footer" data-toggle="tooltip"
-          title="Informações Pendentes">
+          title="Clique para adicionar informações">
           Mais Informações <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
@@ -168,7 +174,7 @@
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <a href="{{route('vagas')}}" class="small-box-footer" data-toggle="tooltip" title="Novas Vagas">
+        <a href="{{route('vagas')}}" class="small-box-footer" data-toggle="tooltip" title="Clique para ver as vagas disponíveis">
           Mais Informações <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
@@ -185,7 +191,7 @@
           <i class="ion ion-bag"></i>
         </div>
         <a href="{{route('contatosuporte')}}" class="small-box-footer toltipclass" data-toggle="tooltip"
-          title="Visualizar Agendamentos">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+          title="Clique para entrar em contato com o suporte">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -200,7 +206,7 @@
           <i class="ion ion-stats-bars"></i>
         </div>
         <a href="{{route('minhasvagas')}}" class="small-box-footer" data-toggle="tooltip"
-          title="Visualizar Processos">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+          title="Clique para ver as vagas que você se candidatou">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
   </div>

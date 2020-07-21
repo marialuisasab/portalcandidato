@@ -39,14 +39,6 @@ $(function () {
 });
 
 
-$(function () {
-    $("#buscarvaga").click(function () {
-        window.document.getElementById("IdBuscar").style.background = "#00BFFF";
-
-    });
-
-});
-
 $("document").ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 

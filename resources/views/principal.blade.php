@@ -202,24 +202,14 @@
   <div class="container">
     <div class="row justify-content-md-center" style="margin-top: 40px;">
       <div class="col">
-        <ul>
-          <form class="form-inline ml-auto">
-            <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..." aria-label="Search"
-              title="Buscar por vaga" id="buscarvaga">
-            <button class="btn btn-info btn-rounded btn-sm my-0" type="submit" id="IdBuscar">
-              <h3 class="font-italic" style="font-size: 15px;"><strong><span
-                    class="fas fa-search mr-2"></span>Buscar</strong></h3>
-            </button>
-          </form>
-        </ul>
-
         <div id="accordion">
           <div class="card" style="text-align: center;">
             <div class="card-header" id="headingOne">
               <div class="container">
                 <div class="row">
-                  <h5>                    
-                    Veja abaixo as vagas disponíveis, ou, caso não encontre uma vaga que lhe interesse no momento, não se preocupe, deixe seus dados cadastrados em nosso <u>Banco de Talentos</u>. 
+                  <h5>
+                    Veja abaixo as vagas disponíveis, ou, caso não encontre uma vaga que lhe interesse no momento, não
+                    se preocupe, deixe seus dados cadastrados em nosso <u>Banco de Talentos</u>.
                   </h5>
                 </div>
                 <hr>
@@ -238,8 +228,16 @@
               </div>
             </div>
           </div>
+          <ul>
+            <form class="form-inline ml-auto" style="margin-top: 20px;">
+              <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..."
+                aria-label="Search" title="Buscar por vaga" id="buscarvaga">
+              <span class="fas fa-search mt-3"><strong>Buscar </strong>
+              </span>
+            </form>
+          </ul>
           @foreach($vagas as $v)
-          <div class="card" id="idvagas">
+          <div class=" card" id="idvagas">
 
             <div class="card-header" id="headingOne">
               <div class="container">
@@ -331,7 +329,7 @@
               </div>
             </div>
           </div>
-          @endforeach          
+          @endforeach
         </div>
       </div>
     </div>

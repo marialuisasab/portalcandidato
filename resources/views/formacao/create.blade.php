@@ -97,8 +97,8 @@
                         <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a formação??"
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
-                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 50px;">
-                            <textarea name="" id="" cols="25" rows="10"
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
+                            <textarea name="" id="" cols="20" rows="10"
                               style="text-align:justify;">Formação:
     O candidato deve colocar o grau de escolaridade que possui, ou seja, quem tem nível superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico  deve selecionar a opção acadêmica.
     No caso da formação complementar os usuários devem selecionar quando os mesmos forem inserir cursos profissionalizantes, especialização, aprandizagem, aprimoramento e etc. </textarea>
@@ -123,8 +123,8 @@
                         <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher o nível??"
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
-                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 50px;">
-                            <textarea name="" id="" cols="25" rows="6"
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
+                            <textarea name="" id="" cols="20" rows="6"
                               style="text-align:justify;">Nivel:
     O candidato deve colocar o nível de escolaridade do curso, ou seja, curso superior (Graduação, Pos Graduação, Mestrado e Doutorado), fundamental, nível médio ou técnico. </textarea>
                           </span>
@@ -150,8 +150,8 @@
                         <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a categoria??"
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
-                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 50px;">
-                            <textarea name="" id="" cols="25" rows="6"
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
+                            <textarea name="" id="" cols="20" rows="6"
                               style="text-align:justify;">Categoria:
     O candidato deve colocar a categoria em que este curso complementar pertence, ou seja, se é um curso complementar de, aprimoramento, idiomas, certificação, etc. </textarea>
                           </span>
@@ -179,8 +179,9 @@
                             <span class="fas fa-question-circle dropdown-toggle" title="Estado da instituição??"
                               type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
-                              <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <textarea name="" id="" cols="30" rows="3" style="text-align:justify;">Estado da instituição:   
+                              <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                style="margin-right: 40px;">
+                                <textarea name="" id="" cols="20" rows="3" style="text-align:justify;">Estado da instituição:   
     Você deve selecionar o estado que a instituição pertence. </textarea>
                               </span>
                             </span></strong>
@@ -200,8 +201,8 @@
                               data-toggle="dropdown" style="color:red;">
 
                               <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                style="margin-right: 50px;">
-                                <textarea name="" id="" cols="25" rows="5" style="text-align:justify;">Formação:
+                                style="margin-right: 40px;">
+                                <textarea name="" id="" cols="20" rows="5" style="text-align:justify;">Formação:
              O candidato deve procurar nas opções a instituição de ensino referente ao seu curso. A procura poderá ocorrer com a inserção do nome da instituição.
                              </textarea>
                               </span>
@@ -246,8 +247,8 @@
                     <li><strong>PERÍODO:&nbsp;&nbsp;&nbsp;
                         <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher o perído??"
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
-                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 50px;">
-                            <textarea name="" id="" cols="25" rows="5 style=" text-align:justify;">Período:
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
+                            <textarea name="" id="" cols="20" rows="5" style="text-align:justify;">Período:
     O candidato deve colocar o período em que esta atualmente. Caso tenha concluido...
                            </textarea>
                           </span>

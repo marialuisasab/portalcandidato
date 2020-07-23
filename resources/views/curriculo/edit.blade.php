@@ -497,11 +497,11 @@
 	<br>
 
 	<div class="form-group" style="text-align: end;">
-		<button type="submit" class="btn btn-outline-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
+		<button type="submit" class="btn btn-primary" id="botaosalvarend">Salvar<span class="fas fa-save"
 				style="padding-left: 15px;" title="Confirmar Alterações"></button>
-		<button class=" btn btn-outline-danger" type="cancel" title="Cancelar Edição">
-			<a href="/curriculo">Cancelar<span class="fas fa-window-close"
-					style="padding-left: 15px; color:red;"></span></a>
+		<button class=" btn btn-danger" type="cancel" title="Cancelar Edição">
+			<a href="/curriculo" style="color:white;">Cancelar<span class="fas fa-window-close"
+					style="padding-left: 15px;"></span></a>
 		</button>
 	</div>
 	</form>

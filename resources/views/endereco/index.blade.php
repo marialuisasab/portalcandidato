@@ -63,7 +63,7 @@
 										</button>
 										<button class=" btn btn-secondary btn-sm" style="" title="Voltar">
 											<a style="color: white;" href="/curriculo">Voltar<span class="fas fa-undo"
-													style="padding-left: 15px;;"></span></a>
+													style="padding-left: 15px;"></span></a>
 										</button>
 									</div>
 

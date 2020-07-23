@@ -114,7 +114,7 @@ $(document).ready(function ($) {
     });
 
     // Adicionando mascara para a RG
-    $('#rg').mask('AA-SS.SSS.SSS', {
+    $('#rg').mask('A#', {
         'translation': {
             A: {
                 pattern: /[A-Za-z0-9]/

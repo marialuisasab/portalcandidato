@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Portal do Candidato',
+    'title' => 'Trabalhe Conosco',
     'title_prefix' => '',
     'title_postfix' => '',
 

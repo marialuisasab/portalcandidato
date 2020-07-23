@@ -35,10 +35,11 @@
 								<div class="col-xs-10 col-2" style="text-align:end; margin-left: auto;">
 									<div class="btn-group" role="group">
 
-										<button class=" btn btn-secondary btn-sm">
+										<button class=" btn btn-secondary btn-sm"
+											style="height:30px; margin-top: 10px; width:70px;">
 											<a style="color: white;" href="/vagas">
 												Voltar<span class="fas fa-undo"
-													style="padding-left: 10px; font-size:12px;"></span>
+													style="padding-left: 5px; color:white; font-size:9px;"></span>
 											</a>
 										</button>
 									</div>

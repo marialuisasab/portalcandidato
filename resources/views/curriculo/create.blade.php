@@ -57,7 +57,7 @@
 
                                         <button class=" btn btn-secondary btn-sm"
                                             style="height:30px; margin-top: 10px; width:70px;" title="Voltar ">
-                                            <a style="color: white;" hrehref="/home">Voltar<span class="fas fa-undo"
+                                            <a style="color: white;" href="/home">Voltar<span class="fas fa-undo"
                                                     style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                                         </button>
 
@@ -446,12 +446,12 @@
                                     </div>
                                     <br>
                                     <div class="form-group" style="text-align: end;">
-                                        <button type="submit" class="btn btn-outline-primary" id="botaosalvarend"
+                                        <button type="submit" class="btn btn-primary" id="botaosalvarend"
                                             title="Confirmar Alterações">Salvar<span class="fas fa-save"
                                                 style="padding-left: 15px;"></button>
-                                        <button class=" btn btn-outline-danger" type="cancel" title="Cancelar Edição">
-                                            <a href="home">Cancelar<span class="fas fa-window-close"
-                                                    style="padding-left: 15px; color: red;"></span></a>
+                                        <button class=" btn btn-danger" type="cancel" title="Cancelar Edição">
+                                            <a href="home" style="color:white;">Cancelar<span
+                                                    class="fas fa-window-close" style="padding-left: 15px;"></span></a>
                                         </button>
                                     </div>
                                 </form>

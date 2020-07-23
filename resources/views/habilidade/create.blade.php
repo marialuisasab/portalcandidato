@@ -78,8 +78,8 @@
                         <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher a categoria??"
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
-                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 50px;">
-                            <textarea name="" id="" cols="25" rows="6"
+                          <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
+                            <textarea name="" id="" cols="20" rows="6"
                               style="text-align:justify;">Categoria:
     O candidato deve colocar a categoria em que esta habilidade pertence, ou seja, se é uma habilidade relacionada a area da informática (Linguagens de Programação, desenvolvimento, suporte e etc), pacote office (Word, Excel, Power Point e etc), Idiomas (Português, Ingles, Espanhol e etc). </textarea>
                           </span>

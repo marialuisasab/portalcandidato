@@ -1,8 +1,10 @@
 @extends('adminlte::page')
 
 {{-- importação do jquery --}}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
+<script src="/vendor/jquery/jquery.min.js">
 </script>
 
 {{-- importação do arquivo JS --}}
@@ -31,7 +33,7 @@
 
     <div class="col-xs-10 col-md-10">
 
-     
+
       <div id="accordion" style="margin-top: 40px;">
         <div class="card-border-light">
           <div class="card-border-light">
@@ -51,129 +53,125 @@
 
 
 
-                <div class="col-xs-8 col-md-6" style="text-align: end; margin-left: auto;">
+                  <div class="col-xs-8 col-md-6" style="text-align: end; margin-left: auto;">
 
-                  <div class="btn-group btn-sm" role="group">
-                    <button class=" btn btn-primary btn-sm" title="Adicionar Experiência">
-                      <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
-                          style="padding-left: 15px;"></span> </a>
-                    </button>
-                    <button class=" btn btn-success btn-sm" title="Cadastrar Habilidades">
-                      <a style=" color: white;" href="/habilidades">Próximo<span class="fas fa-forward"
-                          style="padding-left:15px;"></span>
-                      </a>
-                    </button>
-                    <button class=" btn btn-secondary btn-sm" title="Voltar">
-                      <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
-                          style="padding-left: 15px;"></span></a>
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-
-
-
-          </div>
-
-
-          <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-
-              @foreach($experiencias as $e)
-
-              <div class="container">
-                <div class="row" style="margin-top: 25px; text-align:center;">
-                  <div class="col-sm">
-
-                    <button class=" btn btn-primary" title="Editar Experiência">
-                      <a style="color:white;" href="/experiencia/editar/{{$e->idexperiencia}}">Editar
-                        <span class="fa fa-edit" style="padding-left: 15px;"></span></a>
-                    </button>
-
-                    <button class=" btn btn-danger" name="botaoexcluir" value="{{$e->idexperiencia}}"
-                      title="Excluir Experiência">
-                      <a style="color: white;">Excluir<span class=" fa fa-trash-alt" style="padding-left:15px;"></span>
-                      </a>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="row" style="margin-top: 25px;">
-
-                  <div class="col-sm">
-                    <ul></ul>
-
-                    <ul style="list-style-type: none; margin-right: auto;">
-
-
-                      <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong> {{$e->empresa}}
-                      </li>
-                      <hr>
-
-                      <li><strong> CARGO&nbsp;&nbsp;&nbsp;</strong>{{$e->cargo}}</li>
-                      <hr>
-
-
-                      <li><strong> DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getData($e->dtinicio)}}
-                      </li>
-                      <hr>
-
-
-                      @if ($e->dtfim != null)
-                      <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($e->dtfim)}}</li>
-                      @else
-                      <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong> <span style="color:red;"> Trabalho nesta
-                          empresa atualmente!</span></li>
-                      @endif
-
-                      <hr>
-
-
-                      @if ($e->atividades != null)
-                      <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;
-                        </strong>{{$e->atividades}}
-                      </li>
-                      @else
-                      <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
-                        <span style="color: red;">Não Informado</span>
-                      </li>
-                      @endif
-
-                    </ul>
+                    <div class="btn-group btn-sm" role="group">
+                      <button class=" btn btn-primary btn-sm" title="Adicionar Experiência">
+                        <a href="/experiencia/novo" style="color: white;">Adicionar<span class="fa fa-plus"
+                            style="padding-left: 15px;"></span> </a>
+                      </button>
+                      <button class=" btn btn-success btn-sm" title="Cadastrar Habilidades">
+                        <a style=" color: white;" href="/habilidades">Próximo<span class="fas fa-forward"
+                            style="padding-left:15px;"></span>
+                        </a>
+                      </button>
+                      <button class=" btn btn-secondary btn-sm" title="Voltar">
+                        <a style="color: white;" href="/cursos">Voltar<span class="fas fa-undo"
+                            style="padding-left: 15px;"></span></a>
+                      </button>
+                    </div>
 
                   </div>
                 </div>
               </div>
-              @endforeach
+
 
 
 
             </div>
+
+
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+
+                @foreach($experiencias as $e)
+
+                <div class="container">
+                  <div class="row" style="margin-top: 25px; text-align:center;">
+                    <div class="col-sm">
+
+                      <button class=" btn btn-primary" title="Editar Experiência">
+                        <a style="color:white;" href="/experiencia/editar/{{$e->idexperiencia}}">Editar
+                          <span class="fa fa-edit" style="padding-left: 15px;"></span></a>
+                      </button>
+
+                      <button class=" btn btn-danger" name="botaoexcluir" value="{{$e->idexperiencia}}"
+                        title="Excluir Experiência">
+                        <a style="color: white;">Excluir<span class=" fa fa-trash-alt"
+                            style="padding-left:15px;"></span>
+                        </a>
+                      </button>
+
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top: 25px;">
+
+                    <div class="col-sm">
+                      <ul></ul>
+
+                      <ul style="list-style-type: none; margin-right: auto;">
+
+
+                        <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong> {{$e->empresa}}
+                        </li>
+                        <hr>
+
+                        <li><strong> CARGO&nbsp;&nbsp;&nbsp;</strong>{{$e->cargo}}</li>
+                        <hr>
+
+
+                        <li><strong> DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getData($e->dtinicio)}}
+                        </li>
+                        <hr>
+
+
+                        @if ($e->dtfim != null)
+                        <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($e->dtfim)}}</li>
+                        @else
+                        <li><strong> DATA DE SAÍDA:&nbsp;&nbsp;&nbsp;</strong> <span style="color:red;"> Trabalho nesta
+                            empresa atualmente!</span></li>
+                        @endif
+
+                        <hr>
+
+
+                        @if ($e->atividades != null)
+                        <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;
+                          </strong>{{$e->atividades}}
+                        </li>
+                        @else
+                        <li style="word-break: break-word;"><strong>DESCRIÇÃO DAS ATIVIDADES:&nbsp;&nbsp;&nbsp;</strong>
+                          <span style="color: red;">Não Informado</span>
+                        </li>
+                        @endif
+
+                      </ul>
+
+                    </div>
+                  </div>
+                </div>
+                @endforeach
+
+
+
+              </div>
+            </div>
           </div>
+
         </div>
-
       </div>
-    </div>
-    <div class=" col-xs-1 col-md-1">
-    </div>
+      <div class=" col-xs-1 col-md-1">
+      </div>
 
+    </div>
   </div>
-</div>
 
 
 
 
 
-@endsection
-
-
-
-
-
+  @endsection
 
 
 
@@ -192,7 +190,12 @@
 
 
 
-{{-- 
+
+
+
+
+
+  {{-- 
   <div class="card border">
     <div class= "card-body"> 
       

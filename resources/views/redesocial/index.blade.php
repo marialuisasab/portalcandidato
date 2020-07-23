@@ -1,8 +1,10 @@
 @extends('adminlte::page')
 
 {{-- importação do jquery --}}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
+<script src="/vendor/jquery/jquery.min.js">
 </script>
 
 {{-- importação do arquivo JS --}}
@@ -44,10 +46,10 @@
                 <div class="col-xs-8 col-md-8" style=" text-align:end; margin-left: auto;">
                   <div class="btn-group btn-sm" role="group">
                     @if(count($redes)==0)
-                      <button class=" btn btn-primary btn-sm">
-                        <a style="color:white;" href="/redesocial/novo">Adicionar
+                    <button class=" btn btn-primary btn-sm">
+                      <a style="color:white;" href="/redesocial/novo">Adicionar
                         <span class="fa fa-plus" style="padding-left:15px;"></span></a>
-                      </button>
+                    </button>
                     @else
                     <button class=" btn btn-primary btn-sm">
                       <a style="color:white;" href="/redesocial/editar/{{Helper::getIdCurriculo()}}">Editar
@@ -65,11 +67,11 @@
           </div>
           <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              @if(count($redes)==0)              
+              @if(count($redes)==0)
               <div class="card-footer" style="background-color: white;">
-                <h5 style="color:red;text-align:center;"> 
+                <h5 style="color:red;text-align:center;">
                   Clique em 'Adicionar' para inserir suas redes sociais, ou prossiga para as 'Vagas Abertas'
-                </h5>                
+                </h5>
               </div>
               @endif
               @foreach($redes as $rs)
@@ -82,9 +84,9 @@
                         <strong>{{Helper::getRedeCurriculo($rs->redesocial_idredesocial)}}:&nbsp;&nbsp;&nbsp;
                         </strong>
                         @if($rs->link == null)
-                          <span style="color: red;">Não informado</span>
+                        <span style="color: red;">Não informado</span>
                         @else
-                          {{$rs->link}}
+                        {{$rs->link}}
                         @endif
                       </li>
                       <hr>
@@ -103,7 +105,7 @@
             <button class="btn btn-success" title="Vagas">
               <a href="/vagas" style="color:white;">Vagas Abertas</a>
               <span class="fas fa-bullhorn" style="padding-left: 5px; color:white;"></span>
-            </button>              
+            </button>
           </div>
         </div>
       </div>

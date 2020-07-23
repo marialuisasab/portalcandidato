@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Admin;
 
 class AdminController extends Controller
 {
@@ -12,7 +14,9 @@ class AdminController extends Controller
 	}
 
     public function index(){
-    	return view('admin');
+
+		$admin = Admin::where("id",Auth::user()->id)->get();
+    	return view('admin', compact(['admin']));
     }
 
 }

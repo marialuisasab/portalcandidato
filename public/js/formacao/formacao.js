@@ -140,6 +140,15 @@ $(function () {
     });
 
 
+    // criando o select2 de acordo com os valores do select do AJAX dos estados
+    $('.js-example-theme-single').select2({
+        width: '100%',
+        language: "pt-BR",
+    });
+
+    // Se já estiver selecionado, limpar o select2 
+    // $('.js-example-theme-single').val(null).trigger("change");
+
 });
 
 
@@ -177,6 +186,12 @@ $("document").ready(function () {
             }
         }
     });
-
-
 });
+
+
+// $(document).ready(function () {
+//     $('.select2-single').select2({
+//         placeholder: 'Selecione os itens',
+//         width: '100%'
+//     });
+// });

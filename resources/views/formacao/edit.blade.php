@@ -9,6 +9,16 @@
 
 
 
+{{-- importação select2 --}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/i18n/pt-BR.js"></script>
+
+
+
 
 @section('content')
 
@@ -180,7 +190,7 @@
                   <div class="form-group">
                     <div class="container">
                       <div class="row">
-                        <div class="col-sm">
+                        <div class="col-xs">
                           <strong>ESTADO DA INSTITUIÇÃO:
                             &nbsp;&nbsp;&nbsp;
                             <span class="fas fa-question-circle dropdown-toggle" title="Estado da instituição??"
@@ -205,9 +215,20 @@
                         </div>
                         <div class="col-sm">
                           <strong>INSTITUIÇÃO:
-                            &nbsp;&nbsp;&nbsp;</strong>
-                          <select class="form-control" id="instituicao_idinstituicao" name="instituicao_idinstituicao"
-                            title="Nome da Instituição">
+                            &nbsp;&nbsp;&nbsp;
+                            <span class="fas fa-question-circle dropdown-toggle"
+                              title="Como devo preencher a instituição??" type="button" id="dropdownMenuButton"
+                              data-toggle="dropdown" style="color:red;">
+                              <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                style="margin-right: 50px;">
+                                <textarea name="" id="" cols="25" rows="5" style="text-align:justify;">Formação:
+     O candidato deve procurar nas opções a instituição de ensino referente ao seu curso. A procura poderá ocorrer com a inserção do nome da instituição.
+                                                       </textarea>
+                              </span>
+                            </span>
+                          </strong>
+                          <select class="js-example-theme-single form-control" id="instituicao_idinstituicao"
+                            name="instituicao_idinstituicao" title="Nome da Instituição">
                             <option value="" selected>Selecionar</option>
                             @foreach (Helper::getInstitui() as $ist)
                             @if ($ist->idinstituicao == $curso->instituicao_idinstituicao)
@@ -395,129 +416,3 @@
 </div>
 
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- <div class="card border">
-  <div class= "card-body">  
-    <h5>Editar formação acadêmica e cursos</h5>
-
-    <form action="/curso/{{$curso->idcurso}}" method="POST">
-@csrf
-<div class="row">
-  <div class="col">
-    <div class="form-group">
-      <label for="logradouro">Nome do curso *</label>
-      <input type="text" class="form-control" name="nome" placeholder="Nome do Curso" value="{{$curso->nome}}">
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label for="nivel_idnivel">Nível *</label>
-      <select class="custom-select" id="nivel_idnivel" name="nivel_idnivel">
-        <option value="">Selecionar</option>
-        @foreach(Helper::getNiveis() as $n)
-        <option value="{{$n->idnivel}}" {{ $curso->nivel_idnivel == $n->idnivel ? 'selected' : '' }}>{{ $n->nome }}
-        </option>
-        @endforeach
-      </select>
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label for="categoria_idcategoria">Categoria *</label>
-      <select class="custom-select" id="categoria_idcategoria" name="categoria_idcategoria">
-        <option value="">Selecionar</option>
-        @foreach(Helper::getCategorias() as $c)
-        <option value="{{$c->idcategoria}}" {{ $curso->categoria_idcategoria == $c->idcategoria ? 'selected' : '' }}>
-          {{ $c->nome }}</option>
-        @endforeach
-      </select>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div class="form-group">
-      <label for="area_idarea">Área *</label>
-      <select class="custom-select" id="area_idarea" name="area_idarea">
-        <option value="">Selecionar</option>
-        @foreach(Helper::getAreas() as $a)
-        <option value="{{$a->idarea}}" {{ $curso->area_idarea == $a->idarea ? 'selected' : '' }}>{{$a->nome }}</option>
-        @endforeach
-      </select>
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label for="escolaridade">Escolaridade *</label>
-      <select class="custom-select" id="escolaridade" name="escolaridade">
-        <option value="">Selecionar</option>
-        <option value="1" {{ $curso->escolaridade == '1' ? 'selected' : ''}}>Sim</option>
-        <option value="2" {{ $curso->escolaridade == '2' ? 'selected' : ''}}>Não</option>
-      </select>
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label for="periodo">Período</label>
-      <input type="number" class="form-control" name="periodo" value="{{$curso->periodo}}">
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div class="form-group">
-      <label for="dtinicio">Data de início *</label>
-      <input type="text" class="form-control" name="dtinicio" placeholder="Ex.: 01/01/2010"
-        value="{{Helper::getData($curso->dtinicio)}}">
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label for="dtfim">Data de conclusão</label>
-      <input type="text" class="form-control" name="dtfim" placeholder="Ex.: 01/01/2010"
-        value="{{Helper::getData($curso->dtfim)}}">
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label for="instituicao_idinstituicao">Instituição</label>
-      <select class="custom-select" id="instituicao_idinstituicao" name="instituicao_idinstituicao">
-        <option value="">Selecionar</option>
-        @foreach(Helper::getInstituicoes() as $i)
-        <option value="{{$i->idinstituicao}}"
-          {{ $curso->instituicao_idinstituicao == $i->idinstituicao ? 'selected' : '' }}>{{ $i->nome }}</option>
-        @endforeach
-      </select>
-    </div>
-  </div>
-</div>
-@if($errors->any())
-<div class="card-footer">
-  @foreach($errors->all() as $error)
-  <div class="alert alert-danger" role="alert">
-    {{$error}}
-  </div>
-  @endforeach
-</div>
-@endif
-<br><button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-<button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
-</form>
-</div>
-</div> --}}

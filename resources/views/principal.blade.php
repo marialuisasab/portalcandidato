@@ -107,7 +107,6 @@
             <button type="button" class="btn btn-light btn-sm" id="ImageMeuLog" style="font-size:10px;"
               data-placement="bottton" title="Entrar no sistema">
               <a class="navbar-brand" href="{{ route('login') }}" style="color: gray;">
-
                 Entrar
                 <span class="fas fa-sign-in-alt px-2">
                 </span>
@@ -232,7 +231,7 @@
             <form class="form-inline ml-auto" style="margin-top: 20px;">
               <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..."
                 aria-label="Search" title="Buscar por vaga" id="buscarvaga">
-              <span class="fas fa-search mt-3"><strong>Buscar </strong>
+              <span class="fas fa-search mt-3"><strong>Filtrar </strong>
               </span>
             </form>
           </ul>

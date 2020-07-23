@@ -1,6 +1,6 @@
 @extends('adminlte::master')
 
-<script src="/vendor/jquery/jquery.js"></script>
+{{-- <script src="/vendor/jquery/jquery.js"></script> --}}
 <script src="/js/menujs/menuiteracao.js"></script>
 <link rel="stylesheet" href="/css/page.css">
 

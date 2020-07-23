@@ -1,7 +1,9 @@
 @extends('adminlte::page')
 {{-- importação do jquery --}}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script> --}}
+<script src="/vendor/jquery/jquery.min.js">
 </script>
 
 {{-- link do javascript --}}
@@ -49,8 +51,7 @@
 					<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
 						@if(isset($processos) && count($processos)>0)
 						<div class="card-body">
-							@for($i = 0; $i < sizeof($processos);$i++) 
-								<div class="container">
+							@for($i = 0; $i < sizeof($processos);$i++) <div class="container">
 								<!--<div class="row" style="margin-top: 25px; text-align:center;">
 	                  <div class="col-sm">
 	                    <button class=" btn btn-primary">

@@ -13,12 +13,14 @@
 
 {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
+<script src="/vendor/jquery/jquery.min.js">
+</script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-<script src="js/eventos.js"></script>
+{{-- <script src="js/eventos.js"></script> --}}
 
 
 @section('content_header')
@@ -44,13 +46,7 @@
           style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar</span></strong></a>
   </div>
 </div>
-
-
-
-
 @endsection
-
-
 @section('content')
 
 
@@ -83,8 +79,8 @@
           <div style="text-justify:  center;">
 
             <h3 class="profile-username text-center" style="font-family: Arial, Helvetica, sans-serif;">
-             Seja Bem-Vindo(a), {{Auth::user()->name}}</h3>
-            
+              Seja Bem-Vindo(a), {{Auth::user()->name}}</h3>
+
             @if(count($candidato)==0)
             <ul style="text-align: center;">
               Você ainda não cadastrou o seu currículo.<br><br>
@@ -174,7 +170,8 @@
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <a href="{{route('vagas')}}" class="small-box-footer" data-toggle="tooltip" title="Clique para ver as vagas disponíveis">
+        <a href="{{route('vagas')}}" class="small-box-footer" data-toggle="tooltip"
+          title="Clique para ver as vagas disponíveis">
           Mais Informações <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
@@ -191,7 +188,8 @@
           <i class="ion ion-bag"></i>
         </div>
         <a href="{{route('contatosuporte')}}" class="small-box-footer toltipclass" data-toggle="tooltip"
-          title="Clique para entrar em contato com o suporte">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+          title="Clique para entrar em contato com o suporte">Mais Informações <i
+            class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -206,7 +204,8 @@
           <i class="ion ion-stats-bars"></i>
         </div>
         <a href="{{route('minhasvagas')}}" class="small-box-footer" data-toggle="tooltip"
-          title="Clique para ver as vagas que você se candidatou">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+          title="Clique para ver as vagas que você se candidatou">Mais Informações <i
+            class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
   </div>

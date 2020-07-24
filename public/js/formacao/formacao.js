@@ -129,7 +129,7 @@ $(function () {
                 $('select[name=instituicao_idinstituicao]').empty();
                 $.each(instituicoes, function (key, value) {
                     $('select[name=instituicao_idinstituicao]').append('<option value=' + value.idinstituicao + '>' + value.nome + '</option>');
-                    // console.log(value);
+                    console.log(value);
                 });
             });
         } else {

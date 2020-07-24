@@ -93,9 +93,11 @@
   <div class="pos-f-t">
     <ul class="navbar-nav mr-auto">
     </ul>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #658f69;">
       <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="img/logo400_96.png" width="133" height="32" class="d-inline-block align-top" alt="">
+        <img class="for_default"
+          src="https://bioextratus.com.br/wp-content/uploads/2016/06/Logo-Bio-Extratus-Cosméticos-Naturais-Site.png"
+          width="225" height="54" alt="Bio Extratus">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,48 +106,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <button type="button" class="btn btn-light btn-sm" id="ImageMeuLog" style="font-size:10px;"
-              data-placement="bottton" title="Entrar no sistema">
-              <a class="navbar-brand" href="{{ route('login') }}" style="color: gray;">
-                Entrar
-                <span class="fas fa-sign-in-alt px-2">
-                </span>
-              </a>
-            </button>
+
+            <a class="navbar-brand" href="{{ route('login') }}" style="color:white;" type="button">
+              Entrar
+              <span class="fas fa-sign-in-alt px-2">
+              </span>
+            </a>
+
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-light btn-sm" id="ImageMeuRegis" title="Registrar novo usuário">
-              <a class="navbar-brand" href="{{ route('register') }}" style="color: gray;">Registrar
-                <span class="fas fa-user-plus px-2">
-                  {{-- <p class="ml-2">Registrar</p>  --}}</span></a>
-            </button>
+
+            <a class="navbar-brand" href="{{ route('register') }}" style="color: white;" type="button">Registrar
+              <span class="fas fa-user-plus px-2">
+                {{-- <p class="ml-2">Registrar</p>  --}}</span></a>
+
           </li>
-          <li class="nav-item dropdown mt-2">
-            <div class="btn-group ml-4" role="group" aria-label="Button group with nested dropdown"
-              style="width: -40px;">
-              <div class="btn-group" role="group" title="Idiomas">
-                <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <img src="img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top" alt="">
-                </button>
 
-                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-
-                  <a class="dropdown-item" href="" title="Português">
-                    <img src="img/ImagemBrasil.png" role="button" width="40" height="30"
-                      class="d-inline-block align-top" alt=""></a>
-
-                  <a class="dropdown-item" href="" title="Spanish">
-                    <img src="img/ImagemEspanha.jpg" role="button" width="40" height="30"
-                      class="d-inline-block align-top" alt=""></a>
-
-                  <a class="dropdown-item" href="" title="English">
-                    <img src="img/ImagemIngles.jpg" role="button" width="40" height="30"
-                      class="d-inline-block align-top" alt=""></a>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
       </div>
     </nav>
@@ -335,7 +311,7 @@
   </div>
   <!-- Conteudo --parte central //-->
   <!-- Site footer -->
-  <footer class="site-footer mt-5">
+  <footer class="site-footer mt-5" style="background-color: #CDD7BC;">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6">

@@ -43,48 +43,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <style type="text/css">
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-    }
 
-    .bio-image {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("img/panoramica1920x670.png");
-      height: 80%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-    }
-
-    .bio-text {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-    }
   </style>
-  <script>
-    function setClipboard(value) {
-      var success = true;
-      var tempInput = document.createElement("input");
-      tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-      tempInput.value = value;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      success = document.execCommand("copy");
-      if(success){
-        alert('Link de compartilhamento copiado!');
-        document.body.removeChild(tempInput);
-      }else {
-        alert('Falha ao copiar o link de compartilhamento!');
-      }
-      
-  }
-  </script>
+
 
 </head>
 
@@ -205,11 +166,12 @@
           </div>
           <ul>
             <form class="form-inline ml-auto" style="margin-top: 20px;">
-              <input class="form-control mr-sm-2" type="text" placeholder="Descreva o cargo, vaga..."
+              <input class="form-control mr-sm-2" type="text" placeholder="Filtrar pelo cargo, vaga..."
                 aria-label="Search" title="Buscar por vaga" id="buscarvaga">
-              <span class="fas fa-search mt-3"><strong>Filtrar </strong>
-              </span>
             </form>
+            <div class="is-invalid" style="color:red; display: none;" id="idmensagembuscarvaga"> <strong>Não achamos a
+                vaga que foi
+                buscada!</strong> </div>
           </ul>
           @foreach($vagas as $v)
           <div class=" card" id="idvagas">
@@ -237,8 +199,7 @@
                           <span class="fa fa-check" style="padding-left: 10px;"></span>
                         </a>
                       </button>
-                      <button class="btn btn-info"
-                        onClick="setClipboard('Veja as vagas de trabalho disponíveis no site da Bio Extratus: www.trabalheconosco.bioextratus.com.br')">
+                      <button class="btn btn-info" id="idcompartilhar">
                         <b>Compartilhe</b>
                         <span class="fas fa-share-alt" style=" padding-left: 10px;"></span>
                       </button>

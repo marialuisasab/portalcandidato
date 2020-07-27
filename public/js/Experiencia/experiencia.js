@@ -56,31 +56,39 @@ $(function () {
 
     $("#idformexp").submit(function () {
 
-        validaForm('#idnomeemp', 'mensempre');
-        validaForm('#iddataini', 'mensdataini');
-        validaForm('#idcargo', 'menscargo');
+        var vetidvalor = ['#idnomeemp', '#iddataini', '#idcargo'];
+        // validaForm('#nacionalidade', 'mensnacional');
+        var vetidmensag = ['mensempre', 'mensdataini', 'menscargo'];
+        var cont = 0;
+        for (var i = 0; i < vetidvalor.length; i++) {
+            var valorvalida = validaForm(vetidvalor[i], vetidmensag[i]);
+            if (valorvalida)
+                cont++;
+        }
+        if (cont != '0') {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1500);
+        }
 
-
-
+        // validaForm('#idnomeemp', 'mensempre');
+        // validaForm('#iddataini', 'mensdataini');
+        // validaForm('#idcargo', 'menscargo');
+        // chamada da função de validação
         function validaForm(atributo, messagem) {
             var valor = $(atributo).val();
             if (valor == '') {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(messagem).style.display = 'block';
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 'slow');
+                return true;
             } else {
 
                 $(atributo).removeClass('is-invalid');
                 document.getElementById(messagem).style.display = 'none';
+                return false;
             }
-
         }
-
-
-
     });
 
 

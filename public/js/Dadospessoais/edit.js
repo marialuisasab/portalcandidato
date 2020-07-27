@@ -114,15 +114,11 @@ $(document).ready(function ($) {
     });
 
     // Adicionando mascara para a RG
-    $('#rg').mask('A#', {
-        'translation': {
-            A: {
-                pattern: /[A-Za-z0-9]/
+    $("#rg").mask('NNNNNNNNNNN', {
+        translation: {
+            N: {
+                pattern: /[\w]/
             },
-            S: {
-                pattern: /[A-Za-z0-9]/
-            },
-
         }
     });
 
@@ -206,24 +202,35 @@ $(document).ready(function ($) {
     $("#idformdados").submit(function () {
 
 
-        validaForm('#nome', 'mensnome');
-        validaForm('#cpf', 'menscpf');
-        validaForm('#rg', 'mensrg');
-        validaForm('#pretsalarial', 'menspretsala');
-        validaForm('#dtnascimento', 'mensdtnasc');
-        validaForm('#genero', 'mensgenero');
-        validaForm('#nomemae', 'mensmae');
-        validaForm('#dfisico', 'mensdtfisico');
-        validaForm('#nacionalidade', 'mensnacional');
-        validaForm('#naturalidade', 'mensnaturalidade');
-        validaForm('#natural', 'mensnatural');
-        validaForm('#telefone1', 'menstelefone');
-        validaForm('#estadocivil', 'mensestadociv');
 
+        var vetidvalor = ['#nome', '#cpf', '#rg', '#pretsalarial', '#dtnascimento', '#genero', '#nomemae', '#dfisico', '#nacionalidade', '#naturalidade', '#natural', '#telefone1', '#estadocivil'];
+        // validaForm('#nacionalidade', 'mensnacional');
+        var vetidmensag = ['mensnome', 'menscpf', 'mensrg', 'menspretsala', 'mensdtnasc', 'mensgenero', 'mensmae', 'mensdtfisico', 'mensnacional', 'mensnaturalidade', 'mensnatural', 'menstelefone', 'mensestadociv'];
+        var cont = 0;
+        for (var i = 0; i < vetidvalor.length; i++) {
+            var valorvalida = validaForm(vetidvalor[i], vetidmensag[i]);
+            if (valorvalida)
+                cont++;
+        }
+        if (cont != '0') {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1500);
+        }
 
-
-
-
+        // validaForm('#nome', 'mensnome');
+        // validaForm('#cpf', 'menscpf');
+        // validaForm('#rg', 'mensrg');
+        // validaForm('#pretsalarial', 'menspretsala');
+        // validaForm('#dtnascimento', 'mensdtnasc');
+        // validaForm('#genero', 'mensgenero');
+        // validaForm('#nomemae', 'mensmae');
+        // validaForm('#dfisico', 'mensdtfisico');
+        // validaForm('#nacionalidade', 'mensnacional');
+        // validaForm('#naturalidade', 'mensnaturalidade');
+        // validaForm('#natural', 'mensnatural');
+        // validaForm('#telefone1', 'menstelefone');
+        // validaForm('#estadocivil', 'mensestadociv');
 
         function validaForm(atributo, messagem) {
             var valor = $(atributo).val();
@@ -231,26 +238,13 @@ $(document).ready(function ($) {
                 event.preventDefault();
                 $(atributo).addClass('is-invalid');
                 document.getElementById(messagem).style.display = 'block';
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 'slow');
-
+                return true;
             } else {
                 $(atributo).removeClass('is-invalid');
                 document.getElementById(messagem).style.display = 'none';
+                return false;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
         // event.preventDefault();
         var cpfValue = $("#cpf").val();

@@ -159,33 +159,63 @@ $("document").ready(function () {
 
     $("#idfomrformacao").submit(function () {
 
-        validaForm('#nome', 'mensdesc');
-        validaForm('#escolaridade', 'mensescol');
-        validaForm('#dtinicio', 'mensdtinicio');
+        // validaForm('#nome', 'mensdesc');
+        // validaForm('#escolaridade', 'mensescol');
+        // validaForm('#dtinicio', 'mensdtinicio');
+
+        var vetcampos1 = ['#nome', '#escolaridade', '#dtinicio'];
+        var vetMens1 = ['mensdesc', 'mensescol', 'mensdtinicio']
+        validacaoassincrona(vetcampos1, vetMens1);
 
         var valorselectescol = $("#escolaridade").val();
         if (valorselectescol == '1') {
-            validaForm('#nivel_idnivel', 'mensnivel');
-            validaForm('#area_idarea', 'mensarea');
+            // validaForm('#nivel_idnivel', 'mensnivel');
+            // validaForm('#area_idarea', 'mensarea');
+            var vetcampos2 = ['#nivel_idnivel', '#area_idarea'];
+            var vetMens2 = ['mensnivel', 'mensarea'];
+            validacaoassincrona(vetcampos2, vetMens2);
         } else if (valorselectescol == '2') {
-            validaForm('#categoria_idcategoria', 'menscategoria');
-        }
-
-        function validaForm(atributo, messagem) {
-            var valor = $(atributo).val();
-            if (valor == '') {
-                event.preventDefault();
-                $(atributo).addClass('is-invalid');
-                document.getElementById(messagem).style.display = 'block';
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 'slow');
-            } else {
-                $(atributo).removeClass('is-invalid');
-                document.getElementById(messagem).style.display = 'none';
-            }
+            // validaForm('#categoria_idcategoria', 'menscategoria');
+            var vetcampos3 = ['#categoria_idcategoria'];
+            var vetMens3 = ['menscategoria'];
+            validacaoassincrona(vetcampos3, vetMens3);
         }
     });
+
+
+    // funcao para validar formulario
+    function validaForm(atributo, messagem) {
+        var valor = $(atributo).val();
+        if (valor == '') {
+            event.preventDefault();
+            $(atributo).addClass('is-invalid');
+            document.getElementById(messagem).style.display = 'block';
+            return true;
+        } else {
+            $(atributo).removeClass('is-invalid');
+            document.getElementById(messagem).style.display = 'none';
+            return false;
+        }
+    }
+
+
+    // funcao para validar e chamar o scroll apenas uma vez e impedir o acumulo de chamadas de scroll
+    function validacaoassincrona(vet1, vet2) {
+        var count = 0;
+        for (var i = 0; i < vet1.length; i++) {
+            var valorvalida = validaForm(vet1[i], vet2[i]);
+            if (valorvalida)
+                count++;
+        }
+        if (count != '0') {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1500);
+        }
+
+    }
+
+
 });
 
 

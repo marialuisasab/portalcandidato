@@ -1,45 +1,70 @@
-* {
-    padding: 0px;
-    margin: 0px;
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+    }
 
-}
+    .bio-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/panoramica1920x670.png");
+        height: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
 
-.rede {
-    width: 150px;
-    height: 150px;
-    float: left;
-    margin-left: 20 px;
-    transition: all 0.4s ease-out;
-    border-radius: 50%;
-}
+    .bio-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
 
-.redesimg {
-    background-color: #2372a3;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
 
-}
+    * {
+        padding: 0px;
+        margin: 0px;
 
-.rede#twitter {
-    background-color: #0084b4;
-}
+    }
 
-.rede#instagram {
-    background-color: #3f729b;
-}
+    .rede {
+        width: 150px;
+        height: 150px;
+        float: left;
+        margin-left: 20 px;
+        transition: all 0.4s ease-out;
+        border-radius: 50%;
+    }
 
-.rede#youtube {
-    background-color: #b00;
-}
+    .redesimg {
+        background-color: #2372a3;
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
 
-.icone {
-    margin: 0px auto;
-    padding: 35px;
-    width: 80px;
+    }
 
-}
+    .rede#twitter {
+        background-color: #0084b4;
+    }
 
-/* body {
+    .rede#instagram {
+        background-color: #3f729b;
+    }
+
+    .rede#youtube {
+        background-color: #b00;
+    }
+
+    .icone {
+        margin: 0px auto;
+        padding: 35px;
+        width: 80px;
+
+    }
+
+    /* body {
     background-color: green !important;
 } */

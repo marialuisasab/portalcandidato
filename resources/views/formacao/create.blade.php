@@ -173,7 +173,7 @@
                   <div class="form-group" style="display: none;" id="idmostrarinstituicao">
                     <div class="container">
                       <div class="row">
-                        <div class="col-xs">
+                        <div class="col-sm-6">
                           <strong>ESTADO DA INSTITUIÇÃO:
                             &nbsp;&nbsp;&nbsp;
                             <span class="fas fa-question-circle dropdown-toggle" title="Estado da instituição??"
@@ -193,7 +193,7 @@
                             @endforeach
                           </select>
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-6">
                           <strong>INSTITUIÇÃO:
                             &nbsp;&nbsp;&nbsp;
                             <span class="fas fa-question-circle dropdown-toggle"

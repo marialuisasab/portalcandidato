@@ -24,35 +24,22 @@ $(function () {
                 document.getElementById("selcatcnh").style.display = 'block';
                 document.getElementById("seleorigcnh").style.display = 'block';
                 document.getElementById("numcnh").style.display = 'block';
+                var valor = $("#botaovoltar").val();
+                valor = valor.replace('', this.value);
+                $("#botaovoltar").val(valor);
 
             } else {
                 document.getElementById("selcatcnh").style.display = 'none';
                 document.getElementById("seleorigcnh").style.display = 'none';
                 document.getElementById("numcnh").style.display = 'none';
-
+                var valor = $("#botaovoltar").val();
+                valor = valor.replace('', this.value);
+                $("#botaovoltar").val(valor);
             }
-
         });
     }
 
 
-    var aux = document.getElementsByName('selectestadocivil');
-    var prev = null;
-
-    for (var i = 1; i < aux.length; i++) {
-        aux[i].addEventListener('change', function () {
-            if (this !== prev) {
-                prev = this;
-            }
-            if (this.value == '1') {
-                alert("escolhido é" + this.value);
-            } else {
-                alert("escolhido é");
-
-            }
-
-        });
-    }
 
 
     // var valorselect = document.getElementById('estadocivil');
@@ -136,7 +123,7 @@ $(document).ready(function ($) {
     // Adicionando mascara para a presenção salarial
     $("#pretsalarial").maskMoney({
         prefix: 'R$ ',
-        allowNegative: true,
+        allowNegative: false,
         thousands: '.',
         decimal: ',',
         affixesStay: true
@@ -167,7 +154,7 @@ $(document).ready(function ($) {
 
 
     // adicionando mascara para o telefone 1
-    $("#telefone1").mask('(00)N0000-0000', {
+    $("#telefone1").mask('(000)N0000-0000', {
         translation: {
             N: {
                 pattern: /[9-9]/,
@@ -178,7 +165,7 @@ $(document).ready(function ($) {
     });
 
     // adicionando mascara para o telefone 2
-    $("#telefone2").mask('(00)N0000-0000', {
+    $("#telefone2").mask('(000)N0000-0000', {
         translation: {
             N: {
                 pattern: /[9-9]/,
@@ -201,49 +188,16 @@ $(document).ready(function ($) {
     // "-"
     $("#idformdados").submit(function () {
 
-
-
         var vetidvalor = ['#nome', '#cpf', '#rg', '#pretsalarial', '#dtnascimento', '#genero', '#nomemae', '#dfisico', '#nacionalidade', '#naturalidade', '#natural', '#telefone1', '#estadocivil'];
         // validaForm('#nacionalidade', 'mensnacional');
         var vetidmensag = ['mensnome', 'menscpf', 'mensrg', 'menspretsala', 'mensdtnasc', 'mensgenero', 'mensmae', 'mensdtfisico', 'mensnacional', 'mensnaturalidade', 'mensnatural', 'menstelefone', 'mensestadociv'];
-        var cont = 0;
-        for (var i = 0; i < vetidvalor.length; i++) {
-            var valorvalida = validaForm(vetidvalor[i], vetidmensag[i]);
-            if (valorvalida)
-                cont++;
-        }
-        if (cont != '0') {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 1500);
-        }
+        validacaoassincrona(vetidvalor, vetidmensag);
 
-        // validaForm('#nome', 'mensnome');
-        // validaForm('#cpf', 'menscpf');
-        // validaForm('#rg', 'mensrg');
-        // validaForm('#pretsalarial', 'menspretsala');
-        // validaForm('#dtnascimento', 'mensdtnasc');
-        // validaForm('#genero', 'mensgenero');
-        // validaForm('#nomemae', 'mensmae');
-        // validaForm('#dfisico', 'mensdtfisico');
-        // validaForm('#nacionalidade', 'mensnacional');
-        // validaForm('#naturalidade', 'mensnaturalidade');
-        // validaForm('#natural', 'mensnatural');
-        // validaForm('#telefone1', 'menstelefone');
-        // validaForm('#estadocivil', 'mensestadociv');
-
-        function validaForm(atributo, messagem) {
-            var valor = $(atributo).val();
-            if (valor == '') {
-                event.preventDefault();
-                $(atributo).addClass('is-invalid');
-                document.getElementById(messagem).style.display = 'block';
-                return true;
-            } else {
-                $(atributo).removeClass('is-invalid');
-                document.getElementById(messagem).style.display = 'none';
-                return false;
-            }
+        var botaovoltar = $("#botaovoltar").val();
+        if (botaovoltar == '1') {
+            var vetcnh = ['#catcnh'];
+            var vetmensagcnh = ['menscnh'];
+            validacaoassincrona(vetcnh, vetmensagcnh);
         }
 
         // event.preventDefault();
@@ -275,10 +229,49 @@ $(document).ready(function ($) {
 
     });
 
+
+
+
+
+
+
+    // função de validar o formulario
+    function validaForm(atributo, messagem) {
+        var valor = $(atributo).val();
+        if (valor == '') {
+            event.preventDefault();
+            $(atributo).addClass('is-invalid');
+            document.getElementById(messagem).style.display = 'block';
+            return true;
+        } else {
+            $(atributo).removeClass('is-invalid');
+            document.getElementById(messagem).style.display = 'none';
+            return false;
+        }
+    }
+
+
+    // função de validação assincrona dos campos e scroll ao topo
+    function validacaoassincrona(vetcampos1, vetMens1) {
+        var cont = 0;
+        for (var i = 0; i < vetcampos1.length; i++) {
+            var valorvalida = validaForm(vetcampos1[i], vetMens1[i]);
+            if (valorvalida)
+                cont++;
+        }
+        if (cont != '0') {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1500);
+        }
+    }
+
+
+
+
     $("#natural").change(function () {
         var valorid = $("#natural").val();
         // alert(valorid);
-
         if (valorid != '') {
             $.get('/get-cidades/' + valorid, function (cidades) {
                 $('select[name=naturalidade]').empty();
@@ -288,14 +281,10 @@ $(document).ready(function ($) {
                 });
             });
         } else {
-
             $('select[name=naturalidade').empty();
             $('select[name=naturalidade]').append("<option> </option>");
         }
-
     });
-
-
 });
 
 // $("document").ready(function () {
@@ -310,3 +299,45 @@ $("document").ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });
+
+
+
+
+// $(document).ready(function () {
+//     var vetcnhs = document.getElementsByName('tenhocnh');
+//     var prev = null;
+//     for (var i = 0; i < vetcnhs.length && vetcnhs[i] != null; i++) {
+//         vetcnhs[i].addEventListener('change', function () {
+//             if (this !== prev) {
+//                 prev = this;
+//             }
+//             if (this.value == 1) {
+//                 var valoridtemcnh = this.value;
+//                 $("#idformdados").submit(function () {
+//                     var valor = $('#catcnh').val();
+//                     if ((valor == '') && (valoridtemcnh == 1)) {
+//                         event.preventDefault();
+//                         $('#catcnh').addClass('is-invalid');
+//                         document.getElementById('menscnh').style.display = 'block';
+//                         $('html, body').animate({
+//                             scrollTop: 0
+//                         }, 1500);
+//                     }
+//                 });
+
+
+//                 // event.preventDefault();
+//                 // console.log("eu estou aqui " + this.value);
+//             } else if ((this.value == 2) || (this.value == null)) {
+//                 $("#idformdados").submit(function () {
+//                     var valor = $('#catcnh').val();
+//                     if (valor == '') {
+//                         // $('#catcnh').submit();
+//                         $('#catcnh').removeClass('is-invalid');
+//                         document.getElementById('menscnh').style.display = 'none';
+//                     }
+//                 });
+//             }
+//         });
+//     }
+// });

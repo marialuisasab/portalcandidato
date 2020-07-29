@@ -72,8 +72,8 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbarLogin">
         <button class="fas fa-bars" type="button" id="menu-toggle" style="background-color: "></button>
         <!-- <a class="navbar-brand" href="{{ url('/') }}">
-          <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
-        </a> -->
+        <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
+      </a> -->
         {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
         </button> --}}
@@ -110,7 +110,7 @@
             <!-- Authentication Links -->
             @guest
             {{-- <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li> --}}
             <ul>
             </ul>
@@ -145,7 +145,7 @@
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
+          document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>
 
@@ -171,8 +171,6 @@
   <!-- /#wrapper -->
 
 
-
-
   <footer class="main-footer" style="background-color:  #CDD7BC;">
     <div class=" container">
       <div class="row">
@@ -193,8 +191,8 @@
               <p class="fas fa-phone"> (031) 3855-3000</p>
             </li>
             <!--<li>
-                              <p class="fas fa-envelope"> rh@bioextratus.com.br </p>
-                          </li>-->
+              <p class="fas fa-envelope"> rh@bioextratus.com.br </p>
+            </li>-->
           </ul>
         </div>
         <div class="col-xs-4 col-md-4">
@@ -241,9 +239,9 @@
   <!-- Bootstrap core JavaScript -->
   <script>
     $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-          });
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+              });
   </script>
 </body>
 

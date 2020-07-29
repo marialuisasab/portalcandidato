@@ -56,7 +56,8 @@
 
 
                                         <button class=" btn btn-secondary btn-sm"
-                                            style="height:30px; margin-top: 10px; width:70px;" title="Voltar ">
+                                            style="height:30px; margin-top: 10px; width:70px;" title="Voltar " value=""
+                                            id="botaovoltar">
                                             <a style="color: white;" href="/home">Voltar<span class="fas fa-undo"
                                                     style="padding-left: 5px; color:white; font-size:9px;"></span></a>
                                         </button>
@@ -97,7 +98,7 @@
                                         <li><strong> CPF:*&nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text"
                                                 class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}"
-                                                maxlength="11" name="cpf" id="cpf" placeholder="CPF"
+                                                maxlength="11" name="cpf" id="cpf" placeholder="123.456.789-10"
                                                 title="Documento CPF">
                                             <div class="invalid-feedback" id="menscpf" style="display: none;">
                                                 Você precisa preencher o CPF!
@@ -269,39 +270,42 @@
 
 
                                     <div class="form-group">
-                                        <li><strong> NATURALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm" style="text-align: start;">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-6" style="text-align: start;">
+                                                    <strong>ESTADO DE NATURALIDADE:
+                                                        &nbsp;&nbsp;&nbsp;</strong>
 
-                                                        <select
-                                                            class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-                                                            id="natural" name="natural" title="Estado de Origem">
-                                                            <option value="" selected>Selecionar</option>
-                                                            @foreach(Helper::getEstados() as $est)
-                                                            <option value="{{$est->idestado}}">{{ $est->nome }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <div class="invalid-feedback" id="mensnatural"
-                                                            style="display: none;">
-                                                            Você precisa selecionar a sua naturalidade!
-                                                        </div>
+                                                    <select
+                                                        class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
+                                                        id="natural" name="natural" title="Estado de Origem">
+                                                        <option value="" selected>Selecionar</option>
+                                                        @foreach(Helper::getEstados() as $est)
+                                                        <option value="{{$est->idestado}}">{{ $est->nome }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <div class="invalid-feedback" id="mensnatural"
+                                                        style="display: none;">
+                                                        Você precisa selecionar a sua naturalidade!
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <select
-                                                            class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-                                                            id="naturalidade" name="naturalidade"
-                                                            title="Cidade de Origem">
-                                                            <option value="" selected>Selecionar</option>
-                                                        </select>
-                                                        <div class="invalid-feedback" id="mensnaturalidade"
-                                                            style="display: none;">
-                                                            Você precisa selecionar a sua naturalidade!
-                                                        </div>
-                                                    </div>
-
                                                 </div>
+                                                <div class="col-sm-6">
+                                                    <strong>CIDADE DE NATURALIDADE:
+                                                        &nbsp;&nbsp;&nbsp;</strong>
+                                                    <select
+                                                        class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
+                                                        id="naturalidade" name="naturalidade" title="Cidade de Origem">
+                                                        <option value="" selected>Selecionar</option>
+                                                    </select>
+                                                    <div class="invalid-feedback" id="mensnaturalidade"
+                                                        style="display: none;">
+                                                        Você precisa selecionar a sua naturalidade!
+                                                    </div>
+                                                </div>
+
                                             </div>
+                                        </div>
                                         </li>
                                     </div>
 
@@ -314,7 +318,7 @@
                                         <li><strong> TELEFONE 1*: &nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text"
                                                 class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
-                                                name="telefone1" id="telefone1" placeholder="Telefone 1"
+                                                name="telefone1" id="telefone1" placeholder="(DDD)9****-****"
                                                 title="Telefone Principal">
                                             <div class="invalid-feedback" id="menstelefone" style="display: none;">
                                                 Você precisa selecionar o telefone!
@@ -330,7 +334,7 @@
                                     <div class="form-group">
                                         <li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text" class="form-control" name="telefone2" id="telefone2"
-                                                placeholder="Telefone 2" title="Segunda Opção de Telefone">
+                                                placeholder="(DDD)9****-****" title="Segunda Opção de Telefone">
                                         </li>
                                     </div>
 
@@ -392,7 +396,11 @@
                                                 <option value="AC">AC</option>
                                                 <option value="AD">AD</option>
                                                 <option value="AE">AE</option>
-                                            </select></li>
+                                            </select>
+                                            <div class="invalid-feedback" id="menscnh" style="display: none;">
+                                                Você precisa selecionar o o tipo de CNH que possui!
+                                            </div>
+                                        </li>
                                     </div>
 
 

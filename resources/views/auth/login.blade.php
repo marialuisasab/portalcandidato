@@ -2,9 +2,17 @@
 <link rel="stylesheet" href="/css/principal.css">
 <link rel="stylesheet" href="/css/LoginCSS.css">
 <link rel="stylesheet" href="/css/redes.css">
+<script src="/vendor/jquery/jquery.min.js">
+</script>
 
+<script>
+  $(function(){
+  $("div.alert").fadeIn(300).delay(3100).fadeOut(1000).hide("slow");
 
+  });
+</script>
 
+@include('flash::message')
 
 {{-- <div class="container"> --}}
 @section('footerconteudo')

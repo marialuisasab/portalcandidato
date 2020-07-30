@@ -78,7 +78,7 @@ class CurriculoController extends Controller
         $c->rg = $request->rg;
 
         if($request->hasFile('foto') && $request->file('foto')->isValid()){           
-            $nomeArquivo = $user->id.Str::kebab($user->name);
+            $nomeArquivo = 'user_'.$user->id.'_'.mt_rand(1,1000);
             $extensao = $request->file('foto')->extension();
             $arquivo = "{$nomeArquivo}.{$extensao}";
 
@@ -176,20 +176,20 @@ class CurriculoController extends Controller
             $c->foto = $user->foto;
 
             if($request->hasFile('foto') && $request->file('foto')->isValid()){
-                if($user->foto){
+                /*if($user->foto){
                     $nomeArquivo = $user->foto;
                     $arquivo = $nomeArquivo;
-                }else{
-                    $nomeArquivo = $user->id.Str::kebab($user->name);
+                }else{*/
+                    $nomeArquivo = 'user_'.$user->id.'_'.mt_rand(1,1000);
                     $extensao = $request->file('foto')->extension();
                     $arquivo = "{$nomeArquivo}.{$extensao}";
-                }                
+                //}                
                 $upload = $request->file('foto')->move('fotos', $arquivo);
                
                 if(!$upload){
                     flash('Falha ao realizar upload da imagem!')->error();
                     return redirect()->back();
-                                // ->with('error', 'Falha ao fazer upload da imagem');
+                                
                 }
                 $c->foto = $arquivo;                  
             }
@@ -235,7 +235,7 @@ class CurriculoController extends Controller
         $regras = [
             'nome'=>'required|string|max:100',
             'cpf' =>'required|size:11|cpf',
-            'rg' => 'required|max:13',
+            'rg' => 'required|max:10',
             'pretsalarial' => 'required',
             'dtnascimento' => 'required',
             'genero' => 'required',

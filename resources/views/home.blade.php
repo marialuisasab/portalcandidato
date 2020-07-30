@@ -29,21 +29,20 @@
 <div class="row"
   style="text-align: center; margin-top: 5px; display: flex; flex-wrap: wrap; justify-content: space-between;">
   <div class="col">
-    <a href="curriculo" type="button" title="Visualizar Curriculo"><strong><span class="fas fa-eye "
+    <a href="{{route('curriculo.dados')}}" type="button" title="Visualizar Dados"><strong><span class="fas fa-eye "
           style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);;">Visualizar
-          Curriculo</span></strong></a>
+          Dados</span></strong></a>
   </div>
 
-  {{-- <div class="col-sm"></div> --}}
   <div class="col ">
-    <a href="/curriculo/editar/{{Auth::user()->id}}" type="button" title="Editar Perfil"><strong><span
+    <a href="{{route('curriculo.dados')}}" type="button" title="Editar Dados"><strong><span
           class="fa fa-edit" style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Editar
-          Perfil</span></strong></a>
+          Dados</span></strong></a>
   </div>
-  {{-- <div class="col-sm"></div> --}}
+
   <div class="col">
-    <a href="/" type="button" title="Voltar a pagina inicial"><strong><span class="fas fa-undo"
-          style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar</span></strong></a>
+    <a href="/" type="button" title="Voltar a para o site"><strong><span class="fas fa-undo"
+          style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar para o site</span></strong></a>
   </div>
 </div>
 @endsection

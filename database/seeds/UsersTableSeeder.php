@@ -8,6 +8,12 @@ class UsersTableSeeder extends Seeder
 
 
 	public $usuarios = array (
+
+        // inserir aqui nome e emamil da seguinte forma:
+        /*[ 'Maria do livramento Rocha','llilly2010@hotmail.com'    ],
+        [   'Ada Leticia Sousa leme','adalleme@gmail.com'   ],
+        [   'Adair De Souza','manoelsiqueirabarreto@gmail.com'  ]
+        */
 	);
 
     /**

@@ -241,11 +241,11 @@
                                         <li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
                                             <select class="form-control" id="nacionalidade" name="nacionalidade"
                                                 title="Informe Sua Nacionalidade">
-                                                <option value="">Selecionar</option>
-                                                @foreach(Helper::getPai () as $pais)
+                                                <option value="1">Brasil</option>
+                                                {{-- @foreach(Helper::getPai () as $pais)
                                                 <option value="{{$pais->idpais}}">{{$pais->nome}}
                                                 </option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                             <div class="invalid-feedback" id="mensnacional" style="display: none;">
                                                 Você precisa selecionar a sua nacionalidade!

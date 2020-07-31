@@ -61,7 +61,7 @@
             </a>
           </li>
 
-          <li class="nav-item dropdown">
+          {{-- <li class="nav-item dropdown">
             <ul style="margin-left: auto;" title="Idiomas">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -85,7 +85,7 @@
                 </a>
               </div>
             </ul>
-          </li>
+          </li> --}}
 
           @endif
           @else

@@ -221,12 +221,12 @@
 									<option value="2">Outra</option> --}}
 
 
-									<option value="">Selecionar:</option>
-									@foreach(Helper::getPai() as $pai)
+									<option value="1">Brasil</option>
+									{{-- @foreach(Helper::getPai() as $pai)
 									<option value="{{$pai->idpais}}"
-										{{ $c->nacionalidade == $pai->idpais ? 'selected' : '' }}>
-										{{ $pai->nome }}</option>
-									@endforeach
+									{{ $c->nacionalidade == $pai->idpais ? 'selected' : '' }}>
+									{{ $pai->nome }}</option>
+									@endforeach --}}
 								</select>
 								<div class="invalid-feedback" id="mensnacional" style="display: none;">
 									Você precisa selecionar a sua nacionalidade!

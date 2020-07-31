@@ -101,7 +101,7 @@ $(document).ready(function ($) {
     });
 
     // Adicionando mascara para a RG
-    $("#rg").mask('NNNNNNNNNNN', {
+    $("#rg").mask('NNNNNNNNNN', {
         translation: {
             N: {
                 pattern: /[\w]/
@@ -154,22 +154,30 @@ $(document).ready(function ($) {
 
 
     // adicionando mascara para o telefone 1
-    $("#telefone1").mask('(000)N0000-0000', {
+    $("#telefone1").mask('(M00)N0000-0000', {
         translation: {
             N: {
                 pattern: /[9-9]/,
-                optional: false
+                optional: true
+            },
+            M: {
+                pattern: /[0-0]/,
+                optional: true
             },
 
         }
     });
 
     // adicionando mascara para o telefone 2
-    $("#telefone2").mask('(000)N0000-0000', {
+    $("#telefone2").mask('(M00)N0000-0000', {
         translation: {
             N: {
                 pattern: /[9-9]/,
-                optional: false
+                optional: true
+            },
+            M: {
+                pattern: /[0-0]/,
+                optional: true
             },
         }
     });
@@ -200,6 +208,18 @@ $(document).ready(function ($) {
             validacaoassincrona(vetcnh, vetmensagcnh);
         }
 
+        var cpfValue = $("#cpf").val();
+        if (!validacpf(cpfValue)) {
+            event.preventDefault();
+            $("#cpf").addClass('is-invalid');
+            document.getElementById('menscpfvalido').style.display = 'block';
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1500);
+        } else {
+            $("#cpf").removeClass('is-invalid');
+            document.getElementById('menscpfvalido').style.display = 'none';
+        }
         // event.preventDefault();
         var cpfValue = $("#cpf").val();
         var rgvalue = $("#rg").val();
@@ -299,6 +319,45 @@ $("document").ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 });
+
+// validação cpf
+
+function validacpf(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+    // if (cpf == '') return false;
+    // Eliminar entradas erradas e comuns de CPFs invalidos
+    if (cpf.length != 11 ||
+        cpf == "00000000000" ||
+        cpf == "11111111111" ||
+        cpf == "22222222222" ||
+        cpf == "33333333333" ||
+        cpf == "44444444444" ||
+        cpf == "55555555555" ||
+        cpf == "66666666666" ||
+        cpf == "77777777777" ||
+        cpf == "88888888888" ||
+        cpf == "99999999999")
+        return false;
+    // Valida 1o digito	
+    add = 0;
+    for (i = 0; i < 9; i++)
+        add += parseInt(cpf.charAt(i)) * (10 - i);
+    rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11)
+        rev = 0;
+    if (rev != parseInt(cpf.charAt(9)))
+        return false;
+    // Valida 2o digito	
+    add = 0;
+    for (i = 0; i < 10; i++)
+        add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11)
+        rev = 0;
+    if (rev != parseInt(cpf.charAt(10)))
+        return false;
+    return true;
+}
 
 
 

@@ -20,7 +20,12 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-{{-- <script src="js/eventos.js"></script> --}}
+<script>
+  $("document").ready(function () {
+$("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
+
+});
+</script>
 
 
 @section('content_header')
@@ -35,8 +40,8 @@
   </div>
 
   <div class="col ">
-    <a href="{{route('curriculo.dados')}}" type="button" title="Editar Dados"><strong><span
-          class="fa fa-edit" style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Editar
+    <a href="{{route('curriculo.dados')}}" type="button" title="Editar Dados"><strong><span class="fa fa-edit"
+          style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Editar
           Dados</span></strong></a>
   </div>
 

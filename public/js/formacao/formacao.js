@@ -110,7 +110,7 @@ $(function () {
             if (valor) {
                 location.href = '/curso/excluir/' + this.value;
                 // window.onload = alert("Formação excluída!");
-                $("ul.item-ii").find("li").css("background-color", "red");
+                // $("ul.item-ii").find("li").css("background-color", "red");
 
             } else {
                 // location.href = 'can';

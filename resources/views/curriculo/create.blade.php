@@ -96,12 +96,13 @@
 
                                     <div class="form-group">
                                         <li><strong> CPF:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text"
-                                                class="form-control {{ $errors->has('cpf') ? 'is-invalid' : ''}}"
-                                                maxlength="11" name="cpf" id="cpf" placeholder="123.456.789-10"
-                                                title="Documento CPF">
+                                            <input type="text" class="form-control" maxlength="11" name="cpf" id="cpf"
+                                                placeholder="123.456.789-10" title="Documento CPF">
                                             <div class="invalid-feedback" id="menscpf" style="display: none;">
                                                 Você precisa preencher o CPF!
+                                            </div>
+                                            <div class="invalid-feedback" id="menscpfvalido" style="display: none;">
+                                                O CPF inserido não é valido! Por favor, insira um CPF valido.
                                             </div>
                                         </li>
                                     </div>
@@ -111,10 +112,8 @@
 
                                     <div class="form-group">
                                         <li><strong> RG:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text"
-                                                class="form-control {{$errors->has('rg') ? 'is-invalid' : ''}}"
-                                                maxlength="11" name="rg" id="rg" placeholder="RG"
-                                                title="Documento de Identidade">
+                                            <input type="text" class="form-control" maxlength="11" name="rg" id="rg"
+                                                placeholder="RG" title="Documento de Identidade">
                                             <div class="invalid-feedback" id="mensrg" style="display: none;">
                                                 Você precisa preencher o RG!
                                             </div>
@@ -139,9 +138,8 @@
 
                                     <div class="form-group">
                                         <li><strong>PRETENÇÃO SALARIAL:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text"
-                                                class="form-control {{$errors->has('pretsalarial') ? 'is-invalid' : ''}}"
-                                                placeholder="Ex.:9999,99" name="pretsalarial" id="pretsalarial"
+                                            <input type="text" class="form-control" placeholder="Ex.:9999,99"
+                                                name="pretsalarial" id="pretsalarial"
                                                 title="Valor Pretendido para Salário">
                                             <div class="invalid-feedback" id="menspretsala" style="display: none;">
                                                 Você precisa preencher a sua pretenção salarial!
@@ -158,10 +156,8 @@
                                     <div class="form-group">
                                         <li><strong>DATA DE NASCIMENTO:*&nbsp;&nbsp;&nbsp;</strong><span
                                                 style="color: red;"></span>
-                                            <input type="date"
-                                                class="form-control {{$errors->has('dtnascimento') ? 'is-invalid' : ''}}"
-                                                placeholder="Ex.: dd/mm/aaaa" name="dtnascimento" id="dtnascimento"
-                                                title="Data de Nascimento">
+                                            <input type="date" class="form-control " placeholder="Ex.: dd/mm/aaaa"
+                                                name="dtnascimento" id="dtnascimento" title="Data de Nascimento">
                                             <div class="invalid-feedback" id="mensdtnasc" style="display: none;">
                                                 Você precisa preencher a data do seu nascimento!
                                             </div>
@@ -176,8 +172,7 @@
 
                                     <div class="form-group">
                                         <li><strong> GENERO:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <select class="form-control {{$errors->has('genero') ? 'is-invalid' : ''}}"
-                                                id="genero" name="genero" title="Genero">
+                                            <select class="form-control " id="genero" name="genero" title="Genero">
                                                 <option value="" selected>Selecionar</option>
                                                 <option value="F">Feminino</option>
                                                 <option value="M">Masculino</option>
@@ -197,10 +192,8 @@
 
                                     <div class="form-group">
                                         <li style=""><strong> NOME DA MÃE:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text"
-                                                class="form-control {{$errors->has('nomemae') ? 'is-invalid' : ''}}"
-                                                name="nomemae" id="nomemae" placeholder="Nome da mãe"
-                                                title="Nome da Mãe">
+                                            <input type="text" class="form-control " name="nomemae" id="nomemae"
+                                                placeholder="Nome da mãe" title="Nome da Mãe">
                                             <div class="invalid-feedback" id="mensmae" style="display: none;">
                                                 Você precisa preencher o nome de sua mãe!
                                             </div>
@@ -227,8 +220,8 @@
 
                                     <div class="form-group">
                                         <li><strong> DEFICIENTE FÍSICO?*&nbsp;&nbsp;&nbsp;</strong>
-                                            <select class="form-control {{$errors->has('dfisico') ? 'is-invalid' : ''}}"
-                                                id="dfisico" name="dfisico" title="Deficiência Fisíca">
+                                            <select class="form-control" id="dfisico" name="dfisico"
+                                                title="Deficiência Fisíca">
                                                 <option value="" selected>Selecionar</option>
                                                 <option value="1">Sim</option>
                                                 <option value="2">Não</option>
@@ -246,15 +239,13 @@
 
                                     <div class="form-group">
                                         <li><strong> NACIONALIDADE:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <select
-                                                class="form-control {{$errors->has('nacionalidade') ? 'is-invalid' : ''}}"
-                                                id="nacionalidade" name="nacionalidade"
+                                            <select class="form-control" id="nacionalidade" name="nacionalidade"
                                                 title="Informe Sua Nacionalidade">
-                                                <option value="">Selecionar</option>
-                                                @foreach(Helper::getPai () as $pais)
+                                                <option value="1">Brasil</option>
+                                                {{-- @foreach(Helper::getPai () as $pais)
                                                 <option value="{{$pais->idpais}}">{{$pais->nome}}
                                                 </option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                             <div class="invalid-feedback" id="mensnacional" style="display: none;">
                                                 Você precisa selecionar a sua nacionalidade!
@@ -276,9 +267,8 @@
                                                     <strong>ESTADO DE NATURALIDADE:
                                                         &nbsp;&nbsp;&nbsp;</strong>
 
-                                                    <select
-                                                        class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-                                                        id="natural" name="natural" title="Estado de Origem">
+                                                    <select class="form-control " id="natural" name="natural"
+                                                        title="Estado de Origem">
                                                         <option value="" selected>Selecionar</option>
                                                         @foreach(Helper::getEstados() as $est)
                                                         <option value="{{$est->idestado}}">{{ $est->nome }}
@@ -293,9 +283,8 @@
                                                 <div class="col-sm-6">
                                                     <strong>CIDADE DE NATURALIDADE:
                                                         &nbsp;&nbsp;&nbsp;</strong>
-                                                    <select
-                                                        class="form-control {{$errors->has('naturalidade') ? 'is-invalid' : ''}}"
-                                                        id="naturalidade" name="naturalidade" title="Cidade de Origem">
+                                                    <select class="form-control" id="naturalidade" name="naturalidade"
+                                                        title="Cidade de Origem">
                                                         <option value="" selected>Selecionar</option>
                                                     </select>
                                                     <div class="invalid-feedback" id="mensnaturalidade"
@@ -315,11 +304,10 @@
 
 
                                     <div class="form-group">
-                                        <li><strong> TELEFONE 1*: &nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text"
-                                                class="form-control {{$errors->has('telefone1') ? 'is-invalid' : ''}}"
-                                                name="telefone1" id="telefone1" placeholder="(DDD)9****-****"
-                                                title="Telefone Principal">
+                                        <li><strong> TELEFONE (PRINCIPAL):* &nbsp;&nbsp;&nbsp;</strong>
+                                            <input type="text" class="form-control " name="telefone1" id="telefone1"
+                                                placeholder="(DDD)9****-**** OU (DDD)****-****"
+                                                title="Telefone Principal(Fixo ou celular)">
                                             <div class="invalid-feedback" id="menstelefone" style="display: none;">
                                                 Você precisa selecionar o telefone!
                                             </div>
@@ -332,9 +320,10 @@
 
 
                                     <div class="form-group">
-                                        <li><strong>TELEFONE 2:&nbsp;&nbsp;&nbsp;</strong>
+                                        <li><strong>TELEFONE (2º OPÇÃO):&nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text" class="form-control" name="telefone2" id="telefone2"
-                                                placeholder="(DDD)9****-****" title="Segunda Opção de Telefone">
+                                                placeholder="(DDD)9****-**** OU (DDD)****-****"
+                                                title="Segunda Opção(Fixo ou celular)">
                                         </li>
                                     </div>
 
@@ -348,9 +337,8 @@
 
                                     <div class="form-group">
                                         <li><strong> ESTADO CIVIL:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <select
-                                                class="form-control {{$errors->has('estadocivil') ? 'is-invalid' : ''}}"
-                                                id="estadocivil" name="estadocivil" title="Estado Civil">
+                                            <select class="form-control " id="estadocivil" name="estadocivil"
+                                                title="Estado Civil">
                                                 <option value="" selected>Selecionar</option>
                                                 <option value="1">Solteiro(a)</option>
                                                 <option value="2">Casado(a)</option>

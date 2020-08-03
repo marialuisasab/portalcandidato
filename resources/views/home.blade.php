@@ -89,7 +89,7 @@ $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
             <ul style="text-align: center;">
               Você ainda não cadastrou o seu currículo.<br><br>
               Acesse o <b>menu lateral</b> ou o <b>box amarelo</b> abaixo para iniciar o cadastro.<br>
-              Caso ainda haja alguma dúvida, consulte o <b>manual do usuário</b> no ícone de ajuda do menu superior.
+              Caso ainda haja alguma dúvida, entre em contato com o suporte através do <a href="{{route('contatosuporte')}}">Fale Conosco</a>
             </ul>
             @endif
 

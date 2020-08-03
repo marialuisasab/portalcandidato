@@ -91,7 +91,7 @@
 
   <div class="bio-image">
     <div class="bio-text">
-      <h1><i>Portal do Candidato <b>Bio Extratus</b></i></h1>
+      <h1><i>Trabalhe Conosco <b>Bio Extratus</b></i></h1>
       <h5>Cadastre seu currículo na plataforma e venha trabalhar conosco!</h5>
     </div>
   </div>
@@ -329,7 +329,7 @@
                 <img class="redesimg" src="img/ImagemFacebook.jpg"></a></li>
             <li><a class="twitter"
                 href="https://www.linkedin.com/in/bio-extratus-cosmetic-natural-ltda-918900159/">{{--<i class="fa fa-linkedin"></i> --}}
-                <img class="redesimg" src="img/ImagemLinkedin.jpg"></a></li>
+                <img class="redesimg" src="img/ImagemLinkedIn.jpg"></a></li>
             <li><a class="dribbble" href="https://www.instagram.com/bioextratus/?hl=pt-br">
                 <img class="redesimg" src="img/ImagemInstagram.jpg"></a></li>
             <li><a class="youtube" href="https://www.youtube.com/bioextratusoficial">

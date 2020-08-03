@@ -187,11 +187,11 @@
 										<li style="" id="idlipais"><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
 											<select class="custom-select " id="pais_idpais" name="pais_idpais"
 												title="País">
-												<option value="" selected>País</option>
-												@foreach(Helper::getPai () as $pais)
-												<option value="{{$pais->idpais}}">{{$pais->nome}}
+												<option value="1">Brasil</option>
+												{{-- @foreach(Helper::getPai () as $pais)
+												                                                <option value="{{$pais->idpais}}">{{$pais->nome}}
 												</option>
-												@endforeach
+												@endforeach --}}
 											</select>
 											<div class="invalid-feedback" style="display: none;" id="menserropais">
 												Você deve preencher o País!
@@ -202,7 +202,7 @@
 
 
 									<div class="form-group">
-										<li><strong>DISPONIBILIDADE DE MUDANÇA PARA OUTRO ESTADO OU
+										<li id="idbackgroud"><strong>DISPONIBILIDADE DE MUDANÇA PARA OUTRO ESTADO OU
 												CIDADE?:*&nbsp;&nbsp;&nbsp;</strong><span> </span>
 											<div class="form-check form-check-inline">
 												<input class="form-check-input" type="radio" name="disp_mudanca"
@@ -215,6 +215,9 @@
 												<label class="form-check-label">Não</label>
 											</div>
 										</li>
+										<div class="invalid-feedback" style="display: none;" id="mensdisponi">
+											Você deve informar sua disponibilidade!
+										</div>
 									</div>
 
 									{{-- @if($errors->any())

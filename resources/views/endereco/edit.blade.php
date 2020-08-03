@@ -226,12 +226,12 @@
 							<li id="idlipais"><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="form-control " id="pais_idpais" name="pais_idpais"
 									value="{{$e->pais_idpais}}" title="País">
-									<option value="">Selecionar</option>
-									@foreach(Helper::getPai() as $pai)
-									<option value="{{$pai->idpais}}"
-										{{ $e->pais_idpais == $pai->idpais ? 'selected' : '' }}>
-										{{ $pai->nome }}</option>
-									@endforeach
+									<option value="1">Brasil</option>
+									{{-- @foreach(Helper::getPai() as $pai)
+																		<option value="{{$pai->idpais}}"
+									{{ $c->nacionalidade == $pai->idpais ? 'selected' : '' }}>
+									{{ $pai->nome }}</option>
+									@endforeach --}}
 								</select>
 								<div class="invalid-feedback" style="display: none;" id="menserropais">
 									Você deve preencher o País!
@@ -245,7 +245,7 @@
 
 
 						<div class="form-group">
-							<li><strong>Tem diponibilidade para mudança de cidade ou
+							<li id="idbackgroud"><strong>Tem diponibilidade para mudança de cidade ou
 									estado?*&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<div class="form-check form-check-inline">
 									<input class="form-check-input" type="radio" id="disp_mudanca" name="disp_mudanca"
@@ -258,6 +258,9 @@
 									<label class="form-check-label" for="disp_mudanca">Não</label>
 								</div>
 							</li>
+							<div class="invalid-feedback" style="display: none;" id="mensdisponi">
+								Você deve informar sua disponibilidade!
+							</div>
 						</div>
 						{{csrf_field()}}
 

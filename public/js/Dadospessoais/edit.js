@@ -201,12 +201,15 @@ $(document).ready(function ($) {
         var vetidmensag = ['mensnome', 'menscpf', 'mensrg', 'menspretsala', 'mensdtnasc', 'mensgenero', 'mensmae', 'mensdtfisico', 'mensnacional', 'mensnaturalidade', 'mensnatural', 'menstelefone', 'mensestadociv'];
         validacaoassincrona(vetidvalor, vetidmensag);
 
+        // pegando valor do tem CNH ou não
         var botaovoltar = $("#botaovoltar").val();
         if (botaovoltar == '1') {
             var vetcnh = ['#catcnh'];
             var vetmensagcnh = ['menscnh'];
             validacaoassincrona(vetcnh, vetmensagcnh);
         }
+
+
 
         var cpfValue = $("#cpf").val();
         if (!validacpf(cpfValue)) {

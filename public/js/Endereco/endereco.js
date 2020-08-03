@@ -40,9 +40,9 @@ $(function () {
 
 
     $("#idformselect").submit(function () {
-        var vetidvalor = ['#cep', '#logradouro', '#estado', '#numero', '#bairro', '#cidade', '#pais_idpais'];
+        var vetidvalor = ['#cep', '#logradouro', '#estado', '#numero', '#bairro', '#cidade', '#pais_idpais', '#disp_mudanca'];
         // validaForm('#nacionalidade', 'mensnacional');
-        var vetidmensag = ['menserrocep', 'menserrologra', 'menserroestado', 'menserronumero', 'menserrobairro', 'menserrocidade', 'menserropais'];
+        var vetidmensag = ['menserrocep', 'menserrologra', 'menserroestado', 'menserronumero', 'menserrobairro', 'menserrocidade', 'menserropais', 'mensdisponi'];
         var cont = 0;
         for (var i = 0; i < vetidvalor.length; i++) {
             var valorvalida = validaForm(vetidvalor[i], vetidmensag[i]);
@@ -54,6 +54,28 @@ $(function () {
                 scrollTop: 0
             }, 1500);
         }
+
+        // var isChecked = $("input[name='disp_mudanca']:checked").val();
+        // Checando se o radio foi selecionado
+        if (!$("input[type='radio'][name='disp_mudanca']").is(':checked')) {
+            event.preventDefault();
+            document.getElementById('idbackgroud').style.border = 'solid';
+            document.getElementById('idbackgroud').style.borderColor = 'red';
+            document.getElementById('idbackgroud').style.borderWidth = 'thin';
+            document.getElementById('mensdisponi').style.display = 'block';
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1500);
+        } else {
+            document.getElementById('idbackgroud').style.border = 'none';
+            document.getElementById('mensdisponi').style.display = 'none';
+        }
+
+
+
+
+
+
 
 
         // chamadas da fução de validção

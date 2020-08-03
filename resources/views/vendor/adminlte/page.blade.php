@@ -143,7 +143,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             <a href="{{route('home')}}" class="sino mr-5 mt-3">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
-                            <a href="#" class="mr-5 mt-3">
+                            <a href="{{route('contatosuporte')}}" class="mr-5 mt-3">
                                 <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
                                     title="Precisa de ajuda?"></span>
                             </a>

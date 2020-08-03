@@ -107,8 +107,8 @@
 										style="max-width: 120px; border-radius: 50%;">
 								</h2>
 								@else
-								<h2> <img class="profile-user-img img-responsive img-circle" src="img/usuariopadrao.png"
-										alt="Usuário sem foto" style="color: red;">
+								<h2> <img class="profile-user-img img-responsive img-circle"
+										src="/img/imagemuserPadrao.jpg" alt="Usuário sem foto" style="color: red;">
 								</h2>
 								<p></p>
 								@endif

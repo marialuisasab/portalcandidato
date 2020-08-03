@@ -54,7 +54,6 @@ $(function () {
                 scrollTop: 0
             }, 1500);
         }
-
         // var isChecked = $("input[name='disp_mudanca']:checked").val();
         // Checando se o radio foi selecionado
         if (!$("input[type='radio'][name='disp_mudanca']").is(':checked')) {

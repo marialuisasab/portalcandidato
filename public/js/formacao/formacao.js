@@ -17,7 +17,7 @@ $(function () {
 
             $("#nivel_idnivel").change(function () {
                 var valorid = $("#nivel_idnivel").val();
-                // alert(valorid);
+                alert(valorid);
                 var vetorEscolFund = ['1', '2', '3', '4', '5', '6']
                 var vetorvalorComperiodo = ['7', '9', '11', '13'];
                 if ($.inArray(valorid, vetorEscolFund) !== -1) {
@@ -169,11 +169,25 @@ $("document").ready(function () {
 
         var valorselectescol = $("#escolaridade").val();
         if (valorselectescol == '1') {
+            // nivel obrigatorio inserção
+            var vetcamposnivel = ['#nivel_idnivel'];
+            var vetMensnivel = ['mensnivel'];
+            validacaoassincrona(vetcamposnivel, vetMensnivel);
+            var valornivel = $("#nivel_idnivel").val();
+            var vetorEscolFundnivel = ['1', '2', '3', '4', '5', '6']
+            // var vetorvalorComperiodo = ['7', '9', '11', '13'];
+            if ($.inArray(valornivel, vetorEscolFundnivel) == -1) {
+                var vetcamposarea = ['#area_idarea'];
+                var vetMensarea = ['mensarea'];
+                validacaoassincrona(vetcamposarea, vetMensarea);
+            } else {
+                document.getElementById("idarea").style.display = 'none';
+            }
             // validaForm('#nivel_idnivel', 'mensnivel');
             // validaForm('#area_idarea', 'mensarea');
-            var vetcampos2 = ['#nivel_idnivel', '#area_idarea'];
-            var vetMens2 = ['mensnivel', 'mensarea'];
-            validacaoassincrona(vetcampos2, vetMens2);
+            // var vetcampos2 = ['#nivel_idnivel', '#area_idarea'];
+            // var vetMens2 = ['mensnivel', 'mensarea'];
+            // validacaoassincrona(vetcampos2, vetMens2);
         } else if (valorselectescol == '2') {
             // validaForm('#categoria_idcategoria', 'menscategoria');
             var vetcampos3 = ['#categoria_idcategoria'];

@@ -1,4 +1,7 @@
 @extends('adminlte::page')
+{{-- Author: Marcos Vinicius Timoteo Nunes --}}
+
+
 
 {{-- importação do jquery --}}
 {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -114,29 +117,60 @@
 
 
 
-
+                      {{-- se a escolaridade for 1 --}}
                       @if ($c->escolaridade == '1')
+                      {{-- se a escolaridade for 1 e os niveis forem superior (graduação, pos graduação, mestrado, doutorado) --}}
+                      <?php 
+                       $vetorniveisSsuperior=array("7","8","9","10","11","12","13","14");
+                        ?>
+                      @foreach ($vetorniveisSsuperior as $niveis)
+                      @if($c->nivel_idnivel == $niveis)
                       @if ($c->instituicao_idinstituicao != null)
                       <li class="item-2"><strong>
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{Helper::getInstituicoesId($c->instituicao_idinstituicao)}}
                       </li>
+                      <hr>
                       @else
                       <li class="item-2"><strong>
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não informado</span>
                       </li>
+                      <hr>
                       @endif
                       @else
+                      @endif
+                      @endforeach
+
+
+                      {{-- se a escolaridade for 1 e os niveis forem  (medio, tecnico, fundamental) --}}
+                      <?php 
+                                            $vetorniveisNsuperior=array("1","2","3","4","5","6");
+                                             ?>
+                      @foreach ($vetorniveisNsuperior as $niveis)
+                      @if($c->nivel_idnivel == $niveis)
+                      <li class="item-2"><strong> ESCOLA:&nbsp;&nbsp;&nbsp;</strong>{{$c->escola}}
+                      </li>
+                      <hr>
+                      @else
+                      @endif
+                      @endforeach
+
+
+                      @else
+
+                      {{-- se a escolaridade for 2 e os niveis forem --}}
                       @if ($c->escola != null)
                       <li class="item-2"><strong>
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{$c->escola}}
                       </li>
+                      <hr>
                       @else
                       <li class="item-2"><strong>
                           INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não informado</span>
                       </li>
-                      @endif
-                      @endif
                       <hr>
+                      @endif
+                      @endif
+
 
                       @if($c->escolaridade == '1')
                       <li class="item-2"><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong>
@@ -144,12 +178,23 @@
                       </li>
                       <hr>
 
-
+                      {{-- se area for diferente de Null, quer dizer que estamos falando de um nivel superior ou seja,  diferente
+                      do ensino medio, fundamental, tecnico... --}}
+                      @if($c->area_idarea !=null)
                       <li class="item-2"><strong> AREA:&nbsp;&nbsp;&nbsp;</strong> {{Helper::getArea($c->area_idarea)}}
                       </li>
                       <hr>
+                      @else
+                      @endif
 
 
+
+                      {{-- se a escolaridade for 1 e os niveis forem superiores (graduação, pos graduação, mestrado e doutorado) --}}
+                      <?php 
+                       $vetorniveisSsuperior=array("7","8","9","10","11","12","13","14");
+                      ?>
+                      @foreach ($vetorniveisSsuperior as $niveis)
+                      @if($c->nivel_idnivel == $niveis)
                       @if ($c->periodo != null)
                       <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
                       </li>
@@ -160,6 +205,12 @@
                       </li>
                       <hr>
                       @endif
+                      @else
+                      @endif
+                      @endforeach
+
+
+
                       @else
                       @endif
 

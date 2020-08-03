@@ -58,9 +58,9 @@ class FormacaoController extends Controller
         $curso->instituicao_idinstituicao = $request->instituicao_idinstituicao;
         $curso->status = '1';
         $curso->escola = mb_convert_case($request->escola, MB_CASE_TITLE, "UTF-8");
-
+$curso->area_idarea = $request->area_idarea;//so para escolaridade sim
         if($request->escolaridade == '1'){            
-            $curso->area_idarea = $request->area_idarea;//so para escolaridade sim        
+                
             $curso->nivel_idnivel = $request->nivel_idnivel;//so para escolaridade sim
             if($request->nivel_idnivel == '7'|| $request->nivel_idnivel == '8'){
                 $curso->periodo = $request->periodo;//so para esclaridade sim e nivel graduação
@@ -128,9 +128,9 @@ class FormacaoController extends Controller
             $curso->instituicao_idinstituicao = $request->instituicao_idinstituicao;
             $curso->status = '1';
             $curso->escola = mb_convert_case($request->escola, MB_CASE_TITLE, "UTF-8");
+            $curso->area_idarea = $request->area_idarea;//so para escolaridade sim
 
             if($request->escolaridade == '1'){            
-                $curso->area_idarea = $request->area_idarea;//so para escolaridade sim        
                 $curso->nivel_idnivel = $request->nivel_idnivel;//so para escolaridade sim
                 if($request->nivel_idnivel == '7'|| $request->nivel_idnivel == '8'){
                     $curso->periodo = $request->periodo;//so para esclaridade sim e nivel graduação
@@ -185,7 +185,7 @@ class FormacaoController extends Controller
         if($request->escolaridade == '1'){
             $regras += [
                 'nivel_idnivel'=>'required',
-                'area_idarea' => 'required'
+                // 'area_idarea' => 'required'
             ];
         }else {
             $regras += [

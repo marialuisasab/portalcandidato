@@ -187,6 +187,11 @@
 
 
                   @if ($curso->escolaridade == '1')
+                  <?php 
+                     $vetorniveisSsuperior=array("7","8","9","10","11","12","13","14");
+                      ?>
+                  @foreach ($vetorniveisSsuperior as $niveis)
+                  @if($curso->nivel_idnivel == $niveis)
                   <div class="form-group">
                     <div class="container">
                       <div class="row">
@@ -248,15 +253,40 @@
                       </div>
                     </div>
                   </div>
+
                   @else
+                  @endif
+                  @endforeach
+
+
+                  <?php 
+                                       $vetorniveisNsuperior=array("1","2","3","4","5","6");
+                                       ?>
+                  @foreach ($vetorniveisNsuperior as $niveis)
+                  @if($curso->nivel_idnivel == $niveis)
+                  <div class="form-group" id="idnomeescola">
+                    <li><strong>NOME DA ESCOLA:</strong>
+                      <input type="text" class="form-control" name="escola" placeholder="Nome da Instituição"
+                        title="Nome da Escola" value="{{$curso->escola}}">
+                    </li>
+                  </div>
+                  @else
+                  @endif
+                  @endforeach
+
+                  @endif
+
+
+
+                  @if ($curso->escolaridade == '2')
                   <div class="form-group" id="idnomeescola">
                     <li><strong>NOME DA INSTITUIÇÃO:</strong>
                       <input type="text" class="form-control" name="escola" placeholder="Nome da Instituição"
                         title="Nome da Escola" value="{{$curso->escola}}">
                     </li>
                   </div>
+                  @else
                   @endif
-
 
 
                   {{-- <div class="form-group" style="display: none;" id="idnomeescola">
@@ -275,6 +305,11 @@
 
 
             @if ($curso->escolaridade =='1')
+            <?php 
+              $vetorniveisSsuperior=array("7","8","9","10","11","12","13","14");
+              ?>
+            @foreach ($vetorniveisSsuperior as $niveis)
+            @if($curso->nivel_idnivel == $niveis)
             <div class="form-group" id="idarea">
               <li><strong> AREA:*&nbsp;&nbsp;&nbsp;</strong>
                 <select class="form-control " id="area_idarea" name="area_idarea" title="Area de Atuação">
@@ -289,6 +324,11 @@
                 </div>
               </li>
             </div>
+
+            @else
+            @endif
+            @endforeach
+
             @else
             @endif
 
@@ -296,6 +336,11 @@
 
 
             @if ($curso->escolaridade =='1')
+            <?php 
+                          $vetorniveisSsuperior=array("7","8","9","10","11","12","13","14");
+                          ?>
+            @foreach ($vetorniveisSsuperior as $niveis)
+            @if($curso->nivel_idnivel == $niveis)
             <div class="form-group" id="idperiodo">
               <li><strong>PERÍODO:&nbsp;&nbsp;&nbsp;
                   <span class="fas fa-question-circle dropdown-toggle" title="Como devo preencher o perído??"
@@ -311,6 +356,9 @@
                   placeholder="Ex: 1" title="Período Atual">
             </div>
             </li>
+            @else
+            @endif
+            @endforeach
             @else
             @endif
 

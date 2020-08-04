@@ -45,8 +45,6 @@
   <style type="text/css">
 
   </style>
-
-
 </head>
 
 <body class="idBodyPrincipal">
@@ -276,39 +274,39 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6">
-          <h6>Institucional</h6>
+          <h6>Institucional:</h6>
           <p class="text-justify">
             <li>
-              <a href="/">Historia</a>
+              <a href="https://bioextratus.com.br/historia/">Historia</a>
             </li>
             <li>
-              <a href="/">Tecnologia e Controle de Qualidade</a>
+              <a href="https://bioextratus.com.br/tecnologia-e-controle-de-qualidade/">Tecnologia e Controle de
+                Qualidade</a>
             </li>
             <li>
-              <a href="/">Onde Comprar</a>
+              <a href="https://bioextratus.com.br/onde-comprar-bio-extratus/">Onde Comprar</a>
             </li>
             <li>
-              <a href="/">Visite nosso site</a>
+              <a href="https://bioextratus.com.br/">Visite nosso site</a>
             </li>
           </p>
         </div>
 
         <div class="col-xs-6 col-md-3">
-          <h6>Politicas sociais</h6>
+          <h6>Politicas Sociais</h6>
           <ul class="footer-links">
-            <li><a href="/">Responsabilidade Ambiental</a></li>
-            <li><a href="/">Responsabilidade Social</a></li>
-            <li><a href="/">Fundação Bioextratus</a></li>
+            <li><a href="https://bioextratus.com.br/responsabilidade-ambiental/">Responsabilidade Ambiental</a></li>
+            <li><a href="https://bioextratus.com.br/responsabilidade-social/">Responsabilidade Social</a></li>
+            <li><a href="http://fundacaobioextratus.org.br/">Fundação Bioextratus</a></li>
           </ul>
         </div>
 
         <div class="col-xs-6 col-md-3">
-          <h6>Fale conosco</h6>
+          <h6>Fale Conosco</h6>
           <ul class="footer-links">
-            <li><a href="/">Email...</a></li>
-            <li><a href="/"> +55 (31) 3855-3002</a></li>
-            <li><a href="/">...</a></li>
-            <li><a href="/">Chat...</a></li>
+            <li>
+              <P> +55 (31) 3855-3002</P>
+            </li>
           </ul>
         </div>
       </div>

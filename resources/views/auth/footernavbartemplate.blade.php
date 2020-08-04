@@ -143,9 +143,6 @@
               <li>
                 <p class="fas fa-phone"> (031) 3855-3000</p>
               </li>
-              <li>
-                <p class="fas fa-envelope"> rh@bioextratus.com.br </p>
-              </li>
             </ul>
           </div>
           <div class="col-xs-4 col-md-4">

@@ -14,7 +14,7 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="/vendor/jquery/jquery.min.js">
   </script>
-
+  <script src="js/Admin/admin.js"></script>
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,7 +38,9 @@
 
     <!-- Sidebar -->
     <div class=" border-right" id="sidebar-wrapper" style="background-color: #CDD7BC;">
-      <div class="sidebar-heading" style="color: red; background-color:  white;">Usuario Administrador</div>
+      <div class="sidebar-heading" style="color: red; background-color:  white;">
+        <p id="admin"> Usuario Administrador</p>
+      </div>
       <div class="list-group list-group-flush">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
           style="list-style-type: none">

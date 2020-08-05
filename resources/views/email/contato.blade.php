@@ -65,16 +65,18 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
+                    <div  style="text-align: center;">
+                        <p> 
+                            Entre em contato com o suporte técnico em caso de <b>problemas técnicos</b> ou <b>dúvidas sobre o funcionamento da plataforma</b>. Qualquer outro assunto, favor contatar o Fale Conosco da Bio Extratus clicando <a href="https://bioextratus.typeform.com/to/OROwAP"><b>aqui</b></a>.
+                        </p>
 
+                    </div>
+                    <div class="card-body">
+                    
 
                         <ul style="list-style-type: none;">
 

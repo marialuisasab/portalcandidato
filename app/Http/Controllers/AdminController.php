@@ -17,6 +17,15 @@ class AdminController extends Controller
 
 		$admin = Admin::where("id",Auth::user()->id)->get();
     	return view('admin', compact(['admin']));
-    }
+	}
+	
+	public function buscar(){
+		return view('admin.buscarcurriculo');
+	}
+
+	public function cadastrarvaga(){
+	return view('admin.cadastrovaga');
+	}
+
 
 }

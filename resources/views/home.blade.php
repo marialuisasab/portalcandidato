@@ -89,7 +89,9 @@ $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
             <ul style="text-align: center;">
               Você ainda não cadastrou o seu currículo.<br><br>
               Acesse o <b>menu lateral</b> ou o <b>box amarelo</b> abaixo para iniciar o cadastro.<br>
-              Caso ainda haja alguma dúvida, entre em contato com o suporte através do <a href="{{route('contatosuporte')}}">Fale Conosco</a>
+              Caso ainda haja alguma dúvida, clique no ícone de ajuda
+              no cabeçalho da página e consulte o <a href="ManualFaleConosco/manualsuporte.pdf"> Manual do
+                Usuário. </a>
             </ul>
             @endif
 
@@ -186,7 +188,7 @@ $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
         <div class="inner">
           <!--<h3>150</h3>-->
 
-          <p style="text-align: center;">Fale Conosco</p>
+          <p style="text-align: center;">Suporte Tecnico</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>

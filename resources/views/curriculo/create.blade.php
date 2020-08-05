@@ -35,7 +35,7 @@
 
             <div id="accordion" style="margin-top: 40px;">
                 <div class="card-border-light">
-                    <div class="card-header" id="headingOne" style="background-color: white;">
+                    <div class="card-header" id="headingOne" style="background-color: rgb(255, 241, 241);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-">

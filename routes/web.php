@@ -88,3 +88,7 @@ Route::get('/vaga/excluir/{id}', 'VagaController@destroy')->name('vaga.excluir')
 Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');
+
+
+Route::get('/buscarcurriculo','AdminController@buscar');
+Route::get('/cadastrarvaga','AdminController@cadastrarvaga');

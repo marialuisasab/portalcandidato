@@ -16,12 +16,22 @@ use App\Nivel;
 use App\Curriculo;
 use App\Tipo;
 use App\RedeSocial;
+use App\Admin;
 
 class Helper
 {   
     public static function getIdCurriculo(){
         $id = Curriculo::where('users_id', Auth::user()->id)->get()[0];
         return $id->idcurriculo;
+    }
+    public static function getIdAdmin(){
+    $admin = Admin::where('id', Auth::user()->id)->get();
+
+     if(count($admin)==0){
+     return false;
+     } else {
+     return true;
+     }
     }
 
     public static function getIdCurriculomenu(){

@@ -17,6 +17,7 @@ use App\Curriculo;
 use App\Tipo;
 use App\RedeSocial;
 use App\Admin;
+use App\CurriculoVaga;
 
 class Helper
 {   
@@ -157,5 +158,31 @@ class Helper
         $rs = RedeSocial::where('idredesocial', $id)->get()[0];
         return $rs->nome;    
     }
+
+    public static function listarCandidatosVaga($id){
+        return CurriculoVaga::join('Curriculo', 'idcurriculo','=', 'curriculo_idcurriculo')->join('Users', 'id', '=','users_id')->where('vaga_idvaga', $id)->get();         
+    }
+
+    public static function getStatusVaga($status){
+        if ($status == 1) 
+            return "Visível";            
+        else if($status == 2)
+            return "Oculta";
+        else
+            return "Em andamento";
+
+    }
+
+    public static function getStatusCandidatura($status){        
+        if ($status == 1) 
+            return "Em andamento";            
+        else if($status == 2)
+            return "Classificado(a)";
+        else if($status == 3)
+            return "Desclassificado(a)";
+        else 
+            "Encerrado";
+    }
+    
 
 }

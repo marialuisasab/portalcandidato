@@ -89,11 +89,11 @@
 												@case(2)
 												Classificado
 												@break
-												@case(2)
+												@case(3)
 												Desclassificado
 												@break
 												@default
-												Em andamento
+												Encerrada
 												@endswitch
 											</li>
 

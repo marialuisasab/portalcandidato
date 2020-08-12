@@ -335,16 +335,16 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </a> --}}
 
                     <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" type="button">
-                            <i class="fas fa-fw fa-bullhorn "></i>
+                        <a class="nav-link" style="color:white;" href="{{route('listar')}}" type="button">
+                            <i class="fas fa-fw fa-tasks "></i>
                             <p>
-                                Vagas Abertas
+                                Listar Vagas
                             </p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" href="/cadastrarvaga" id="" type="button">
-                            <i class="fas fa-fw fa-tasks "></i>
+                        <a class="nav-link" style="color:white;" href="{{route('vaga.novo')}}" id="" type="button">
+                            <i class="fas fa-fw fa-plus "></i>
                             <p>
                                 Cadastrar Vaga
                             </p>

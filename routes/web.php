@@ -76,19 +76,31 @@ Route::post('/emailsuporte/enviar', 'EmailsuporteController@enviar')->name('envi
 
 Route::get('/vagas', 'VagaController@index')->name('vagas');
 Route::get('/minhasvagas', 'VagaController@minhasvagas')->name('minhasvagas');
-Route::get('/vaga/novo', 'VagaController@create')->name('vaga.novo');
-Route::get('/vaga/editar/{id}', 'VagaController@edit')->name('vaga.editar');
 Route::get('/vaga/{id}', 'VagaController@show');
 Route::get('/vaga/principal/{id}', 'VagaController@showPrincipal');
-Route::post('/vaga/{id}', 'VagaController@update');
 Route::get('/vaga/candidatar/{id}', 'VagaController@candidatar');
-Route::post('/vaga', 'VagaController@store');
-Route::get('/vaga/excluir/{id}', 'VagaController@destroy')->name('vaga.excluir');
 
-Route::get('/curriculos', 'CurriculosController@index')->name('curriculos');
+/*--------------------------------------------------------------------------------------
+Rotas do admin
+--------------------------------------------------------------------------------------*/
+
+Route::get('/novavaga', 'VagasController@create')->name('vaga.novo');
+Route::post('/salvarvaga', 'VagasController@store')->name('vaga.salvar');
+Route::get('/editarvaga/{id}', 'VagasController@edit')->name('vaga.editar');
+Route::post('/vaga/{id}', 'VagasController@update');
+Route::post('/editarObs', 'VagasController@updateObservacao');
+Route::get('/detalhes/{id}', 'VagasController@show');
+Route::get('/excluirvaga/{id}', 'VagasController@destroy')->name('vaga.excluir');
+Route::get('/listar', 'VagasController@index')->name('listar');
+Route::get('/encerrar/{id}', 'VagasController@encerrarVaga');
+Route::get('/copiarvaga/{id}', 'VagasController@copiarVaga');
+Route::get('/classificar/{id}/{v}/{c}', 'VagasController@classificar');
+
+
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');
 
 
-Route::get('/buscarcurriculo','AdminController@buscar');
-Route::get('/cadastrarvaga','AdminController@cadastrarvaga');
+//Route::get('/buscarcurriculo','AdminController@buscar'); 
+//Route::get('/cadastrarvaga','VagaController@create');
+

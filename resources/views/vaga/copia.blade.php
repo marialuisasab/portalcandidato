@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-">
                                     <h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
-                                        Cadastrar Vaga
+                                        Copiar Vaga
                                         <span class="fa-stack fa-sm">
                                             <i class="fas fa-circle fa-stack-2x"></i>
                                             <i class="fas fa-bullhorn fa-stack-1x fa-inverse"></i>
@@ -35,7 +35,7 @@
                                     <div class="btn-group " role="group" aria-label="">
                                         <button class=" btn btn-secondary btn-sm" type="button"
                                             value="" id="" title="Voltar" style="height:30px; margin-top: 10px; width:70px;">
-                                            <a href="/admin" style="color: white;">
+                                            <a href="/listar" style="color: white;">
                                                 Voltar<span class="fas fa-undo" style="padding-left: 5px; color:white; font-size:9px;"></span>
                                             </a>
                                         </button>
@@ -49,20 +49,19 @@
                         <div class="card-body" style="box-sizing: border-box;">
                             <ul style="list-style-type: none;">
 
-                                <form action="{{route('vaga.salvar')}}" method="POST" enctype="multipart/form-data" id="idformselect">
+                                <form action="/salvarvaga" method="POST" enctype="multipart/form-data" id="idformselect">
                                     @csrf
                                     
                                     <div class="form-group">
                                         <li><strong>TÍTULO:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text" class="form-control" placeholder="Ex.: Auxiliar de Envase" name="titulo" id="idtitulo" title="Título da vaga">
+                                            <input type="text" class="form-control" placeholder="Ex.: Auxiliar de Envase" name="titulo" id="idtitulo" title="Título da vaga" value="{{$v->titulo}}">
                                         </li>
                                     </div>
                                     <div class="form-group">
                                         <li><strong> TIPO DE VAGA:*&nbsp;&nbsp;&nbsp;</strong>
                                             <select class="form-control " id="tpvaga" name="tpvaga" title="Genero">
-                                                <option value="" selected>Selecionar</option>
-                                                <option value="1">Efetiva</option>
-                                                <option value="2">Temporária</option>
+                                                <option value="1" {{$v->tpvaga == '1' ? 'selected' : ''}}>Efetiva</option>
+                                                <option value="2" {{$v->tpvaga == '2' ? 'selected' : ''}}>Temporária</option>
                                             </select>
                                            
                                             <div class="invalid-feedback" id="mensstatus" style="display: none;">
@@ -74,9 +73,7 @@
 
                                     <div class="form-group">
                                         <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="date" class="form-control " name="dtinicio" id="iddatainivaga"
-                                                title="Data de inicio da postagem">
-
+                                            <input type="date" class="form-control " name="dtinicio" id="iddatainivaga" title="Data de inicio da postagem" value="{{$v->dtinicio}}">
                                             <div class="invalid-feedback" style="display: none;" id="mensagemdtvagaini">
                                                 Você deve preencher a data de inicio!
                                             </div>
@@ -86,23 +83,21 @@
 
                                     <div class="form-group">
                                         <li><strong> PREVISÃO DE ENCERRAMENTO:&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="date" class="form-control " name="dtprazo" id="iddatafimvaga" title="Data prevista de encerramento do processo seletivo">                                        
+                                            <input type="date" class="form-control " name="dtprazo" id="iddatafimvaga" title="Data prevista de encerramento do processo seletivo" value="{{$v->dtprazo}}">                                        
 
                                         </li>
                                     </div>
 
                                     <div class="form-group">
                                         <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="int" class="form-control " name="quant" id="quantidade"
-                                                placeholder="Quantidade de vagas"
-                                                title="Quantidade de vagas disponíveis para esse cargo">                                        
+                                            <input type="int" class="form-control " name="quant" id="quantidade" placeholder="Quantidade de vagas" title="Quantidade de vagas disponíveis para esse cargo" value="{{$v->quant}}">                                        
                                         </li>
                                     </div>
                                     
                                     <div class="form-group">
                                         <li><strong> LOCAL:&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text" class="form-control" placeholder="Ex.: Sede fabril e administrativa da Bio Extratus em Alvinópolis/MG" name="local"
-                                                id="idlocal" title="Local da vaga"></li>
+                                            <input type="text" class="form-control" placeholder="Ex.: Sede fabril e administrativa da Bio Extratus em Alvinópolis/MG" name="local" id="idlocal" title="Local da vaga" value="{{$v->local}}">
+                                        </li>
                                         <div class="invalid-feedback" style="display: none;" id="menslocalvaga">
                                             Você deve informar o local da vaga!
                                         </div>
@@ -110,9 +105,7 @@
 
                                     <div class="form-group">
                                         <li><strong> DESCRIÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <textarea class="form-control" id="iddescricao" rows="3" name="descricao"
-                                                title="Texto de descrição da vaga"
-                                                placeholder="Sobre a vaga..."></textarea>
+                                            <textarea class="form-control" id="iddescricao" rows="3" name="descricao" title="Texto de descrição da vaga" placeholder="Sobre a vaga...">{{$v->descricao}}</textarea>
                                             <div class="invalid-feedback" style="display: none;" id="mensdescricaovaga">
                                                 Você deve preencher a descrição da vaga!
                                             </div>
@@ -125,11 +118,8 @@
 
                                     <div class="form-group">
                                         <li><strong> REQUISITOS:*:&nbsp;&nbsp;&nbsp;</strong>
-                                            <textarea class="form-control" id="idrequisitos" rows="3" name="requisitos"
-                                                title="Texto informando os requisitos"
-                                                placeholder="Requisitos para ocupar a vaga..."></textarea>
-                                            <div class="invalid-feedback" style="display: none;"
-                                                id="mensrequisitosvaga">
+                                            <textarea class="form-control" id="idrequisitos" rows="3" name="requisitos" title="Texto informando os requisitos" placeholder="Requisitos para ocupar a vaga...">{{$v->requisitos}}</textarea>
+                                            <div class="invalid-feedback" style="display: none;" id="mensrequisitosvaga">
                                                 Você deve preencher os requisitos da vaga!
                                             </div>
                                         </li>
@@ -142,12 +132,12 @@
                                         <li><strong> PCD:*&nbsp;&nbsp;&nbsp;</strong>                                            
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="pcd"
-                                                    id="pcd" value="1">
+                                                    id="pcd" value="1" {{ $v->pcd == '1' ? 'checked' : '' }}>
                                                 <label class="form-check-label">Sim</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="pcd"
-                                                    id="pcd" value="2">
+                                                    id="pcd" value="2" {{ $v->pcd == '2' ? 'checked' : '' }}>
                                                 <label class="form-check-label">Não</label>
                                             </div>
                                             <div class="invalid-feedback" id="mensstatus" style="display: none;">
@@ -157,20 +147,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <li><strong>STATUS:*&nbsp;&nbsp;&nbsp;</strong>
-                                            <!--<select class="form-control " id="status" name="status" title="Genero">
-                                                <option value="" selected>Selecionar</option>
-                                                <option value="1">Ativa</option>
-                                                <option value="2">Oculta</option>
-                                            </select>-->                                            
+                                        <li><strong>STATUS:*&nbsp;&nbsp;&nbsp;</strong>                
                                              <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status" value="1">
+                                                    id="status" value="1"  {{ $v->status == '1' ? 'checked' : '' }}>
                                                 <label class="form-check-label">Visível</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="status"
-                                                    id="status" value="2">
+                                                    id="status" value="2"  {{ $v->status == '2' ? 'checked' : '' }}>
                                                 <label class="form-check-label">Oculta</label>
                                             </div>
                                             <div class="invalid-feedback" id="mensstatus" style="display: none;">
@@ -178,7 +163,6 @@
                                             </div>
                                         </li>
                                     </div>
-
                                   
 
                                     <br>
@@ -188,7 +172,7 @@
                                                 style="padding-left: 15px;"></button>
                                         <button class=" btn btn-danger" style="color:red;" type="cancel"
                                             title="Cancelar Alterações">
-                                            <a href="admin" style="color: white;">Cancelar<span
+                                            <a href="/listar" style="color: white;">Cancelar<span
                                                     class="fas fa-window-close" style="padding-left: 15px;"></span></a>
                                         </button>
                                     </div>

@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class VagaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +39,7 @@ class VagaController extends Controller
      */
     public function create()
     {
-        return view('vaga.create');
+        //
     }
 
     /**
@@ -44,7 +50,7 @@ class VagaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -136,11 +142,15 @@ class VagaController extends Controller
             $processos = CurriculoVaga::where('curriculo_idcurriculo', $cand)->get();
             $vagas = array();
             if(count($processos)>0){
-                foreach ($processos as $p => $value) {
+                foreach ($processos as $p => $value) {     
+
+                    /*$vaga = Vaga::where("idvaga", $value->vaga_idvaga)->where('status',1)->get();
+                    if(!is_null($vaga)){
+                        $vagas[] = $vaga;
+                    }*/
+                    $vagas[] = Vaga::where("idvaga", $value->vaga_idvaga)->get()[0];
+                }    
                     
-                    $vagas[] = Vaga::where("status", 1)
-                                ->where("idvaga", $value->vaga_idvaga)->get()[0];
-                }        
             }
             
             return view('vaga.minhasvagas', compact(['processos'], ['vagas']));  

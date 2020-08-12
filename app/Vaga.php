@@ -19,7 +19,9 @@ class Vaga extends Model
     	'status',
     	'tpvaga',
     	'pcd',
+        'responsavel',
     ];
     protected $guarded = ['idvaga'];
     protected $table = 'vaga';
+    public $timestamps = false;
 }

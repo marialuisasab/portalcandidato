@@ -10,7 +10,7 @@ class CurriculoVaga extends Model
     protected $primaryKey = ['curriculo_idcurriculo', 'vaga_idvaga'];
  	protected $fillable = [    	
     	'status',
-    	'obs',
+    	'observ',
     	'dtcandidatura'
     ];
     protected $guarded = ['curriculo_idcurriculo', 'vaga_idvaga'];

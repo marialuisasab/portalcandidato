@@ -77,7 +77,7 @@ $(function () {
 
 
 
-        // chamadas da fução de validção
+        // chamadas da fução de validação
         // validaFomr('#cep', 'menserrocep');
         // validaFomr('#logradouro', 'menserrologra');
         // validaFomr('#estado', 'menserroestado');
@@ -131,6 +131,13 @@ $(document).ready(function ($) {
         translation: {
             N: {
                 pattern: /[\d]/
+            },
+        }
+    });
+    $("#complemento").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
+        translation: {
+            N: {
+                pattern: /[\w]/
             },
         }
     });

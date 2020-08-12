@@ -95,12 +95,9 @@ Route::get('/listar', 'VagasController@index')->name('listar');
 Route::get('/encerrar/{id}', 'VagasController@encerrarVaga');
 Route::get('/copiarvaga/{id}', 'VagasController@copiarVaga');
 Route::get('/classificar/{id}/{v}/{c}', 'VagasController@classificar');
+Route::get('/buscarcurriculo','CurriculosController@buscar');
+Route::get('/buscarcurriculo/visualizar/{id}', 'CurriculosController@visualizarcurriculos');
 
 
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');
-
-
-//Route::get('/buscarcurriculo','AdminController@buscar'); 
-//Route::get('/cadastrarvaga','VagaController@create');
-

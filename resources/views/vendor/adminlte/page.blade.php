@@ -6,7 +6,7 @@
 
 {{-- importar link caso o usuario seja admin (manipulação do dashboard caso o usuario seja administrador) --}}
 @if (Helper::getIdAdmin())
-<script src="js/Admin/admin.js"></script>
+<script src="/js/Admin/admin.js"></script>
 @else
 
 @endif

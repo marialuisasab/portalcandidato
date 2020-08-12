@@ -79,7 +79,7 @@
                             <ul style="list-style-type: none;">
 
 
-                                <form action="/endereco" method="POST" enctype="multipart/form-data" id="idformselect">
+                                <form action="/vagas" method="POST" enctype="multipart/form-data" id="idformselect">
                                     @csrf
 
                                     <div class="form-group">
@@ -128,7 +128,7 @@
 
                                     <div class="form-group">
                                         <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="int" class="form-control " name="quant" id="quantidade"
+                                            <input type="number" class="form-control " name="quant" id="quantidade"
                                                 placeholder="Quantidade de vagas"
                                                 title="Quantidade de vagas disponíveis para esse cargo">
                                             <div class="invalid-feedback" style="display: none;"
@@ -178,32 +178,28 @@
 
 
                                     <div class="form-group">
-                                        <li><strong>TITULO:&nbsp;&nbsp;&nbsp;</strong>
-                                            <input type="text" class="form-control" placeholder="Ex." name="local"
-                                                id="idlocal" title="Local da vaga"></li>
-                                        <div class="invalid-feedback" style="display: none;" id="menslocalvaga">
-                                            Você deve informar o local da vaga!
-                                        </div>
+                                        <li><strong>LOCALIDADE:&nbsp;&nbsp;&nbsp;</strong>
+                                            <input type="text" class="form-control"
+                                                placeholder="Ex.:Fabrica, Cidade do Distribuidor etc..." name="local"
+                                                id="idlocalvaga" title="Local da vaga"></li>
                                     </div>
-
-
                                     <div class="form-group">
-                                        <li id="idbackgroud"><strong>DISPONIBILIDADE DE MUDANÇA PARA OUTRO ESTADO OU
-                                                CIDADE?:*&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="disp_mudanca"
-                                                    id="disp_mudanca" value="1">
-                                                <label class="form-check-label">Sim</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="disp_mudanca"
-                                                    id="disp_mudanca" value="2">
-                                                <label class="form-check-label">Não</label>
-                                            </div>
-                                        </li>
-                                        <div class="invalid-feedback" style="display: none;" id="mensdisponi">
-                                            Você deve informar sua disponibilidade!
-                                        </div>
+                                        <li><strong>STATUS:&nbsp;&nbsp;&nbsp;</strong>
+                                            <input type="number" class="form-control"
+                                                placeholder="Ex.: 1 para aberta e 0 para fechada." name="status"
+                                                id="idstatus" title="Status atual da vaga"></li>
+                                    </div>
+                                    <div class="form-group">
+                                        <li><strong>TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
+                                            <input type="number" class="form-control"
+                                                placeholder="Ex.: 1 para vaga ... e 2 para vaga ..." name="tpvaga"
+                                                id="idstatus" title="Tipo da vaga"></li>
+                                    </div>
+                                    <div class="form-group">
+                                        <li><strong>PCD:&nbsp;&nbsp;&nbsp;</strong>
+                                            <input type="number" class="form-control"
+                                                placeholder="Ex.: 1 para PCD e 0 para Não PCD." name="status"
+                                                id="idstatus" title="Vaga atual é para PCD?"></li>
                                     </div>
 
                                     <br>

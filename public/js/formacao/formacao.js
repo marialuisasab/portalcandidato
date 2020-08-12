@@ -17,7 +17,7 @@ $(function () {
 
             $("#nivel_idnivel").change(function () {
                 var valorid = $("#nivel_idnivel").val();
-                alert(valorid);
+                // alert(valorid);
                 var vetorEscolFund = ['1', '2', '3', '4', '5', '6']
                 var vetorvalorComperiodo = ['7', '9', '11', '13'];
                 if ($.inArray(valorid, vetorEscolFund) !== -1) {
@@ -197,37 +197,7 @@ $("document").ready(function () {
     });
 
 
-    // funcao para validar formulario
-    function validaForm(atributo, messagem) {
-        var valor = $(atributo).val();
-        if (valor == '') {
-            event.preventDefault();
-            $(atributo).addClass('is-invalid');
-            document.getElementById(messagem).style.display = 'block';
-            return true;
-        } else {
-            $(atributo).removeClass('is-invalid');
-            document.getElementById(messagem).style.display = 'none';
-            return false;
-        }
-    }
 
-
-    // funcao para validar e chamar o scroll apenas uma vez e impedir o acumulo de chamadas de scroll
-    function validacaoassincrona(vet1, vet2) {
-        var count = 0;
-        for (var i = 0; i < vet1.length; i++) {
-            var valorvalida = validaForm(vet1[i], vet2[i]);
-            if (valorvalida)
-                count++;
-        }
-        if (count != '0') {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 1500);
-        }
-
-    }
 
 
 });
@@ -239,3 +209,37 @@ $("document").ready(function () {
 //         width: '100%'
 //     });
 // });
+
+
+
+// funcao para validar formulario
+function validaForm(atributo, messagem) {
+    var valor = $(atributo).val();
+    if (valor == '') {
+        event.preventDefault();
+        $(atributo).addClass('is-invalid');
+        document.getElementById(messagem).style.display = 'block';
+        return true;
+    } else {
+        $(atributo).removeClass('is-invalid');
+        document.getElementById(messagem).style.display = 'none';
+        return false;
+    }
+}
+
+
+// funcao para validar e chamar o scroll apenas uma vez e impedir o acumulo de chamadas de scroll
+function validacaoassincrona(vet1, vet2) {
+    var count = 0;
+    for (var i = 0; i < vet1.length; i++) {
+        var valorvalida = validaForm(vet1[i], vet2[i]);
+        if (valorvalida)
+            count++;
+    }
+    if (count != '0') {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1500);
+    }
+
+}

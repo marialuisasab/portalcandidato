@@ -18,7 +18,7 @@ use App\Tipo;
 use App\RedeSocial;
 use App\Admin;
 use App\CurriculoVaga;
-
+use App\Vaga;
 class Helper
 {   
     public static function getIdCurriculo(){
@@ -43,6 +43,31 @@ class Helper
             return true;
         }
     }
+     // public static function getIdCurriculoHome(){
+     // $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+     // if(count($id)==0){
+     // return false;
+     // } else {
+
+     // return true;
+     // }
+     // }
+     public static function getIdCurriculoHome($id){
+     // $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+     $candidatoid = Curriculo::where("users_id",$id)->get()[0];
+     // $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+
+     return $candidatoid->idcurriculo;
+     }
+
+
+
+     public static function getvagatitulo($id){
+     $vaga = Vaga::where('idvaga',$id)->get()[0];
+     return $vaga->titulo;
+
+     }
+
    
     public static function setData($stringData){
         if(!isset($stringData))

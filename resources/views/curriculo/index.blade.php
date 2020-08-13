@@ -6,6 +6,7 @@
 {{-- script do js --}}
 <script src="/vendor/jquery/jquery.min.js">
 </script>
+<script src="js/Home/home.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
 <script src="/jqueryMaskMoney/jquery.maskMoney.js" type="text/javascript"></script>
 <script src="/js/Dadospessoais/edit.js"></script>

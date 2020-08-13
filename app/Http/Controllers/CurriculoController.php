@@ -260,4 +260,11 @@ class CurriculoController extends Controller
         $request->validate($regras, $mensagens);
     }
 
+
+
+    public function idcurriculo($id){
+        $curriculo = Curriculo::where('users_id',$id)->get();
+        return $curriculo;
+    }
+
 }

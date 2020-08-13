@@ -9,8 +9,9 @@
 
 {{-- importação do arquivo JS --}}
 <script src="/js/Habilidade/habilidade.js"></script>
+<script src="js/Home/home.js"></script>
 @section('content')
-@section('content')
+
 
 
 

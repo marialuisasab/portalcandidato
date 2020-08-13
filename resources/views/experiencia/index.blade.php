@@ -9,6 +9,7 @@
 
 {{-- importação do arquivo JS --}}
 <script src="/js/Experiencia/experiencia.js"></script>
+<script src="js/Home/home.js"></script>
 
 @section('content')
 

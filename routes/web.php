@@ -33,6 +33,8 @@ Route::get('/curriculo/dados', 'CurriculoController@create')->name('curriculo.no
 Route::get('/curriculo/editar/{id}', 'CurriculoController@edit')->name('curriculo.editar');
 Route::post('/curriculo/{id}', 'CurriculoController@update');
 Route::post('/curriculo', 'CurriculoController@store');
+Route::get('/getidcurriculo/{id}', 'CurriculoController@idcurriculo');
+
 
 Route::get('/endereco', 'EnderecoController@index')->name('endereco');
 Route::get('/endereco/novo', 'EnderecoController@create')->name('endereco.novo');
@@ -101,3 +103,5 @@ Route::get('/buscarcurriculo/visualizar/{id}', 'CurriculosController@visualizarc
 
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');
+Route::get('/gerarpdf/{id?}','PdfController@Gerarpdf')->name('Curriculo.Impressao');
+// Route::get('/gerarpdf/{id?}','PdfController@Gerarpdf')->name('Curriculo.Impressao');

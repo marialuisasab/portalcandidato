@@ -17,15 +17,10 @@
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
 <script src="/vendor/jquery/jquery.min.js">
 </script>
+<script src="/js/Home/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-<script>
-  $("document").ready(function () {
-$("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
-
-});
-</script>
 
 
 @section('content_header')
@@ -47,7 +42,8 @@ $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
   <div class="col">
     <a href="/" type="button" title="Voltar a para o site"><strong><span class="fas fa-undo"
-          style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar para o site</span></strong></a>
+          style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar para o
+          site</span></strong></a>
   </div>
 </div>
 @endsection
@@ -56,7 +52,6 @@ $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 
 
 @include('flash::message')
-
 <div class="container">
   <div class="row">
 

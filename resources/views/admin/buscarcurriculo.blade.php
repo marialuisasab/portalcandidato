@@ -169,6 +169,7 @@
 
                                             <th>Nome</th>
                                             <th>CPF</th>
+                                            <th>Telefone</th>
                                             <th>Email</th>
                                             <th>Observação</th>
                                             {{-- <th>Data</th> --}}
@@ -180,16 +181,18 @@
                                             <td class="nome_curriculo">{{$u->name}}
                                             </td>
                                             <td class="cpf_curriculo">{{$u->cpf}}</td>
-                                            <td class="email_curriculo">{{$u->name}}
-                                            </td>
+                                            <td class="email_curriculo">{{$u->telefone1}}</td>
+                                            <td class="email_curriculo">{{$u->email}}</td>
+                                            @if ($u->obs != '')
                                             <td>{{$u->obs}}</td>
+                                            @else
+                                            <td style="color:red; text-align:center"><strong>Sem Observações</strong>
+                                            </td>
+                                            @endif
                                             {{-- <td>{{ $u->date }}</td> --}}
                                             <td> <a class="badge badge-info badge-sm"
                                                     href="/buscarcurriculo/visualizar/{{$u->idcurriculo}}"
                                                     role="button">Visualizar</a>
-                                            </td>
-                                            <td><a class="badge badge-success badge-sm" href=" "
-                                                    role="button">Classificar</a>
                                             </td>
                                             {{-- <td><a class="btn btn-primary" href="/home"role="button">Solicitar.</a></td> --}}
 

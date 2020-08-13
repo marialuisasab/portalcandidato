@@ -7,6 +7,7 @@
 {{-- importar link caso o usuario seja admin (manipulação do dashboard caso o usuario seja administrador) --}}
 @if (Helper::getIdAdmin())
 <script src="/js/Admin/admin.js"></script>
+<script src="/js/Home/home.js"></script>
 @else
 
 @endif
@@ -619,7 +620,17 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
                     <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do
                         Candidato</li>
-                    <li class="nav-header">Gerenciar Currículo</li>
+                    <li class="nav-item" id="idbotaocurriculo" value="{{Helper::getIdCurriculomenu()}}">
+                        <a class="nav-link" type="button" title="Gerar Curriculo em PDF Dados" style="color:white">
+                            <i class="fas fa-fw fa fa-file-alt " style="color: red;"></i>
+                            <p>
+                                Gerar PDF
+                            </p>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-header" id="idvalor" value="{{Auth::user()->id}}">Gerenciar Currículo</li>
                     <li class="nav-item">
                         <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">
                             <i class="fas fa-fw fa-id-card "></i>

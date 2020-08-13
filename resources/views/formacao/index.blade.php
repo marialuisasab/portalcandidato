@@ -12,6 +12,7 @@
 
 {{-- importação do arquivo JS --}}
 <script src="/js/formacao/formacao.js"></script>
+<script src="js/Home/home.js"></script>
 
 
 {{-- importação select2 --}}

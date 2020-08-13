@@ -12,6 +12,7 @@ use App\User;
 use App\Experiencia;
 Use App\Habilidade;
 use App\Endereco;
+use App\CurriculoVaga;
 
 class CurriculosController extends Controller
 {
@@ -115,13 +116,15 @@ return view('admin.buscarcurriculo')
 
 // Visualizar dados de um usuario pegando o id de seu curriculo 
 	public function visualizarcurriculos($id){
-	$users = User::all();
+    $users = User::all();
+    $curriculoVaga = CurriculoVaga::where('curriculo_idcurriculo',$id)->orderBy('vaga_idvaga','ASC')->get();
 	$cursosform = Curso::where('curriculo_idcurriculo', $id)->orderBy('nome','ASC')->get();
 	$experiencia = Experiencia::where('curriculo_idcurriculo', $id)->orderBy('idexperiencia','ASC')->get();
 	$endereco = Endereco::all();
 	$habilidade = Habilidade::where('curriculo_idcurriculo', $id)->orderBy('idhabilidade','ASC')->get();
 	$curriculos = Curriculo::where('idcurriculo', $id)->get();
-	return view('admin.visualizar_curriculos')
+    return view('admin.visualizar_curriculos')
+    ->with('curriculovaga',$curriculoVaga)
 	->with('users',$users)
 	->with('cursos',$cursosform)
 	->with('endereco',$endereco)

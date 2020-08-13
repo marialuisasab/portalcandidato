@@ -9,6 +9,7 @@
 </script>
 <script src="/jquerymask/jquerymasky.js"></script>
 <script src="/js/Endereco/endereco.js"></script>
+<script src="js/Home/home.js"></script>
 {{-- 
 <script src="/js/Endereco/endereco.js"></script> --}}
 

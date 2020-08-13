@@ -32,17 +32,17 @@
                 <div class="col-xs-8 col-md-8" style=" text-align:end; margin-left: auto;">
                   <div class="btn-group btn-sm" role="group">
                     @if(is_null($vaga->dtfim))
-                      <button class=" btn btn-primary btn-sm" style="margin-top: 15px;">
-                        <a href="/editarvaga/{{$vaga->idvaga}}" style="color: white;">
-                          Editar<span class="fa fa-edit" style="padding-left: 15px;"></span>
-                        </a>
-                      </button>
-                      
-                      <button class=" btn btn-danger btn-sm" style="margin-top: 15px;">
-                        <a style=" color: white;" href="/encerrar/{{$vaga->idvaga}}">
-                          Encerrar Vaga<span class="fas fa-window-close" style="padding-left:15px;"></span>
-                        </a>
-                      </button>
+                    <button class=" btn btn-primary btn-sm" style="margin-top: 15px;">
+                      <a href="/editarvaga/{{$vaga->idvaga}}" style="color: white;">
+                        Editar<span class="fa fa-edit" style="padding-left: 15px;"></span>
+                      </a>
+                    </button>
+
+                    <button class=" btn btn-danger btn-sm" style="margin-top: 15px;">
+                      <a style=" color: white;" href="/encerrar/{{$vaga->idvaga}}">
+                        Encerrar Vaga<span class="fas fa-window-close" style="padding-left:15px;"></span>
+                      </a>
+                    </button>
                     @endif
                     <button class=" btn btn-secondary btn-sm" style="margin-top: 15px;">
                       <a style="color: white;" href="{{route('listar')}}">
@@ -57,7 +57,7 @@
           <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
               <div class="container">
-                
+
                 <div class="row" style="margin-top: 25px;">
                   <div class="col-sm">
                     <ul></ul>
@@ -78,8 +78,8 @@
                         {{Helper::getData($vaga->dtprazo)}}
                       </li>
                       @if(!is_null($vaga->dtfim))
-                        <hr>
-                        <li><strong> DATA DE ENCERRAMENTO DA VAGA:&nbsp;&nbsp;&nbsp;</strong>
+                      <hr>
+                      <li><strong> DATA DE ENCERRAMENTO DA VAGA:&nbsp;&nbsp;&nbsp;</strong>
                         {{Helper::getData($vaga->dtfim)}}
                       </li>
                       @endif
@@ -102,92 +102,97 @@
                       <hr>
                       <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
                         @if ($vaga->tpvaga == 1)
-                          Efetiva
+                        Efetiva
                         @else
-                          Temporária
+                        Temporária
                         @endif
 
                       </li>
                       @if($vaga->pcd == 1)
                       <hr>
-                      <li><strong>DESTINADA A PESSOAS COM DEFICIÊNCIA&nbsp;&nbsp;&nbsp;</strong></li>                   
+                      <li><strong>DESTINADA A PESSOAS COM DEFICIÊNCIA&nbsp;&nbsp;&nbsp;</strong></li>
                       @endif
                       <hr>
                     </ul>
                   </div>
                 </div>
-                
-                @if(count($candidatos)>0)
-                  <div class="card-body">
-                      <table class="table table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Candidato</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Data da candidatura</th>
-                            <th scope="col">Observação</th>
-                            <th scope="col">Opções</th>
-                          </tr>
-                        </thead>
-                        <tbody>
 
-                          @foreach($candidatos as $c)
-                            <tr>
-                              <th>{{$c->name}}</th>
-                              <td>{{Helper::getStatusCandidatura($c->status)}}</td>
-                              <td>{{Helper::getData($c->dtcandidatura)}}</td> 
-                              <td>{{$c->observ}}</td> 
-                              <td>
-                                <a href="#" class="badge badge-primary">Visualizar Currículo</a><br>
-                                <a href="#" class="badge badge-warning" data-toggle="modal" data-target="#exampleModal{{$c->idcurriculo}}">Incluir Observação</a><br>       
-                                @if($c->status == 1)                                           
-                                  <a href="/classificar/2/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}" class="badge badge-success">Classificar</a><br>   
-                                  <a href="/classificar/3/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}" class="badge badge-danger">Desclassificar</a><br>
-                                @endif             
-                              </td>
-                            </tr>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal{{$c->idcurriculo}}">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title">Processo seletivo do(a) {{$c->name}}:</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <form action="/editarObs" method="POST">       
-                                    @csrf
-                                    <div class="modal-body">                                                                     
-                                        <div class="form-group">         
-                                          <label for="message-text" class="col-form-label">Observações:</label>                               
-                                          <textarea class="form-control" rows="4" name="observ" id="message-text">{{$c->observ}}</textarea>
-                                        </div>
-                                        <div class="form-group">  
-                                          <input type="hidden" name="vaga" value="{{$c->vaga_idvaga}}">
-                                          <input type="hidden" name="curriculo" value="{{$c->curriculo_idcurriculo}}">
-                                        </div>
-                                      
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="submit" class="btn btn-primary">Salvar</button>
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
+                @if(count($candidatos)>0)
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Candidato</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Data da candidatura</th>
+                        <th scope="col">Observação</th>
+                        <th scope="col">Opções</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      @foreach($candidatos as $c)
+                      <tr>
+                        <th>{{$c->name}}</th>
+                        <td>{{Helper::getStatusCandidatura($c->status)}}</td>
+                        <td>{{Helper::getData($c->dtcandidatura)}}</td>
+                        <td>{{$c->observ}}</td>
+                        <td>
+                          <a href="/buscarcurriculo/visualizar/{{$c->curriculo_idcurriculo}}"
+                            class="badge badge-primary">Visualizar Currículo</a><br>
+                          <a href="#" class="badge badge-warning" data-toggle="modal"
+                            data-target="#exampleModal{{$c->idcurriculo}}">Incluir Observação</a><br>
+                          @if($c->status == 1)
+                          <a href="/classificar/2/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}"
+                            class="badge badge-success">Classificar</a><br>
+                          <a href="/classificar/3/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}"
+                            class="badge badge-danger">Desclassificar</a><br>
+                          @endif
+                        </td>
+                      </tr>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal{{$c->idcurriculo}}">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Processo seletivo do(a) {{$c->name}}:</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
                             </div>
-                            <!-- Fim modal-->
-                          @endforeach
-                        </tbody>
-                      </table>
-                      
-                    </div>
-                  @else
-                  <div class="card-footer" style="text-align: center;">
-                    <h5>Ninguém se inscreveu nesta vaga ainda!</h5>
-                  </div>
-                  @endif
+                            <form action="/editarObs" method="POST">
+                              @csrf
+                              <div class="modal-body">
+                                <div class="form-group">
+                                  <label for="message-text" class="col-form-label">Observações:</label>
+                                  <textarea class="form-control" rows="4" name="observ"
+                                    id="message-text">{{$c->observ}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                  <input type="hidden" name="vaga" value="{{$c->vaga_idvaga}}">
+                                  <input type="hidden" name="curriculo" value="{{$c->curriculo_idcurriculo}}">
+                                </div>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Fim modal-->
+                      @endforeach
+                    </tbody>
+                  </table>
+
+                </div>
+                @else
+                <div class="card-footer" style="text-align: center;">
+                  <h5>Ninguém se inscreveu nesta vaga ainda!</h5>
+                </div>
+                @endif
               </div>
             </div>
           </div>

@@ -73,7 +73,7 @@
                         <td>{{Helper::getStatusVaga($v->status)}}</td>
                         <td>@if(!is_null($v->dtfim))
                             <i class="fa fa-check" aria-hidden="true"></i>                          
-                          @endif
+                          @endif 
                         </td>
                         <td>
                           <a href="/detalhes/{{$v->idvaga}}" class="badge badge-success">Visualizar</a><br>

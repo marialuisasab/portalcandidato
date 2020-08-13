@@ -139,15 +139,15 @@
                               <td>{{$c->observ}}</td> 
                               <td>
                                 <a href="#" class="badge badge-primary">Visualizar Currículo</a><br>
-                                <a href="#" class="badge badge-warning" data-toggle="modal" data-target="#exampleModal">Incluir Observação</a><br>       
+                                <a href="#" class="badge badge-warning" data-toggle="modal" data-target="#exampleModal{{$c->idcurriculo}}">Incluir Observação</a><br>       
                                 @if($c->status == 1)                                           
-                                  <a href="/classificar/2/{{$vaga->idvaga}}/{{$c->curriculo_idcurriculo}}" class="badge badge-success">Classificar</a><br>   
-                                  <a href="/classificar/3/{{$vaga->idvaga}}/{{$c->curriculo_idcurriculo}}" class="badge badge-danger">Desclassificar</a><br>
+                                  <a href="/classificar/2/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}" class="badge badge-success">Classificar</a><br>   
+                                  <a href="/classificar/3/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}" class="badge badge-danger">Desclassificar</a><br>
                                 @endif             
                               </td>
                             </tr>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal">
+                            <div class="modal fade" id="exampleModal{{$c->idcurriculo}}">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -164,7 +164,7 @@
                                           <textarea class="form-control" rows="4" name="observ" id="message-text">{{$c->observ}}</textarea>
                                         </div>
                                         <div class="form-group">  
-                                          <input type="hidden" name="vaga" value="{{$vaga->idvaga}}">
+                                          <input type="hidden" name="vaga" value="{{$c->vaga_idvaga}}">
                                           <input type="hidden" name="curriculo" value="{{$c->curriculo_idcurriculo}}">
                                         </div>
                                       

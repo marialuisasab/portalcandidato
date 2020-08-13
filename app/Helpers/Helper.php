@@ -181,7 +181,7 @@ class Helper
         else if($status == 3)
             return "Desclassificado(a)";
         else 
-            "Encerrado";
+            return "Encerrado";
     }
     
 

@@ -81,7 +81,7 @@ class VagasController extends Controller
     public function show($id)
     {
         $candidatos = Helper::listarCandidatosVaga($id);
-        //dd($candidatos);
+       
         $vaga = Vaga::where('idvaga', $id)->get()[0];    
         //dd($candidatos);   
         return view('vaga.showadmin', compact('vaga',['candidatos']));
@@ -155,11 +155,13 @@ class VagasController extends Controller
 	    	$candidatos = CurriculoVaga::where('vaga_idvaga', $id)->get(); 
 	    	foreach ($candidatos as $c) {
 	    		if(isset($c)){
-	    			$c->status = 4;
-	    			if (!$c->save()){  
-			            flash('Falha ao gravar encerrar candidatura!')->error();
-			            return redirect()->back();
-	        		}      
+                    if($c->status == 1){
+    	    			$c->status = 4;
+    	    			if (!$c->save()){  
+    			            flash('Falha ao gravar encerrar candidatura!')->error();
+    			            return redirect()->back();
+    	        		}      
+                    }
 	    		}	    		
 	    	}
 

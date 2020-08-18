@@ -126,8 +126,22 @@ $(document).ready(function ($) {
 
         }
     });
+    $("#bairro").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
+        translation: {
+            N: {
+                pattern: /[\w]/
+            },
+        }
+    });
+    $("#logradouro").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
+        translation: {
+            N: {
+                pattern: /[\w]/
+            },
+        }
+    });
 
-    $("#numero").mask('9N#', {
+    $("#numero").mask('NNNNNNNNN', {
         translation: {
             N: {
                 pattern: /[\d]/

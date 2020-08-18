@@ -68,3 +68,14 @@ $(function () {
 $("document").ready(function () {
     $("div.alert").fadeIn(300).delay(2100).fadeOut(600).hide("slow");
 });
+
+$("document").ready(function ($) {
+    $("#descricao").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
+        translation: {
+            N: {
+                pattern: /[a-zA-Z]/,
+
+            },
+        }
+    });
+});

@@ -7,10 +7,10 @@
 </script> --}}
 <script src="/vendor/jquery/jquery.min.js">
 </script>
+<script src="/js/Suporte/suporteJS.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
-<script src="/js/Endereco/endereco.js"></script>
-{{-- 
-<script src="/js/Endereco/endereco.js"></script> --}}
+
+
 
 @section('content')
 
@@ -69,20 +69,23 @@
 
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div  style="text-align: center;">
-                        <p> 
-                            Entre em contato com o suporte técnico em caso de <b>problemas técnicos</b> ou <b>dúvidas sobre o funcionamento da plataforma</b>. Qualquer outro assunto, favor contatar o Fale Conosco da Bio Extratus clicando <a href="https://bioextratus.typeform.com/to/OROwAP"><b>aqui</b></a>.
+                    <div style="text-align: center;">
+                        <p>
+                            Entre em contato com o suporte técnico em caso de <b>problemas técnicos</b> ou <b>dúvidas
+                                sobre o funcionamento da plataforma</b>. Qualquer outro assunto, favor contatar o Fale
+                            Conosco da Bio Extratus clicando <a
+                                href="https://bioextratus.typeform.com/to/OROwAP"><b>aqui</b></a>.
                         </p>
 
                     </div>
                     <div class="card-body">
-                    
+
 
                         <ul style="list-style-type: none;">
 
 
 
-                            <form action="{{route('enviaremail')}}" method="post">
+                            <form action="{{route('enviaremail')}}" method="post" id="fomrsuporte">
                                 @csrf
                                 <div class="form-group">
                                     <li style=""><strong> NOME:&nbsp;&nbsp;&nbsp;</strong>
@@ -100,12 +103,20 @@
                                     <li style=""><strong> TELEFONE DE CONTATO:&nbsp;&nbsp;&nbsp;</strong>
                                         <input type="text" id="phone_contact" name="telefone" class="form-control"
                                             title="Telefone Principal">
+                                        <div class="invalid-feedback" style="display: none;" id="telefone_suporte">Você
+                                            precisa inserir o telefone de contato para o suporte.</div>
+
                                     </li>
                                 </div>
                                 <div class="form-group">
                                     <li style=""><strong> MENSAGEM:&nbsp;&nbsp;&nbsp;</strong>
                                         <textarea rows="6" class="form-control" name="mensagem" style="height:100px;"
-                                            placeholder="Deixe seu recado..." title="Insira a Mensagem"></textarea>
+                                            placeholder="Deixe seu recado..." title="Insira a Mensagem"
+                                            id="idmensagem"></textarea>
+                                        <div class="invalid-feedback" style="display: none;" id="mensagem_suporte">Você
+                                            precisa inserir a
+                                            mensagem que quer enviar ao
+                                            suporte.</div>
                                     </li>
                                 </div>
                                 <div class="form-group" style="text-align: end;">

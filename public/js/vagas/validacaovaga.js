@@ -1,12 +1,42 @@
 $(function ($) {
     $("#idformvagas").submit(function () {
 
-        var vetorids = ['#iddatainivaga', '#idtitulo', '#iddescricao', '#idrequisitos', '#status'];
-        var vetormens = ['mensagemdtvagaini', 'menstitulo', 'mensdescricaovaga', 'mensrequisitosvaga', 'mensstatus'];
+        var vetorids = ['#idtitulo', '#tpvaga', '#iddtinicio', '#iddescricao', '#idrequisitos'];
+        var vetormens = ['menstitulo', 'menstpdvaga', 'mensdtinicio', 'mensdescricaovaga', 'mensrequisitosvaga'];
         validacaoassincrona(vetorids, vetormens);
 
         // var isChecked = $("input[name='disp_mudanca']:checked").val();
         // Checando se o radio foi selecionado
+        if (!$("input[type='radio'][name='status']").is(':checked')) {
+            event.preventDefault();
+            document.getElementById('background_status').style.border = 'solid';
+            document.getElementById('background_status').style.borderColor = 'red';
+            document.getElementById('background_status').style.borderWidth = 'thin';
+            document.getElementById('mens_status').style.display = 'block';
+            // $('html, body').animate({
+            //     scrollTop: 0
+            // }, 1500);
+        } else {
+            document.getElementById('background_status').style.border = 'none';
+            document.getElementById('mens_status').style.display = 'none';
+        }
+
+
+        var check_box = document.getElementsByName('idconclui');
+        if (!$("input[type='radio'][name='pcd']").is(':checked')) {
+            event.preventDefault();
+            document.getElementById('background_pcd').style.border = 'solid';
+            document.getElementById('background_pcd').style.borderColor = 'red';
+            document.getElementById('background_pcd').style.borderWidth = 'thin';
+            document.getElementById('mens_pcd').style.display = 'block';
+            // $('html, body').animate({
+            //     scrollTop: 0
+            // }, 1500);
+        } else {
+            document.getElementById('background_pcd').style.border = 'none';
+            document.getElementById('mens_pcd').style.display = 'none';
+
+        }
 
     });
 
@@ -39,39 +69,25 @@ $(function ($) {
 
 });
 $(document).ready(function ($) {
-    $("#idstatusvaga").mask('N', {
-        translation: {
-            N: {
-                pattern: /[\d]/
-            },
-        }
-    });
-
 
     $("#quantidade").mask('NN', {
         translation: {
             N: {
-                pattern: /[\d]/
+                pattern: /[\d]/,
+                allowNegative: false
+
             },
         }
     });
 
-    $("#idtipovaga").change(function () {
-        var valor = $(this).prop('checked');
-        console.log(valor);
-    });
-    var valor2 = $('#idtipovaga').prop('checked');
-    console.log(valor2);
 
-
-    $("#pdcvaga").change(function () {
-        var valor = $(this).prop('checked');
-        console.log(valor);
-    });
-    var valor2 = $('#pdcvaga').prop('checked');
-    console.log(valor2);
+    // $("#pdcvaga").change(function () {
+    //     var valor = $(this).prop('checked');
+    //     console.log(valor);
+    // });
+    // var valor2 = $('#pdcvaga').prop('checked');
+    // console.log(valor2);
 });
-
 
 
 // funcao para validar formulario

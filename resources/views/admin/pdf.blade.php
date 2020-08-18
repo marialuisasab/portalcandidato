@@ -55,7 +55,7 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordion">
                             <div class="card-body" style="box-sizing: border-box;">
-                                <h4 style="margin-top: 50px; color: dodgerblue;"> Dados Pessoais
+                                <h4 style="margin-top: 50px; color: dodgerblue;"> DADOS PESSOAIS
                                 </h4>
                                 <hr>
                                 @foreach($users as $candDados)
@@ -74,20 +74,20 @@
                                     </h2>
                                     <p></p>
                                     @endif
-                                    <hr>
+
 
                                     <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->name}}
                                     </li>
-                                    <hr>
+
 
 
                                     <li><strong> CPF:&nbsp;&nbsp;&nbsp;</strong> {{$c->cpf}}</li>
-                                    <hr>
+
 
 
                                     <li><strong> CARTEIRA DE IDENTIFICAÇÃO(RG):&nbsp;&nbsp;&nbsp;</strong>
                                         {{$c->rg}}</li>
-                                    <hr>
+
 
                                     @if ($c->ctps!= null)
                                     <li><strong> CARTEIRA DE TRABALHO(CTPS):&nbsp;&nbsp;&nbsp;</strong>
@@ -97,18 +97,18 @@
                                         <span style="color: red;"> Não Informado</span></li>
                                     @endif
 
-                                    <hr>
+
 
 
                                     <li><strong> DATA DE
                                             NASCIMENTO:&nbsp;&nbsp;&nbsp;</strong>{{date_format(new DateTime($c->dtnascimento), 'd/m/Y')}}
                                     </li>
-                                    <hr>
+
 
 
                                     <li><strong> TELEFONE(PRINCIPAL):&nbsp;&nbsp;&nbsp;</strong> {{$c->telefone1}}
                                     </li>
-                                    <hr>
+
 
 
                                     @if ($c ->telefone2 != null)
@@ -120,11 +120,11 @@
                                             Não Informado!</span>
                                     </li>
                                     @endif
-                                    <hr>
+
 
 
                                     <li><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->email}}</li>
-                                    <hr>
+
 
 
                                     @if(($c->genero != null)&& ($c->genero =='M'))
@@ -135,7 +135,7 @@
                                     <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
                                             cadastrado!</span></li>
                                     @endif
-                                    <hr>
+
 
 
                                     @if(($c->estadocivil != null)&&($c->estadocivil =='1'))
@@ -152,7 +152,7 @@
                                     <li><strong> ESTADO CIVIL :&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
                                             cadastrado!</span></li>
                                     @endif
-                                    <hr>
+
 
                                     @foreach(Helper::getPai() as $pai)
                                     @if($pai->idpais == $c->nacionalidade)
@@ -165,7 +165,7 @@
                                     @else
                                     @endif
                                     @endforeach
-                                    <hr>
+
 
 
 
@@ -179,7 +179,7 @@
                                             cadastrado!</span></li>
                                     @endif
 
-                                    <hr>
+
 
 
 
@@ -192,14 +192,13 @@
                                             Não
                                             cadastrado!</span></li>
                                     @endif
-                                    <hr>
 
 
 
 
                                     <li><strong> PRETENÇÃO SALARIAL:&nbsp;&nbsp;&nbsp;</strong>
                                         {{Helper::getPretensao($c->pretsalarial)}},00</li>
-                                    <hr>
+
 
 
 
@@ -210,7 +209,7 @@
                                     <li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
                                             cadastrado!</span></li>
                                     @endif
-                                    <hr>
+
 
 
                                     @if($c->nomepai != null)
@@ -219,7 +218,6 @@
                                     <li><strong> NOME DA PAI:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
                                             Informado!</span></li>
                                     @endif
-                                    <hr>
 
                                     @if ($c->sobre!=null)
                                     <li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
@@ -228,7 +226,7 @@
                                     <li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
                                         <span style="color:red;">Não informado!</span></li>
                                     @endif
-                                    <hr>
+
 
 
                                     <li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>
@@ -238,7 +236,7 @@
                                         {{$c->catcnh}}
                                         @endif
 
-                                        <hr>
+
 
 
                                         @if ($c->cnh!=null)
@@ -248,7 +246,7 @@
                                     <li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
                                         <span style="color:red;">Não Informado!</span></li>
                                     @endif
-                                    <hr>
+
 
 
                                     @if ($c->ufcnh == null)
@@ -286,21 +284,21 @@
                                 <ul style="list-style-type: none;">
                                     <li><strong>CEP:&nbsp;&nbsp;&nbsp;</strong>
                                         {{$e->cep}}</li>
-                                    <hr>
+
 
 
                                     <li><strong> LOGRADOURO:&nbsp;&nbsp;&nbsp;</strong> {{$e->logradouro}}
                                     </li>
-                                    <hr>
+
 
 
                                     <li><strong> BAIRRO:&nbsp;&nbsp;&nbsp;</strong> {{$e->bairro}}
                                     </li>
-                                    <hr>
+
 
 
                                     <li><strong> NUMERO:&nbsp;&nbsp;&nbsp;</strong> {{$e->numero}}</li>
-                                    <hr>
+
 
 
 
@@ -312,26 +310,26 @@
                                             Informado!</span>
                                     </li>
                                     @endif
-                                    <hr>
+
 
                                     <li><strong>
                                             ESTADO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getEstado($e->estado_idestado)}}
                                     </li>
-                                    <hr>
+
 
                                     <li><strong>
                                             CIDADE:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCidade($e->cidade_idcidade)}}
                                     </li>
-                                    <hr>
+
 
                                     <li><strong> PAÍS:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getPais($e->pais_idpais)}}
                                     </li>
-                                    <hr>
+
 
                                     <li><strong> DISPONIBILIDADE DE
                                             MUDANÇA:&nbsp;&nbsp;&nbsp;</strong>{{$e->disp_mudanca == '1' ? 'Sim':'Não'}}
                                     </li>
-                                    <hr>
+
                                 </ul>
                                 @else
                                 @endif
@@ -356,14 +354,14 @@
                                     <li class="item-11"><strong> NOME DO CURSO:&nbsp;&nbsp;&nbsp;</strong>
                                         {{$c->nome}}
                                     </li>
-                                    <hr>
+
 
 
                                     @if ($c->escolaridade == '2')
                                     <li class="item-2"><strong>
                                             CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getCategoria($c->categoria_idcategoria)}}
                                     </li>
-                                    <hr>
+
                                     @else
                                     @endif
 
@@ -381,13 +379,13 @@
                                     <li class="item-2"><strong>
                                             INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{Helper::getInstituicoesId($c->instituicao_idinstituicao)}}
                                     </li>
-                                    <hr>
+
                                     @else
                                     <li class="item-2"><strong>
                                             INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não
                                             informado</span>
                                     </li>
-                                    <hr>
+
                                     @endif
                                     @else
                                     @endif
@@ -403,7 +401,7 @@
                                     <li class="item-2"><strong>
                                             ESCOLA:&nbsp;&nbsp;&nbsp;</strong>{{$c->escola}}
                                     </li>
-                                    <hr>
+
                                     @else
                                     @endif
                                     @endforeach
@@ -416,13 +414,13 @@
                                     <li class="item-2"><strong>
                                             INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong>{{$c->escola}}
                                     </li>
-                                    <hr>
+
                                     @else
                                     <li class="item-2"><strong>
                                             INSTITUIÇÃO&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">Não
                                             informado</span>
                                     </li>
-                                    <hr>
+
                                     @endif
                                     @endif
 
@@ -431,7 +429,7 @@
                                     <li class="item-2"><strong> NIVEL:&nbsp;&nbsp;&nbsp;</strong>
                                         {{Helper::getNivel($c->nivel_idnivel)}}
                                     </li>
-                                    <hr>
+
 
                                     {{-- se area for diferente de Null, quer dizer que estamos falando de um nivel superior ou seja,  diferente
                           do ensino medio, fundamental, tecnico... --}}
@@ -439,7 +437,7 @@
                                     <li class="item-2"><strong> AREA:&nbsp;&nbsp;&nbsp;</strong>
                                         {{Helper::getArea($c->area_idarea)}}
                                     </li>
-                                    <hr>
+
                                     @else
                                     @endif
 
@@ -455,13 +453,13 @@
                                     <li class="item-2"><strong>
                                             PERÍODO:&nbsp;&nbsp;&nbsp;</strong>{{$c->periodo}}
                                     </li>
-                                    <hr>
+
                                     @else
                                     <li class="item-2"><strong> PERÍODO:&nbsp;&nbsp;&nbsp;</strong> <span
                                             style="color: red;">Não
                                             Informado!</span>
                                     </li>
-                                    <hr>
+
                                     @endif
                                     @else
                                     @endif
@@ -480,7 +478,7 @@
                                             DATA DE
                                             INÍCIO:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getData($c->dtinicio)}}
                                     </li>
-                                    <hr>
+
 
                                     @if($c->dtfim == null)
                                     <li class="item-2"><strong> DATA DE
@@ -515,16 +513,16 @@
 
                                 <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong> {{$e->empresa}}
                                 </li>
-                                <hr>
+
 
                                 <li><strong> CARGO&nbsp;&nbsp;&nbsp;</strong>{{$e->cargo}}</li>
-                                <hr>
+
 
 
                                 <li><strong> DATA DE INÍCIO:&nbsp;&nbsp;&nbsp;</strong>
                                     {{Helper::getData($e->dtinicio)}}
                                 </li>
-                                <hr>
+
 
 
                                 @if ($e->dtfim != null)
@@ -537,7 +535,7 @@
                                         empresa atualmente!</span></li>
                                 @endif
 
-                                <hr>
+
 
 
                                 @if ($e->atividades != null)
@@ -573,9 +571,9 @@
                                 <li><strong>
                                         CATEGORIA:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getTipoHab($i->tipo_idtipo)}}
                                 </li>
-                                <hr>
+
                                 <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>{{$i->nome}}</li>
-                                <hr>
+
                                 <li><strong>NÍVEL:&nbsp;&nbsp;&nbsp;</strong>
                                     @switch($i->nivel)
                                     @case(1)

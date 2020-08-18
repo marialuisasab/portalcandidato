@@ -58,7 +58,7 @@
                     </div>
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body" style="box-sizing: border-box;">
-                            <h4 style="margin-top: 50px; color: dodgerblue;"> Dados Pessoais
+                            <h4 style="margin-top: 50px; color: dodgerblue;"> DADOS PESSOAIS
                             </h4>
                             <hr>
                             @foreach($users as $candDados)

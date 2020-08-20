@@ -12,7 +12,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/i18n/pt-BR.js"></script>
 <style>
@@ -105,64 +104,13 @@
                                         </strong>
 
                                     </div>
-                                    {{-- <div class="form-group">
-                                                                    <strong> AREA:&nbsp;&nbsp;&nbsp;</strong>
-                                                                    <select class="custom-select buscar-area" name="buscararea" id="selectidarea"
-                                                                        aria-placeholder="Areas de atuação" title="Buscar por area" multiple>
-                                                                        @foreach(Helper::getAreas() as $area)
-                                                                        <option value="{{$area->idarea}}">{{ $area->nome }}
-                                    </option>
-                                    @endforeach
-                                    </select>
-                                </div> --}}
+                                    
                             </div>
                         </div>
                     </div>
                     <ul style="list-style-type: none; margin-top: 50px;">
-                        {{-- <table class="table table-striped table-dark">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nome:</th>
-                                            <th scope="col">Email:</th>
-                                            <th scope="col">CPF:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr name="trnome">NOME:
-                                            <th scope="row">1</th>
-
-                                        </tr>
-                                        <tr name="trnome">EMAIL:
-                                            <th scope="row">2</th>
-
-                                        </tr>
-                                        <tr name="trnome">CPF:
-                                            <th scope="row">3</th>
-
-                                        </tr>
-                                    </tbody>
-                                </table> --}}
-                        {{-- 
-                                <table class="table table-striped table-light">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Nome:</th>
-                                            <th scope="col">Email:</th>
-                                            <th scope="col">CPF:</th>
-                                            <th scope="col"> Salario:</th>
-                                            <th scope="col">Telefone:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table> --}}
-
-
                         <div class="container col">
                             <div class="table-responsive">
-
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -172,11 +120,12 @@
                                             <th>Telefone</th>
                                             <th>Email</th>
                                             <th>Observação</th>
-                                            {{-- <th>Data</th> --}}
+                                            <th>Opções</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $u)
+                                    @foreach ($users as $u)
                                         <tr id="idcurriculos">
                                             <td class="nome_curriculo">{{$u->name}}
                                             </td>
@@ -184,36 +133,56 @@
                                             <td class="email_curriculo">{{$u->telefone1}}</td>
                                             <td class="email_curriculo">{{$u->email}}</td>
                                             @if ($u->obs != '')
-                                            <td>{{$u->obs}}</td>
-                                            @else
-                                            <td style="color:red; text-align:center"><strong>Sem Observações</strong>
-                                            </td>
+                                                <td>{{$u->obs}}</td>
+                                            @else 
+                                                <td>-</td>
                                             @endif
-                                            {{-- <td>{{ $u->date }}</td> --}}
-                                            <td> <a class="badge badge-info badge-sm"
+                                            
+                                            <td> 
+                                                <a class="badge badge-primary badge-sm"
                                                     href="/buscarcurriculo/visualizar/{{$u->idcurriculo}}"
-                                                    role="button">Visualizar</a>
+                                                    role="button">Visualizar Currículo</a>
+                                                <a href="#" class="badge badge-warning" data-toggle="modal" data-target="#exampleModal{{$u->idcurriculo}}" >Incluir Observação</a><br>
                                             </td>
-                                            {{-- <td><a class="btn btn-primary" href="/home"role="button">Solicitar.</a></td> --}}
-
-                                            {{-- <td>
-                                                        <form method="post" action=""
-                                                            onsubmit="return confirm('Confirma exclusão o teste?');">
-
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input class="btn btn-danger btn-sm" type="submit"
-                                                                value="Excluir">
-                                                        </form>
-                                                    </td> --}}
+                                           
+                                            
                                         </tr>
-
+                                        
+                                        <!-- Início Modal -->
+                                        <div class="modal fade" id="exampleModal{{$u->idcurriculo}}">
+                                            <div class="modal-dialog" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title">{{$u->name}}:</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <form action="/editarObs/{{$u->idcurriculo}}" method="POST">
+                                                  @csrf
+                                                  <div class="modal-body">
+                                                    <div class="form-group">
+                                                      <label for="message-text" class="col-form-label">Observações:</label>
+                                                      <textarea class="form-control" rows="4" name="obs"
+                                                        id="message-text">{{$u->obs}}</textarea>
+                                                    </div>
+                                                    
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                  </div>
+                                                </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <!-- Fim Modal-->
 
                                         @endforeach
                                     </tbody>
                                 </table>
                                 {!!$users->links()!!}
-                                {{-- {!!$c->links()!!} --}}
+                                
                             </div>
                         </div>
 

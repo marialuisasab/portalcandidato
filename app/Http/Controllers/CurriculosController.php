@@ -15,7 +15,12 @@ use App\Endereco;
 use App\CurriculoVaga;
 
 class CurriculosController extends Controller
-{
+{   
+    public function __construct(){
+
+        $this->middleware('auth:admin');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,9 +31,7 @@ class CurriculosController extends Controller
         return view('curriculos.index');
     }
 
-    public function __construct(){
-    $this->middleware('auth:admin');
-    }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -103,36 +106,55 @@ class CurriculosController extends Controller
 
 
     // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
-public function buscar(){
-$users = DB::table('users')
-->join('curriculo', 'users.id', '=', 'curriculo.users_id')
-->select('users.*', 'curriculo.*')->orderBy('name','ASC')
-->paginate(20);
-return view('admin.buscarcurriculo')
-->with('users',$users);
-}
+    public function buscar(){
+        $users = DB::table('users')
+            ->join('curriculo', 'users.id', '=', 'curriculo.users_id')
+            ->select('users.*', 'curriculo.*')->orderBy('name','ASC')
+            ->paginate(20);
+
+        return view('admin.buscarcurriculo')->with('users',$users);
+    }
 
 
 
-// Visualizar dados de um usuario pegando o id de seu curriculo 
+    // Visualizar dados de um usuario pegando o id de seu curriculo 
 	public function visualizarcurriculos($id){
-    $users = User::all();
-    $curriculoVaga = CurriculoVaga::where('curriculo_idcurriculo',$id)->orderBy('vaga_idvaga','ASC')->get();
-	$cursosform = Curso::where('curriculo_idcurriculo', $id)->orderBy('nome','ASC')->get();
-	$experiencia = Experiencia::where('curriculo_idcurriculo', $id)->orderBy('idexperiencia','ASC')->get();
-	$endereco = Endereco::all();
-	$habilidade = Habilidade::where('curriculo_idcurriculo', $id)->orderBy('idhabilidade','ASC')->get();
-	$curriculos = Curriculo::where('idcurriculo', $id)->get();
-    return view('admin.visualizar_curriculos')
-    ->with('curriculovaga',$curriculoVaga)
-	->with('users',$users)
-	->with('cursos',$cursosform)
-	->with('endereco',$endereco)
-	->with('experiencia',$experiencia)
-	->with('habilidades',$habilidade)
-	->with('curriculos',$curriculos);
+        $users = User::all();
+        $curriculoVaga = CurriculoVaga::where('curriculo_idcurriculo',$id)->orderBy('vaga_idvaga','ASC')->get();
+    	$cursosform = Curso::where('curriculo_idcurriculo', $id)->orderBy('nome','ASC')->get();
+    	$experiencia = Experiencia::where('curriculo_idcurriculo', $id)->orderBy('idexperiencia','ASC')->get();
+    	$endereco = Endereco::all();
+    	$habilidade = Habilidade::where('curriculo_idcurriculo', $id)->orderBy('idhabilidade','ASC')->get();
+    	$curriculos = Curriculo::where('idcurriculo', $id)->get();
+        return view('admin.visualizar_curriculos')
+                ->with('curriculovaga',$curriculoVaga)
+    	        ->with('users',$users)
+            	->with('cursos',$cursosform)
+            	->with('endereco',$endereco)
+            	->with('experiencia',$experiencia)
+            	->with('habilidades',$habilidade)
+            	->with('curriculos',$curriculos);
 	}
 
+    
+    public function updateObservacao(Request $request, $id){
+        
+        $candidato = Curriculo::find($id); 
+       
+        if (isset($candidato)){                      
+            $candidato->obs = $request->obs;
+            if($candidato->save()){
+                flash('Observação inserida com sucesso!')->success();
+                return redirect()->back();
+            }else {
+                flash("Falha ao gravar a observação!")->error();
+                return redirect()->back();
+            }
+        }else {
+            flash('Curriculo não encontrado!')->error();
+            return redirect()->back();
+        }
+    }
 
 
     // public function visualizarcurriculos($id){

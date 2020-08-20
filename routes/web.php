@@ -28,6 +28,12 @@ Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
+Route::group(['prefix'=>'admins'], function(){
+	Route::get('/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admins.showResetForm');
+	Route::get('/resetemail/{user_type}', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('admins.showResetEmailForm');
+	Route::post('/reset', 'Auth\ResetPasswordController@reset')->name('admins.password.update');
+});
+
 Route::get('/curriculo', 'CurriculoController@index')->name('curriculo.dados');
 Route::get('/curriculo/dados', 'CurriculoController@create')->name('curriculo.novo');
 Route::get('/curriculo/editar/{id}', 'CurriculoController@edit')->name('curriculo.editar');

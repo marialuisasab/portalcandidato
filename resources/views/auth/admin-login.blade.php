@@ -73,12 +73,14 @@
             </div>
 
 
-              <div class="form-group" style="  text-align: center;">
-              <a class="btn btn-link" href="{{ route('password.request') }}" id="botaoesqueceu">
-                {{ __('Esqueceu sua senha') }}
-                <span class="fas fa-question" id="question"></span>
-              </a>
-               </div>
+            <div class="form-group" style="  text-align: center;">
+              @if(Route::has('admins.showResetEmailForm'))
+                <a class="btn btn-link"  href="{{ route('admins.showResetEmailForm', ['user_type' => 'admins'] ) }}" id="botaoesqueceu">
+                  {{ __('Esqueceu sua senha') }}
+                  <span class="fas fa-question" id="question"></span>
+                </a>
+              @endif
+            </div>
               @endif
            
            

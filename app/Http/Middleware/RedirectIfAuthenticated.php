@@ -17,8 +17,10 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
+    {   
+        //dd(Auth::guard($guard));
         if (Auth::guard($guard)->check()) {
+
             switch ($guard) {
                 case 'admin':
                     return redirect()->route('admin.index');

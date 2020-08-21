@@ -129,14 +129,14 @@ $(document).ready(function ($) {
     $("#bairro").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
         translation: {
             N: {
-                pattern: /[\w]/
+                pattern: /[\wÀ-ú\d\s.]/
             },
         }
     });
     $("#logradouro").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
         translation: {
             N: {
-                pattern: /[\w]/
+                pattern: /[\wÀ-ú\d\s.]/
             },
         }
     });
@@ -151,7 +151,7 @@ $(document).ready(function ($) {
     $("#complemento").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
         translation: {
             N: {
-                pattern: /[\w]/
+                pattern: /[\d\s\wÀ-ú]/
             },
         }
     });

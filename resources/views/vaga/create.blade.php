@@ -56,7 +56,7 @@
                             <ul style="list-style-type: none;">
 
                                 <form action="{{route('vaga.salvar')}}" method="POST" enctype="multipart/form-data"
-                                    id="idformvagas">
+                                    id="idformselect">
                                     @csrf
                                     <div class="form-group">
                                         <li><strong>TÍTULO:*&nbsp;&nbsp;&nbsp;</strong>

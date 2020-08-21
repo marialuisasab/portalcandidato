@@ -1,5 +1,5 @@
 $(function ($) {
-    $("#idformvagas").submit(function () {
+    $("#idformselect").submit(function () {
 
         var vetorids = ['#idtitulo', '#tpvaga', '#iddtinicio', '#iddescricao', '#idrequisitos'];
         var vetormens = ['menstitulo', 'menstpdvaga', 'mensdtinicio', 'mensdescricaovaga', 'mensrequisitosvaga'];
@@ -35,7 +35,6 @@ $(function ($) {
         } else {
             document.getElementById('background_pcd').style.border = 'none';
             document.getElementById('mens_pcd').style.display = 'none';
-
         }
 
     });

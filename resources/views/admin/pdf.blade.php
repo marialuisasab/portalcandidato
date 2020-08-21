@@ -65,8 +65,10 @@
                                 <ul style="list-style-type: none;">
 
                                     @if($candDados->foto != null)
-                                    <h2> <img src="{{url('/fotos/'.$candDados->foto)}}" alt="{{$candDados->name}}"
-                                            style="max-width: 120px; border-radius: 50%;">
+                                    {{-- <h2> <img src="{{url('/fotos/'.$candDados->foto)}}" alt="{{$candDados->name}}"
+                                    --}}
+                                    <h2> <img src="{{asset('/fotos/'.$candDados->foto)}}" alt="Logo" height="75px"
+                                            style=" max-width: 120px; border-radius: 50%;">
                                     </h2>
                                     @else
                                     <h2> <img class="profile-user-img img-responsive img-circle"

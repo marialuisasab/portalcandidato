@@ -160,10 +160,10 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             <a href="{{route('home')}}" class="sino mr-5">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
-                            <a href="{{route('contatosuporte')}}" class="mr-5 mt">
+                            {{-- <a href="/ManualFaleConosco/manualsuporte.pdf" class="mr-5">
                                 <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
                                     title="Precisa de ajuda?"></span>
-                            </a>
+                            </a> --}}
                         </div>
                     </li>
                 </ul>
@@ -467,10 +467,10 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <!-- HOME E AJUDA -->
                     <li class="nav-item dropdown user-menu">
                         <div class="btn-group" role="group" aria-label="Exemplo básico">
-                            <a href="{{route('home')}}" class="sino mr-5 mt-3">
+                            <a href="{{route('home')}}" class="sino mr-5">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
-                            <a href="ManualFaleConosco/manualsuporte.pdf" class="mr-5 mt-3">
+                            <a href="ManualFaleConosco/manualsuporte.pdf" class="mr-5">
                                 <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
                                     title="Precisa de ajuda?"></span>
                             </a>

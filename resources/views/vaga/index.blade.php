@@ -23,7 +23,7 @@
 							<div class="row">
 								<div class="col-">
 									<h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
-										Vagas Abertas
+										VAGAS ABERTAS
 										<span class="fa-stack fa-sm">
 											<i class="fas fa-circle fa-stack-2x"></i>
 											<i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>

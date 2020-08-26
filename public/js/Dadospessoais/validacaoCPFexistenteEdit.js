@@ -35,7 +35,18 @@ $(function () {
                                         // console.log("CPF existe e não é o meu o meu!");
                                     } else {
                                         // console.log("CPF existe e é o meu!");
-                                        event.currentTarget.submit();
+                                        var vetidvalor = ['#nome', '#cpf', '#rg', '#pretsalarial', '#dtnascimento', '#genero', '#nomemae', '#dfisico', '#nacionalidade', '#naturalidade', '#natural', '#telefone1', '#estadocivil'];
+                                        // validaForm('#nacionalidade', 'mensnacional');
+                                        var vetidmensag = ['mensnome', 'menscpf', 'mensrg', 'menspretsala', 'mensdtnasc', 'mensgenero', 'mensmae', 'mensdtfisico', 'mensnacional', 'mensnaturalidade', 'mensnatural', 'menstelefone', 'mensestadociv'];
+                                        validacaoassincrona(vetidvalor, vetidmensag, event);
+
+                                        // pegando valor do tem CNH ou não
+                                        var botaovoltar = $("#botaovoltar").val();
+                                        if (botaovoltar == '1') {
+                                            var vetcnh = ['#catcnh'];
+                                            var vetmensagcnh = ['menscnh'];
+                                            validacaoassincrona(vetcnh, vetmensagcnh, event);
+                                        }
                                         document.getElementById('menscpfexiste').style.display = "none";
                                         $("#cpf").removeClass('is-invalid');
                                     }
@@ -50,7 +61,19 @@ $(function () {
                                 scrollTop: 0
                             }, 1500);
                         } else {
-                            event.currentTarget.submit();
+                            var vetidvalor = ['#nome', '#cpf', '#rg', '#pretsalarial', '#dtnascimento', '#genero', '#nomemae', '#dfisico', '#nacionalidade', '#naturalidade', '#natural', '#telefone1', '#estadocivil'];
+                            // validaForm('#nacionalidade', 'mensnacional');
+                            var vetidmensag = ['mensnome', 'menscpf', 'mensrg', 'menspretsala', 'mensdtnasc', 'mensgenero', 'mensmae', 'mensdtfisico', 'mensnacional', 'mensnaturalidade', 'mensnatural', 'menstelefone', 'mensestadociv'];
+                            validacaoassincrona(vetidvalor, vetidmensag, event);
+
+                            // pegando valor do tem CNH ou não
+                            var botaovoltar = $("#botaovoltar").val();
+                            if (botaovoltar == '1') {
+                                var vetcnh = ['#catcnh'];
+                                var vetmensagcnh = ['menscnh'];
+                                validacaoassincrona(vetcnh, vetmensagcnh, event);
+                            }
+                            // event.currentTarget.submit();
                             // console.log("CPF não existe na base de dados!");
                         }
 
@@ -98,7 +121,7 @@ function validaForm(atributo, messagem) {
 
 
 // função de validação assincrona dos campos e scroll ao topo
-function validacaoassincrona(vetcampos1, vetMens1) {
+function validacaoassincrona(vetcampos1, vetMens1, event) {
     var cont = 0;
     for (var i = 0; i < vetcampos1.length; i++) {
         var valorvalida = validaForm(vetcampos1[i], vetMens1[i]);
@@ -109,6 +132,9 @@ function validacaoassincrona(vetcampos1, vetMens1) {
         $('html, body').animate({
             scrollTop: 0
         }, 1500);
+    } else {
+        event.currentTarget.submit();
+
     }
 }
 

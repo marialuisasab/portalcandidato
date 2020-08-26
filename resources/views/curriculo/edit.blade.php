@@ -8,6 +8,7 @@
 </script> --}}
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
 <script src="/js/Dadospessoais/edit.js"></script>
+<script src="/js/Dadospessoais/validacaoCPFexistenteEdit.js"></script>
 <script src="/jquerymask/jquerymasky.js"></script>
 <script src="/jqueryMaskMoney/jquery.maskMoney.js" type="text/javascript"></script>
 <script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js " type=" text / javascript "> </script>
@@ -96,8 +97,9 @@
 
 
 
-						<div class="form-group">
-							<li><strong> CPF:*&nbsp;&nbsp;&nbsp;</strong>
+						<div class="form-group" id="id_user" data_value="{{$c->users_id}}">
+							<li id="curriculo_CPF" data_value="{{Helper::getIdCurriculomenu()}}"><strong>
+									CPF:*&nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" maxlength="11" name="cpf" id="cpf"
 									placeholder="123.456.789-10" value="{{$c->cpf}}" title="Documento CPF">
 								<div class="invalid-feedback" id="menscpf" style="display: none;">
@@ -105,6 +107,9 @@
 								</div>
 								<div class="invalid-feedback" id="menscpfvalido" style="display: none;">
 									Valor de CPF invalido! Por favor, insira um CPF valido.
+								</div>
+								<div class="invalid-feedback" id="menscpfexiste" style="display: none;">
+									O CPF inserido já pertence a um cadastro no banco de dados!
 								</div>
 							</li>
 						</div>

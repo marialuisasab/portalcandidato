@@ -252,7 +252,7 @@ class CurriculoController extends Controller
 
         $mensagens = [
             'required' => 'Este campo não poderá estar em branco!',//mensagem genérica
-            'cpf.unique' => 'Já existe um registro com este CPF em nosso cadastro',//mensagem específica
+            // 'cpf.unique' => 'Já existe um registro com este CPF em nosso cadastro',//mensagem específica
             'max' => 'O tamanho do campo deve ser de até :max caracteres',
             'integer' => 'Digite apenas números neste campo',
         ];
@@ -266,5 +266,34 @@ class CurriculoController extends Controller
         $curriculo = Curriculo::where('users_id',$id)->get();
         return $curriculo;
     }
+
+    //  public function cpfcurriculo($cpf){
+    //  $curriculo = Curriculo::where('cpf',$cpf)->get();
+    //  return $curriculo;
+    //  }
+
+
+public function cpf_existe_nao_pertence_user($cpf){
+$curriculo=Curriculo::where('cpf', $cpf)->get();
+   if(count($curriculo)==0){
+   return 1;
+   } else {
+   return 2;
+   }
+  
+}
+public function pegat_curriculo_cpf($cpf){
+$curriculo=Curriculo::where('cpf', $cpf)->get();
+return $curriculo;
+}
+
+
+
+public function cpf_existe_pertence_user($id){
+$dadoscurriculos = Curriculo::join('users','users.id', '=', 'users_id')
+->select('curriculo.*','users.*')->where('users_id', $id)->get();
+return $dadoscurriculos;
+}
+     
 
 }

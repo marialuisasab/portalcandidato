@@ -35,7 +35,7 @@ $(function () {
     excluir_itens('name_classificar', 'data_value', "Deseja realmente classificar este candidato?!", "/classificar/2/");
 
     //chamada para desclassificar candidato
-    excluir_itens('name_desclassificar', 'data_value', "Deseja realmente excluir a esta vaga?!", "/classificar/3/");
+    excluir_itens('name_desclassificar', 'data_value', "Deseja realmente desclassificar este candidato?!", "/classificar/3/");
 
 
 

@@ -324,6 +324,7 @@ $("document").ready(function () {
 });
 
 // validação cpf
+// função de verificação se o CPF é valido para a receita federal
 
 function validacpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');

@@ -12,7 +12,7 @@
 {{-- 
 <script src="vendor/jquery/jquery.js"></script> --}}
 <script src="/js/Dadospessoais/edit.js"></script>
-
+<script src="/js/Dadospessoais/validaCPFexistente.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
     integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous">
 </script>
@@ -103,6 +103,9 @@
                                             </div>
                                             <div class="invalid-feedback" id="menscpfvalido" style="display: none;">
                                                 O CPF inserido não é valido! Por favor, insira um CPF valido.
+                                            </div>
+                                            <div class="invalid-feedback" id="menscpfexiste" style="display: none;">
+                                                Este CPF já se encontra cadastrado no sistema!
                                             </div>
                                         </li>
                                     </div>
@@ -443,8 +446,8 @@
                                     <br>
                                     <div class="form-group" style="text-align: end;">
                                         <button type="submit" class="btn btn-primary" id="botaosalvarend"
-                                            title="Confirmar Alterações">Salvar<span class="fas fa-save"
-                                                style="padding-left: 15px;"></button>
+                                            title="Confirmar Alterações" value="{{Auth::user()->id}}">Salvar<span
+                                                class="fas fa-save" style="padding-left: 15px;"></button>
                                         <button class=" btn btn-danger" type="cancel" title="Cancelar Edição">
                                             <a href="home" style="color:white;">Cancelar<span
                                                     class="fas fa-window-close" style="padding-left: 15px;"></span></a>

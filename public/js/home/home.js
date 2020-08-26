@@ -5,7 +5,7 @@
 
           var valor_botão = $("#idbotaocurriculo").val();
           if (valor_botão) {
-              console.log(valor_botão);
+              //   console.log(valor_botão);
               var valorid = $("#idvalor").val();
               $.get('/getidcurriculo/' + valorid, function (curriculo) {
                   $.each(curriculo, function (key, value) {

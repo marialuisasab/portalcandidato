@@ -110,7 +110,7 @@ class CurriculosController extends Controller
         $users = DB::table('users')
             ->join('curriculo', 'users.id', '=', 'curriculo.users_id')
             ->select('users.*', 'curriculo.*')->orderBy('name','ASC')
-            ->paginate(20);
+            ->paginate(30);
 
         return view('admin.buscarcurriculo')->with('users',$users);
     }

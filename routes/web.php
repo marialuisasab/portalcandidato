@@ -22,6 +22,12 @@ Auth::routes();
 Route::get('/get-instituicoes/{id}','FormacaoController@getInstituicoes');
 Route::get('/get-cidades','HomeController@getiCidadesvazias');
 Route::get('/get-cidades/{estado}','HomeController@getiCidades');
+Route::get('/get-cpfexistepertence/{id}','CurriculoController@cpf_existe_pertence_user');
+Route::get('/get-cpfexisteNpertenceuser/{cpf}','CurriculoController@cpf_existe_nao_pertence_user');
+Route::get('/get-pegarcpf/{cpf}','CurriculoController@pegat_curriculo_cpf');
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin.index');

@@ -63,18 +63,19 @@
 
                                 @if ($c->users_id == $candDados ->id)
                                 <ul style="list-style-type: none;">
-                                    <h2>
-                                        @if($candDados->foto != null)
-                                        
-                                            <img src="{{public_path('/fotos/'.$candDados->foto)}}" alt="Logo" height="75px" style=" max-width: 120px; border-radius: 50%;">
-                                       
-                                        @else
-                                            <img class="profile-user-img img-responsive img-circle"
-                                                src="/img/imagemuserPadrao.jpg" alt="Usuário sem foto">
-                                        
-                                        
+                                    
+                                    @if($candDados->foto != null)
+                                    
+                                        <img src="{{public_path('fotos/'.$candDados->foto)}}" alt="" height="75px" style=" max-width: 120px; border-radius: 50%;">
+                                   
+                                    @else
+                                        <img class="profile-user-img img-responsive img-circle"
+                                            src="{{public_path('img/imagemuserPadrao.jpg')}}" alt="Usuário sem foto"  style=" max-width: 80px; border-radius: 50%;">
+                                    
+                                    
                                     @endif
-                                    </h2>
+                                  
+                                    
 
 
                                     <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->name}}

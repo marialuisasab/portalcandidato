@@ -21,12 +21,15 @@ class PdfController extends Controller
     public function Gerarpdf($id){
       // Visualizar dados de um usuario pegando o id de seu curriculo
       set_time_limit(120);
+      
+      
       $users = User::all();
       $endereco = Endereco::all();
       $cursosform = Curso::where('curriculo_idcurriculo', $id)->get();
       $experiencia = Experiencia::where('curriculo_idcurriculo', $id)->orderBy('idexperiencia','ASC')->get();
       $habilidade = Habilidade::where('curriculo_idcurriculo', $id)->orderBy('idhabilidade','ASC')->get();
       $curriculos = Curriculo::where('idcurriculo', $id)->get();
+      
       $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('admin.pdf',compact('users','endereco','cursosform','experiencia','habilidade'),compact('curriculos'));
 
       return $pdf->setPaper('a4')->stream('Curriculo_Candidato.pdf');

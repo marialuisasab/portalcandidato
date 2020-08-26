@@ -56,7 +56,7 @@
           @if (Route::has('register'))
           <li class="nav-item active">
             <a class="navbar-brand" href=" {{ route('register') }}" style="color: gray;" type="button"
-              title="Registrar novo usuário">Registrar
+              title="Registrar novo usuário">Criar uma conta
               <span class=" fas fa-user-plus px-2" style="font-size: 30px;"></span>
             </a>
           </li>

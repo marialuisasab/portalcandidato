@@ -75,9 +75,9 @@
           </li>
           <li class="nav-item">
 
-            <a class="navbar-brand" href="{{ route('register') }}" style="color: white;" type="button">Registrar
-              <span class="fas fa-user-plus px-2">
-                {{-- <p class="ml-2">Registrar</p>  --}}</span></a>
+            <a class="navbar-brand" href="{{ route('register') }}" style="color: white;" type="button">Criar uma conta
+              <span class="fas fa-user-plus px-2"></span>
+            </a>
 
           </li>
 
@@ -142,19 +142,19 @@
               <div class="container">
                 <div class="row">
                   <h5>
-                    Veja abaixo as vagas disponíveis, ou, caso não encontre uma vaga que no momento, não
-                    se preocupe, deixe seus dados cadastrados em nosso <u>Banco de Talentos</u>.
+                    Veja abaixo as vagas disponíveis, ou, caso não encontre uma vaga no momento, não
+                    se preocupe, deixe seus dados cadastrados em nosso Banco de Talentos.<br>Clique <a name="cadastrar" href="{{route('home')}}" class="badge badge-info" style="color:white;"><u>aqui</u></a> para entrar e cadastrar o seu currículo.
                   </h5>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col">
                     <h4>
-                      Clique aqui para acessar a plataforma e realizar o cadastro!
+                      Caso seja o primeiro acesso, clique abaixo para criar uma conta:
                     </h4>
                     <button class="btn btn-info ">
-                      <a name="cadastrar" href="{{route('home')}}" style="color:white;">
-                        <b>Banco de Talentos</b>
+                      <a name="cadastrar" href="{{route('register')}}" style="color:white;">
+                        <b>Criar uma conta</b> <span class="fas fa-user-plus px-2"></span>
                       </a>
                     </button>
                   </div>

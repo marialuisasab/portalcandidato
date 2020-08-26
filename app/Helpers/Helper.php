@@ -185,7 +185,7 @@ class Helper
     }
 
     public static function listarCandidatosVaga($id){
-        return CurriculoVaga::join('Curriculo', 'idcurriculo','=', 'curriculo_idcurriculo')->join('Users', 'id', '=','users_id')->where('vaga_idvaga', $id)->get();         
+        return CurriculoVaga::join('curriculo', 'idcurriculo','=', 'curriculo_idcurriculo')->join('users', 'id', '=','users_id')->where('vaga_idvaga', $id)->get();         
     }
 
     public static function getStatusVaga($status){

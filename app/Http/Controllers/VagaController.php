@@ -111,7 +111,9 @@ class VagaController extends Controller
             $candidato = Helper::getIdCurriculo();
             $candidatou = CurriculoVaga::where('curriculo_idcurriculo', $candidato)
                                                ->where('vaga_idvaga',$vaga)
-                                               ->where("status", 1)->get(); 
+                                               //->where('status','!=' ,4)
+                                               ->get(); 
+            
             if (count($candidatou)==0){
                 $dados = new CurriculoVaga();           
                 $dados->curriculo_idcurriculo = $candidato;
@@ -126,7 +128,7 @@ class VagaController extends Controller
                     return redirect()->back();
                 }
             }else {
-                flash('Você já está participando deste processo seletivo! Vá para: Gerenciar Vagas > Minhas Vagas, para acompanhar o andamento.')->error();
+                flash('Você já está participando deste processo seletivo! Vá para: Gerenciar Vagas -> Minhas Vagas, para acompanhar o andamento.')->error();
                 return redirect()->back();;//redirecionar para MINHAS VAGAS
             }
         }   else{
@@ -139,7 +141,9 @@ class VagaController extends Controller
 
         if(Helper::getIdCurriculomenu()){
             $cand = Helper::getIdCurriculo();
-            $processos = CurriculoVaga::where('curriculo_idcurriculo', $cand)->get();
+            $processos = CurriculoVaga::where('curriculo_idcurriculo', $cand)
+                                        ->where('status','!=' ,4)
+                                        ->get();
             $vagas = array();
             if(count($processos)>0){
                 foreach ($processos as $p => $value) {     

@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Curriculo;
 use Helper;
+use PDF;
 
 class CurriculoController extends Controller
 {   
@@ -115,8 +116,18 @@ class CurriculoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        //CURRICULO COMPLETO
+        $dados = Helper::getCurriculoCompleto($id);                  
+        $users = $dados[0];
+        $curriculovaga = [];
+        $cursos = $dados[2];
+        $endereco = $dados[3];
+        $experiencia = $dados[4]; 
+        $habilidades = $dados[5]; 
+        $curriculos = $dados[6];        
+        
+        return view('curriculocompleto.show', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos']));            
     }
 
     /**
@@ -221,7 +232,8 @@ class CurriculoController extends Controller
         //
     }
 
-    public function updateUser($user, $foto, $nome){
+    public function updateUser($user, $foto, $nome)
+    {
         //Editar o nome do usuário e foto
         $user->name = mb_convert_case($nome, MB_CASE_TITLE, "UTF-8");;
         $user->foto = $foto;   
@@ -260,40 +272,51 @@ class CurriculoController extends Controller
         $request->validate($regras, $mensagens);
     }
 
+    public function gerarPdf($id){
 
+        set_time_limit(120);   
+
+        $dados = Helper::getCurriculoCompleto($id);                  
+        $users = $dados[0];
+        $curriculovaga = [];
+        $cursos = $dados[2];
+        $endereco = $dados[3];
+        $experiencia = $dados[4]; 
+        $habilidades = $dados[5]; 
+        $curriculos = $dados[6];     
+
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                    ->loadView('curriculocompleto.show_pdf', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos']));
+
+        return $pdf->setPaper('a4')->download('Curriculo_Candidato.pdf');
+      
+    }
 
     public function idcurriculo($id){
         $curriculo = Curriculo::where('users_id',$id)->get();
         return $curriculo;
     }
 
-    //  public function cpfcurriculo($cpf){
-    //  $curriculo = Curriculo::where('cpf',$cpf)->get();
-    //  return $curriculo;
-    //  }
+    public function cpf_existe_nao_pertence_user($cpf){
+        $curriculo=Curriculo::where('cpf', $cpf)->get();
+        if(count($curriculo)==0){
+            return 1;
+        } else {
+            return 2;
+        }
+      
+    }
 
+    public function pegat_curriculo_cpf($cpf){
+        $curriculo=Curriculo::where('cpf', $cpf)->get();
+        return $curriculo;
+    }
 
-public function cpf_existe_nao_pertence_user($cpf){
-$curriculo=Curriculo::where('cpf', $cpf)->get();
-   if(count($curriculo)==0){
-   return 1;
-   } else {
-   return 2;
-   }
-  
-}
-public function pegat_curriculo_cpf($cpf){
-$curriculo=Curriculo::where('cpf', $cpf)->get();
-return $curriculo;
-}
-
-
-
-public function cpf_existe_pertence_user($id){
-$dadoscurriculos = Curriculo::join('users','users.id', '=', 'users_id')
-->select('curriculo.*','users.*')->where('users_id', $id)->get();
-return $dadoscurriculos;
-}
-     
+    public function cpf_existe_pertence_user($id){
+        $dadoscurriculos = Curriculo::join('users','users.id', '=', 'users_id')
+                                ->select('curriculo.*','users.*')->where('users_id', $id)->get();
+        return $dadoscurriculos;
+    }
+         
 
 }

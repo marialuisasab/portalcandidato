@@ -19,20 +19,26 @@ use App\RedeSocial;
 use App\Admin;
 use App\CurriculoVaga;
 use App\Vaga;
+use App\User;
+use App\Experiencia;
+use App\Endereco;
+use App\Habilidade;
+
 class Helper
 {   
     public static function getIdCurriculo(){
         $id = Curriculo::where('users_id', Auth::user()->id)->get()[0];
         return $id->idcurriculo;
     }
-    public static function getIdAdmin(){
-    $admin = Admin::where('id', Auth::user()->id)->get();
 
-     if(count($admin)==0){
-     return false;
-     } else {
-     return true;
-     }
+    public static function getIdAdmin(){
+        $admin = Admin::where('id', Auth::user()->id)->get();
+
+        if(count($admin)==0){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public static function getIdCurriculomenu(){
@@ -43,36 +49,25 @@ class Helper
             return true;
         }
     }
-     // public static function getIdCurriculoHome(){
-     // $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
-     // if(count($id)==0){
-     // return false;
-     // } else {
+    
+    public static function getIdCurriculoHome($id){
 
-     // return true;
-     // }
-     // }
-     public static function getIdCurriculoHome($id){
-     // $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
-     $candidatoid = Curriculo::where("users_id",$id)->get()[0];
-     // $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
-
-     return $candidatoid->idcurriculo;
-     }
+        $candidatoid = Curriculo::where("users_id",$id)->get()[0];
+        return $candidatoid->idcurriculo;
+    }
 
 
 
-     public static function getvagatitulo($id){
-     $vaga = Vaga::where('idvaga',$id)->get()[0];
-     return $vaga->titulo;
-
-     }
+    public static function getvagatitulo($id){
+        $vaga = Vaga::where('idvaga',$id)->get()[0];
+        return $vaga->titulo;
+    }
 
    
     public static function setData($stringData){
         if(!isset($stringData))
             return null;
-        return  Carbon::parse(str_replace('/', '-',$stringData))->format('Y-m-d'); 
+        return Carbon::parse(str_replace('/', '-',$stringData))->format('Y-m-d'); 
     }
 
     public static function getData($stringData){
@@ -82,8 +77,9 @@ class Helper
     }    
 
     public static function setPretensao($valor){
-    return str_replace(',','.',$valor);
+        return str_replace(',','.',$valor);
     }
+
     public static function getPretensao($valor){
         return 'R$'.$valor;
     }
@@ -185,7 +181,9 @@ class Helper
     }
 
     public static function listarCandidatosVaga($id){
-        return CurriculoVaga::join('curriculo', 'idcurriculo','=', 'curriculo_idcurriculo')->join('users', 'id', '=','users_id')->where('vaga_idvaga', $id)->get();         
+        return CurriculoVaga::join('curriculo', 'idcurriculo','=', 'curriculo_idcurriculo')
+                    ->join('users', 'id', '=','users_id')
+                    ->where('vaga_idvaga', $id)->get();         
     }
 
     public static function getStatusVaga($status){
@@ -209,5 +207,51 @@ class Helper
             return "Encerrado";
     }
     
+    public static function getTodosCurriculos(){
+
+        return Curriculo::join('users', 'id', '=', 'users_id')
+                        ->orderBy('name', 'ASC')
+                        ->paginate(50);       
+        
+    }
+
+    public static function getCurriculoCompleto($id){
+
+        $users = User::join('curriculo', 'users_id', '=', 'id')
+                            ->where("idcurriculo", $id)->get();
+
+        $curriculoVaga = CurriculoVaga::where('curriculo_idcurriculo', $id)
+                            ->orderBy('dtcandidatura','DESC')->get();
+
+        $cursos = Curso::where('curriculo_idcurriculo', $id)
+                            ->orderBy('dtinicio','DESC')->get();
+
+        $experiencia = Experiencia::where('curriculo_idcurriculo', $id)
+                            ->orderBy('dtinicio','DESC')->get();
+
+        $endereco = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')
+                            ->where("idcurriculo", $id)->get();
+
+        $habilidade = Habilidade::where('curriculo_idcurriculo', $id)
+                            ->orderBy('idhabilidade','ASC')->get();
+
+        $curriculos = Curriculo::where('idcurriculo', $id)->get();
+
+        /*return view('admin.visualizar_curriculos')
+            ->with('curriculovaga', $curriculoVaga)
+            ->with('users', $user)
+            ->with('cursos', $cursos)
+            ->with('endereco', $endereco)
+            ->with('experiencia', $experiencia)
+            ->with('habilidades', $habilidade)
+            ->with('curriculos', $curriculos);*/
+        return [$users, $curriculoVaga, $cursos, $endereco, $experiencia, $habilidade, $curriculos];
+    }
+
+    public static function getIdade($dtnasc){ 
+        $data = \Carbon\Carbon::parse($dtnasc);
+        $difAnos = \Carbon\Carbon::now()->diffInYears($data);
+        return $difAnos;
+    }
 
 }

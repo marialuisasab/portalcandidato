@@ -5,14 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Admin;
-use App\Curso;
 use App\Curriculo;
-use App\User;
-use App\Experiencia;
-Use App\Habilidade;
-use App\Endereco;
-use App\CurriculoVaga;
+use Helper;
+use PDF;
 
 class CurriculosController extends Controller
 {   
@@ -54,10 +49,6 @@ class CurriculosController extends Controller
         //
     }
 
-   
-
-
-
 
     /**
      * Display the specified resource.
@@ -66,8 +57,17 @@ class CurriculosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $dados = Helper::getCurriculoCompleto($id);                  
+        $users = $dados[0];
+        $curriculovaga = $dados[1];
+        $cursos = $dados[2];
+        $endereco = $dados[3];
+        $experiencia = $dados[4]; 
+        $habilidades = $dados[5]; 
+        $curriculos = $dados[6];        
+        
+        return view('curriculocompleto.show', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos']));          
     }
 
     /**
@@ -107,34 +107,37 @@ class CurriculosController extends Controller
 
     // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
     public function buscar(){
-        $users = DB::table('users')
+        /*$users = DB::table('users')
             ->join('curriculo', 'users.id', '=', 'curriculo.users_id')
             ->select('users.*', 'curriculo.*')->orderBy('name','ASC')
-            ->paginate(30);
-
-        return view('admin.buscarcurriculo')->with('users',$users);
+            ->paginate(30);*/
+        $users = Helper::getTodosCurriculos();
+        return view('admin.buscarcurriculo', compact(['users']));
     }
 
+	/*public function visualizarcurriculo($id){
+        return Helper::getCurriculoCompleto($id);
+	}*/
 
+    public function gerarPdf($id){
 
-    // Visualizar dados de um usuario pegando o id de seu curriculo 
-	public function visualizarcurriculos($id){
-        $users = User::all();
-        $curriculoVaga = CurriculoVaga::where('curriculo_idcurriculo',$id)->orderBy('vaga_idvaga','ASC')->get();
-    	$cursosform = Curso::where('curriculo_idcurriculo', $id)->orderBy('nome','ASC')->get();
-    	$experiencia = Experiencia::where('curriculo_idcurriculo', $id)->orderBy('idexperiencia','ASC')->get();
-    	$endereco = Endereco::all();
-    	$habilidade = Habilidade::where('curriculo_idcurriculo', $id)->orderBy('idhabilidade','ASC')->get();
-    	$curriculos = Curriculo::where('idcurriculo', $id)->get();
-        return view('admin.visualizar_curriculos')
-                ->with('curriculovaga',$curriculoVaga)
-    	        ->with('users',$users)
-            	->with('cursos',$cursosform)
-            	->with('endereco',$endereco)
-            	->with('experiencia',$experiencia)
-            	->with('habilidades',$habilidade)
-            	->with('curriculos',$curriculos);
-	}
+        set_time_limit(120);   
+
+        $dados = Helper::getCurriculoCompleto($id);                  
+        $users = $dados[0];
+        $curriculovaga = $dados[1];
+        $cursos = $dados[2];
+        $endereco = $dados[3];
+        $experiencia = $dados[4]; 
+        $habilidades = $dados[5]; 
+        $curriculos = $dados[6];     
+
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                    ->loadView('curriculocompleto.show_pdf', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos']));
+
+        return $pdf->setPaper('a4')->download('Curriculo_Candidato.pdf');
+      
+      }
 
     
     public function updateObservacao(Request $request, $id){
@@ -155,21 +158,5 @@ class CurriculosController extends Controller
             return redirect()->back();
         }
     }
-
-
-    // public function visualizarcurriculos($id){
-    //     $endereco = Endereco::all();
-	//     $users = User::all();
-    //     $dadoscurriculos = DB::table('curriculo')
-    //     // ->join('curriculo', $id, '=', 'curriculo.idcurriculo')
-    //     ->join('curso','curriculo.idcurriculo', '=', 'cursos.curriculo_idcurriculo')
-    //     ->join('experiencia', 'curriculo.idcurriculo', '=', 'experiencia.curriculo_idcurriculo')
-    //     ->join('habilidade', 'curriculo.idcurriculo', '=', 'habilidade.curriculo_idcurriculo')
-    //     ->select('cursos.*', 'curriculo.*','experiencia.*','habilidade.*')->get();
-    //     return view('admin.buscarcurriculo')
-    //      ->with('users',$users)
-    //     ->with('endereco',$endereco)
-    //     ->with('dadoscurriculo',$dadoscurriculos);
-    // }
 
 }

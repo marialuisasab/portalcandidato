@@ -157,7 +157,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <!-- HOME E AJUDA -->
                     <li class="nav-item dropdown user-menu">
                         <div class="btn-group" role="group" aria-label="Exemplo básico">
-                            <a href="{{route('home')}}" class="sino mr-5">
+                            <a href="{{route('admin.index')}}" class="sino mr-5">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
                             {{-- <a href="/ManualFaleConosco/manualsuporte.pdf" class="mr-5">
@@ -467,7 +467,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <!-- HOME E AJUDA -->
                     <li class="nav-item dropdown user-menu">
                         <div class="btn-group" role="group" aria-label="Exemplo básico">
-                            <a href="{{route('admin.index')}}" class="sino mr-5">
+                            <a href="{{route('home')}}" class="sino mr-5">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
                             <a href="ManualFaleConosco/manualsuporte.pdf" class="mr-5">
@@ -621,10 +621,10 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                     <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do
                         Candidato</li>
                     <li class="nav-item" id="idbotaocurriculo" value="{{Helper::getIdCurriculomenu()}}">
-                        <a class="nav-link" type="button" title="Gerar Curriculo em PDF Dados" style="color:white">
-                            <i class="fas fa-fw fa fa-file-alt " style="color: red;"></i>
+                        <a href="/imprimirCurriculo/{{Helper::getIdCurriculo()}}" class="nav-link" type="button" title="Gerar Curriculo em PDF Dados" style="color:white">
+                            <i class="fas fa-fw fa fa-file-alt"></i>
                             <p>
-                                Gerar PDF
+                                Baixar arquivo em PDF
                             </p>
                         </a>
 

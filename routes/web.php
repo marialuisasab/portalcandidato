@@ -94,6 +94,11 @@ Route::get('/vaga/{id}', 'VagaController@show');
 Route::get('/vaga/principal/{id}', 'VagaController@showPrincipal');
 Route::get('/vaga/candidatar/{id}', 'VagaController@candidatar');
 
+
+Route::get('/exibirCurriculo/{id}', 'CurriculoController@show')->name('exibirCurriculo');
+Route::get('/imprimirCurriculo/{id}','CurriculoController@gerarPdf')->name('imprimirCurriculo');
+
+
 /*--------------------------------------------------------------------------------------
 Rotas do admin
 --------------------------------------------------------------------------------------*/
@@ -111,12 +116,12 @@ Route::get('/copiarvaga/{id}', 'VagasController@copiarVaga');
 Route::get('/classificar/{id}/{v}/{c}', 'VagasController@classificar');
 
 Route::get('/buscarcurriculo','CurriculosController@buscar');
-Route::get('/buscarcurriculo/visualizar/{id}', 'CurriculosController@visualizarcurriculos');
+Route::get('/buscarcurriculo/visualizar/{id}', 'CurriculosController@show');
 Route::post('/editarObs/{id}', 'CurriculosController@updateObservacao');
 
 
 
 
 Route::get('/curriculo/vagas', 'VagaController@index')->name('curriculo.vagas');
-Route::get('/gerarpdf/{id?}','PdfController@Gerarpdf')->name('Curriculo.Impressao');
-// Route::get('/gerarpdf/{id?}','PdfController@Gerarpdf')->name('Curriculo.Impressao');
+//Route::get('/gerarpdf/{id?}','PdfController@Gerarpdf')->name('Curriculo.Impressao');
+Route::get('/gerarpdf/{id}','CurriculosController@gerarPdf')->name('Curriculo.Impressao');

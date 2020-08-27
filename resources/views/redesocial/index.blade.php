@@ -70,6 +70,7 @@
               @if(count($redes)==0)
               <div class="card-footer" style="background-color: white;">
                 <h5 style="color:red;text-align:center;">
+                  Esta é a última etapa do preenchimento do currículo. <br>
                   Clique em 'Adicionar' para inserir suas redes sociais, ou prossiga para as 'Vagas Abertas'
                 </h5>
               </div>
@@ -96,6 +97,12 @@
               </div>
               @endforeach
             </div>
+          </div>
+          <div class="form-group" style="text-align: center;">
+            <button class=" btn btn-secondary" type="button">
+              <a href="/exibirCurriculo/{{Helper::getIdCurriculo()}}" style="color: white;">Exibir Currículo Completo<span class="fas fa-fw fa fa-file-alt"
+                  style="padding-left: 5px; color:white;"></span></a>
+            </button>           
           </div>
           <div class="form-group" style="text-align: center;">
             <button class=" btn btn-secondary" type="button">

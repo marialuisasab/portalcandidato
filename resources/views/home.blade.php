@@ -29,7 +29,7 @@
 <div class="row"
   style="text-align: center; margin-top: 5px; display: flex; flex-wrap: wrap; justify-content: space-between;">
   <div class="col">
-    <a href="{{route('curriculo.dados')}}" type="button" title="Visualizar Dados"><strong><span class="fas fa-eye "
+    <a href="/exibirCurriculo/{{Helper::getIdCurriculo()}}" type="button" title="Visualizar Dados"><strong><span class="fas fa-eye "
           style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);;">Visualizar
           Dados</span></strong></a>
   </div>

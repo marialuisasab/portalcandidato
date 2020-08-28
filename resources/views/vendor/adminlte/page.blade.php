@@ -618,18 +618,19 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             <nav class="mt-2">
 
                 <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
-                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">Perfil do
-                        Candidato</li>
-                    <li class="nav-item" id="idbotaocurriculo" value="{{Helper::getIdCurriculomenu()}}">
-                        <a href="/imprimirCurriculo/{{Helper::getIdCurriculo()}}" class="nav-link" type="button" title="Gerar Curriculo em PDF Dados" style="color:white">
-                            <i class="fas fa-fw fa fa-file-alt"></i>
-                            <p>
-                                Baixar arquivo em PDF
-                            </p>
-                        </a>
-
+                    <li class="nav-header" id="idcurriculouser" value="{{Helper::getIdCurriculomenu()}}">
+                        Perfil do Candidato
                     </li>
-
+                    @if(Helper::getIdCurriculo() != false)
+                        <li class="nav-item" id="idbotaocurriculo" value="{{Helper::getIdCurriculomenu()}}">
+                            <a href="/imprimirCurriculo/{{Helper::getIdCurriculo()}}" class="nav-link" type="button" title="Gerar Curriculo em PDF Dados" style="color:white">
+                                <i class="fas fa-fw fa fa-file-alt"></i>
+                                <p>
+                                    Baixar currículo em PDF
+                                </p>
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-header" id="idvalor" value="{{Auth::user()->id}}">Gerenciar Currículo</li>
                     <li class="nav-item">
                         <a class="nav-link" style="color:white;" href="{{route('curriculo.dados')}}" id="iddados">

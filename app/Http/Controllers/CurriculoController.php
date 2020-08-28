@@ -117,6 +117,7 @@ class CurriculoController extends Controller
      */
     public function show($id)
     {   
+       
         //CURRICULO COMPLETO
         $dados = Helper::getCurriculoCompleto($id);                  
         $users = $dados[0];

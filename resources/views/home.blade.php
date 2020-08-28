@@ -29,17 +29,30 @@
 <div class="row"
   style="text-align: center; margin-top: 5px; display: flex; flex-wrap: wrap; justify-content: space-between;">
   <div class="col">
-    <a href="/exibirCurriculo/{{Helper::getIdCurriculo()}}" type="button" title="Visualizar Dados"><strong><span class="fas fa-eye "
-          style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);;">Visualizar
-          Dados</span></strong></a>
+    @if(Helper::getIdCurriculo() != false)
+      <a href="/exibirCurriculo/{{Helper::getIdCurriculo()}}" type="button" title="Visualizar Dados">
+        <strong>
+          <span class="fas fa-eye " style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);">
+          Visualizar Dados
+          </span>
+        </strong>
+      </a>
+    @else 
+      <a href="{{route('curriculo.dados')}}" type="button" title="Visualizar Dados">
+        <strong>
+          <span class="fas fa-eye " style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);">
+          Visualizar Dados
+          </span>
+        </strong>
+      </a>
+    @endif
   </div>
-
   <div class="col ">
     <a href="{{route('curriculo.dados')}}" type="button" title="Editar Dados"><strong><span class="fa fa-edit"
           style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Editar
-          Dados</span></strong></a>
+          Dados</span></strong>
+    </a>
   </div>
-
   <div class="col">
     <a href="/" type="button" title="Voltar a para o site"><strong><span class="fas fa-undo"
           style="font-size: 15px; text-align: center; color:rgb(224, 224, 235);;">Voltar para o

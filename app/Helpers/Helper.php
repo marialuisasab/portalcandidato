@@ -27,8 +27,13 @@ use App\Habilidade;
 class Helper
 {   
     public static function getIdCurriculo(){
-        $id = Curriculo::where('users_id', Auth::user()->id)->get()[0];
-        return $id->idcurriculo;
+        $id = Curriculo::select('idcurriculo')->where('users_id', Auth::user()->id)->get();
+        
+        if(count($id)==0){
+            return false;
+        } else {
+            return $id[0]->idcurriculo;
+        }
     }
 
     public static function getIdAdmin(){

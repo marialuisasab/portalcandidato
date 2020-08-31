@@ -25,6 +25,8 @@
 </style>
 @section('content')
 
+@include('flash::message')
+
 <div class="row">
     <div class="col-xs-12 col-md-12">
 
@@ -73,7 +75,7 @@
                                     Avançada</a><br>
                                 <!-- Início Modal -->
                                 <div class="modal fade" id="modal_busca_avancada">
-                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-dialog " role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">CAMPOS DE BUSCA AVANÇADA:</h5>
@@ -82,7 +84,7 @@
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form action="" method="POST">
+                                            <form action="{{route('filtrar')}}" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
                                                     {{-- <div class="form-group">
@@ -388,7 +390,7 @@
 
                                                 @endforeach
                                             </td>
-                                            <td class="atualizacao_curriculo">{{$u->dtatualizacao}}
+                                            <td class="atualizacao_curriculo">{{Helper::getData($u->dtatualizacao)}}
                                             </td>
                                             {{-- @if ($u->obs != '')
                                                                                     <td>{{$u->obs}}</td>

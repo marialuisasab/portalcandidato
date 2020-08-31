@@ -58,7 +58,7 @@ class FormacaoController extends Controller
         $curso->instituicao_idinstituicao = $request->instituicao_idinstituicao;
         $curso->status = '1';
         $curso->escola = mb_convert_case($request->escola, MB_CASE_TITLE, "UTF-8");
-$curso->area_idarea = $request->area_idarea;//so para escolaridade sim
+        $curso->area_idarea = $request->area_idarea;//so para escolaridade sim
         if($request->escolaridade == '1'){            
                 
             $curso->nivel_idnivel = $request->nivel_idnivel;//so para escolaridade sim
@@ -140,6 +140,7 @@ $curso->area_idarea = $request->area_idarea;//so para escolaridade sim
             }               
             //dd($curso);
             if ($curso->save()){  
+                Helper::updateUltimaAtualização(Helper::getIdCurriculo());
                  flash("Informações gravadas com sucesso!")->success();
                     return redirect()->route('cursos');
                                 // ->with('success', 'Dados editados com sucesso!');

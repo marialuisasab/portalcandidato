@@ -127,6 +127,7 @@ class RedesocialController extends Controller
             }                
         }
         if($flag){
+            Helper::updateUltimaAtualização(Helper::getIdCurriculo());
             flash("Informações gravadas com sucesso!")->success();
             return redirect()->route('redessociais');
                             // ->with('success', 'Dados cadastrados com sucesso!');

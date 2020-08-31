@@ -62,10 +62,10 @@
                                             @endif
                                         </li>
                                         <li>
-                                            Data do cadastro: {{Helper::getData($c->created_at)}}
+                                            Data do cadastro: {{Helper::getData($c->dtcadastro)}}
                                         </li>
                                         <li>
-                                            Última atualização: {{Helper::getData($c->updated_at)}}
+                                            Última atualização: {{Helper::getData($c->dtatualizacao)}}
                                         </li>                                     
                                     </ul>
                                 </div>                            
@@ -615,7 +615,7 @@
                                         {{Helper::getvagatitulo($processo->vaga_idvaga)}}
                                     </td>
                                     <td>
-                                        {{Helper::getStatusVaga($processo->status)}}
+                                        {{Helper::getStatusCandidatura($processo->status)}}
                                     </td>
                                     @if ($processo->obs != '')
                                         <td>{{$processo->obs}}</td>

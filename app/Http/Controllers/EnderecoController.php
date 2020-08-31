@@ -123,7 +123,7 @@ class EnderecoController extends Controller
             $e->disp_mudanca = $request->disp_mudanca;
 
             if ($e->save()){         
-                  
+                    Helper::updateUltimaAtualização(Helper::getIdCurriculo());
                     flash('Informações gravadas com sucesso!')->success();
                     return redirect()->route('endereco');
                                 // ->with('success', 'Dados cadastrados com sucesso!');
@@ -151,7 +151,7 @@ class EnderecoController extends Controller
         $curriculo = Curriculo::find(Helper::getIdCurriculo());
         //$candidato = Curriculo::where("users_id", Auth::user()->id)->get();
         $curriculo->endereco_idendereco = $endereco;
-        
+        $curriculo->dtatualizacao = Date('Y-m-d');
         if ($curriculo->save()){
             return true;
         }

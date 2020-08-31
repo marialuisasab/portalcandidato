@@ -110,7 +110,8 @@ class ExperienciaController extends Controller
             $exp->curriculo_idcurriculo = Helper::getIdCurriculo();
        
             if ($exp->save()){      
-                 flash("Informações gravadas com sucesso!")->success();
+                Helper::updateUltimaAtualização(Helper::getIdCurriculo());
+                flash("Informações gravadas com sucesso!")->success();
                     return redirect()->route('experiencias');
                                 // ->with('success', 'informações cadastradas com sucesso!');
             }else {

@@ -109,6 +109,7 @@ class HabilidadeController extends Controller
             $hab->tipo_idtipo = $request->tipo_idtipo;
        
             if ($hab->save()){         
+                Helper::updateUltimaAtualização(Helper::getIdCurriculo());
                 flash("Informações gravadas com sucesso!!!")->success();
                     return redirect()->route('habilidades');
                             // ->with('success', 'Informações cadastradas com sucesso!');

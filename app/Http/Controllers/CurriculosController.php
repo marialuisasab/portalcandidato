@@ -108,23 +108,25 @@ class CurriculosController extends Controller
     }
 
      // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
-     public function buscar(){
-     $users = DB::table('curriculo')
-     ->join('users', 'curriculo.users_id', '=', 'users.id')
-     ->join('endereco', 'curriculo.endereco_idendereco', '=', 'endereco.idendereco')
-     // ->join('experiencia', 'curriculo.idcurriculo', '=', 'experiencia.curriculo_idcurriculo')
-     ->select('users.*', 'curriculo.*','endereco.*')->orderBy('curriculo.dtatualizacao','DESC')
-     ->paginate(50);
+    public function buscar(){
+        $users = DB::table('curriculo')
+        ->join('users', 'curriculo.users_id', '=', 'users.id')
+        ->join('endereco', 'curriculo.endereco_idendereco', '=', 'endereco.idendereco')
+        // ->join('experiencia', 'curriculo.idcurriculo', '=', 'experiencia.curriculo_idcurriculo')
+        ->select('users.*', 'curriculo.*','endereco.*')->orderBy('curriculo.dtatualizacao','DESC')
+        ->paginate(50);
 
-     return view('admin.buscarcurriculo')->with('users',$users);
-     }
-     public function getCidadesModal($id) {
+
+        return view('admin.buscarcurriculo')->with('users',$users);
+    }
+
+    public function getCidadesModal($id) {
      $cidades = Cidade::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
      // return $cidade->nome;
      // $estado = $this->estadoModel->find($idEstado);
      // $cidades = $estado->cidades()->getQuery()->get(['id', 'cidade']);
      return Response::json($cidades);
-     }
+    }
 
 
     // // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
@@ -179,6 +181,24 @@ class CurriculosController extends Controller
             flash('Curriculo não encontrado!')->error();
             return redirect()->back();
         }
+    }
+
+     public function buscaPalavraChave(Request $request){
+        
+        $curriculos = Helper::filtrarPalavraChave($request->palavrachave);        
+        return $curriculos;
+    }
+
+
+    public function buscaAvancada(Request $request){
+        
+        $parametros[] = $request->all();   
+        $users = Helper::filtrarCurriculos($parametros[0]);
+        if(count($users) == 0){
+            flash('Não foi possível encontrar nenhum currículo com os filtros selecionados.')->error();
+            return redirect()->route('buscarcurriculo');
+        }               
+        return view('admin.buscarcurriculo', compact('users'));      
     }
 
 }

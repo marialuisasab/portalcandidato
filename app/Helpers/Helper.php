@@ -247,14 +247,7 @@ class Helper
 
         $curriculos = Curriculo::where('idcurriculo', $id)->get();
 
-        /*return view('admin.visualizar_curriculos')
-            ->with('curriculovaga', $curriculoVaga)
-            ->with('users', $user)
-            ->with('cursos', $cursos)
-            ->with('endereco', $endereco)
-            ->with('experiencia', $experiencia)
-            ->with('habilidades', $habilidade)
-            ->with('curriculos', $curriculos);*/
+    
         return [$users, $curriculoVaga, $cursos, $endereco, $experiencia, $habilidade, $curriculos];
     }
 
@@ -262,6 +255,67 @@ class Helper
         $data = \Carbon\Carbon::parse($dtnasc);
         $difAnos = \Carbon\Carbon::now()->diffInYears($data);
         return $difAnos;
+    }
+
+
+    public static function updateUltimaAtualização($id){
+        $candidato = Curriculo::find($id);        
+        $candidato->dtatualizacao = Date('Y-m-d');    
+        if ($candidato->save()){
+            return true;
+        } 
+        return false;
+    }
+
+    public static function filtrarCurriculos($dados){
+    
+        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+                    ->join('users as u', 'users_id', '=', 'u.id')
+                    ->join('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
+                    ->join('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
+                    ->join('experiencia as x', 'idcurriculo', '=', 'x.curriculo_idcurriculo')
+                    ->leftJoin('curriculo_vaga as v', 'idcurriculo', '=', 'v.curriculo_idcurriculo')
+                    ->where(function ($query) use ($dados){
+
+                        if(isset($dados['nomemodal']))
+                            $query->where('u.name','like', '%'.$dados['nomemodal'].'%');                            
+                        if(isset($dados['emailmodal']))
+                            $query->where('u.email','like', '%'.$dados['emailmodal'].'%');
+                        if(isset($dados['generomodal']))
+                            $query->where('genero', $dados['generomodal']);
+                        if(isset($dados['pdcmodal']))
+                            $query->where('dfisico', $dados['pcdmodal']);
+                        if(isset($dados['naturalidademodal']))
+                            $query->where('naturalidade', $dados['naturalidademodal']);
+                        if(isset($dados['catcnhmodal']))
+                            $query->where('catcnh', $dados['catcnhmodal']);
+                        if(isset($dados['cidadeatualmodal']))
+                            $query->where('e.cidade_idcidade', $dados['cidadeatualmodal']);
+                        if(isset($dados['escolaridademodal']))
+                            $query->where('f.escolaridade', $dados['escolaridademodal']);
+                        if(isset($dados['nivelmodal']))
+                            $query->where('f.nivel_idnivel', $dados['nivelmodal']);
+                        if(isset($dados['areamodal']))
+                            $query->where('f.area_idarea', $dados['areamodal']);
+                        if(isset($dados['nomecursomodal']))
+                            $query->where('f.nome', 'like', '%'.$dados['nomecursomodal'].'%');
+                        if(isset($dados['cargomodal']))
+                            $query->where('x.cargo', 'like', '%'.$dados['cargomodal'].'%');
+                        if(isset($dados['empresamodal']))
+                            $query->where('x.empresa', 'like', '%'.$dados['empresamodal'].'%');
+                        if(isset($dados['vagamodal']))
+                            $query->where('v.vaga_idvaga', $dados['vagamodal']);
+                    })
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+                    ->orderBy('dtatualizacao','DESC')                    
+                    ->paginate(50);
+                    
+        return $resultado;
+    }
+
+    public static function filtrarPalavraChave($palavra){
+
+        
     }
 
 }

@@ -65,7 +65,12 @@
                     <div class="container">
                         <div class="row">
                             <h5></h5>
-                            {!!$users->links()!!}
+                            @if(isset($parametros))
+                                {!!$users->appends($parametros)->links()!!}
+                            @else
+                                {!!$users->links()!!}
+                            @endif
+                            
                             <div class="col-md-12 col-2" style="text-align: end">
 
                                 <a href="#" class="btn btn-info btn-lg" type="button"

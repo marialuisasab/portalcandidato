@@ -192,13 +192,13 @@ class CurriculosController extends Controller
 
     public function buscaAvancada(Request $request){
         
-        $parametros[] = $request->all();   
-        $users = Helper::filtrarCurriculos($parametros[0]);
+        $parametros = $request->except('_token');   
+        $users = Helper::filtrarCurriculos($parametros);
         if(count($users) == 0){
             flash('Não foi possível encontrar nenhum currículo com os filtros selecionados.')->error();
             return redirect()->route('buscarcurriculo');
         }               
-        return view('admin.buscarcurriculo', compact('users'));      
+        return view('admin.buscarcurriculo', compact('users', 'parametros'));      
     }
 
 }

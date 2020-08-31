@@ -121,7 +121,7 @@ Route::get('/classificar/{id}/{v}/{c}', 'VagasController@classificar');
 Route::get('/buscarcurriculo','CurriculosController@buscar')->name('buscarcurriculo');
 Route::get('/buscarcurriculo/visualizar/{id}', 'CurriculosController@show');
 Route::post('/editarObs/{id}', 'CurriculosController@updateObservacao');
-Route::post('/filtrar', 'CurriculosController@buscaAvancada')->name('filtrar');
+Route::any('/filtrar', 'CurriculosController@buscaAvancada')->name('filtrar');
 
 
 

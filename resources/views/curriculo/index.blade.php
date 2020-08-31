@@ -234,6 +234,16 @@
 								@endif
 								<hr>
 
+								@if (($candDados->tpdeficiencia != null)&&($candDados->dfisico =='1'))
+								<li><strong> TIPO DE DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong>
+									{{$candDados->tpdeficiencia}}</li>
+								@elseif(($candDados->tpdeficiencia == null)&&($candDados->dfisico =='1'))
+								<li><strong> TIPO DE DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">
+										Não
+										cadastrado!</span></li>
+								@else
+								@endif
+								<hr>
 
 
 

@@ -11,28 +11,59 @@ $(function () {
             }
             if (this.value == '1') {
                 document.getElementById("idformfiltronome").style.display = 'block';
-                document.getElementById("idformfiltrocpf").style.display = 'none';
-                document.getElementById("idfornfiltroemail").style.display = 'none';
+                document.getElementById("idformfiltrocidade").style.display = 'none';
+                document.getElementById("idformfiltronaturalidade").style.display = 'none';
+                document.getElementById("idformfiltroexperiencia").style.display = 'none';
+                document.getElementById("idformfiltrocargo").style.display = 'none';
             } else if (this.value == '2') {
-                document.getElementById("idformfiltrocpf").style.display = 'block';
+                document.getElementById("idformfiltronaturalidade").style.display = 'block';
                 document.getElementById("idformfiltronome").style.display = 'none';
-                document.getElementById("idfornfiltroemail").style.display = 'none';
+                document.getElementById("idformfiltrocidade").style.display = 'none';
+                document.getElementById("idformfiltroexperiencia").style.display = 'none';
+                document.getElementById("idformfiltrocargo").style.display = 'none';
+            } else if (this.value == '3') {
+                document.getElementById("idformfiltrocidade").style.display = 'block';
+                document.getElementById("idformfiltronome").style.display = 'none';
+                document.getElementById("idformfiltronaturalidade").style.display = 'none';
+                document.getElementById("idformfiltroexperiencia").style.display = 'none';
+                document.getElementById("idformfiltrocargo").style.display = 'none';
+            } else if (this.value == '4') {
+                document.getElementById("idformfiltroexperiencia").style.display = 'block';
+                document.getElementById("idformfiltronome").style.display = 'none';
+                document.getElementById("idformfiltronaturalidade").style.display = 'none';
+                document.getElementById("idformfiltrocidade").style.display = 'none';
+                document.getElementById("idformfiltrocargo").style.display = 'none';
             } else {
-                document.getElementById("idfornfiltroemail").style.display = 'block';
-                document.getElementById("idformfiltrocpf").style.display = 'none';
+                document.getElementById("idformfiltrocargo").style.display = 'block';
                 document.getElementById("idformfiltronome").style.display = 'none';
+                document.getElementById("idformfiltronaturalidade").style.display = 'none';
+                document.getElementById("idformfiltrocidade").style.display = 'none';
+                document.getElementById("idformfiltroexperiencia").style.display = 'none';
             }
         });
     }
 
     // filtrando por nome
     filtrar_por_campos("filtrarcurriculos", "#idcurriculos", ".nome_curriculo");
-
     // filtrando por cpf
-    filtrar_por_campos("filtrarcpf", "#idcurriculos", ".cpf_curriculo");
-
+    // filtrar_por_campos("filtrarcpf", "#idcurriculos", ".cpf_curriculo");
     // filtrando por email
-    filtrar_por_campos("filtraremail", "#idcurriculos", ".email_curriculo");
+    // filtrar_por_campos("filtraremail", "#idcurriculos", ".email_curriculo");
+    //filtrando por naturalidade
+    filtrar_por_campos("filtrarnaturalidade", "#idcurriculos", ".naturalidade_curriculo");
+    // filtrando por cidade atual
+    filtrar_por_campos("filtrarcidade", "#idcurriculos", ".cidade_curriculo");
+
+    //filtrar por empresas
+    filtrar_por_campos("filtrarexperiencia", "#idcurriculos", ".experirencias_curriculo");
+
+
+    filtrar_por_campos("filtrarcargo", "#idcurriculos", ".cargo_curriculo");
+
+
+
+
+
 
 
 

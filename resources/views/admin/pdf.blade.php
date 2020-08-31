@@ -63,19 +63,21 @@
 
                                 @if ($c->users_id == $candDados ->id)
                                 <ul style="list-style-type: none;">
-                                    
+
                                     @if($candDados->foto != null)
-                                    
-                                        <img src="{{public_path('fotos/'.$candDados->foto)}}" alt="" height="75px" style=" max-width: 120px; border-radius: 50%;">
-                                   
+
+                                    <img src="{{public_path('fotos/'.$candDados->foto)}}" alt="" height="75px"
+                                        style=" max-width: 120px; border-radius: 50%;">
+
                                     @else
-                                        <img class="profile-user-img img-responsive img-circle"
-                                            src="{{public_path('img/imagemuserPadrao.jpg')}}" alt="Usuário sem foto"  style=" max-width: 80px; border-radius: 50%;">
-                                    
-                                    
+                                    <img class="profile-user-img img-responsive img-circle"
+                                        src="{{public_path('img/imagemuserPadrao.jpg')}}" alt="Usuário sem foto"
+                                        style=" max-width: 80px; border-radius: 50%;">
+
+
                                     @endif
-                                  
-                                    
+
+
 
 
                                     <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong>{{$candDados->name}}
@@ -194,6 +196,18 @@
                                             Não
                                             cadastrado!</span></li>
                                     @endif
+
+                                    @if (($c->tpdeficiencia != null)&&($c->dfisico =='1'))
+                                    <li><strong> TIPO DE DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong>
+                                        {{$c->tpdeficiencia}}</li>
+                                    @elseif(($c->tpdeficiencia == null)&&($c->dfisico =='1'))
+                                    <li><strong> TIPO DE DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong><span
+                                            style="color: red;">
+                                            Não
+                                            cadastrado!</span></li>
+                                    @else
+                                    @endif
+                                    <hr>
 
 
 

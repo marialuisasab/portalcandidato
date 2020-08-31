@@ -74,7 +74,7 @@
 					</div>
 
 
-					<div id=" collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						<div class="card-body" style="box-sizing: border-box;">
 							<ul style="list-style-type: none;">
 								<form action="/curriculo/{{$c->users_id}}" method="POST" enctype="multipart/form-data"
@@ -215,6 +215,31 @@
 								</div>
 							</li>
 						</div>
+
+						@if ($c->dfisico =='1')
+						<div class="form-group" style="" id="form_deficiencia">
+							<li><strong> TIPO DE DEFICIENCIA:* &nbsp;&nbsp;&nbsp;</strong>
+								<input type="text" class="form-control" name="tpdeficiencia" id="tddefice"
+									placeholder="Tipo de deficiência" title="Tipo de deficiência"
+									value="{{$c->tpdeficiencia}}">
+								<div class="invalid-feedback" id="menstpdeficiencia" style="display: none;">
+									Você precisa preencher o tipo de deficiência!
+								</div>
+							</li>
+						</div>
+						@else
+						<div class="form-group" style="display: none;" id="form_deficiencia">
+							<li><strong> TIPO DE DEFICIENCIA:* &nbsp;&nbsp;&nbsp;</strong>
+								<input type="text" class="form-control" name="tpdeficiencia" id="tddefice"
+									placeholder="Tipo de deficiência" title="Tipo de deficiência"
+									value="{{$c->tpdeficiencia}}">
+							</li>
+							<div class="invalid-feedback" id="menstpdeficiencia" style="display: none;">
+								Você precisa preencher o tipo de deficiência!
+							</div>
+						</div>
+						@endif
+
 
 
 						<div class="form-group">

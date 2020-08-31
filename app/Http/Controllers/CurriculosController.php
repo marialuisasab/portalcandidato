@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Curriculo;
 use Helper;
+use App\Cidade;
 use PDF;
+use Response;
+
 
 class CurriculosController extends Controller
 {   
@@ -104,16 +107,35 @@ class CurriculosController extends Controller
         //
     }
 
+     // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
+     public function buscar(){
+     $users = DB::table('curriculo')
+     ->join('users', 'curriculo.users_id', '=', 'users.id')
+     ->join('endereco', 'curriculo.endereco_idendereco', '=', 'endereco.idendereco')
+     // ->join('experiencia', 'curriculo.idcurriculo', '=', 'experiencia.curriculo_idcurriculo')
+     ->select('users.*', 'curriculo.*','endereco.*')->orderBy('curriculo.dtatualizacao','DESC')
+     ->paginate(50);
 
-    // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
-    public function buscar(){
-        /*$users = DB::table('users')
-            ->join('curriculo', 'users.id', '=', 'curriculo.users_id')
-            ->select('users.*', 'curriculo.*')->orderBy('name','ASC')
-            ->paginate(30);*/
-        $users = Helper::getTodosCurriculos();
-        return view('admin.buscarcurriculo', compact(['users']));
-    }
+     return view('admin.buscarcurriculo')->with('users',$users);
+     }
+     public function getCidadesModal($id) {
+     $cidades = Cidade::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
+     // return $cidade->nome;
+     // $estado = $this->estadoModel->find($idEstado);
+     // $cidades = $estado->cidades()->getQuery()->get(['id', 'cidade']);
+     return Response::json($cidades);
+     }
+
+
+    // // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
+    // public function buscar(){
+    //     /*$users = DB::table('users')
+    //         ->join('curriculo', 'users.id', '=', 'curriculo.users_id')
+    //         ->select('users.*', 'curriculo.*')->orderBy('name','ASC')
+    //         ->paginate(30);*/
+    //     $users = Helper::getTodosCurriculos();
+    //     return view('admin.buscarcurriculo', compact(['users']));
+    // }
 
 	/*public function visualizarcurriculo($id){
         return Helper::getCurriculoCompleto($id);

@@ -7,7 +7,7 @@
           if (valor_botão) {
               //   console.log(valor_botão);
               var valorid = $("#idvalor").val();
-              $.get('/getidcurriculo/' + valorid, function (curriculo) {
+              $.get('/imprimirCurriculo/' + valorid, function (curriculo) {
                   $.each(curriculo, function (key, value) {
                       location.href = '/gerarpdf/' + value.idcurriculo;
                       // console.log(value);

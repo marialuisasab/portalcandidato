@@ -236,6 +236,14 @@
                                     </div>
 
 
+                                    <div class="form-group" style="display: none;" id="form_deficiencia">
+                                        <li><strong> TIPO DE DEFICIENCIA:* &nbsp;&nbsp;&nbsp;</strong>
+                                            <input type="text" class="form-control" name="tpdeficiencia" id="tddefice"
+                                                placeholder="Tipo de deficiência" title="Tipo de deficiência">
+                                        </li>
+                                    </div>
+
+
 
 
 

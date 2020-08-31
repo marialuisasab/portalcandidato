@@ -1,5 +1,7 @@
 $(function () {
     $("#idformdados").submit(function (event) {
+
+
         // var carrega = window.onload();
         event.preventDefault();
         var valor_cpf = $("#cpf").val();
@@ -42,6 +44,15 @@ $(function () {
                             var vetmensagcnh = ['menscnh'];
                             validacaoassincrona(vetcnh, vetmensagcnh, event);
                         }
+                        var valor_dfisico = $("#dfisico").val();
+                        if (valor_dfisico == '1') {
+                            var vettpedeficiencia = ['#tddefice'];
+                            var vetmensagtp_deficiencia = ['menstpdeficiencia'];
+                            validacaoassincrona(vettpedeficiencia, vetmensagtp_deficiencia, event);
+                        } else {
+
+                        }
+
                         // event.currentTarget.submit();
                         // console.log("CPF não existe na base de dados!");
                         document.getElementById('menscpfexiste').style.display = 'none';
@@ -65,7 +76,7 @@ $(function () {
 
 
 // função de validar o formulario
-function validaForm(atributo, messagem) {
+function validaForm(atributo, messagem, event) {
     var valor = $(atributo).val();
     if (valor == '') {
         event.preventDefault();
@@ -84,7 +95,7 @@ function validaForm(atributo, messagem) {
 function validacaoassincrona(vetcampos1, vetMens1, event) {
     var cont = 0;
     for (var i = 0; i < vetcampos1.length; i++) {
-        var valorvalida = validaForm(vetcampos1[i], vetMens1[i]);
+        var valorvalida = validaForm(vetcampos1[i], vetMens1[i], event);
         if (valorvalida)
             cont++;
     }
@@ -92,6 +103,7 @@ function validacaoassincrona(vetcampos1, vetMens1, event) {
         $('html, body').animate({
             scrollTop: 0
         }, 1500);
+        event.preventDefault();
     } else {
         event.currentTarget.submit();
     }

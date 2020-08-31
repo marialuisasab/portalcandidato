@@ -70,6 +70,7 @@ class CurriculoController extends Controller
         $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
         $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
         $c->dfisico =  $request->dfisico;
+        $c->tpdeficiencia = $request->tpdeficiencia;
         $c->genero =  $request->genero;
         $c->sobre = $request->sobre;
         $c->ctps = $request->ctps;
@@ -178,6 +179,7 @@ class CurriculoController extends Controller
             $c->nomemae = mb_convert_case($request->nomemae, MB_CASE_TITLE, "UTF-8");
             $c->pretsalarial = Helper::setPretensao($request->pretsalarial);
             $c->dfisico = $request->dfisico;
+            $c->tpdeficiencia = $request->tpdeficiencia;
             $c->genero = $request->genero;
             $c->sobre = $request->sobre;
             $c->ctps = $request->ctps;

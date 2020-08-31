@@ -64,6 +64,20 @@ $(function () {
 
     // });
 
+    $("#dfisico").change(function () {
+
+        var valor_deficiencia = $("#dfisico").val();
+        if (valor_deficiencia == '1') {
+            document.getElementById('form_deficiencia').style.display = "block";
+        } else {
+            document.getElementById('form_deficiencia').style.display = "none";
+            var valor_tddeficiencia_atualiza = $("#tddefice").val();
+            valor_tddeficiencia_atualiza = valor_tddeficiencia_atualiza.replace(/\w/g, '');
+            $("#tddefice").val(valor_tddeficiencia_atualiza);
+
+        }
+    });
+
 
 
     $("#botaoeditar").mouseover(function () {
@@ -119,7 +133,14 @@ $(document).ready(function ($) {
         }
     });
 
+    $("#tddefice").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
+        translation: {
+            N: {
+                pattern: /[/\w/]/
+            },
+        }
 
+    });
     // Adicionando mascara para a presenção salarial
     $("#pretsalarial").maskMoney({
         prefix: 'R$ ',
@@ -207,6 +228,15 @@ $(document).ready(function ($) {
             var vetcnh = ['#catcnh'];
             var vetmensagcnh = ['menscnh'];
             validacaoassincrona(vetcnh, vetmensagcnh);
+        }
+
+        var valor_dfisico = $("#dfisico").val();
+        if (valor_dfisico == '1') {
+            var vettpedeficiencia = ['#tddefice'];
+            var vetmensagtp_deficiencia = ['menstpdeficiencia'];
+            validacaoassincrona(vettpedeficiencia, vetmensagtp_deficiencia);
+        } else {
+
         }
 
 
@@ -304,7 +334,7 @@ $(document).ready(function ($) {
                 });
             });
         } else {
-            $('select[name=naturalidade').empty();
+            $('select[name=naturalidade]').empty();
             $('select[name=naturalidade]').append("<option> </option>");
         }
     });

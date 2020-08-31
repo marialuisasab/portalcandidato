@@ -25,6 +25,9 @@ Route::get('/get-cidades/{estado}','HomeController@getiCidades');
 Route::get('/get-cpfexistepertence/{id}','CurriculoController@cpf_existe_pertence_user');
 Route::get('/get-cpfexisteNpertenceuser/{cpf}','CurriculoController@cpf_existe_nao_pertence_user');
 Route::get('/get-pegarcpf/{cpf}','CurriculoController@pegat_curriculo_cpf');
+Route::get('/get-cidadesmodal/{id}','CurriculosController@getCidadesModal');
+
+
 
 
 

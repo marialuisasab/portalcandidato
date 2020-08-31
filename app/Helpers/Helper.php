@@ -36,6 +36,11 @@ class Helper
         }
     }
 
+      public static function getExperiencia($id){
+      $experiencia = Experiencia::where('curriculo_idcurriculo',$id)->get();
+      return $experiencia;
+      }
+
     public static function getIdAdmin(){
         $admin = Admin::where('id', Auth::user()->id)->get();
 
@@ -47,7 +52,7 @@ class Helper
     }
 
     public static function getIdCurriculomenu(){
-        $id = $candidato = Curriculo::where("users_id", Auth::user()->id)->get();
+        $id = Curriculo::where("users_id", Auth::user()->id)->get();
         if(count($id)==0){
             return false;
         } else {

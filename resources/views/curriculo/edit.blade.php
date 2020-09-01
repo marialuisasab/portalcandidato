@@ -200,7 +200,7 @@
 
 
 						<div class="form-group">
-							<li><strong> DEFICIENTE FISICO?*&nbsp;&nbsp;&nbsp;</strong>
+							<li><strong> PESSOA COM DEFICIÊNCIA:*&nbsp;&nbsp;&nbsp;</strong>
 								<select class="form-control" id="dfisico" name="dfisico" value="{{$c->dfisico}}"
 									title="Deficiência Fisíca">
 									<option value="" {{$c->dfisico == null ? 'selected' : ''}} selected>Selecionar
@@ -211,14 +211,14 @@
 										Não</option>
 								</select>
 								<div class="invalid-feedback" id="mensdtfisico" style="display: none;">
-									Você precisa preencher se é deficiente fisico!
+									Você precisa preencher se é uma pessoa com deficiência ou não.
 								</div>
 							</li>
 						</div>
 
 						@if ($c->dfisico =='1')
 						<div class="form-group" style="" id="form_deficiencia">
-							<li><strong> TIPO DE DEFICIENCIA:* &nbsp;&nbsp;&nbsp;</strong>
+							<li><strong> TIPO DE DEFICIÊNCIA: &nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="tpdeficiencia" id="tddefice"
 									placeholder="Tipo de deficiência" title="Tipo de deficiência"
 									value="{{$c->tpdeficiencia}}">
@@ -229,7 +229,7 @@
 						</div>
 						@else
 						<div class="form-group" style="display: none;" id="form_deficiencia">
-							<li><strong> TIPO DE DEFICIENCIA:* &nbsp;&nbsp;&nbsp;</strong>
+							<li><strong> TIPO DE DEFICIÊNCIA: &nbsp;&nbsp;&nbsp;</strong>
 								<input type="text" class="form-control" name="tpdeficiencia" id="tddefice"
 									placeholder="Tipo de deficiência" title="Tipo de deficiência"
 									value="{{$c->tpdeficiencia}}">
@@ -499,11 +499,16 @@
 
 
 					<div class="form-group">
+						<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 						@if(Auth::user()->foto != null)
 						<img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
 							style="max-width: 50px;">
+							<p>Para trocar a foto, basta anexar abaixo uma nova imagem.</p>
+						@else
+							<p>Anexe sua foto aqui, dessa forma seu currículo ficará mais atrativo, o que aumenta a possibilidade de ser selecionado.</p>
 						@endif
-						<li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+						
+							
 							{{-- observação....... --}}
 							<input type="file" class="form-control-file" id="foto" name="foto" file_extension=".jpg"
 								accept='image/*' value="{{$c->idcurriculo}}" title="Alterar Foto de Perfil">

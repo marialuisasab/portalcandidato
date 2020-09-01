@@ -660,7 +660,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <a class="nav-link" style="color:white;" id="idexperienciasmenu" type="button">
                             <i class="fas fa-fw fa-user-tie "></i>
                             <p>
-                                Experiência Profissional
+                                Experiências
                             </p>
                         </a>
                     </li>

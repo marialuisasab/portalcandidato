@@ -33,7 +33,7 @@
               <div class="col-" style="text-align: center;">
                 <h2 class="mb-0" style="color:dodgerblue; text-align: center; font-size: 25px;">
 
-                  Experiências Profissionais
+                  Experiências
                   <span class=" fa-stack fa-sm">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>

@@ -66,15 +66,7 @@
             </div>
           </div>
           <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-              @if(count($redes)==0)
-              <div class="card-footer" style="background-color: white;">
-                <h5 style="color:red;text-align:center;">
-                  Esta é a última etapa do preenchimento do currículo. <br>
-                  Clique em 'Adicionar' para inserir suas redes sociais, ou prossiga para as 'Vagas Abertas'
-                </h5>
-              </div>
-              @endif
+            <div class="card-body">              
               @foreach($redes as $rs)
               <div class="container">
                 <div class="row" style="margin-top: 25px;">
@@ -97,6 +89,20 @@
               </div>
               @endforeach
             </div>
+            @if(count($redes)==0)
+              <div class="card-footer" style="background-color: white;">
+                <h5 style="color:red;text-align:center;">
+                  Esta é a última etapa do preenchimento do currículo. <br>
+                  Clique em 'Adicionar' para inserir suas redes sociais, ou prossiga para as 'Vagas Abertas'
+                </h5>
+              </div>
+            @else
+            <div class="card-footer" style="background-color: white;">
+                <h5 style="color:red;text-align:center;">
+                  Currículo cadastrado com sucesso!<br>                  
+                </h5>
+              </div>
+            @endif
           </div>
           <div class="form-group" style="text-align: center;">
             <button class=" btn btn-secondary" type="button">

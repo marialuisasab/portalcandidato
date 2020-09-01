@@ -136,7 +136,7 @@
 									{{$candDados->ctps}}</li>
 								@else
 								<li><strong> CARTEIRA DE TRABALHO(CTPS):&nbsp;&nbsp;&nbsp;</strong>
-									<span style="color: red;"> Não Informado</span></li>
+									<span style="color: red;"> Não informado!</span></li>
 								@endif
 
 								<hr>
@@ -174,7 +174,7 @@
 								<li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>Feminino</li>
 								@else
 								<li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
+										informado!</span></li>
 								@endif
 								<hr>
 
@@ -191,7 +191,7 @@
 								<li><strong> ESTADO CIVIL:&nbsp;&nbsp;&nbsp;</strong>Separado</li>
 								@else
 								<li><strong> ESTADO CIVIL :&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
+										informado!</span></li>
 								@endif
 								<hr>
 
@@ -201,7 +201,7 @@
 								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong>{{$pai->nome}}</li>
 								@else
 								<li><strong> NACIONALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										Informado!</span></li>
+										informado!</span></li>
 								@endif
 								@else
 								@endif
@@ -217,7 +217,7 @@
 								</li>
 								@else
 								<li><strong> NATURALIDADE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
+										informado!</span></li>
 								@endif
 
 								<hr>
@@ -225,25 +225,25 @@
 
 
 								@if(($candDados->dfisico != null) && ($candDados->dfisico == '1'))
-								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
+								<li><strong> PESSOA COM DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
 								@elseif(($candDados->dfisico != null) && ($candDados->dfisico == '2'))
-								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Não</li>
+								<li><strong> PESSOA COM DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong> Não</li>
 								@else
-								<li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
+								<li><strong> PESSOA COM DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										informado!</span></li>
 								@endif
 								<hr>
 
 								@if (($candDados->tpdeficiencia != null)&&($candDados->dfisico =='1'))
 								<li><strong> TIPO DE DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong>
 									{{$candDados->tpdeficiencia}}</li>
+									<hr>
 								@elseif(($candDados->tpdeficiencia == null)&&($candDados->dfisico =='1'))
 								<li><strong> TIPO DE DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;">
-										Não
-										cadastrado!</span></li>
-								@else
+										Não informado!</span></li>
+								
 								@endif
-								<hr>
+								
 
 
 
@@ -259,7 +259,7 @@
 								<li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->nomemae}}</li>
 								@else
 								<li><strong> NOME DA MÃE:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										cadastrado!</span></li>
+										informado!</span></li>
 								@endif
 								<hr>
 
@@ -268,7 +268,7 @@
 								<li><strong> NOME DO PAI:&nbsp;&nbsp;&nbsp;</strong> {{$candDados->nomepai}}</li>
 								@else
 								<li><strong> NOME DA PAI:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										Informado!</span></li>
+										informado!</span></li>
 								@endif
 								<hr>
 
@@ -304,7 +304,7 @@
 									{{$candDados->cnh}}</li>
 								@else
 								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
-									<span style="color:red;">Não Informado!</span></li>
+									<span style="color:red;">Não informado!</span></li>
 								@endif
 								<hr>
 
@@ -320,17 +320,6 @@
 								@endif
 								@endforeach
 								@endif
-
-
-
-
-
-
-
-
-
-
-
 
 
 							</ul>

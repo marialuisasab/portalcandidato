@@ -7,6 +7,7 @@
 {{-- link do javascript --}}
 <script src="/js/vagas/vagas.js"></script>
 <script src="/js/Admin/admin.js"></script>
+<script src="/js/Admin/busca_avancada.js"></script>
 
 @section('content')
 
@@ -137,11 +138,214 @@
                         <form action="" method="POST">
                           @csrf
                           <div class="modal-body">
-                            <div class="form-group" style="text-align:start" id="buscar_candidatos_vaga">
-                              <input type="hidden" id="" name="vagamodel" value="{{$vaga->idvaga}}"
-                                title="Procurar por vaga" placeholder="buscar">
 
-                            </div>
+                            <ul style="list-style-type: none;">
+                              <div class="form-group" style="text-align: start" id="email_modal_busca">
+                                <li><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                  <input type="text" class="form-control" name="emailmodal" id="cnh" placeholder="email"
+                                    title="Insira o email para a busca">
+                                </li>
+                              </div>
+                              <div class="form-group" style="text-align:start" id="nome_modal_busca">
+                                <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                  <input type="text" class="form-control" name="nomemodal" id="nome" placeholder="nome"
+                                    title="Insira o nome que será buscado">
+                                </li>
+                              </div>
+                              <div class="form-group" id="genero_modal_busca" style="text-align: start;">
+                                <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>
+                                  <select class="form-control " id="genero" name="generomodal"
+                                    title="Selecione o genero para a busca">
+                                    <option value="" selected>Selecionar</option>
+                                    <option value="F">Feminino</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="N">Prefiro não informar</option>
+                                  </select>
+                                </li>
+                              </div>
+                              <div class="form-group" id="pcd_modal_busca" style="text-align: start;">
+                                <li><strong> PCD:&nbsp;&nbsp;&nbsp;</strong>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pcdmodal" id="pcd" value="1">
+                                    <label class="form-check-label">Sim</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pcdmodal" id="pcd" value="2">
+                                    <label class="form-check-label">Não</label>
+                                  </div>
+                                </li>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-sm-6" style="text-align: start;">
+                                      <strong>ESTADO DE NATURALIDADE:
+                                        &nbsp;&nbsp;&nbsp;</strong>
+
+                                      <select class="form-control " id="natural" name="naturalmodal"
+                                        title="Estado de Origem">
+                                        <option value="" selected>Selecionar
+                                        </option>
+                                        @foreach(Helper::getEstados() as $est)
+                                        <option value="{{$est->idestado}}">
+                                          {{ $est->nome }}
+                                        </option>
+                                        @endforeach
+                                      </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <strong>CIDADE DE NATURALIDADE:
+                                        &nbsp;&nbsp;&nbsp;</strong>
+                                      <select class="form-control" id="naturalidade" name="naturaidademodal"
+                                        title="Cidade de Origem">
+                                        <option value="" selected>Selecionar
+                                        </option>
+                                      </select>
+                                    </div>
+
+                                  </div>
+                                </div>
+                                </li>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-sm-6" style="text-align: start;">
+                                      <strong>ESTADO ATUAL:
+                                        &nbsp;&nbsp;&nbsp;</strong>
+
+                                      <select class="form-control " id="estadoatual" name="estadoatualmodal"
+                                        title="Estado atual">
+                                        <option value="" selected>Selecionar
+                                        </option>
+                                        @foreach(Helper::getEstados() as $est)
+                                        <option value="{{$est->idestado}}">
+                                          {{ $est->nome }}
+                                        </option>
+                                        @endforeach
+                                      </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <strong>CIDADE ATUAL:
+                                        &nbsp;&nbsp;&nbsp;</strong>
+                                      <select class="form-control" id="cidadeatual" name="cidadeatualmodal"
+                                        title="Cidade atual">
+                                        <option value="" selected>Selecionar
+                                        </option>
+                                      </select>
+                                    </div>
+
+                                  </div>
+                                </div>
+                                </li>
+                              </div>
+
+                              <div class="form-group" style="text-align: start;">
+                                <li><strong>TIPO DE FORMAÇÃO:&nbsp;&nbsp;&nbsp;
+                                  </strong>
+                                  <select class="form-control " id="escolaridade" name="escolaridademodal"
+                                    title="Tipo de Formação">
+                                    <option value="" selected>Selecionar</option>
+                                    <option value="1">Academica</option>
+                                    <option value="2">Complementar</option>
+                                  </select>
+                                </li>
+                              </div>
+
+                              <div class="form-group" id="idnivel_modal_busca" style="display: none; text-align:start;">
+                                <li><strong> NÍVEL:&nbsp;&nbsp;&nbsp;
+                                  </strong>
+                                  <select class="form-control" id="nivel_idnivel" name="nivel_idnivelmodal"
+                                    title="Nivel de Escolaridade">
+                                    <option value="" selected>Selecionar</option>
+                                    @foreach(Helper::getNiveis() as $n)
+                                    <option value="{{$n->idnivel}}">{{ $n->nome }}
+                                    </option>
+                                    @endforeach
+                                  </select>
+                                </li>
+                              </div>
+
+
+                              <div class="form-group" id="categoria_modal_busca"
+                                style="display: none; text-align:start;">
+                                <li><strong> CATEGORIA:&nbsp;&nbsp;&nbsp;
+                                  </strong>
+                                  <select class="custom-select" id="categoria_idcategoria"
+                                    name="categoria_idcategoriamodal">
+                                    <option value="" selected>Selecionar</option>
+                                    @foreach(Helper::getCategorias() as $c)
+                                    <option value="{{$c->idcategoria}}">{{ $c->nome }}
+                                    </option>
+                                    @endforeach
+                                  </select>
+                                </li>
+                              </div>
+
+                              <div class="form-group" style="text-align:start; display:none" id="area_modal_busca">
+                                <li><strong> ÁREA:&nbsp;&nbsp;&nbsp;</strong>
+                                  <select class="custom-select" id="area_idarea" name="areamodal"
+                                    title="Area de Atuação">
+                                    <option value="" selected>Selecionar</option>
+                                    @foreach(Helper::getAreas() as $a)
+                                    <option value="{{$a->idarea}}">{{$a->nome }}
+                                    </option>
+                                    @endforeach
+                                  </select>
+                                </li>
+                              </div>
+                              <div class="form-group" style="text-align:start" id="curso_modal_busca">
+                                <li><strong> CURSO:&nbsp;&nbsp;&nbsp;</strong><span>
+                                  </span>
+                                  <input type="text" class="form-control" name="nomecursomodal" id="curso"
+                                    placeholder="curso" title="Insira o curso">
+                                </li>
+                              </div>
+
+                              <div class="form-group" style="text-align:start" id="empresa_modal_busca">
+                                <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong><span>
+                                  </span>
+                                  <input type="text" class="form-control" name="empresamodal" id="empresa"
+                                    placeholder="empresa" title="Insira o nome da empresa">
+                                </li>
+                              </div>
+
+                              <div class="form-group" style="text-align:start" id="cargo_modal_busca">
+                                <li><strong> CARGO:&nbsp;&nbsp;&nbsp;</strong><span>
+                                  </span>
+                                  <input type="text" class="form-control" name="cargomodal" id="cargo"
+                                    placeholder="cargo" title="Insira o cargo exercido">
+                                </li>
+                              </div>
+
+                              <div class="form-group" style="text-align: start;" id="catcnh_modal_busca">
+                                <li><strong> CATEGORIA DA
+                                    CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                  <select class="custom-select" id="catcnh" name="catcnhmodal"
+                                    title="Insira a categoria da CNH">
+                                    <option value="" selected>Selecionar</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="AB">AB</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AD">AD</option>
+                                    <option value="AE">AE</option>
+                                  </select>
+                                </li>
+                              </div>
+
+                              <div class="form-group" style="text-align:start" id="buscar_candidatos_vaga">
+                                <input type="hidden" id="" name="vagamodel" value="{{$vaga->idvaga}}"
+                                  title="Procurar por vaga" placeholder="buscar">
+                              </div>
+                            </ul>
+
+
                             <div class="modal-footer">
                               <button type="submit" class="btn btn-primary">Buscar</button>
                               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

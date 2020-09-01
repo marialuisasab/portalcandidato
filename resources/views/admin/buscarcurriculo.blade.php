@@ -65,13 +65,8 @@
                     <div class="container">
                         <div class="row">
                             <h5></h5>
-                            @if(isset($parametros))
-                                {!!$users->appends($parametros)->links()!!}
-                            @else
-                                {!!$users->links()!!}
-                            @endif
-                            
-                            <div class="col-md-12 col-2" style="text-align: end">
+                            {!!$users->links()!!}
+                            <div class="col-md-8 col-2" style="text-align: start">
 
                                 <a href="#" class="btn btn-info btn-lg" type="button"
                                     style="margin-right: auto; text-align: end;" data-toggle="modal"
@@ -93,10 +88,10 @@
                                                 @csrf
                                                 <div class="modal-body">
                                                     {{-- <div class="form-group">
-                                                        <label for="message-text" class="col-form-label"></label>
-                                                        <textarea class="form-control" rows="4" name="obs"
-                                                            id="message-text"></textarea>
-                                                    </div> --}}
+                                                                            <label for="message-text" class="col-form-label"></label>
+                                                                            <textarea class="form-control" rows="4" name="obs"
+                                                                                id="message-text"></textarea>
+                                                                        </div> --}}
                                                     <ul style="list-style-type: none;">
                                                         <div class="form-group" style="text-align: start"
                                                             id="email_modal_busca">
@@ -261,7 +256,7 @@
                                                             id="area_modal_busca">
                                                             <li><strong> ÁREA:&nbsp;&nbsp;&nbsp;</strong>
                                                                 <select class="custom-select" id="area_idarea"
-                                                                    name="area_idarea" title="Area de Atuação">
+                                                                    name="areamodal" title="Area de Atuação">
                                                                     <option value="" selected>Selecionar</option>
                                                                     @foreach(Helper::getAreas() as $a)
                                                                     <option value="{{$a->idarea}}">{{$a->nome }}
@@ -272,7 +267,7 @@
                                                         </div>
                                                         <div class="form-group" style="text-align:start"
                                                             id="curso_modal_busca">
-                                                            <li><strong> Curso:&nbsp;&nbsp;&nbsp;</strong><span>
+                                                            <li><strong> CURSO:&nbsp;&nbsp;&nbsp;</strong><span>
                                                                 </span>
                                                                 <input type="text" class="form-control"
                                                                     name="nomecursomodal" id="curso" placeholder="curso"
@@ -282,7 +277,7 @@
 
                                                         <div class="form-group" style="text-align:start"
                                                             id="empresa_modal_busca">
-                                                            <li><strong> Empresa:&nbsp;&nbsp;&nbsp;</strong><span>
+                                                            <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong><span>
                                                                 </span>
                                                                 <input type="text" class="form-control"
                                                                     name="empresamodal" id="empresa"
@@ -301,7 +296,7 @@
                                                             </li>
                                                         </div>
 
-                                                        <div class="form-group" style="display: none;"
+                                                        <div class="form-group" style="text-align: start;"
                                                             id="catcnh_modal_busca">
                                                             <li><strong> CATEGORIA DA
                                                                     CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
@@ -336,6 +331,21 @@
                                     </div>
                                 </div>
                                 <!-- Fim Modal-->
+                            </div>
+                            {{-- busca por palavra chave --}}
+                            <div class="col-sm" style="text-align: end; margin-top: -15px;;;">
+                                <form class="form-inline ml-auto" style="margin-top: 20px;">
+                                    <div class="form-group" style="text-align: start; margin-right:3px;">
+                                        <input class="form-control" type="text" placeholder="Insira a palavra"
+                                            aria-label="Search" title="Buscar por palavra chave">
+                                    </div>
+
+                                    <div class="form-group" style="text-align: end;">
+                                        <button type="submit" class="btn btn-primary btn-lg"
+                                            title="Confirmar busca">Buscar<span class="fas fa-search"
+                                                style="padding-left: 10px;"></button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 

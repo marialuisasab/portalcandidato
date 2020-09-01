@@ -80,6 +80,8 @@
                       {{-- <button value="{{$v->idvaga}}" id=""></button> --}}
                       <a href="/detalhes/{{$v->idvaga}}" class="badge badge-success"
                         style="padding-left: 22px; padding-right: 22px;">Visualizar</a><br>
+                      {{-- <a href="" class="badge badge-info"
+                        style="padding-left: 22px; padding-right: 22px;">Candidatos</a><br> --}}
                       @if(is_null($v->dtfim))
                       <a href="/editarvaga/{{$v->idvaga}}" class="badge badge-secondary"
                         style="padding-left: 32px; padding-right: 32px;">Editar</a><br>

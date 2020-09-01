@@ -101,11 +101,11 @@
                     <hr>
                     <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
                       @if($vaga->tpvaga == 1)
-                        Efetiva
+                      Efetiva
                       @elseif($vaga->tpvaga == 2)
-                        Temporária
+                      Temporária
                       @else
-                        Estágio
+                      Estágio
                       @endif
                     </li>
                     @if($vaga->pcd == 1)
@@ -115,6 +115,46 @@
                     <hr>
                   </ul>
                 </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm" style="text-align: end;">
+                  <a href="#" class="btn btn-success btn-lg" type="button" style="margin-right: auto; text-align: end;"
+                    data-toggle="modal" data-target="#filtrar_candidatos"
+                    style="padding-left: 7px; padding-right: 7px;">
+                    FILTRAR CANDIDATOS</a><br>
+                  <!-- Início Modal  buscar por vaga-->
+                  <div class="modal fade" id="filtrar_candidatos">
+                    <div class="modal-dialog " role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">BUSCAR CANDIDATO</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="" method="POST">
+                          @csrf
+                          <div class="modal-body">
+                            <div class="form-group" style="text-align:start" id="buscar_candidatos_vaga">
+                              <input type="hidden" id="" name="vagamodel" value="{{$vaga->idvaga}}"
+                                title="Procurar por vaga" placeholder="buscar">
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary">Buscar</button>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fim Modal-->
+                </div>
+
+
+
               </div>
 
               @if(count($candidatos)>0)

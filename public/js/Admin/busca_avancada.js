@@ -25,12 +25,17 @@ $(function () {
         if (valor_escolaridade == '1') {
             document.getElementById('idnivel_modal_busca').style.display = "block";
             document.getElementById('categoria_modal_busca').style.display = "none";
+            document.getElementById('area_modal_busca').style.display = "block";
+
         } else if (valor_escolaridade == '2') {
             document.getElementById('categoria_modal_busca').style.display = "block";
             document.getElementById('idnivel_modal_busca').style.display = "none";
+            document.getElementById('area_modal_busca').style.display = "none";
+
         } else {
             document.getElementById('idnivel_modal_busca').style.display = "none";
             document.getElementById('categoria_modal_busca').style.display = "none";
+            document.getElementById('area_modal_busca').style.display = "none";
         }
 
     });

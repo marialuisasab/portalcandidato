@@ -240,6 +240,9 @@
                                         <li><strong> TIPO DE DEFICIÊNCIA:* &nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text" class="form-control" name="tpdeficiencia" id="tddefice"
                                                 placeholder="Tipo de deficiência" title="Tipo de deficiência">
+                                            <div class="invalid-feedback" id="menstpdeficiencia" style="display: none;">
+                                                Você precisa preencher o tipo de deficiência!
+                                            </div>
                                         </li>
                                     </div>
 
@@ -442,11 +445,12 @@
 
                                     <div class="form-group">
                                         <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong>
-                                        @if(Auth::user()->foto != null)
-                                        <img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
-                                            style="max-width: 50px;">
-                                        @endif
-                                            <p>Anexe sua foto aqui, dessa forma seu currículo ficará mais atrativo, o que aumenta a possibilidade de ser selecionado.</p>
+                                            @if(Auth::user()->foto != null)
+                                            <img src="{{url('/fotos/'.Auth::user()->foto)}}"
+                                                alt="{{Auth::user()->name}}" style="max-width: 50px;">
+                                            @endif
+                                            <p>Anexe sua foto aqui, dessa forma seu currículo ficará mais atrativo, o
+                                                que aumenta a possibilidade de ser selecionado.</p>
                                             <input type="file" class="form-control-file" id="foto" name="foto"
                                                 title="Alterar Foto de Perfil" accept='image/*'>
                                         </li>

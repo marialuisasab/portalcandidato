@@ -183,21 +183,45 @@ class CurriculosController extends Controller
         }
     }
 
-     public function buscaPalavraChave(Request $request){
+    public function buscaPalavraChave(Request $request){
+     
+        $parametros = $request->except('_token');
         
-        $curriculos = Helper::filtrarPalavraChave($request->palavrachave);        
-        return $curriculos;
+        if(is_null($parametros['palavrachave'])){
+            flash('Digite a palavra-chave para realizar a busca')->error();
+            return redirect()->route('buscarcurriculo');
+        } 
+        $users = Helper::filtrarPalavraChave($parametros['palavrachave']);        
+       
+        if(count($users) == 0){
+            flash('Não foi possível encontrar nenhum currículo com a palavra-chave selecionada.')->error();
+            return redirect()->route('buscarcurriculo');
+        }               
+        return view('admin.buscarcurriculo', compact('users','parametros'));
     }
 
 
     public function buscaAvancada(Request $request){
         
-        $parametros = $request->except('_token');   
-        $users = Helper::filtrarCurriculos($parametros);
-        if(count($users) == 0){
-            flash('Não foi possível encontrar nenhum currículo com os filtros selecionados.')->error();
+        $parametros = $request->except('_token'); 
+
+        $temParam = false;
+        foreach ($parametros as $p => $valor) {
+            if(!is_null($valor)){
+                $temParam = true;
+            }
+        }
+        if($temParam){  
+            $users = Helper::filtrarCurriculos($parametros);
+            if(count($users) == 0){
+                flash('Não foi possível encontrar nenhum currículo com os filtros selecionados.')->error();
+                return redirect()->route('buscarcurriculo');
+            } 
+        }else{
+            flash('Selecione pelo menos um filtro para realizar a busca.')->error();
             return redirect()->route('buscarcurriculo');
-        }               
+        }      
+
         return view('admin.buscarcurriculo', compact('users', 'parametros'));      
     }
 

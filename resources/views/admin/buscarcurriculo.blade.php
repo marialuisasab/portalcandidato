@@ -57,15 +57,18 @@
                     </div>
                 </div>
             </div>
-
-
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body" style="box-sizing: border-box; margin-top: 30px;">
 
                     <div class="container">
                         <div class="row">
                             <h5></h5>
-                            {!!$users->links()!!}
+                            @if(isset($parametros))
+                                {!!$users->appends($parametros)->links()!!}
+                            @else
+                                {!!$users->links()!!}
+                            @endif
+                            
                             <div class="col-md-8 col-2" style="text-align: start">
 
                                 <a href="#" class="btn btn-info btn-lg" type="button"
@@ -78,7 +81,7 @@
                                     <div class="modal-dialog " role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">CAMPOS DE BUSCA AVANÇADA:</h5>
+                                                <h5 class="modal-title">Busca de Currículos</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -87,17 +90,13 @@
                                             <form action="{{route('filtrar')}}" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
-                                                    {{-- <div class="form-group">
-                                                                            <label for="message-text" class="col-form-label"></label>
-                                                                            <textarea class="form-control" rows="4" name="obs"
-                                                                                id="message-text"></textarea>
-                                                                        </div> --}}
+                                                    
                                                     <ul style="list-style-type: none;">
                                                         <div class="form-group" style="text-align: start"
                                                             id="email_modal_busca">
-                                                            <li><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                                            <li><strong> E-MAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                                                 <input type="text" class="form-control"
-                                                                    name="emailmodal" id="cnh" placeholder="email"
+                                                                    name="emailmodal" id="email"
                                                                     title="Insira o email para a busca">
                                                             </li>
                                                         </div>
@@ -105,13 +104,12 @@
                                                             id="nome_modal_busca">
                                                             <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                                                 <input type="text" class="form-control" name="nomemodal"
-                                                                    id="nome" placeholder="nome"
-                                                                    title="Insira o nome que será buscado">
+                                                                    id="nome" title="Insira o nome que será buscado">
                                                             </li>
                                                         </div>
                                                         <div class="form-group" id="genero_modal_busca"
                                                             style="text-align: start;">
-                                                            <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>
+                                                            <li><strong> GÊNERO:&nbsp;&nbsp;&nbsp;</strong>
                                                                 <select class="form-control " id="genero"
                                                                     name="generomodal"
                                                                     title="Selecione o genero para a busca">
@@ -161,7 +159,7 @@
                                                                         <strong>CIDADE DE NATURALIDADE:
                                                                             &nbsp;&nbsp;&nbsp;</strong>
                                                                         <select class="form-control" id="naturalidade"
-                                                                            name="naturaidademodal"
+                                                                            name="naturalidademodal"
                                                                             title="Cidade de Origem">
                                                                             <option value="" selected>Selecionar
                                                                             </option>
@@ -214,7 +212,7 @@
                                                                 <select class="form-control " id="escolaridade"
                                                                     name="escolaridademodal" title="Tipo de Formação">
                                                                     <option value="" selected>Selecionar</option>
-                                                                    <option value="1">Academica</option>
+                                                                    <option value="1">Acadêmica</option>
                                                                     <option value="2">Complementar</option>
                                                                 </select>
                                                             </li>
@@ -225,7 +223,7 @@
                                                             <li><strong> NÍVEL:&nbsp;&nbsp;&nbsp;
                                                                 </strong>
                                                                 <select class="form-control" id="nivel_idnivel"
-                                                                    name="nivel_idnivelmodal"
+                                                                    name="nivelmodal"
                                                                     title="Nivel de Escolaridade">
                                                                     <option value="" selected>Selecionar</option>
                                                                     @foreach(Helper::getNiveis() as $n)
@@ -242,7 +240,7 @@
                                                             <li><strong> CATEGORIA:&nbsp;&nbsp;&nbsp;
                                                                 </strong>
                                                                 <select class="custom-select" id="categoria_idcategoria"
-                                                                    name="categoria_idcategoriamodal">
+                                                                    name="categoriamodal">
                                                                     <option value="" selected>Selecionar</option>
                                                                     @foreach(Helper::getCategorias() as $c)
                                                                     <option value="{{$c->idcategoria}}">{{ $c->nome }}
@@ -270,7 +268,7 @@
                                                             <li><strong> CURSO:&nbsp;&nbsp;&nbsp;</strong><span>
                                                                 </span>
                                                                 <input type="text" class="form-control"
-                                                                    name="nomecursomodal" id="curso" placeholder="curso"
+                                                                    name="nomecursomodal" id="curso"
                                                                     title="Insira o curso">
                                                             </li>
                                                         </div>
@@ -280,9 +278,7 @@
                                                             <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong><span>
                                                                 </span>
                                                                 <input type="text" class="form-control"
-                                                                    name="empresamodal" id="empresa"
-                                                                    placeholder="empresa"
-                                                                    title="Insira o nome da empresa">
+                                                                    name="empresamodal" id="empresa" title="Insira o nome da empresa">
                                                             </li>
                                                         </div>
 
@@ -291,7 +287,7 @@
                                                             <li><strong> CARGO:&nbsp;&nbsp;&nbsp;</strong><span>
                                                                 </span>
                                                                 <input type="text" class="form-control"
-                                                                    name="cargomodal" id="cargo" placeholder="cargo"
+                                                                    name="cargomodal" id="cargo"
                                                                     title="Insira o cargo exercido">
                                                             </li>
                                                         </div>
@@ -333,11 +329,12 @@
                                 <!-- Fim Modal-->
                             </div>
                             {{-- busca por palavra chave --}}
-                            <div class="col-sm" style="text-align: end; margin-top: -15px;;;">
-                                <form class="form-inline ml-auto" style="margin-top: 20px;">
+                            <div class="col-sm" style="text-align: end; margin-top: -15px;">
+                                <form action="{{route('filtrarpalavra')}}" class="form-inline ml-auto" style="margin-top: 20px;">
+                                    @csrf
                                     <div class="form-group" style="text-align: start; margin-right:3px;">
-                                        <input class="form-control" type="text" placeholder="Insira a palavra"
-                                            aria-label="Search" title="Buscar por palavra chave">
+                                        <input class="form-control" type="text" placeholder="Palavra-chave"
+                                            aria-label="Search" name="palavrachave" title="Pesquisar palavra-chave">
                                     </div>
 
                                     <div class="form-group" style="text-align: end;">
@@ -360,24 +357,27 @@
 
                                             <th>Nome</th>
                                             <th>Naturalidade</th>
-                                            <th>Cidade</th>
-                                            {{-- <th>Telefone</th> --}}
+                                            <th>Cidade</th>                                            
                                             <th class="text-align: center;">Empresas</th>
                                             <th>Cargo</th>
-                                            {{-- <th>Observação</th> --}}
                                             <th>Atualização</th>
-                                            {{-- <th>Opções</th> --}}
+                                            <th></th> 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($users as $u)
                                         <tr id="idcurriculos">
-                                            <td class="nome_curriculo">{{$u->name}}
+                                            <td class="nome_curriculo">
+                                                {{$u->name}}
                                             </td>
-                                            <td class="naturalidade_curriculo">{{Helper::getCidade($u->naturalidade)}}
+                                            <td class="naturalidade_curriculo">
+                                                {{Helper::getCidade($u->naturalidade)}}
                                             </td>
-                                            <td class="cidade_curriculo">{{Helper::getCidade($u->cidade_idcidade)}}</td>
-
+                                            <td class="cidade_curriculo">
+                                                @if(!is_null($u->cidade_idcidade))
+                                                    {{Helper::getCidade($u->cidade_idcidade)}}
+                                                @endif
+                                            </td>
                                             <td class="experirencias_curriculo">
                                                 @foreach (Helper::getExperiencia($u->idcurriculo) as $experiencias)
                                                 @if ($experiencias->count())
@@ -417,6 +417,7 @@
                                                 <a class="badge badge-primary badge-sm"
                                                     href="/buscarcurriculo/visualizar/{{$u->idcurriculo}}"
                                                     role="button">Visualizar Currículo</a>
+                                                <br>
                                                 <a href="#" class="badge badge-warning" data-toggle="modal"
                                                     data-target="#exampleModal{{$u->idcurriculo}}"
                                                     style="padding-left: 7px; padding-right: 7px;">Incluir

@@ -268,12 +268,13 @@ class Helper
     }
 
     public static function filtrarCurriculos($dados){
-    
-        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+        
+        //dd($dados);
+        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
                     ->join('users as u', 'users_id', '=', 'u.id')
                     ->join('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
                     ->join('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
-                    ->join('experiencia as x', 'idcurriculo', '=', 'x.curriculo_idcurriculo')
+                    ->join('experiencia as x', 'idcurriculo', '=', 'x.curriculo_idcurriculo')  
                     ->leftJoin('curriculo_vaga as v', 'idcurriculo', '=', 'v.curriculo_idcurriculo')
                     ->where(function ($query) use ($dados){
 
@@ -306,16 +307,56 @@ class Helper
                         if(isset($dados['vagamodal']))
                             $query->where('v.vaga_idvaga', $dados['vagamodal']);
                     })
-                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
-                    ->orderBy('dtatualizacao','DESC')                    
-                    ->paginate(50);
-                    
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
+                    ->orderBy('dtatualizacao','DESC')                                  
+                    ->paginate(100);
+                   
         return $resultado;
     }
 
     public static function filtrarPalavraChave($palavra){
 
-        
-    }
 
+         $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+                    ->leftJoin('users as u', 'users_id', '=', 'u.id')
+                    ->leftJoin('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
+                    ->leftJoin('cidade as cid', 'e.cidade_idcidade', '=', 'cid.idcidade')
+                    ->leftJoin('estado as est', 'e.estado_idestado', '=', 'est.idestado')
+                    ->leftJoin('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
+                    ->leftJoin('area as a', 'f.area_idarea', '=', 'a.idarea')
+                    ->leftJoin('instituicao as i', 'f.instituicao_idinstituicao', '=', 'i.idinstituicao')
+                    ->leftJoin('categoria as cat', 'f.instituicao_idinstituicao', '=', 'cat.idcategoria')
+                    ->leftJoin('habilidade as h', 'idcurriculo', '=', 'h.curriculo_idcurriculo')
+                    ->leftJoin('tipo as t', 'h.tipo_idtipo', '=', 't.idtipo')
+                    ->leftJoin('experiencia as x', 'idcurriculo', '=', 'x.curriculo_idcurriculo')
+                    ->leftJoin('curriculo_vaga as v', 'idcurriculo', '=', 'v.curriculo_idcurriculo')
+
+                    ->where(function ($query) use ($palavra){
+                        if(isset($palavra)){
+                            $query->where('a.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('cat.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('cid.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('est.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('est.uf','like', '%'.$palavra.'%')
+                                    ->orWhere('sobre', 'like', '%'.$palavra.'%')
+                                    ->orWhere('f.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('i.nome', 'like', '%'.$palavra.'%')
+                                    ->orWhere('f.escola','like', '%'.$palavra.'%')
+                                    ->orWhere('h.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('e.logradouro','like', '%'.$palavra.'%')
+                                    ->orWhere('x.empresa','like', '%'.$palavra.'%')
+                                    ->orWhere('x.cargo','like', '%'.$palavra.'%')
+                                    ->orWhere('x.atividades','like', '%'.$palavra.'%')
+                                    ->orWhere('t.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('v.observ','like', '%'.$palavra.'%');
+                        }
+                    })
+
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+                    ->orderBy('dtatualizacao','DESC')                    
+                    ->paginate(50);  
+                    //dd($resultado);     
+         return $resultado;             
+
+    }
 }

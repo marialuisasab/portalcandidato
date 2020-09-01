@@ -116,50 +116,54 @@
                     <hr>
                   </ul>
                 </div>
-              </div>
+              </div>               
+                  
 
-
-              <div class="row">
-                <div class="col-sm" style="text-align: end;">
-                  <a href="#" class="btn btn-success btn-lg" type="button" style="margin-right: auto; text-align: end;"
+              @if(count($candidatos)>0)
+              <div class="card-body">
+                <div class="col" style="text-align: end;">
+                  <a href="#" class="btn btn-info btn-lg" type="button" style="margin-right: auto; text-align: end;"
                     data-toggle="modal" data-target="#filtrar_candidatos"
                     style="padding-left: 7px; padding-right: 7px;">
-                    FILTRAR CANDIDATOS</a><br>
+                    Filtrar Candidatos
+                  </a>
+                  <br>
+
                   <!-- Início Modal  buscar por vaga-->
                   <div class="modal fade" id="filtrar_candidatos">
                     <div class="modal-dialog " role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title">BUSCAR CANDIDATO</h5>
+                          <h5 class="modal-title">FILTRAR CANDIDATOS</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <form action="" method="POST">
+                        <form action="{{route('filtrarcandidato')}}" method="POST">
                           @csrf
                           <div class="modal-body">
 
                             <ul style="list-style-type: none;">
                               <div class="form-group" style="text-align: start" id="email_modal_busca">
-                                <li><strong> EMAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                  <input type="text" class="form-control" name="emailmodal" id="cnh" placeholder="email"
+                                <li><strong> E-MAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                  <input type="text" class="form-control" name="emailmodal" id="cnh" 
                                     title="Insira o email para a busca">
                                 </li>
                               </div>
                               <div class="form-group" style="text-align:start" id="nome_modal_busca">
                                 <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                  <input type="text" class="form-control" name="nomemodal" id="nome" placeholder="nome"
+                                  <input type="text" class="form-control" name="nomemodal" id="nome" 
                                     title="Insira o nome que será buscado">
                                 </li>
                               </div>
                               <div class="form-group" id="genero_modal_busca" style="text-align: start;">
-                                <li><strong> GENERO:&nbsp;&nbsp;&nbsp;</strong>
+                                <li><strong> GÊNERO:&nbsp;&nbsp;&nbsp;</strong>
                                   <select class="form-control " id="genero" name="generomodal"
-                                    title="Selecione o genero para a busca">
+                                    title="Selecione o gênero para a busca">
                                     <option value="" selected>Selecionar</option>
                                     <option value="F">Feminino</option>
                                     <option value="M">Masculino</option>
-                                    <option value="N">Prefiro não informar</option>
+                                    <option value="N">Prefere não informar</option>
                                   </select>
                                 </li>
                               </div>
@@ -197,7 +201,7 @@
                                     <div class="col-sm-6">
                                       <strong>CIDADE DE NATURALIDADE:
                                         &nbsp;&nbsp;&nbsp;</strong>
-                                      <select class="form-control" id="naturalidade" name="naturaidademodal"
+                                      <select class="form-control" id="naturalidade" name="naturalidademodal"
                                         title="Cidade de Origem">
                                         <option value="" selected>Selecionar
                                         </option>
@@ -248,7 +252,7 @@
                                   <select class="form-control " id="escolaridade" name="escolaridademodal"
                                     title="Tipo de Formação">
                                     <option value="" selected>Selecionar</option>
-                                    <option value="1">Academica</option>
+                                    <option value="1">Acadêmica</option>
                                     <option value="2">Complementar</option>
                                   </select>
                                 </li>
@@ -257,7 +261,7 @@
                               <div class="form-group" id="idnivel_modal_busca" style="display: none; text-align:start;">
                                 <li><strong> NÍVEL:&nbsp;&nbsp;&nbsp;
                                   </strong>
-                                  <select class="form-control" id="nivel_idnivel" name="nivel_idnivelmodal"
+                                  <select class="form-control" id="nivel_idnivel" name="nivelmodal"
                                     title="Nivel de Escolaridade">
                                     <option value="" selected>Selecionar</option>
                                     @foreach(Helper::getNiveis() as $n)
@@ -274,7 +278,7 @@
                                 <li><strong> CATEGORIA:&nbsp;&nbsp;&nbsp;
                                   </strong>
                                   <select class="custom-select" id="categoria_idcategoria"
-                                    name="categoria_idcategoriamodal">
+                                    name="categoriamodal">
                                     <option value="" selected>Selecionar</option>
                                     @foreach(Helper::getCategorias() as $c)
                                     <option value="{{$c->idcategoria}}">{{ $c->nome }}
@@ -300,7 +304,7 @@
                                 <li><strong> CURSO:&nbsp;&nbsp;&nbsp;</strong><span>
                                   </span>
                                   <input type="text" class="form-control" name="nomecursomodal" id="curso"
-                                    placeholder="curso" title="Insira o curso">
+                                     title="Insira o curso">
                                 </li>
                               </div>
 
@@ -308,7 +312,7 @@
                                 <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong><span>
                                   </span>
                                   <input type="text" class="form-control" name="empresamodal" id="empresa"
-                                    placeholder="empresa" title="Insira o nome da empresa">
+                                    title="Insira o nome da empresa">
                                 </li>
                               </div>
 
@@ -316,7 +320,7 @@
                                 <li><strong> CARGO:&nbsp;&nbsp;&nbsp;</strong><span>
                                   </span>
                                   <input type="text" class="form-control" name="cargomodal" id="cargo"
-                                    placeholder="cargo" title="Insira o cargo exercido">
+                                    title="Insira o cargo exercido">
                                 </li>
                               </div>
 
@@ -340,8 +344,7 @@
                               </div>
 
                               <div class="form-group" style="text-align:start" id="buscar_candidatos_vaga">
-                                <input type="hidden" id="" name="vagamodel" value="{{$vaga->idvaga}}"
-                                  title="Procurar por vaga" placeholder="buscar">
+                                <input type="hidden" name="vagamodal" value="{{$vaga->idvaga}}" >
                               </div>
                             </ul>
 
@@ -355,14 +358,11 @@
                     </div>
                   </div>
                   <!-- Fim Modal-->
+
                 </div>
 
 
 
-              </div>
-
-              @if(count($candidatos)>0)
-              <div class="card-body">
                 <div class="container col">
                   <div class="table-responsive">
                     <table class="table">

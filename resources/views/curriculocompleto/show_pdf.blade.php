@@ -23,7 +23,7 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <h2 class="mb-0" style="color:dodgerblue; font-size:25px; text-align: center;">
-                                            CURÍCULO                                            
+                                            CURRÍCULO                                            
                                         </h2>
                                     </div>
                                     <div class="col-sm"></div>
@@ -227,8 +227,12 @@
                                     </ul>
                                 @endforeach
 <!------------------------------------------------------------------------------------------------------------------->                     
-                                <h4 style="color: dodgerblue;"> ENDEREÇO </h4>
-                                <hr>   
+                                   
+                                @if ($endereco->count())
+                                    <h4 style="color: dodgerblue;"> ENDEREÇO </h4>
+                                    <hr>
+                                @endif
+
                                                               
                                 @foreach ($endereco as $e)                                    
                                     <ul style="list-style-type: none;">
@@ -269,8 +273,11 @@
                                     </ul>                                
                                 @endforeach
 <!---------------------------------------------------------------------------------------------------------------->
-                                <h4 style="color: dodgerblue;"> FORMAÇÃO/CURSOS </h4>
-                                <hr>
+                                 @if ($cursos->count())
+                                    <h4 style="color: dodgerblue;"> FORMAÇÃO/CURSOS </h4>
+                                    <hr>
+                                @endif
+
                                 @foreach($cursos as $c)
                                     <ul style="list-style-type: none;">
                                         <li class="item-11">

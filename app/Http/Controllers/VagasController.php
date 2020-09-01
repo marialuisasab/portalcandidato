@@ -270,4 +270,20 @@ class VagasController extends Controller
 	}
 
 
+    public function buscaAvancada(Request $request){
+        
+        $parametros = $request->except('_token');   
+        $candidatos = Helper::filtrarCurriculos($parametros);
+        //dd($candidatos);
+        if(count($candidatos) == 0){
+            flash('Não foi possível encontrar nenhum currículo com os filtros selecionados.')->error();
+            return redirect()->route('detalhes',  $parametros['vagamodal']);
+        }               
+        $vaga = Vaga::where('idvaga', $parametros['vagamodal'])->get()[0]; 
+
+        return view('vaga.showadmin', compact('candidatos', 'parametros', 'vaga'));      
+    }
+
+
+
 }

@@ -16,7 +16,7 @@ $(function () {
     //     }
     // });
 
-    pegar_cidade_estado("#natural", "naturaidademodal");
+    pegar_cidade_estado("#natural", "naturalidademodal");
     pegar_cidade_estado("#estadoatual", "cidadeatualmodal");
 
 

@@ -111,17 +111,19 @@ Route::post('/salvarvaga', 'VagasController@store')->name('vaga.salvar');
 Route::get('/editarvaga/{id}', 'VagasController@edit')->name('vaga.editar');
 Route::post('/vaga/{id}', 'VagasController@update');
 Route::post('/editarObs', 'VagasController@updateObservacao');
-Route::get('/detalhes/{id}', 'VagasController@show');
+Route::get('/detalhes/{id}', 'VagasController@show')->name('detalhes');
 Route::get('/excluirvaga/{id}', 'VagasController@destroy')->name('vaga.excluir');
 Route::get('/listar', 'VagasController@index')->name('listar');
 Route::get('/encerrar/{id}', 'VagasController@encerrarVaga');
 Route::get('/copiarvaga/{id}', 'VagasController@copiarVaga');
 Route::get('/classificar/{id}/{v}/{c}', 'VagasController@classificar');
+Route::any('/filtrarcandidato', 'VagasController@buscaAvancada')->name('filtrarcandidato');
 
 Route::get('/buscarcurriculo','CurriculosController@buscar')->name('buscarcurriculo');
 Route::get('/buscarcurriculo/visualizar/{id}', 'CurriculosController@show');
 Route::post('/editarObs/{id}', 'CurriculosController@updateObservacao');
 Route::any('/filtrar', 'CurriculosController@buscaAvancada')->name('filtrar');
+Route::any('/filtrarpalavra', 'CurriculosController@buscaPalavraChave')->name('filtrarpalavra');
 
 
 

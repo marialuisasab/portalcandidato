@@ -249,9 +249,11 @@
                         {{Helper::getData($v->dtprazo)}}
                       </li>
                       <hr>
-                      <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
-                        {{$v->quant}}
-                      </li>
+                      @if(!is_null($v->quant))
+                        <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
+                          {{$v->quant}}
+                        </li>
+                      @endif
                       <hr>
                       <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                         {{$v->descricao}}
@@ -263,9 +265,11 @@
                       <hr>
                       <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
                         @if($v->tpvaga == 1)
-                        Fixa
+                          Efetiva
+                        @elseif($v->tpvaga == 2)
+                          Temporária
                         @else
-                        Temporária
+                          Estágio
                         @endif
                       </li>
                     </ul>

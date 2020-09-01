@@ -69,9 +69,14 @@
                                     <div class="form-group">
                                         <li><strong> TIPO DE VAGA:*&nbsp;&nbsp;&nbsp;</strong>
                                             <select class="form-control " id="tpvaga" name="tpvaga" title="Genero">
-                                                <option value="1" {{$v->tpvaga == '1' ? 'selected' : ''}}>Efetiva
+                                                <option value="1" {{$v->tpvaga == '1' ? 'selected' : ''}}>
+                                                    Efetiva
                                                 </option>
-                                                <option value="2" {{$v->tpvaga == '2' ? 'selected' : ''}}>Temporária
+                                                <option value="2" {{$v->tpvaga == '2' ? 'selected' : ''}}>
+                                                    Temporária
+                                                </option>
+                                                <option value="3" {{$v->tpvaga == '3' ? 'selected' : ''}}>
+                                                    Estágio
                                                 </option>
                                             </select>
 
@@ -85,7 +90,7 @@
                                     <div class="form-group">
                                         <li><strong> DATA DE INÍCIO:*&nbsp;&nbsp;&nbsp;</strong>
                                             <input type="date" class="form-control " name="dtinicio" id="iddtinicio"
-                                                title="Data de inicio da postagem" value="{{$v->dtinicio}}">
+                                                title="Data de inicio da postagem" value="">
                                             <div class="invalid-feedback" style="display: none;" id="mensdtinicio">
                                                 Você deve preencher a data de inicio!
                                             </div>

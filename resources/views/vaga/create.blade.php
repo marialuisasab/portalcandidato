@@ -74,6 +74,7 @@
                                                 <option value="" selected>Selecionar</option>
                                                 <option value="1">Efetiva</option>
                                                 <option value="2">Temporária</option>
+                                                <option value="3">Estágio</option>
                                             </select>
 
                                             <div class="invalid-feedback" id="menstpdvaga" style="display: none;">

@@ -100,12 +100,13 @@
                     </li>
                     <hr>
                     <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
-                      @if ($vaga->tpvaga == 1)
-                      Efetiva
+                      @if($vaga->tpvaga == 1)
+                        Efetiva
+                      @elseif($vaga->tpvaga == 2)
+                        Temporária
                       @else
-                      Temporária
+                        Estágio
                       @endif
-
                     </li>
                     @if($vaga->pcd == 1)
                     <hr>

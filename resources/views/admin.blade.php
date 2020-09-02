@@ -16,7 +16,6 @@
 <div class="container">
 
     <div class="row">
-
         <div class="col-xs-3 col-md-3" style="background-color: white;">
             <div style="text-justify:  center;">
                 @if(count($admin)==0)
@@ -63,7 +62,7 @@
         </div>
     </div>
     <div class="row" style="margin-top: 100px;">
-        <div class=" col-md">
+        {{-- <div class=" col-md">
             <div class="d-flex border">
                 <div class="bg-primary text-light p-4">
                     <div class="d-flex align-items-center h-100">
@@ -75,7 +74,7 @@
                     <h3 class="font-weight-bold mb-0"></h3>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-md">
             <div class="d-flex border">
                 <div class="bg-success text-light p-4">
@@ -84,7 +83,11 @@
                     </div>
                 </div>
                 <div class="flex-grow-1 bg-white p-4">
-                    <p class="text-uppercase text-secondary mb-0">Processos</p>
+                    <p class="text-uppercase text-secondary mb-0" style="text-align: center;">Processos Em Andamento</p>
+                    <p class="text-uppercase text-secondary mb-0" style="text-align: center;text-size:50px;">
+
+                        {{Helper::getVagaAberta()}}
+                    </p>
                     <h3 class="font-weight-bold mb-0"></h3>
                 </div>
             </div>

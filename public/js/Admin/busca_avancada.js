@@ -39,6 +39,15 @@ $(function () {
         }
 
     });
+
+
+
+    // $("#form_busca_avancada").submit(function () {
+
+
+    // });
+
+
 });
 
 
@@ -65,3 +74,19 @@ function pegar_cidade_estado(idatributo, nameatributo) {
         }
     });
 }
+
+
+
+$("document").ready(function () {
+    var quantidade = document.querySelectorAll("td.nome_curriculo");
+    var quant = quantidade.length;
+
+    document.getElementById("col_quantidade").innerHTML = quant;
+});
+
+
+
+$("#document").ready(function () {
+
+
+});

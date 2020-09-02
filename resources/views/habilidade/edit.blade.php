@@ -78,13 +78,13 @@
                           type="button" id="dropdownMenuButton" data-toggle="dropdown" style="color:red;">
 
                           <span class=" dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
-                            <textarea name="" id="" cols="20" rows="6"
-                              style="text-align:justify;">Categoria:
+                            <textarea name="" id="" cols="30" rows="6"
+                              style="text-align:justify;font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; padding: 10px; line-height: 1.5; border-radius: 5px; border: 1px solid #ccc;box-shadow: 1px 1px 1px #999;">Categoria:
      O candidato deve colocar a categoria em que esta habilidade pertence, ou seja, se é uma habilidade relacionada a area da informática (Linguagens de Programação, desenvolvimento, suporte e etc), pacote office (Word, Excel, Power Point e etc), Idiomas (Português, Ingles, Espanhol e etc). </textarea>
                           </span>
                         </span>
                       </strong>
-                      <select class="form-control " id="tipo" name="tipo_idtipo" title="Categoria">
+                      <select class="form-control" id="tipo" name="tipo_idtipo" title="Categoria">
                         <option value="">Selecionar</option>
                         @foreach(Helper::getTiposHab() as $tp)
                         <option value="{{$tp->idtipo}}" {{$hab->tipo_idtipo == $tp->idtipo ? 'selected' : '' }}>

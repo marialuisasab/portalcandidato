@@ -73,6 +73,11 @@ class Helper
         return $vaga->titulo;
     }
 
+    public static function getVagaAberta(){
+           $vaga = Vaga::where('status','3')->get();
+           $tamanhovaga = ($vaga->count());
+           return $tamanhovaga;
+    }
    
     public static function setData($stringData){
         if(!isset($stringData))
@@ -284,7 +289,7 @@ class Helper
                             $query->where('u.email','like', '%'.$dados['emailmodal'].'%');
                         if(isset($dados['generomodal']))
                             $query->where('genero', $dados['generomodal']);
-                        if(isset($dados['pdcmodal']))
+                        if(isset($dados['pcdmodal']))
                             $query->where('dfisico', $dados['pcdmodal']);
                         if(isset($dados['naturalidademodal']))
                             $query->where('naturalidade', $dados['naturalidademodal']);

@@ -314,7 +314,7 @@ class Helper
                     })
                     ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
                     ->orderBy('dtatualizacao','DESC')                                  
-                    ->paginate(100);
+                    ->paginate(50);
                    
         return $resultado;
     }

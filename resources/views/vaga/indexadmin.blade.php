@@ -20,7 +20,7 @@
             <div class="row">
               <div class="col-">
                 <h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
-                  VAGAS ABERTAS
+                  Vagas
                   <span class="fa-stack fa-sm">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fas fa-user-tie fa-stack-1x fa-inverse"></i>
@@ -77,11 +77,8 @@
                       @endif
                     </td>
                     <td>
-                      {{-- <button value="{{$v->idvaga}}" id=""></button> --}}
                       <a href="/detalhes/{{$v->idvaga}}" class="badge badge-success"
-                        style="padding-left: 22px; padding-right: 22px;">Visualizar</a><br>
-                      {{-- <a href="" class="badge badge-info"
-                        style="padding-left: 22px; padding-right: 22px;">Candidatos</a><br> --}}
+                        style="padding-left: 22px; padding-right: 22px;">Visualizar</a><br>                      
                       @if(is_null($v->dtfim))
                       <a href="/editarvaga/{{$v->idvaga}}" class="badge badge-secondary"
                         style="padding-left: 32px; padding-right: 32px;">Editar</a><br>

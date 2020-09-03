@@ -120,6 +120,200 @@
                   
 
               @if(count($candidatos)>0)
+                <!--Filtros-->
+                <div class="row" style="margin-top: 50px;">
+                  <div class="col-sm">
+                    @if(isset($parametros))
+                      <p>Filtros:</p>
+                      <div class="d-flex flex-row bd-highlight mb-3">
+                          @if(isset($parametros['nomemodal']))
+                            @if ($parametros['nomemodal'] != '')
+                              <div class="p-2 bd-highlight">
+                                <p class="badge badge-primary badge-primary">
+                                  {{$parametros['nomemodal']}}
+                                  <i class="fas fa-check"
+                                    style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                                </p>
+                              </div>
+                            @endif
+                          @endif
+                          @if(isset($parametros['emailmodal']))
+                            @if ($parametros['emailmodal']!=null)
+                              <div class="p-2 bd-highlight">
+                                <p class="badge badge-primary badge-primary">
+                                  {{$parametros['emailmodal']}}
+                                  <i class="fas fa-check"
+                                    style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                                </p>
+                              </div>
+                            @endif
+                          @endif
+                          @if(isset($parametros['generomodal']))
+                            @if ($parametros['generomodal']!=null)
+                              <div class="p-2 bd-highlight">
+                                <p class="badge badge-primary badge-primary">
+                                  <i class="fas fa-check"></i>
+                                    @if ($parametros['generomodal'] =='M')
+                                      Masculino
+                                    @elseif($parametros['generomodal']=='F')
+                                      Feminino
+                                    @elseif($parametros['generomodal']=='N')
+                                      Prefere não informar
+                                    @endif
+                                  <i class="fas fa-check"
+                                    style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                                </p>
+                              </div>
+                            @endif
+                          @endif                                   
+                          @if(isset($parametros['naturalidademodal']))
+                            @if ($parametros['naturalidademodal']!=null)
+                              <div class="p-2 bd-highlight">
+                                <p class="badge badge-primary badge-primary">
+                                  <i class="fas fa-check"></i>
+                                    {{Helper::getCidade($parametros['naturalidademodal'])}}
+                                  <i class="fas fa-check"
+                                    style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                                </p>
+                              </div>
+                            @endif
+                          @endif
+                          @if(isset($parametros['cidadeatualmodal']))
+                            @if ($parametros['cidadeatualmodal']!=null)
+                              <div class="p-2 bd-highlight">
+                                <p class="badge badge-primary badge-primary">
+                                  {{Helper::getCidade($parametros['cidadeatualmodal'])}}
+                                  <i class="fas fa-check"
+                                    style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                                </p>
+                              </div>                               
+                            @endif
+                          @endif
+                        @if(isset($parametros['escolaridademodal']))
+                          @if ($parametros['escolaridademodal']!=null)
+                            <div class="p-2 bd-highlight">
+                              <p class="badge badge-primary badge-primary">
+                                @if ($parametros['escolaridademodal'] =='1')
+                                  Acadêmico
+                                @else
+                                  Complementar
+                                @endif
+                                <i class="fas fa-check"
+                                    style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                </i>
+                              </p>
+                          </div>
+                        @endif
+                      @endif
+                      @if(isset($parametros['nivelmodal']))
+                        @if ($parametros['nivelmodal']!=null)
+                          <div class="p-2 bd-highlight">
+                            <p class="badge badge-primary badge-primary">
+                              {{Helper::getNivel($parametros['nivelmodal'])}}
+                              <i class="fas fa-check"
+                                  style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                              </i>
+                            </p>
+                        </div>
+                        @endif
+                      @endif
+                      @if(isset($parametros['areamodal']))
+                        @if ($parametros['areamodal']!=null)
+                          <div class="p-2 bd-highlight">
+                            <p class="badge badge-primary badge-primary">
+                              {{Helper::getArea($parametros['areamodal'])}}
+                              <i class="fas fa-check"
+                                  style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                              </i>
+                            </p>
+                          </div>
+                        @endif
+                      @endif
+                      @if(isset($parametros['nomecursomodal']))
+                        @if ($parametros['nomecursomodal']!=null)
+                          <div class="p-2 bd-highlight">
+                            <p class="badge badge-primary badge-primary">{{$parametros['nomecursomodal']}}
+                              <i class="fas fa-check"
+                                  style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                              </i>
+                            </p>
+                          </div>
+                        @endif
+                      @endif
+                      @if(isset($parametros['cargomodal']))
+                        @if ($parametros['cargomodal']!=null)
+                          <div class="p-2 bd-highlight">
+                              <p class="badge badge-primary badge-primary">{{$parametros['cargomodal']}}
+                                  <i class="fas fa-check"
+                                      style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                              </p>
+                          </div>
+                        @endif
+                      @endif
+                      @if(isset($parametros['empresamodal']))
+                        @if ($parametros['empresamodal']!=null)
+                          <div class="p-2 bd-highlight">
+                              <p class="badge badge-primary badge-primary">{{$parametros['empresamodal']}}
+                                  <i class="fas fa-check"
+                                      style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                              </p>
+                          </div>                              
+                        @endif  
+                      @endif
+                      @if(isset($parametros['catcnhmodal']))
+                        @if ($parametros['catcnhmodal']!=null)
+                          <div class="p-2 bd-highlight">
+                              <p class="badge badge-primary badge-primary">{{$parametros['catcnhmodal']}}
+                                  <i class="fas fa-check"
+                                      style="padding-left: 5px; padding-right: 5px; font-size: 12px;">
+                                  </i>
+                              </p>
+                          </div>
+                        @endif
+                      @endif
+                      <?php 
+                        $maxparametros=sizeof($parametros);
+                      ?>
+                      @if ($maxparametros >0)
+                        <div class="p-2 bd-highlight">
+                            <a href="/detalhes/{{$vaga->idvaga}}" class="badge badge-danger"
+                                title="Voltar para tela inicial de busca">LIMPAR FILTROS
+                                <span class="fas fa-times" style="padding-left: 10px; color: white;"></a>
+                        </div>
+                      @endif
+                  </div>
+                
+                @endif
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm">                 
+                <p>
+                  @if(isset($parametros))
+                    Mostrando de {{$candidatos->firstItem()}} 
+                    até {{$candidatos->lastItem()}} 
+                    de {{ $candidatos->total() }} registros
+                  @endif
+                </p>
+              </div>
+          </div>
+          <div class=" row">
+              <div class="col-sm">              
+                  @if(isset($parametros))
+                    {!!$candidatos->appends($parametros)->links()!!}                   
+                  @endif
+              </div>
+          </div>
+        </div>
+
+
               <div class="card-body">
                 <div class="col" style="text-align: end;">
                   <a href="#" class="btn btn-info btn-lg" type="button" style="margin-right: auto; text-align: end;"

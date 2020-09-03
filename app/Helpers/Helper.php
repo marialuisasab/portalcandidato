@@ -275,7 +275,7 @@ class Helper
     public static function filtrarCurriculos($dados){
         
         //dd($dados);
-        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
+        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'v.curriculo_idcurriculo')
                     ->join('users as u', 'users_id', '=', 'u.id')
                     ->leftJoin('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
                     ->leftJoin('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
@@ -312,7 +312,7 @@ class Helper
                         if(isset($dados['vagamodal']))
                             $query->where('v.vaga_idvaga', $dados['vagamodal']);
                     })
-                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'v.curriculo_idcurriculo')
                     ->orderBy('dtatualizacao','DESC')                                  
                     ->paginate(50);
                    
@@ -322,7 +322,7 @@ class Helper
     public static function filtrarPalavraChave($palavra){
 
 
-         $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+         $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
                     ->leftJoin('users as u', 'users_id', '=', 'u.id')
                     ->leftJoin('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
                     ->leftJoin('cidade as cid', 'e.cidade_idcidade', '=', 'cid.idcidade')
@@ -357,7 +357,7 @@ class Helper
                         }
                     })
 
-                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao')
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
                     ->orderBy('dtatualizacao','DESC')                    
                     ->paginate(50);  
                     //dd($resultado);     

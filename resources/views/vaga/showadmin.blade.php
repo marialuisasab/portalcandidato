@@ -561,7 +561,7 @@
                         <td>{{Helper::getData($c->dtcandidatura)}}</td>
                         <td>{{$c->observ}}</td>
                         <td>
-                          <a href="/buscarcurriculo/visualizar/{{$c->curriculo_idcurriculo}}"
+                          <a href="/buscarcurriculo/visualizar/{{$c->curriculo_idcurriculo}}" target="_blank"
                             class="badge badge-primary">Visualizar Currículo</a><br>
                           <a href="#" class="badge badge-warning" data-toggle="modal"
                             data-target="#exampleModal{{$c->idcurriculo}}"

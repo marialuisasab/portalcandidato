@@ -608,7 +608,7 @@
                                             <td>-</td>
                                             @endif
                                             <td>
-                                                <a class="badge badge-primary badge-sm"
+                                                <a class="badge badge-primary badge-sm" target="_blank"
                                                     href="/buscarcurriculo/visualizar/{{$u->idcurriculo}}"
                                                     role="button">Visualizar Currículo</a>
                                                 <br>

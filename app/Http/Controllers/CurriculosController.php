@@ -111,7 +111,7 @@ class CurriculosController extends Controller
     public function buscar(){
         $users = DB::table('curriculo')
         ->join('users', 'curriculo.users_id', '=', 'users.id')
-        ->join('endereco', 'curriculo.endereco_idendereco', '=', 'endereco.idendereco')
+        ->leftJoin('endereco', 'curriculo.endereco_idendereco', '=', 'endereco.idendereco')
         // ->join('experiencia', 'curriculo.idcurriculo', '=', 'experiencia.curriculo_idcurriculo')
         ->select('users.*', 'curriculo.*','endereco.*')->orderBy('curriculo.dtatualizacao','DESC')
         ->paginate(50);

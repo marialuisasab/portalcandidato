@@ -277,9 +277,9 @@ class Helper
         //dd($dados);
         $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
                     ->join('users as u', 'users_id', '=', 'u.id')
-                    ->join('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
-                    ->join('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
-                    ->join('experiencia as x', 'idcurriculo', '=', 'x.curriculo_idcurriculo')  
+                    ->leftJoin('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
+                    ->leftJoin('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
+                    ->leftJoin('experiencia as x', 'idcurriculo', '=', 'x.curriculo_idcurriculo')  
                     ->leftJoin('curriculo_vaga as v', 'idcurriculo', '=', 'v.curriculo_idcurriculo')
                     ->where(function ($query) use ($dados){
 

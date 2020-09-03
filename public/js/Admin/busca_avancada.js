@@ -77,16 +77,25 @@ function pegar_cidade_estado(idatributo, nameatributo) {
 
 
 
-$("document").ready(function () {
-    var quantidade = document.querySelectorAll("td.nome_curriculo");
-    var quant = quantidade.length;
+// $("document").ready(function () {
+//     var quantidade = document.querySelectorAll("td.nome_curriculo");
+//     var quant = quantidade.length;
 
-    document.getElementById("col_quantidade").innerHTML = quant;
-});
+//     document.getElementById("col_quantidade").innerHTML = quant;
+// });
 
+// $("document").ready(function () {
+//     $("#busca_avancada").click(function () {
+//         $("#busca_avancada").addClass('active');
+//         $("#busca_palavra_chave").removeClass('active');
+//         document.getElementById("form_busca_avancada").style.display = "block";
+//         document.getElementById("form_busca_chave").style.display = "none";
+//     });
+//     $("#busca_palavra_chave").click(function () {
+//         $("#busca_palavra_chave").addClass('active');
+//         $("#busca_avancada").removeClass('active');
+//         document.getElementById("form_busca_chave").style.display = "block";
+//         document.getElementById("form_busca_avancada").style.display = "none";
 
-
-$("#document").ready(function () {
-
-
-});
+//     });
+// });

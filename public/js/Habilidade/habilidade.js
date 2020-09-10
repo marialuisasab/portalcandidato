@@ -73,8 +73,7 @@ $("document").ready(function ($) {
     $("#descricao").mask('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN', {
         translation: {
             N: {
-                pattern: /[a-zA-Z]/,
-
+                pattern: /[\wÀ-ú\d\s.]/
             },
         }
     });

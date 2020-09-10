@@ -191,11 +191,12 @@
 
 
                                 @if(($c->dfisico != null) && ($c->dfisico == '1'))
-                                <li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
+                                <li><strong> PESSOA COM DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong> Sim</li>
                                 @elseif(($c->dfisico != null) && ($c->dfisico == '2'))
-                                <li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong> Não</li>
+                                <li><strong> PESSOA COM DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong> Não</li>
                                 @else
-                                <li><strong> DEFICIENTE FISÍCO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+                                <li><strong> PESSOA COM DEFICIÊNCIA:&nbsp;&nbsp;&nbsp;</strong><span
+                                        style="color: red;"> Não
                                         cadastrado!</span></li>
                                 @endif
                                 <hr>

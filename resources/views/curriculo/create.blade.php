@@ -81,6 +81,22 @@
                                     @csrf
 
                                     <div class="form-group">
+                                        <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong>
+                                            @if(Auth::user()->foto != null)
+                                            <img src="{{url('/fotos/'.Auth::user()->foto)}}"
+                                                alt="{{Auth::user()->name}}" style="max-width: 50px;">
+                                            @endif
+                                            <p>Anexe sua foto aqui, dessa forma seu currículo ficará mais atrativo, o
+                                                que aumenta a possibilidade de ser selecionado.</p>
+                                            <input type="file" class="form-control-file" id="foto" name="foto"
+                                                title="Alterar Foto de Perfil" accept='image/*'>
+                                        </li>
+
+                                    </div>
+                                    <br>
+
+
+                                    <div class="form-group">
                                         <li><strong> NOME:*&nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text" class="form-control" name="nome" id="nome"
                                                 placeholder="Nome Completo" value="{{Auth::user()->name}}" title="Nome">
@@ -148,7 +164,6 @@
                                                 Você precisa preencher a sua pretenção salarial!
                                             </div>
                                         </li>
-
                                     </div>
 
 
@@ -230,7 +245,7 @@
                                                 <option value="2">Não</option>
                                             </select>
                                             <div class="invalid-feedback" id="mensdtfisico" style="display: none;">
-                                                Você precisa preencher se é deficiente fisico!
+                                                Você precisa preencher se é você possui alguma deficiência!
                                             </div>
                                         </li>
                                     </div>
@@ -443,20 +458,7 @@
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <li><strong>FOTO:&nbsp;&nbsp;&nbsp;</strong>
-                                            @if(Auth::user()->foto != null)
-                                            <img src="{{url('/fotos/'.Auth::user()->foto)}}"
-                                                alt="{{Auth::user()->name}}" style="max-width: 50px;">
-                                            @endif
-                                            <p>Anexe sua foto aqui, dessa forma seu currículo ficará mais atrativo, o
-                                                que aumenta a possibilidade de ser selecionado.</p>
-                                            <input type="file" class="form-control-file" id="foto" name="foto"
-                                                title="Alterar Foto de Perfil" accept='image/*'>
-                                        </li>
 
-                                    </div>
-                                    <br>
                                     <div class="form-group" style="text-align: end;">
                                         <button type="submit" class="btn btn-primary" id="botaosalvarend"
                                             title="Confirmar Alterações" value="{{Auth::user()->id}}">Salvar<span

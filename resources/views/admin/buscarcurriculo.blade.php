@@ -36,8 +36,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm" style="text-align: center;">
-                                <h2 class="mb-0" style="color:dodgerblue; font-size:25px; text-align:center">
-                                    Buscar Curriculo
+                                <h2 class="mb-0" style="color:dodgerblue; font-size:25px; text-align:start">
+                                    LISTAGEM DE CURRÍCULOS
                                     <span class="fa-stack fa-sm">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fas fa-search fa-stack-1x fa-inverse"></i>

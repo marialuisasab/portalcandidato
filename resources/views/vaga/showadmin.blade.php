@@ -6,7 +6,6 @@
 
 {{-- link do javascript --}}
 <script src="/js/vagas/vagas.js"></script>
-<script src="/js/Admin/admin.js"></script>
 <script src="/js/Admin/busca_avancada.js"></script>
 
 @section('content')

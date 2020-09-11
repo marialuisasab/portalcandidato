@@ -144,7 +144,7 @@
 
 
 									<div class="form-group">
-										<li><strong> CTPS:&nbsp;&nbsp;&nbsp;</strong>
+										<li><strong> NÚMERO DA CARTEIRA DE TRABALHO:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control" name="ctps" id="ctps"
 												placeholder="CTPS" value="{{$c->ctps}}"
 												title="Numero da Carteira de Trabalho">
@@ -407,7 +407,7 @@
 
 						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group">
-							<li><strong>POSSUI CNH?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<li><strong>POSSUI CARTEIRA DE HABILITAÇÃO?&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
 									<input class="form-check-input" type="radio" name="tenhocnh" id="tenhocnh"
 										value="1">
@@ -429,7 +429,7 @@
 
 						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group" style="display: none;" id="selcatcnh">
-							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<li><strong> CATEGORIA DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}"
 									title="Categoria da CNH">
 									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar
@@ -451,7 +451,7 @@
 						</div>
 						@else
 						<div class="form-group" id="selcatcnh">
-							<li><strong> CATEGORIA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<li><strong> CATEGORIA DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<select class="custom-select" id="catcnh" name="catcnh" value="{{$c->catcnh}}"
 									title="Categoria da CNH">
 									<option value="" {{$c->catcnh == null ? 'selected' : ''}}>Selecionar
@@ -473,7 +473,7 @@
 
 						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group" style="display: none;" id="seleorigcnh">
-							<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<li><strong> ESTADO DE ORIGEM DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}"
 									title="Estado de Origem da CNH">
 									<option value="">Selecionar:</option>
@@ -489,7 +489,7 @@
 						</div>
 						@else
 						<div class="form-group" id="seleorigcnh">
-							<li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<li><strong> ESTADO DE ORIGEM DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}"
 									title="Estado de Origem da CNH">
 									<option value="">Selecionar:</option>
@@ -510,14 +510,14 @@
 
 						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group" style="display: none;" id="numcnh">
-							<li><strong> NUMERO DA CNH:&nbsp;&nbsp;</strong><span> </span>
+							<li><strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;</strong><span> </span>
 								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
 									value="{{$c->cnh}}" title="Numero da CNH">
 							</li>
 						</div>
 						@else
 						<div class="form-group" id="numcnh">
-							<li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
+							<li><strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO :&nbsp;&nbsp;&nbsp;</strong><span> </span>
 								<input type="text" class="form-control" name="cnh" id="cnh" placeholder="CNH"
 									value="{{$c->cnh}}" title="Numerp da CNH">
 							</li>
@@ -527,7 +527,7 @@
 
 
 						<div class="form-group">
-							<li style="word-break: break-word;"><strong> OBJETIVOS :&nbsp;&nbsp;&nbsp;</strong>
+							<li style="word-break: break-word;"><strong> OBJETIVOS:&nbsp;&nbsp;&nbsp;</strong>
 								<textarea class="form-control" id="sobre" rows="3" name="sobre" value=""
 									title="Objetivos Pessoais"
 									placeholder="Descreva seus objetivos...">{{$c->sobre}}</textarea>

@@ -144,7 +144,7 @@
 
 
                                     <div class="form-group">
-                                        <li><strong> CTPS:&nbsp;&nbsp;&nbsp;</strong>
+                                        <li><strong> NÚMERO DA CARTEIRA DE TRABALHO:&nbsp;&nbsp;&nbsp;</strong>
                                             <input type="text" class="form-control" name="ctps" id="ctps"
                                                 placeholder="CTPS" title="Numero da Carteira de Trabalho">
                                         </li>
@@ -383,7 +383,7 @@
 
 
                                     <div class="form-group">
-                                        <li><strong>POSSUI CNH?&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                        <li><strong>POSSUI CARTEIRA DE HABILITAÇÃO?&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                             <div class="form-check form-check-inline" id="idposscnh" name="idposscnh">
                                                 <input class="form-check-input" type="radio" name="tenhocnh"
                                                     id="tenhocnh" value="1">
@@ -400,7 +400,7 @@
 
 
                                     <div class="form-group" style="display: none;" id="selcatcnh">
-                                        <li><strong> CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                        <li><strong> CATEGORIA DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                             <select class="custom-select" id="catcnh" name="catcnh"
                                                 title="Categoria da CNH">
                                                 <option value="" selected>Selecionar</option>
@@ -426,7 +426,7 @@
 
 
                                     <div class="form-group" style="display: none;" id="seleorigcnh">
-                                        <li><strong> UF DE ORIGEM DA CNH:&nbsp;&nbsp;&nbsp;</strong><span></span>
+                                        <li><strong> ESTADO DE ORIGEM DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
                                             <select class="custom-select" id="ufcnh" name="ufcnh" placeholder="UF"
                                                 title="Categoria da CNH" title="Estado de Origem da CNH">
                                                 <option value="" selected>Selecionar</option>
@@ -440,7 +440,7 @@
 
 
                                     <div class="form-group" style="display: none;" id="numcnh">
-                                        <li><strong> NUMERO DA CNH :&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                                        <li><strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span> </span>
                                             <input type="text" class="form-control" name="cnh" id="cnh"
                                                 placeholder="CNH" title="Numero da CNH">
                                         </li>

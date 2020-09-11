@@ -68,9 +68,10 @@ class CurriculosController extends Controller
         $endereco = $dados[3];
         $experiencia = $dados[4]; 
         $habilidades = $dados[5]; 
-        $curriculos = $dados[6];        
+        $curriculos = $dados[6];  
+        $redes = $dados[7];      
         
-        return view('curriculocompleto.show', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos']));          
+        return view('curriculocompleto.show', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos'],['redes']));          
     }
 
     /**
@@ -138,10 +139,11 @@ class CurriculosController extends Controller
         $endereco = $dados[3];
         $experiencia = $dados[4]; 
         $habilidades = $dados[5]; 
-        $curriculos = $dados[6];     
+        $curriculos = $dados[6];  
+        $redes = $dados[7];   
 
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                    ->loadView('curriculocompleto.show_pdf', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos']));
+                    ->loadView('curriculocompleto.show_pdf', compact(['users'], ['curriculovaga'], ['cursos'], ['endereco'], ['experiencia'], ['habilidades'], ['curriculos'], ['redes']));
 
         return $pdf->setPaper('a4')->download('Curriculo_Candidato.pdf');
       

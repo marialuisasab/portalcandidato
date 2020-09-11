@@ -16,6 +16,7 @@ use App\Nivel;
 use App\Curriculo;
 use App\Tipo;
 use App\RedeSocial;
+use App\RedeSocialCurriculo;
 use App\Admin;
 use App\CurriculoVaga;
 use App\Vaga;
@@ -245,8 +246,10 @@ class Helper
 
         $curriculos = Curriculo::where('idcurriculo', $id)->get();
 
+        $redes = RedeSocialCurriculo::where('curriculo_idcurriculo', $id)->get();
+
     
-        return [$users, $curriculoVaga, $cursos, $endereco, $experiencia, $habilidade, $curriculos];
+        return [$users, $curriculoVaga, $cursos, $endereco, $experiencia, $habilidade, $curriculos, $redes];
     }
 
     public static function getIdade($dtnasc){ 
@@ -268,7 +271,7 @@ class Helper
     public static function filtrarCurriculos($dados){
         
         //dd($dados);
-        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'v.curriculo_idcurriculo')
+        $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'v.curriculo_idcurriculo', 'obs')
                     ->join('users as u', 'users_id', '=', 'u.id')
                     ->leftJoin('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
                     ->leftJoin('curso as f', 'idcurriculo', '=', 'f.curriculo_idcurriculo')
@@ -315,7 +318,7 @@ class Helper
     public static function filtrarPalavraChave($palavra){
 
 
-         $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
+         $resultado = Curriculo::select('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'obs')
                     ->leftJoin('users as u', 'users_id', '=', 'u.id')
                     ->leftJoin('endereco as e', 'endereco_idendereco', '=', 'e.idendereco')
                     ->leftJoin('cidade as cid', 'e.cidade_idcidade', '=', 'cid.idcidade')
@@ -346,7 +349,8 @@ class Helper
                                     ->orWhere('x.cargo','like', '%'.$palavra.'%')
                                     ->orWhere('x.atividades','like', '%'.$palavra.'%')
                                     ->orWhere('t.nome','like', '%'.$palavra.'%')
-                                    ->orWhere('v.observ','like', '%'.$palavra.'%');
+                                    ->orWhere('v.observ','like', '%'.$palavra.'%')
+                                    ->orWhere('obs','like', '%'.$palavra.'%');
                         }
                     })
 

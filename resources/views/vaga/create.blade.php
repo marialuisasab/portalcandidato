@@ -132,7 +132,7 @@
 
 
                                 <div class="form-group">
-                                    <li><strong> REQUISITOS:*:&nbsp;&nbsp;&nbsp;</strong>
+                                    <li><strong> REQUISITOS:*&nbsp;&nbsp;&nbsp;</strong>
                                         <textarea class="form-control" id="idrequisitos" rows="3" name="requisitos"
                                             title="Texto informando os requisitos"
                                             placeholder="Requisitos para ocupar a vaga..."></textarea>

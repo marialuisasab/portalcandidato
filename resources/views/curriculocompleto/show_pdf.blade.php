@@ -72,11 +72,11 @@
                                         {{$c->rg}}
                                     </li>
                                     @if ($c->ctps!= null)
-                                    <li><strong>CTPS:&nbsp;&nbsp;&nbsp;</strong>
+                                    <li><strong>CARTEIRA DE TRABALHO:&nbsp;&nbsp;&nbsp;</strong>
                                         {{$c->ctps}}
                                     </li>
                                     @else
-                                    <li><strong>CTPS:&nbsp;&nbsp;&nbsp;</strong>
+                                    <li><strong>CARTEIRA DE TRABALHO:&nbsp;&nbsp;&nbsp;</strong>
                                         <span style="color: red;"> Não informado!</span>
                                     </li>
                                     @endif
@@ -196,7 +196,7 @@
                                     </li>
                                     @endif
                                     <li>
-                                        <strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>
+                                        <strong>CATEGORIA DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                                         @if($c->catcnh == null)
                                         <span style="color: red;"> Não informado!</span>
                                         @else
@@ -205,18 +205,18 @@
                                     </li>
                                     @if ($c->cnh!=null)
                                     <li>
-                                        <strong> NÚMERO DA CNH:&nbsp;&nbsp;&nbsp;</strong>
+                                        <strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                                         {{$c->cnh}}
                                     </li>
                                     @else
                                     <li>
-                                        <strong> NÚMERO DA CNH:&nbsp;&nbsp;&nbsp;</strong>
+                                        <strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                                         <span style="color:red;">Não informado!</span>
                                     </li>
                                     @endif
                                     @if ($c->ufcnh == null)
                                     <li>
-                                        <strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong>
+                                        <strong> ESTADO DE ORIGEM DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                                         <span style="color: red;">Não informado!</span>
                                     </li>
                                     @else
@@ -478,6 +478,28 @@
                                 </li>
                             </ul>
                             @endforeach
+
+      <!---------------------------------------------------------------------------------------------------->
+                             @if($redes->count())
+                                <h4 style="margin-top: 50px; color: dodgerblue;"> REDES SOCIAIS</h4>
+                                <hr>
+                            @endif
+                            @foreach($redes as $rs)
+                                                              
+                            <ul style="list-style-type: none;">
+                              <li>
+                                <strong>{{Helper::getRedeCurriculo($rs->redesocial_idredesocial)}}:&nbsp;&nbsp;&nbsp;
+                                </strong>
+                                @if($rs->link == null)
+                                <span style="color: red;">Não informado!</span>
+                                @else
+                                {{$rs->link}}
+                                @endif
+                              </li>                                      
+                            </ul>
+                                  
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>

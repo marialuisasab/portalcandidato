@@ -132,10 +132,10 @@
 								<hr>
 
 								@if ($candDados->ctps!= null)
-								<li><strong> CARTEIRA DE TRABALHO(CTPS):&nbsp;&nbsp;&nbsp;</strong>
+								<li><strong> NÚMERO DA CARTEIRA DE TRABALHO:&nbsp;&nbsp;&nbsp;</strong>
 									{{$candDados->ctps}}</li>
 								@else
-								<li><strong> CARTEIRA DE TRABALHO(CTPS):&nbsp;&nbsp;&nbsp;</strong>
+								<li><strong> NÚMERO DA CARTEIRA DE TRABALHO:&nbsp;&nbsp;&nbsp;</strong>
 									<span style="color: red;"> Não informado!</span></li>
 								@endif
 
@@ -289,7 +289,7 @@
 								<hr>
 
 
-								<li><strong>CATEGORIA DA CNH:&nbsp;&nbsp;&nbsp;</strong>
+								<li><strong>CATEGORIA DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
 									@if($candDados->catcnh == null)
 									<span style="color: red;"> Não informado!</span>
 									@else
@@ -300,22 +300,22 @@
 
 
 									@if ($candDados->cnh!=null)
-								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
+								<li><strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
 									{{$candDados->cnh}}</li>
 								@else
-								<li><strong> CARTEIRA DE HABILITAÇÃO (Nº CNH):&nbsp;&nbsp;&nbsp;</strong>
+								<li><strong> NÚMERO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>
 									<span style="color:red;">Não informado!</span></li>
 								@endif
 								<hr>
 
 
 								@if ($candDados->ufcnh == null)
-								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+								<li><strong> ESTADO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
 										informado!</span></li>
 								@else
 								@foreach (Helper::getEstados() as $estados)
 								@if($estados->idestado == $candDados->ufcnh)
-								<li><strong> UF DA CNH:&nbsp;&nbsp;&nbsp;</strong>{{$estados->nome}}</li>
+								<li><strong> ESTADO DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong>{{$estados->nome}}</li>
 								@else
 								@endif
 								@endforeach
@@ -450,34 +450,6 @@
 </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -582,7 +582,7 @@
                                             <th>Naturalidade</th>
                                             <th>Cidade</th>
                                             <th>Atualização</th>
-                                            <th>observação</th>
+                                            <th>Observação</th>
                                             <th></th>
                                         </tr>
                                     </thead>

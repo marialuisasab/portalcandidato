@@ -58,7 +58,7 @@
             </div>
             <a href="{{route('buscarcurriculo')}}" class="small-box-footer" data-toggle="tooltip"
               title="Visualizar currículos" style="color:white;"> 
-              Mais Informações <i style="color:white;"class="fa fa-arrow-circle-right"></i>
+              Mais Informações <i style="color:white;" class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
@@ -104,7 +104,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="{{route('listar')}}" class="small-box-footer" data-toggle="tooltip"
+            <a href="{{route('buscarcurriculo')}}" class="small-box-footer" data-toggle="tooltip"
               title="Clique para ver as vagas que você se candidatou">Mais Informações <i
                 class="fa fa-arrow-circle-right"></i></a>
           </div>

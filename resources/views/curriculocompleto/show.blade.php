@@ -597,6 +597,30 @@
                                 </div>
                             </div>
                             @endforeach
+
+        <!---------------------------------------------------------------------------------------------------->
+                            <h4 style="margin-top: 50px; color: dodgerblue;"> REDES SOCIAIS</h4>
+                            <hr>
+
+                            @foreach($redes as $rs)
+                              <div class="container">
+                                <div class="row" style="margin-top: 25px;">
+                                  <div class="col-sm">                                    
+                                    <ul style="list-style-type: none; margin-right: auto;">
+                                      <li>
+                                        <strong>{{Helper::getRedeCurriculo($rs->redesocial_idredesocial)}}:&nbsp;&nbsp;&nbsp;
+                                        </strong>
+                                        @if($rs->link == null)
+                                        <span style="color: red;">Não informado!</span>
+                                        @else
+                                        {{$rs->link}}
+                                        @endif
+                                      </li>                                      
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              @endforeach
                         </div>
                     </div>
                 </div>

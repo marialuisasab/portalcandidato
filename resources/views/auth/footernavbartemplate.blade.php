@@ -7,14 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>{{ config('app.name', 'Trabalhe do Candidato') }}</title>
+  <title>{{ config('app.name', 'Trabalhe Conosco') }}</title>
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
-
-  <!-- Popper-->
 
   <!-- ReCAPTCHA -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -32,9 +30,6 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbarLogin">
 
-      <!-- <a class="navbar-brand" href="{{ url('/') }}">
-          <img src="img/ImagemBioextratus.png" width="160" height="50" alt="">
-        </a> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
@@ -54,56 +49,30 @@
           </li>
 
           @if (Route::has('register'))
-          <li class="nav-item active">
-            <a class="navbar-brand" href=" {{ route('register') }}" style="color: gray;" type="button"
-              title="Registrar novo usuário">Criar uma conta
-              <span class=" fas fa-user-plus px-2" style="font-size: 30px;"></span>
-            </a>
-          </li>
-
-          {{-- <li class="nav-item dropdown">
-            <ul style="margin-left: auto;" title="Idiomas">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <img class="px-25" src="/img/ImagemBrasil.png" width="40" height="30" class="d-inline-block align-top"
-                  alt="">
+            <li class="nav-item active">
+              <a class="navbar-brand" href=" {{ route('register') }}" style="color: gray;" type="button"
+                title="Registrar Novo Usuário">Criar uma conta
+                <span class=" fas fa-user-plus px-2" style="font-size: 30px;"></span>
               </a>
-
-              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="" title="Português">
-                  <img src="/img/ImagemBrasil.png" role="button" width="40" height="30" class="d-inline-block align-top"
-                    alt="">
-                </a>
-
-                <a class="dropdown-item" href="">
-                  <img src="/img/ImagemEspanha.jpg" role="button" width="40" height="30"
-                    class="d-inline-block align-top" alt="" title="Spanish">
-                </a>
-                <a class="dropdown-item" href="">
-                  <img src="/img/ImagemIngles.jpg" role="button" width="40" height="30" class="d-inline-block align-top"
-                    alt="" title="English">
-                </a>
-              </div>
-            </ul>
-          </li> --}}
-
+            </li>         
+         
           @endif
           @else
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+            <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
               </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            </div>
-          </li>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </div>
+            </li>
           @endguest
         </ul>
       </div>
@@ -114,7 +83,7 @@
         <div class="card" id="CabecalhoBody">
           <div class="container" id="containerPortalBio">
             <div class="row" id="rowportal">
-              <a class="ExtratusLogin" href="/">Portal do Candidato <b class="BioLogin">BIO</b>EXTRATUS</a>
+              <a class="ExtratusLogin">Trabalhe Conosco <br><b class="BioLogin">BIO</b>EXTRATUS</a>
             </div>
           </div>
           @yield('footerconteudo')

@@ -121,27 +121,11 @@ class CurriculosController extends Controller
     }
 
     public function getCidadesModal($id) {
-     $cidades = Cidade::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
-     // return $cidade->nome;
-     // $estado = $this->estadoModel->find($idEstado);
-     // $cidades = $estado->cidades()->getQuery()->get(['id', 'cidade']);
-     return Response::json($cidades);
+        $cidades = Cidade::where('estado_idestado', $id)->orderBy('nome','ASC')->get();
+        return Response::json($cidades);
     }
 
 
-    // // buscando dados dos usuarios que possuem curriculos e dos curriculos deste usuario
-    // public function buscar(){
-    //     /*$users = DB::table('users')
-    //         ->join('curriculo', 'users.id', '=', 'curriculo.users_id')
-    //         ->select('users.*', 'curriculo.*')->orderBy('name','ASC')
-    //         ->paginate(30);*/
-    //     $users = Helper::getTodosCurriculos();
-    //     return view('admin.buscarcurriculo', compact(['users']));
-    // }
-
-	/*public function visualizarcurriculo($id){
-        return Helper::getCurriculoCompleto($id);
-	}*/
 
     public function gerarPdf($id){
 

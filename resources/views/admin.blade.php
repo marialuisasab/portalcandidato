@@ -16,111 +16,102 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-xs-3 col-md-3" style="background-color: white;">
-            <div style="text-justify:  center;">
-                @if(count($admin)==0)
-                <ul style="text-align: center;">
-                    <p>Você não é um usuario cadastrado e bla...</p>
-                </ul>
-                @endif
-
-                @foreach($admin as $item)
-                <ul style="text-align: center;">
-                    <p style="padding-left: 10px;"><strong class="lead"
-                            style="font-family: Arial, Helvetica, sans-serif;">Nome:</strong><em
-                            style="padding-left: 10px;">{{Auth::user()->name}}</em></p>
-                    <p style="padding-left: 10px;"><strong class="lead"
-                            style="font-family: Arial, Helvetica, sans-serif;">ID
-                            administrador:</strong><em style="padding-left: 10px;">{{Auth::user()->id}}</em></p>
-                    <p style="padding-left: 10px;"><strong class="lead"
-                            style="font-family: Arial, Helvetica, sans-serif;">Email:</strong><em
-                            style="padding-left: 10px;">{{Auth::user()->email}}</em></p>
-                </ul>
-                @endforeach
-            </div>
-        </div>
-        <div class="col-xs-7 col-md-7" style="background-color: white;">
+       
+        <div class="col-sm" style="background-color: white;">
             <div class="box box-primary">
                 <div class="box-body box-profile">
 
                     <div class="card-body" style="text-align: center;">
                         @if(Auth::user()->foto != null)
-                        <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
-                            style="max-width: 100px; text-align: center; border-radius: 50%;">
+                            <img src="{{url('/fotos/'.Auth::user()->foto)}}" alt="{{Auth::user()->name}}"
+                                style="max-width: 100px; text-align: center; border-radius: 50%;">
                         @else
-                        <img class="profile-user-img img-responsive img-circle" src="/img/imagemtie.png"
-                            alt="Usuário sem foto">
-                        @endif
+                            <img class="profile-user-img img-responsive img-circle" src="/img/usuariopadrao.png"
+                                alt="Usuário sem foto">
+                         @endif
                     </div>
+
                     <h3 class="profile-username text-center" style="font-family: Arial, Helvetica, sans-serif;">
-                        Seja Bem-Vindo(a), {{Auth::user()->name}}</h3>
-                    <p style="padding-left: 10px; text-align: center;"><strong class="lead">Verifique as suas opções de
-                            gerenciamento do sistema no menu ao lado!!!</strong>
+                            Seja Bem-Vindo(a), {{Auth::user()->name}}
+                    </h3>
+                    <p style="padding-left: 10px; text-align: center;"><strong class="lead">
+                        {{Auth::user()->email}}<br>
+                        Verifique suas opções de gerenciamento no sistema</strong>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row" style="margin-top: 100px;">
-        {{-- <div class=" col-md">
-            <div class="d-flex border">
-                <div class="bg-primary text-light p-4">
-                    <div class="d-flex align-items-center h-100">
-                        <i class="fa fa-3x fa-fw fa-cog"></i>
-                    </div>
-                </div>
-                <div class="flex-grow-1 bg-white p-4">
-                    <p class="text-uppercase text-secondary mb-0">Configuração</p>
-                    <h3 class="font-weight-bold mb-0"></h3>
-                </div>
-            </div>
-        </div> --}}
-        <div class="col-md">
-            <div class="d-flex border">
-                <div class="bg-success text-light p-4">
-                    <div class="d-flex align-items-center h-100">
-                        <i class="fa fa-3x fa-fw fa-circle-notch"></i>
-                    </div>
-                </div>
-                <div class="flex-grow-1 bg-white p-4">
-                    <p class="text-uppercase text-secondary mb-0" style="text-align: center;">Processos Em Andamento</p>
-                    <p class="text-uppercase text-secondary mb-0" style="text-align: center;text-size:50px;">
 
-                        {{Helper::getVagaAberta()}}
-                    </p>
-                    <h3 class="font-weight-bold mb-0"></h3>
-                </div>
+
+    <div class="row">
+
+        <div class="col-lg-3 col-xs-6" >
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3 style="color:white;">{{Helper::getTotalCurriculos()}}</h3>
+              <p style="text-align: center; color: white;">Currículos cadastrados</p>
             </div>
-        </div>
-        <div class="col-md">
-            <div class="d-flex border">
-                <div class="bg-danger text-light p-4">
-                    <div class="d-flex align-items-center h-100">
-                        <i class="fa fa-3x fa-fw fa-bullhorn"></i>
-                    </div>
-                </div>
-                <div class="flex-grow-1 bg-white p-4">
-                    <p class="text-uppercase text-secondary mb-0">Anunciar Vagas</p>
-                    <h3 class="font-weight-bold mb-0"></h3>
-                </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
             </div>
+            <a href="{{route('buscarcurriculo')}}" class="small-box-footer" data-toggle="tooltip"
+              title="Visualizar currículos" style="color:white;"> 
+              Mais Informações <i style="color:white;"class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
         </div>
-        <div class="col-md">
-            <div class="d-flex border">
-                <div class="bg-info text-light p-4">
-                    <div class="d-flex align-items-center h-100">
-                        <i class="fa fa-3x fa-fw fa-envelope"></i>
-                    </div>
-                </div>
-                <div class="flex-grow-1 bg-white p-4">
-                    <p class="text-uppercase text-secondary mb-0">Email</p>
-                    <h3 class="font-weight-bold mb-0"></h3>
-                </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{Helper::getTotalVagas()}}</h3>
+              <p style="text-align: center;">Vagas cadastradas</p>
             </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="{{route('listar')}}" class="small-box-footer" data-toggle="tooltip"
+              title="Visualizar vagas">
+              Mais Informações <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
         </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>{{Helper::getTotalProcessos()}}</h3>
+              <p style="text-align: center;">Processos em andamento</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="{{route('listar')}}" class="small-box-footer toltipclass" data-toggle="tooltip"
+              title="Visualizar vagas">Mais Informações <i
+                class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>{{Helper::getTotalCurriculosObservacao()}}</h3>
+              <p style="text-align: center">Currículos contém observação</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="{{route('listar')}}" class="small-box-footer" data-toggle="tooltip"
+              title="Clique para ver as vagas que você se candidatou">Mais Informações <i
+                class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-</div>
 </div>
 
 

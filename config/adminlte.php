@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Trabalhe Conosco</b><p></p><b><strong>BIO</strong></b><b class="lead"><em>EXTRATUS<em></b>',
+    'logo' => '<b>Trabalhe Conosco</b><br><b><strong>BIO</strong></b>EXTRATUS',
     'logo_img' => false,
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -167,7 +167,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => '/', //url do trabalheconosco
+    'dashboard_url' => '', //url do trabalheconosco
 
     'logout_url' => 'logout',
 

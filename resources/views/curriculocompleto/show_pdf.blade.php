@@ -39,11 +39,11 @@
                                 <div class="col" style="text-align: center;">
                                     <div class="row">
                                         @if($c->foto != null)
-                                        <img src="{{public_path('/fotos/'.$c->foto)}}" alt="{{$c->name}}"
+                                        <img src="{{url('/fotos/'.$c->foto)}}" alt="{{$c->name}}"
                                             style="max-width: 120px; border-radius: 50%;">
                                         @else
                                         <img class="profile-user-img img-responsive img-circle"
-                                            src="{{public_path('img/usuariopadrao.png')}}" alt="Sem foto"
+                                            src="{{url('img/usuariopadrao.png')}}" alt="Sem foto"
                                             style="color: red;">
                                         @endif
                                     </div>

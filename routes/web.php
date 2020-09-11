@@ -33,15 +33,6 @@ Route::get('/get-cidadesmodal/{id}','CurriculosController@getCidadesModal');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@index')->name('admin.index');
-Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
-Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-
-Route::group(['prefix'=>'admins'], function(){
-	Route::get('/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admins.showResetForm');
-	Route::get('/resetemail/{user_type}', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('admins.showResetEmailForm');
-	Route::post('/reset', 'Auth\ResetPasswordController@reset')->name('admins.password.update');
-});
 
 Route::get('/curriculo', 'CurriculoController@index')->name('curriculo.dados');
 Route::get('/curriculo/dados', 'CurriculoController@create')->name('curriculo.novo');
@@ -105,6 +96,19 @@ Route::get('/imprimirCurriculo/{id}','CurriculoController@gerarPdf')->name('impr
 /*--------------------------------------------------------------------------------------
 Rotas do admin
 --------------------------------------------------------------------------------------*/
+
+Route::get('/admin', 'AdminController@index')->name('admin.index');
+Route::get('/admin/login', 'Auth\AdminLoginController@index')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+Route::group(['prefix'=>'admins'], function(){
+	Route::get('/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admins.showResetForm');
+	Route::get('/resetemail/{user_type}', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('admins.showResetEmailForm');
+	Route::post('/reset', 'Auth\ResetPasswordController@reset')->name('admins.password.update');
+});
+
+Route::get('/editarperfil/{id}', 'AdminController@editarPerfil')->name('perfil.editar');
+Route::post('/perfil/{id}', 'AdminController@updatePerfil');
 
 Route::get('/novavaga', 'VagasController@create')->name('vaga.novo');
 Route::post('/salvarvaga', 'VagasController@store')->name('vaga.salvar');

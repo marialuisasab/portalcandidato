@@ -207,21 +207,16 @@ class CurriculoController extends Controller
                 }
                 $c->foto = $arquivo;                  
             }
-            //dd($c);
-            if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){         
-              
-                            // ->with('success', 'Dados cadastrados com sucesso!');
-                         flash('Informações gravadas com sucesso!')->success();
-                           return redirect()->route('curriculo.dados');
+            if ($this->updateUser($user, $c->foto, $request->nome) && $c->save()){   
+                flash('Informações gravadas com sucesso!')->success();
+                return redirect()->route('curriculo.dados');
             }else {
-                         flash('Falha ao gravar as informações!')->error();
+                flash('Falha ao gravar as informações!')->error();
                 return redirect()->back();
-                            // ->with('error', 'Falha ao gravar as informações!');
             }
         }
-         flash('Currículo não encontrado!')->error();
+        flash('Currículo não encontrado!')->error();
         return redirect()->back();
-                // ->with('error', 'Currículo não encontrado!');
     }
 
     /**

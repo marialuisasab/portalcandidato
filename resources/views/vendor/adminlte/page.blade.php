@@ -160,10 +160,6 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             <a href="{{route('admin.index')}}" class="sino mr-5">
                                 <span class="fas fa-home" title="Início"></span>
                             </a>
-                            {{-- <a href="/ManualFaleConosco/manualsuporte.pdf" class="mr-5">
-                                <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
-                                    title="Precisa de ajuda?"></span>
-                            </a> --}}
                         </div>
                     </li>
                 </ul>
@@ -174,7 +170,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         <img src="{{'/fotos/'.Auth::user()->foto}}" alt="{{Auth::user()->name}}"
                             style="max-width: 50px; text-align: center; border-radius: 50%; margin-right:10px;">
                         @else
-                        <img class="profile-user-img img-responsive img-circle" src="/img/imagemtie.png"
+                        <img class="profile-user-img img-responsive img-circle" src="/img/usuariopadrao.png"
                             alt="Usuário sem foto"
                             style="max-width: 50px; text-align: center; border-radius: 50%; margin-right: 10px;">
                         @endif
@@ -304,37 +300,28 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             <nav class="mt-2">
 
                 <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
-                    <li class="nav-header" id="admin" style="color:red; background-color: white;">Perfil do
-                        Administrador</li>
-                    <li class="nav-header">Gerenciamento do Sistema:</li>
+                    <li class="nav-header" id="admin" >Perfil do Administrador</li>     
+                                  
                     <li class="nav-item">
-                        <a class="nav-link" style="color:white;" type="button" id="">
+                        <a class="nav-link" style="color:white;" href="{{route('perfil.editar', Auth::user()->id)}}" type="button" id="">
                             <i class="fas fa-fw fas fa-user-edit "></i>
                             <p>
                                 Editar Perfil
                             </p>
                         </a>
                     </li>
+                    <hr>
+                    <li class="nav-header">Gerenciamento de Currículos:</li>
                     <li class="nav-item ">
                         <a class="nav-link" style="color:white;" href="/buscarcurriculo" id="" type="button">
                             <i class="fas fa-fw fas fa-search-plus "></i>
                             <p>
-                                Buscar Curriculos
+                                Buscar Currículos
                             </p>
                         </a>
                     </li>
-
                     <hr>
-                    <li class="nav-header">Gerenciamento de Vagas:</li>
-                    {{-- <li class="nav-item has-treeview">
-                        <a class="nav-link nav-item" style="color:white;" href="#">
-                            <i class="fas fa-fw fa-share "></i>
-                            <p>
-                              
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a> --}}
-
+                    <li class="nav-header">Gerenciamento de Vagas:</li>    
                     <li class="nav-item ">
                         <a class="nav-link" style="color:white;" href="{{route('listar')}}" type="button">
                             <i class="fas fa-fw fa-tasks "></i>
@@ -348,17 +335,6 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                             <i class="fas fa-fw fa-plus "></i>
                             <p>
                                 Cadastrar Vaga
-                            </p>
-                        </a>
-                    </li>
-
-
-                    <hr>
-                    <li class="nav-item ">
-                        <a class="nav-link" style="color:white;" href="{{route('contatosuporte')}}">
-                            <i class="fas fa-fw fa-headset "></i>
-                            <p>
-                                Fale Conosco
                             </p>
                         </a>
                     </li>
@@ -474,10 +450,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
                                     title="Precisa de ajuda?"></span>
                             </a>
-                            {{-- <a href="#"
-                                onClick="window.open('ManualFaleConosco/manualsuporte.ppt','pagename','resizable,height=260,width=370'); return false;">Clique
-                                aqui</a><noscript>Você precisa estar com o javascript ativado, caso contrário <a
-                                    href="pagina.html" target="_blank">clique aqui</a></noscript> --}}
+                            
                         </div>
                     </li>
                 </ul>

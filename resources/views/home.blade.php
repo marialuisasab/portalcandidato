@@ -106,42 +106,37 @@
             @foreach($candidato as $item)
             <ul style="text-align: center;">
               @if($item->telefone1!= null)
-              <p style="padding-left: 10px; margin-right: 50px; margin-top: 30px;"><strong class="lead"
-                  style="font-family: Arial, Helvetica, sans-serif;">Telefone:</strong> {{$item->telefone1}}</p>
-              @else
-              <p style="padding-left: 10px;"><strong class="lead">Sem informações cadastradas!!!</strong> </p>
+                <p style="padding-left: 10px; text-align: center;">
+                  <strong class="lead">
+                      Telefone: {{$item->telefone1}}</strong>
+                </p>               
+
               @endif
-
-
-
-              <p style="padding-left: 10px;"><strong class="lead"
-                  style="font-family: Arial, Helvetica, sans-serif;">Email:</strong><em
-                  style="padding-left: 10px;">{{Auth::user()->email}}</em></p>
-
-
-
+              <p style="padding-left: 10px; text-align: center;">
+                  <strong class="lead">
+                      E-mail: {{Auth::user()->email}}
+                  </strong>
+              </p>
             </ul>
-
-            <div class="card-body">
-
-
-
-              <div class="card text-white bg-info mb-3" style="text-align: center; margin-top: -20px;">
-                <h5 style="text-align: center; font-family: Palatino Linotype, Book Antiqua, Palatino, serif">Sobre Mim:
-                </h5>
-                <hr>
-                <div class="card-body">
-
-                  <p class="card-text" style="text-align: justify;">{{$item->sobre}}</p>
-
+            @if(!is_null($item->sobre))
+              <div class="card-body">
+                <div  style="text-align: center; margin-top: -20px;">
+                  <h5 style="text-align: center;">
+                    Objetivos Profissionais
+                  </h5>
+                  <hr>
+                  <div class="card-body">
+                    <p style="padding-left: 10px;">
+                      <strong class="lead">
+                           {{$item->sobre}}
+                      </strong>
+                    </p> 
+                  </div>
                 </div>
               </div>
-            </div>
-            @endforeach
+            @endif
+          @endforeach
 
-
-            {{-- <a href="/curriculo/editar/{{Auth::user()->id}}" class="btn btn-primary btn-block"><b>Editar
-              Perfil</b></a> --}}
 
           </div>
 
@@ -163,7 +158,7 @@
       <div class="small-box bg-yellow">
         <div class="inner">
           <!--<h3>44</h3>-->
-          <p style="text-align: center;">Completar currículo</p>
+          <p style="text-align: center;">Completar Currículo</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
@@ -196,7 +191,7 @@
         <div class="inner">
           <!--<h3>150</h3>-->
 
-          <p style="text-align: center;">Suporte Tecnico</p>
+          <p style="text-align: center;">Suporte Técnico</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>

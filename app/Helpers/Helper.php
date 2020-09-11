@@ -220,15 +220,8 @@ class Helper
             return "Desclassificado(a)";
         else 
             return "Encerrado";
-    }
-    
-    public static function getTodosCurriculos(){
-
-        return Curriculo::join('users', 'id', '=', 'users_id')
-                        ->orderBy('name', 'ASC')
-                        ->paginate(50);       
-        
-    }
+    }   
+   
 
     public static function getCurriculoCompleto($id){
 
@@ -363,5 +356,21 @@ class Helper
                     //dd($resultado);     
          return $resultado;             
 
+    }
+
+    public static function getTotalCurriculos(){
+        return Curriculo::all()->count();
+    }
+
+    public static function getTotalVagas(){
+        return Vaga::all()->count();
+    }
+
+    public static function getTotalProcessos(){
+        return Vaga::where('status',1)->count();
+    }
+
+    public static function getTotalCurriculosObservacao(){
+        return Curriculo::where('obs','!=','')->count();
     }
 }

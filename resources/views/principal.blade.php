@@ -143,7 +143,9 @@
                 <div class="row">
                   <h5>
                     Veja abaixo as vagas disponíveis, ou, caso não encontre uma vaga no momento, não
-                    se preocupe, deixe seus dados cadastrados em nosso Banco de Talentos.<br>Clique <a name="cadastrar" href="{{route('home')}}" class="badge badge-info" style="color:white;"><u>aqui</u></a> para entrar e cadastrar o seu currículo.
+                    se preocupe, deixe seus dados cadastrados em nosso Banco de Talentos.<br>Clique <a name="cadastrar"
+                      href="{{route('home')}}" class="badge badge-info" style="color:white;"><u>aqui</u></a> para entrar
+                    e cadastrar o seu currículo.
                   </h5>
                 </div>
                 <hr>
@@ -167,20 +169,20 @@
               <input class="form-control mr-sm-2" type="text" placeholder="Filtrar pelo cargo, vaga..."
                 aria-label="Search" title="Buscar por vaga" id="buscarvaga">
             </form>
-            <div class="is-invalid" style="color:red; display: none;" id="idmensagembuscarvaga"> 
-              <strong>Não encontramos a vaga que foi buscada!</strong> 
+            <div class="is-invalid" style="color:red; display: none;" id="idmensagembuscarvaga">
+              <strong>Não encontramos a vaga que foi buscada!</strong>
             </div>
           </ul>
           @if(count($vagas)==0)
-            <div class="card" style="text-align: center;">
-              <div class="card-header">
-                <div class="container" >
-                  <div class="row justify-content-md-center">
-                     <h5> Não há vagas abertas no momento. Continue acompanhando o site!</h5>
-                  </div>
+          <div class="card" style="text-align: center;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row justify-content-md-center">
+                  <h5> Não há vagas abertas no momento. Continue acompanhando o site!</h5>
                 </div>
               </div>
             </div>
+          </div>
           @endif
           @foreach($vagas as $v)
           <div class=" card" id="idvagas">
@@ -250,13 +252,13 @@
                       </li>
                       <hr>
                       @if(!is_null($v->quant))
-                        <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
-                          {{$v->quant}}
-                        </li>
+                      <li><strong> QUANTIDADE:&nbsp;&nbsp;&nbsp;</strong>
+                        {{$v->quant}}
+                      </li>
                       @endif
                       <hr>
                       <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
-                        {{$v->descricao}}
+                        {!!$v->descricao!!}
                       </li>
                       <hr>
                       <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
@@ -265,11 +267,11 @@
                       <hr>
                       <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
                         @if($v->tpvaga == 1)
-                          Efetiva
+                        Efetiva
                         @elseif($v->tpvaga == 2)
-                          Temporária
+                        Temporária
                         @else
-                          Estágio
+                        Estágio
                         @endif
                       </li>
                     </ul>

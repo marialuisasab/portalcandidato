@@ -21,7 +21,7 @@
 <!-- include summernote css/js -->
 {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
 <script src="/summernote-0.8.18-dist/summernote.min.js"></script>
-<script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script>
+{{-- <script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script> --}}
 @section('content')
 <div class="row">
     <div class="col-xs-12 col-md-12">

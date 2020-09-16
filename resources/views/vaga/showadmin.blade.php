@@ -6,6 +6,7 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/summernote-0.8.18-dist/summernote.min.css">
+<link rel="stylesheet" href="/summernote-0.8.18-dist/summernote.min.css">
 {{-- importação do jquery --}}
 <script src="/vendor/jquery/jquery.min.js"></script>
 {{-- <script src="/vendor/jquery/jquery.js"></script> --}}
@@ -18,7 +19,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
 <script src="/summernote-0.8.18-dist/summernote.min.js"></script>
+{{-- <script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script> --}}
 
 @section('content')
 
@@ -103,11 +106,11 @@
                       {{$vaga->quant}}
                     </li>
                     <hr>
-                    <li id="iddescricao"><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                       {!!$vaga->descricao!!}
                     </li>
                     <hr>
-                    <li id="idrequisitos"><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
+                    <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
                       {!!$vaga->requisitos!!}
                     </li>
                     <hr>

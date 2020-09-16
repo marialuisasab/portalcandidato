@@ -262,7 +262,7 @@
                       </li>
                       <hr>
                       <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
-                        {{$v->requisitos}}
+                        {!!$v->requisitos!!}
                       </li>
                       <hr>
                       <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>

@@ -26,8 +26,8 @@ Route::get('/get-cpfexistepertence/{id}','CurriculoController@cpf_existe_pertenc
 Route::get('/get-cpfexisteNpertenceuser/{cpf}','CurriculoController@cpf_existe_nao_pertence_user');
 Route::get('/get-pegarcpf/{cpf}','CurriculoController@pegat_curriculo_cpf');
 Route::get('/get-cidadesmodal/{id}','CurriculosController@getCidadesModal');
-
-
+Route::get('/get-emailadmin/{email}','Auth\AdminLoginController@pegaremail');
+// Route::get('/admin/login','Auth\AdminLoginController@login')->name('admin.login.submit');
 
 
 

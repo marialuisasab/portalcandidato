@@ -4,6 +4,8 @@
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+<link rel="stylesheet" href="/summernote-0.8.18-dist/summernote.min.css">
 <script src="/vendor/jquery/jquery.min.js">
 </script>
 <script src="/jquerymask/jquerymasky.js"></script>
@@ -11,6 +13,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+<script src="/summernote-0.8.18-dist/summernote.min.js"></script>
+<script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script>
 
 @section('content')
 <div class="row">
@@ -122,9 +127,8 @@
 
                                 <div class="form-group">
                                     <li><strong> DESCRIÇÃO:*&nbsp;&nbsp;&nbsp;</strong>
-                                        <textarea class="form-control" id="iddescricao" rows="3" name="descricao"
-                                            title="Texto de descrição da vaga"
-                                            placeholder="Sobre a vaga...">{{$v->descricao}}</textarea>
+                                        <textarea class="form-control" id="iddescricao" rows="3"
+                                            name="descricao">{{$v->descricao}}</textarea>
                                         <div class="invalid-feedback" style="display: none;" id="mensdescricaovaga">
                                             Você deve preencher a descrição da vaga!
                                         </div>
@@ -137,9 +141,8 @@
 
                                 <div class="form-group">
                                     <li><strong> REQUISITOS:*&nbsp;&nbsp;&nbsp;</strong>
-                                        <textarea class="form-control" id="idrequisitos" rows="3" name="requisitos"
-                                            title="Texto informando os requisitos"
-                                            placeholder="Requisitos para ocupar a vaga...">{{$v->requisitos}}</textarea>
+                                        <textarea class="form-control" id="idrequisitos" rows="3"
+                                            name="requisitos">{{$v->requisitos}}</textarea>
                                         <div class="invalid-feedback" style="display: none;" id="mensrequisitosvaga">
                                             Você deve preencher os requisitos da vaga!
                                         </div>

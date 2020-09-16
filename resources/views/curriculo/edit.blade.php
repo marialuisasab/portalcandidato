@@ -21,11 +21,6 @@
 
 
 @section('content')
-
-
-
-
-
 <div class="container">
 
 
@@ -473,7 +468,8 @@
 
 						@if (($c->catcnh == null) && ($c->ufcnh == null) && ($c->cnh == null))
 						<div class="form-group" style="display: none;" id="seleorigcnh">
-							<li><strong> ESTADO DE ORIGEM DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<li><strong> ESTADO DE ORIGEM DA CARTEIRA DE
+									HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}"
 									title="Estado de Origem da CNH">
 									<option value="">Selecionar:</option>
@@ -489,7 +485,8 @@
 						</div>
 						@else
 						<div class="form-group" id="seleorigcnh">
-							<li><strong> ESTADO DE ORIGEM DA CARTEIRA DE HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
+							<li><strong> ESTADO DE ORIGEM DA CARTEIRA DE
+									HABILITAÇÃO:&nbsp;&nbsp;&nbsp;</strong><span></span>
 								<select class="custom-select" id="ufcnh" name="ufcnh" value="{{$c->ufcnh}}"
 									title="Estado de Origem da CNH">
 									<option value="">Selecionar:</option>

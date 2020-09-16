@@ -5,6 +5,8 @@
 </script> --}}
 <script src="/vendor/jquery/jquery.min.js">
 </script>
+<script src="/js/vagas/validacaovaga.js"></script>
+
 
 {{-- link do javascript --}}
 <script src="/js/vagas/vagas.js"></script>

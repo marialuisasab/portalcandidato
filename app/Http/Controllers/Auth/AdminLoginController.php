@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Admin;
 
 class AdminLoginController extends Controller
 {
@@ -16,7 +17,16 @@ class AdminLoginController extends Controller
 
     public function index(){
     	return view("auth.admin-login");
-    }
+	}
+	public function pegaremail($email){
+	$admin=Admin::where('email', $email)->get();
+	if(count($admin)==0){
+	return 1;
+	} else {
+	return 2;
+	}
+
+	}
 
     public function login(Request $request){
     	
@@ -35,7 +45,7 @@ class AdminLoginController extends Controller
     	if ($authOk){
     		return redirect()->intended(route('admin.index'));
     	}
-    	
+    	  flash('Usuário ou senha invalido(s)!')->error();
     	return redirect()->back()->withInputs($request->only('email', 'remember'));
     }
 

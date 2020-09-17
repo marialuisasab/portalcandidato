@@ -128,23 +128,29 @@ function validacaoassincrona(vet1, vet2) {
 $(document).ready(function () {
     $("#iddescricao").summernote({
         height: 200, // set editor height
+        marginLefth: 1500,
         minHeight: null, // set minimum height of editor
         maxHeight: null, // set maximum height of editor
         focus: true, // set focus to editable area after initializing summernote
-        tabsize: 2,
+        tabsize: 4,
         placeholder: 'Sobre a vaga...',
         title: 'Texto de descrição da vaga',
         lang: "pt-BR"
+
+
     });
     $("#idrequisitos").summernote({
         height: 150, // set editor height
+        marginLefth: 100,
         minHeight: null, // set minimum height of editor
         maxHeight: null, // set maximum height of editor
         focus: true, // set focus to editable area after initializing summernote
-        tabsize: 2,
+        tabsize: 4,
         title: 'Texto informando os requisitos',
         placeholder: 'Requisitos para ocupar a vaga...',
         lang: "pt-BR"
+
+
     });
 
 });

@@ -5,7 +5,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
-<link rel="stylesheet" href="/summernote-0.8.18-dist/summernote.min.css">
+<link rel="stylesheet" href="/summernote-0.8.18-dist/summernote-bs4.css">
+{{-- <link rel="stylesheet" href="/summernote-0.8.18-dist/summernote.min.css"> --}}
+{{-- link do toogle --}}
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+    rel="stylesheet">
 <script src="/vendor/jquery/jquery.min.js">
 </script>
 <script src="/jquerymask/jquerymasky.js"></script>
@@ -13,15 +17,19 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
-{{-- link do toogle --}}
-<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
-    rel="stylesheet">
-
+{{-- script do toogle --}}
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script> --}}
+<script src="/vendor/bootstrap/js/bootstrap.min.js">
+</script>
 <!-- include summernote css/js -->
 {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
-<script src="/summernote-0.8.18-dist/summernote.min.js"></script>
-{{-- <script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script> --}}
+{{-- <script src="/summernote-0.8.18-dist/summernote.min.js"></script> --}}
+<script src="/summernote-0.8.18-dist/summernote-bs4.js"></script>
+<script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script>>
 @section('content')
 <div class="row">
     <div class="col-xs-12 col-md-12">
@@ -30,7 +38,7 @@
                 <div class="card-header" id="headingOne" style="background-color: white;">
                     <div class="container">
                         <div class="row">
-                            <div class="col-">
+                            <div class="col-sm">
                                 <h2 class="mb-0" style="color:dodgerblue; font-size:25px;">
                                     CADASTRAR VAGA
                                     <span class="fa-stack fa-sm">

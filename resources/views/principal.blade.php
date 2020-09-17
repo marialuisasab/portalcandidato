@@ -257,11 +257,11 @@
                       </li>
                       @endif
                       <hr>
-                      <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
+                      <li style="padding: 15px;"><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
                         {!!$v->descricao!!}
                       </li>
                       <hr>
-                      <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
+                      <li style="padding: 15px;"><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
                         {!!$v->requisitos!!}
                       </li>
                       <hr>

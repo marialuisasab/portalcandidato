@@ -575,7 +575,8 @@
             <label class="radio-inline"><input type="radio" name="classificacao" value="1">
               Em
               andamento</label>
-            <label class="radio-inline"><input type="radio" name="classificacao" value="0">
+            <label class="radio-inline"><input type="radio" name="classificacao" value="4">Encerrado</label>
+            <label class="radio-inline"><input type="radio" name="classificacao">
               Todos</label>
           </div>
           <div class="container col">

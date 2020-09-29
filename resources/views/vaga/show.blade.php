@@ -94,20 +94,20 @@
                       </li>
                       <hr>
                       <li><strong> DESCRIÇÃO:&nbsp;&nbsp;&nbsp;</strong>
-                        {{$vaga->descricao}}
+                        {!!$vaga->descricao!!}
                       </li>
                       <hr>
                       <li><strong> REQUISITOS:&nbsp;&nbsp;&nbsp;</strong>
-                        {{$vaga->requisitos}}
+                        {!!$vaga->requisitos!!}
                       </li>
                       <hr>
                       <li><strong> TIPO DE VAGA:&nbsp;&nbsp;&nbsp;</strong>
                         @if($vaga->tpvaga == 1)
-                          Efetiva
+                        Efetiva
                         @elseif($vaga->tpvaga == 2)
-                          Temporária
+                        Temporária
                         @else
-                          Estágio
+                        Estágio
                         @endif
                       </li>
                       @if($vaga->pcd == 1)

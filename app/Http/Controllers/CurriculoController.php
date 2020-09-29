@@ -141,12 +141,16 @@ class CurriculoController extends Controller
      */
     public function edit($id)
     {   
+         if ( Auth::check() ) {
+         if ( Auth::user()->id == $id )
         $c = Curriculo::where("users_id", $id)->get()[0];
         $cidades = Helper::getCidades();
-        
         if(isset($c)){
             return view('curriculo.edit', compact('c', 'cidades'));
-        }   
+        }
+    }
+        
+        
         flash('Currículo não encontrado!')->error();
         return redirect()->back();
                 // ->with('error', 'Currículo não encontrado!');

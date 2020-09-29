@@ -92,9 +92,13 @@ class EnderecoController extends Controller
      */
     public function edit($id)
     {   
+         if ( Auth::check() ) {
+         if ( Auth::user()->id == $id ){
         $e = Endereco::join('curriculo', 'endereco_idendereco', '=', 'idendereco')->where("users_id", Auth::user()->id)->get()[0];
-
         return view('endereco.edit',compact(['e']));
+         }
+         }
+         return redirect()->back();
     }
 
     /**

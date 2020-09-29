@@ -308,7 +308,7 @@ class Helper
                         if(isset($dados['vagamodal']))
                             $query->where('v.vaga_idvaga', $dados['vagamodal']);
                     })
-                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'v.curriculo_idcurriculo')
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo', 'v.curriculo_idcurriculo', 'obs')
                     ->orderBy('dtatualizacao','DESC')                                  
                     ->paginate(50);
                    
@@ -335,6 +335,7 @@ class Helper
                     ->where(function ($query) use ($palavra){
                         if(isset($palavra)){
                             $query->where('a.nome','like', '%'.$palavra.'%')
+                                    ->orWhere('u.name','like', '%'.$palavra.'%')
                                     ->orWhere('cat.nome','like', '%'.$palavra.'%')
                                     ->orWhere('cid.nome','like', '%'.$palavra.'%')
                                     ->orWhere('est.nome','like', '%'.$palavra.'%')
@@ -354,7 +355,7 @@ class Helper
                         }
                     })
 
-                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo')
+                    ->groupBy('u.name', 'naturalidade', 'e.cidade_idcidade', 'dtatualizacao', 'idcurriculo','obs')
                     ->orderBy('dtatualizacao','DESC')                    
                     ->paginate(50);  
                     //dd($resultado);     

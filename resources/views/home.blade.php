@@ -17,7 +17,7 @@
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
 <script src="/vendor/jquery/jquery.min.js">
 </script>
-<script src="/js/Home/home.js"></script>
+<script src="/js/home/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
@@ -30,21 +30,21 @@
   style="text-align: center; margin-top: 5px; display: flex; flex-wrap: wrap; justify-content: space-between;">
   <div class="col">
     @if(Helper::getIdCurriculo() != false)
-      <a href="/exibirCurriculo/{{Helper::getIdCurriculo()}}" type="button" title="Visualizar Dados">
-        <strong>
-          <span class="fas fa-eye " style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);">
+    <a href="/exibirCurriculo/{{Helper::getIdCurriculo()}}" type="button" title="Visualizar Dados">
+      <strong>
+        <span class="fas fa-eye " style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);">
           Visualizar Dados
-          </span>
-        </strong>
-      </a>
-    @else 
-      <a href="{{route('curriculo.dados')}}" type="button" title="Visualizar Dados">
-        <strong>
-          <span class="fas fa-eye " style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);">
+        </span>
+      </strong>
+    </a>
+    @else
+    <a href="{{route('curriculo.dados')}}" type="button" title="Visualizar Dados">
+      <strong>
+        <span class="fas fa-eye " style="font-size: 15px; text-align: center;color:rgb(224, 224, 235);">
           Visualizar Dados
-          </span>
-        </strong>
-      </a>
+        </span>
+      </strong>
+    </a>
     @endif
   </div>
   <div class="col ">
@@ -106,36 +106,36 @@
             @foreach($candidato as $item)
             <ul style="text-align: center;">
               @if($item->telefone1!= null)
-                <p style="padding-left: 10px; text-align: center;">
-                  <strong class="lead">
-                      Telefone: {{$item->telefone1}}</strong>
-                </p>               
+              <p style="padding-left: 10px; text-align: center;">
+                <strong class="lead">
+                  Telefone: {{$item->telefone1}}</strong>
+              </p>
 
               @endif
               <p style="padding-left: 10px; text-align: center;">
-                  <strong class="lead">
-                      E-mail: {{Auth::user()->email}}
-                  </strong>
+                <strong class="lead">
+                  E-mail: {{Auth::user()->email}}
+                </strong>
               </p>
             </ul>
             @if(!is_null($item->sobre))
-              <div class="card-body">
-                <div  style="text-align: center; margin-top: -20px;">
-                  <h5 style="text-align: center;">
-                    Objetivos Profissionais
-                  </h5>
-                  <hr>
-                  <div class="card-body">
-                    <p style="padding-left: 10px;">
-                      <strong class="lead">
-                           {{$item->sobre}}
-                      </strong>
-                    </p> 
-                  </div>
+            <div class="card-body">
+              <div style="text-align: center; margin-top: -20px;">
+                <h5 style="text-align: center;">
+                  Objetivos Profissionais
+                </h5>
+                <hr>
+                <div class="card-body">
+                  <p style="padding-left: 10px;">
+                    <strong class="lead">
+                      {{$item->sobre}}
+                    </strong>
+                  </p>
                 </div>
               </div>
+            </div>
             @endif
-          @endforeach
+            @endforeach
 
 
           </div>

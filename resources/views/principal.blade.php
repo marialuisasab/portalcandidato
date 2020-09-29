@@ -334,7 +334,7 @@
         <div class="col-md-8 col-sm-6 col-xs-12">
           <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bioextratus Cosmetics
             Natural
-            <a href="https:https://loja.bioextratus.com.br">Site Oficial</a>.
+            <a href="https://bioextratus.com.br">Site Oficial</a>.
           </p>
         </div>
 

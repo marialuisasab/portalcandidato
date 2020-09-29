@@ -300,10 +300,11 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             <nav class="mt-2">
 
                 <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
-                    <li class="nav-header" id="admin" >Perfil do Administrador</li>     
-                                  
+                    <li class="nav-header" id="admin">Perfil do Administrador</li>
+
                     <li class="nav-item">
-                        <a class="nav-link" style="color:white;" href="{{route('perfil.editar', Auth::user()->id)}}" type="button" id="">
+                        <a class="nav-link" style="color:white;" href="{{route('perfil.editar', Auth::user()->id)}}"
+                            type="button" id="">
                             <i class="fas fa-fw fas fa-user-edit "></i>
                             <p>
                                 Editar Perfil
@@ -321,7 +322,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                         </a>
                     </li>
                     <hr>
-                    <li class="nav-header">Gerenciamento de Vagas:</li>    
+                    <li class="nav-header">Gerenciamento de Vagas:</li>
                     <li class="nav-item ">
                         <a class="nav-link" style="color:white;" href="{{route('listar')}}" type="button">
                             <i class="fas fa-fw fa-tasks "></i>
@@ -450,7 +451,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                                 <span class="fas fa-question-circle" style="margin-left: -10px;" id="idajuda"
                                     title="Precisa de ajuda?"></span>
                             </a>
-                            
+
                         </div>
                     </li>
                 </ul>
@@ -769,7 +770,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2020 Todos os direitos são reservados à Bio Extratus
                         Cosmetics Natural
-                        <a href="https://bioextratus.com.br/">Site Oficial</a>.
+                        <a href="https://bioextratus.com.br">Site Oficial</a>.
                     </p>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">

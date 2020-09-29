@@ -12,6 +12,7 @@
 {{-- <script src="/vendor/jquery/jquery.js"></script> --}}
 
 {{-- link do javascript --}}
+<script src="/js/vagas/filtrar_classificado.js"></script>
 <script src="/js/vagas/vagas.js"></script>
 <script src="/js/Admin/busca_avancada.js"></script>
 <script src="/js/vagas/validacaovaga.js"></script>
@@ -22,6 +23,15 @@
 {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
 <script src="/summernote-0.8.18-dist/summernote.min.js"></script>
 {{-- <script src="/summernote-0.8.18-dist/lang/summernote-pt-BR.js"></script> --}}
+<style>
+  .bold {
+    font-weight: bold;
+  }
+
+  .invisivel {
+    display: none;
+  }
+</style>
 
 @section('content')
 
@@ -315,332 +325,347 @@
             </div>
 
 
-            <div class="card-body">
-              <div class="col" style="text-align: end;">
-                <a href="#" class="btn btn-info btn-lg" type="button" style="margin-right: auto; text-align: end;"
-                  data-toggle="modal" data-target="#filtrar_candidatos" style="padding-left: 7px; padding-right: 7px;">
-                  Filtrar Candidatos
-                </a>
-                <br>
+          </div>
+          <div class="card-body">
+            <div class="col" style="text-align: end;">
+              <a href="#" class="btn btn-info btn-lg" type="button" style="margin-right: auto; text-align: end;"
+                data-toggle="modal" data-target="#filtrar_candidatos" style="padding-left: 7px; padding-right: 7px;">
+                Filtrar Candidatos
+              </a>
+              <br>
 
-                <!-- Início Modal  buscar por vaga-->
-                <div class="modal fade" id="filtrar_candidatos">
-                  <div class="modal-dialog " role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">FILTRAR CANDIDATOS</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <form action="{{route('filtrarcandidato')}}" method="POST">
-                        @csrf
-                        <div class="modal-body">
-
-                          <ul style="list-style-type: none;">
-                            <div class="form-group" style="text-align: start" id="email_modal_busca">
-                              <li><strong> E-MAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                <input type="text" class="form-control" name="emailmodal" id="cnh"
-                                  title="Insira o email para a busca">
-                              </li>
-                            </div>
-                            <div class="form-group" style="text-align:start" id="nome_modal_busca">
-                              <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                <input type="text" class="form-control" name="nomemodal" id="nome"
-                                  title="Insira o nome que será buscado">
-                              </li>
-                            </div>
-                            <div class="form-group" id="genero_modal_busca" style="text-align: start;">
-                              <li><strong> GÊNERO:&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="form-control " id="genero" name="generomodal"
-                                  title="Selecione o gênero para a busca">
-                                  <option value="" selected>Selecionar</option>
-                                  <option value="F">Feminino</option>
-                                  <option value="M">Masculino</option>
-                                  <option value="N">Prefere não informar</option>
-                                </select>
-                              </li>
-                            </div>
-                            <div class="form-group" id="pcd_modal_busca" style="text-align: start;">
-                              <li><strong> PCD:&nbsp;&nbsp;&nbsp;</strong>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="pcdmodal" id="pcd" value="1">
-                                  <label class="form-check-label">Sim</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="pcdmodal" id="pcd" value="2">
-                                  <label class="form-check-label">Não</label>
-                                </div>
-                              </li>
-                            </div>
-
-                            <div class="form-group">
-                              <div class="container">
-                                <div class="row">
-                                  <div class="col-sm-6" style="text-align: start;">
-                                    <strong>ESTADO DE NATURALIDADE:
-                                      &nbsp;&nbsp;&nbsp;</strong>
-
-                                    <select class="form-control " id="natural" name="naturalmodal"
-                                      title="Estado de Origem">
-                                      <option value="" selected>Selecionar
-                                      </option>
-                                      @foreach(Helper::getEstados() as $est)
-                                      <option value="{{$est->idestado}}">
-                                        {{ $est->nome }}
-                                      </option>
-                                      @endforeach
-                                    </select>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <strong>CIDADE DE NATURALIDADE:
-                                      &nbsp;&nbsp;&nbsp;</strong>
-                                    <select class="form-control" id="naturalidade" name="naturalidademodal"
-                                      title="Cidade de Origem">
-                                      <option value="" selected>Selecionar
-                                      </option>
-                                    </select>
-                                  </div>
-
-                                </div>
-                              </div>
-                              </li>
-                            </div>
-
-                            <div class="form-group">
-                              <div class="container">
-                                <div class="row">
-                                  <div class="col-sm-6" style="text-align: start;">
-                                    <strong>ESTADO ATUAL:
-                                      &nbsp;&nbsp;&nbsp;</strong>
-
-                                    <select class="form-control " id="estadoatual" name="estadoatualmodal"
-                                      title="Estado atual">
-                                      <option value="" selected>Selecionar
-                                      </option>
-                                      @foreach(Helper::getEstados() as $est)
-                                      <option value="{{$est->idestado}}">
-                                        {{ $est->nome }}
-                                      </option>
-                                      @endforeach
-                                    </select>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <strong>CIDADE ATUAL:
-                                      &nbsp;&nbsp;&nbsp;</strong>
-                                    <select class="form-control" id="cidadeatual" name="cidadeatualmodal"
-                                      title="Cidade atual">
-                                      <option value="" selected>Selecionar
-                                      </option>
-                                    </select>
-                                  </div>
-
-                                </div>
-                              </div>
-                              </li>
-                            </div>
-
-                            <div class="form-group" style="text-align: start;">
-                              <li><strong>TIPO DE FORMAÇÃO:&nbsp;&nbsp;&nbsp;
-                                </strong>
-                                <select class="form-control " id="escolaridade" name="escolaridademodal"
-                                  title="Tipo de Formação">
-                                  <option value="" selected>Selecionar</option>
-                                  <option value="1">Acadêmica</option>
-                                  <option value="2">Complementar</option>
-                                </select>
-                              </li>
-                            </div>
-
-                            <div class="form-group" id="idnivel_modal_busca" style="display: none; text-align:start;">
-                              <li><strong> NÍVEL:&nbsp;&nbsp;&nbsp;
-                                </strong>
-                                <select class="form-control" id="nivel_idnivel" name="nivelmodal"
-                                  title="Nivel de Escolaridade">
-                                  <option value="" selected>Selecionar</option>
-                                  @foreach(Helper::getNiveis() as $n)
-                                  <option value="{{$n->idnivel}}">{{ $n->nome }}
-                                  </option>
-                                  @endforeach
-                                </select>
-                              </li>
-                            </div>
-
-
-                            <div class="form-group" id="categoria_modal_busca" style="display: none; text-align:start;">
-                              <li><strong> CATEGORIA:&nbsp;&nbsp;&nbsp;
-                                </strong>
-                                <select class="custom-select" id="categoria_idcategoria" name="categoriamodal">
-                                  <option value="" selected>Selecionar</option>
-                                  @foreach(Helper::getCategorias() as $c)
-                                  <option value="{{$c->idcategoria}}">{{ $c->nome }}
-                                  </option>
-                                  @endforeach
-                                </select>
-                              </li>
-                            </div>
-
-                            <div class="form-group" style="text-align:start; display:none" id="area_modal_busca">
-                              <li><strong> ÁREA:&nbsp;&nbsp;&nbsp;</strong>
-                                <select class="custom-select" id="area_idarea" name="areamodal" title="Area de Atuação">
-                                  <option value="" selected>Selecionar</option>
-                                  @foreach(Helper::getAreas() as $a)
-                                  <option value="{{$a->idarea}}">{{$a->nome }}
-                                  </option>
-                                  @endforeach
-                                </select>
-                              </li>
-                            </div>
-                            <div class="form-group" style="text-align:start" id="curso_modal_busca">
-                              <li><strong> CURSO:&nbsp;&nbsp;&nbsp;</strong><span>
-                                </span>
-                                <input type="text" class="form-control" name="nomecursomodal" id="curso"
-                                  title="Insira o curso">
-                              </li>
-                            </div>
-
-                            <div class="form-group" style="text-align:start" id="empresa_modal_busca">
-                              <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong><span>
-                                </span>
-                                <input type="text" class="form-control" name="empresamodal" id="empresa"
-                                  title="Insira o nome da empresa">
-                              </li>
-                            </div>
-
-                            <div class="form-group" style="text-align:start" id="cargo_modal_busca">
-                              <li><strong> CARGO:&nbsp;&nbsp;&nbsp;</strong><span>
-                                </span>
-                                <input type="text" class="form-control" name="cargomodal" id="cargo"
-                                  title="Insira o cargo exercido">
-                              </li>
-                            </div>
-
-                            <div class="form-group" style="text-align: start;" id="catcnh_modal_busca">
-                              <li><strong> CATEGORIA DA
-                                  CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
-                                <select class="custom-select" id="catcnh" name="catcnhmodal"
-                                  title="Insira a categoria da CNH">
-                                  <option value="" selected>Selecionar</option>
-                                  <option value="A">A</option>
-                                  <option value="B">B</option>
-                                  <option value="C">C</option>
-                                  <option value="D">D</option>
-                                  <option value="E">E</option>
-                                  <option value="AB">AB</option>
-                                  <option value="AC">AC</option>
-                                  <option value="AD">AD</option>
-                                  <option value="AE">AE</option>
-                                </select>
-                              </li>
-                            </div>
-
-                            <div class="form-group" style="text-align:start" id="buscar_candidatos_vaga">
-                              <input type="hidden" name="vagamodal" value="{{$vaga->idvaga}}">
-                            </div>
-                          </ul>
-
-
-                          <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Buscar</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                          </div>
-                      </form>
+              <!-- Início Modal  buscar por vaga-->
+              <div class="modal fade" id="filtrar_candidatos">
+                <div class="modal-dialog " role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">FILTRAR CANDIDATOS</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
+                    <form action="{{route('filtrarcandidato')}}" method="POST">
+                      @csrf
+                      <div class="modal-body">
+
+                        <ul style="list-style-type: none;">
+                          <div class="form-group" style="text-align: start" id="email_modal_busca">
+                            <li><strong> E-MAIL:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                              <input type="text" class="form-control" name="emailmodal" id="cnh"
+                                title="Insira o email para a busca">
+                            </li>
+                          </div>
+                          <div class="form-group" style="text-align:start" id="nome_modal_busca">
+                            <li><strong> NOME:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                              <input type="text" class="form-control" name="nomemodal" id="nome"
+                                title="Insira o nome que será buscado">
+                            </li>
+                          </div>
+                          <div class="form-group" id="genero_modal_busca" style="text-align: start;">
+                            <li><strong> GÊNERO:&nbsp;&nbsp;&nbsp;</strong>
+                              <select class="form-control " id="genero" name="generomodal"
+                                title="Selecione o gênero para a busca">
+                                <option value="" selected>Selecionar</option>
+                                <option value="F">Feminino</option>
+                                <option value="M">Masculino</option>
+                                <option value="N">Prefere não informar</option>
+                              </select>
+                            </li>
+                          </div>
+                          <div class="form-group" id="pcd_modal_busca" style="text-align: start;">
+                            <li><strong> PCD:&nbsp;&nbsp;&nbsp;</strong>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pcdmodal" id="pcd" value="1">
+                                <label class="form-check-label">Sim</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pcdmodal" id="pcd" value="2">
+                                <label class="form-check-label">Não</label>
+                              </div>
+                            </li>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-sm-6" style="text-align: start;">
+                                  <strong>ESTADO DE NATURALIDADE:
+                                    &nbsp;&nbsp;&nbsp;</strong>
+
+                                  <select class="form-control " id="natural" name="naturalmodal"
+                                    title="Estado de Origem">
+                                    <option value="" selected>Selecionar
+                                    </option>
+                                    @foreach(Helper::getEstados() as $est)
+                                    <option value="{{$est->idestado}}">
+                                      {{ $est->nome }}
+                                    </option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                                <div class="col-sm-6">
+                                  <strong>CIDADE DE NATURALIDADE:
+                                    &nbsp;&nbsp;&nbsp;</strong>
+                                  <select class="form-control" id="naturalidade" name="naturalidademodal"
+                                    title="Cidade de Origem">
+                                    <option value="" selected>Selecionar
+                                    </option>
+                                  </select>
+                                </div>
+
+                              </div>
+                            </div>
+                            </li>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-sm-6" style="text-align: start;">
+                                  <strong>ESTADO ATUAL:
+                                    &nbsp;&nbsp;&nbsp;</strong>
+
+                                  <select class="form-control " id="estadoatual" name="estadoatualmodal"
+                                    title="Estado atual">
+                                    <option value="" selected>Selecionar
+                                    </option>
+                                    @foreach(Helper::getEstados() as $est)
+                                    <option value="{{$est->idestado}}">
+                                      {{ $est->nome }}
+                                    </option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                                <div class="col-sm-6">
+                                  <strong>CIDADE ATUAL:
+                                    &nbsp;&nbsp;&nbsp;</strong>
+                                  <select class="form-control" id="cidadeatual" name="cidadeatualmodal"
+                                    title="Cidade atual">
+                                    <option value="" selected>Selecionar
+                                    </option>
+                                  </select>
+                                </div>
+
+                              </div>
+                            </div>
+                            </li>
+                          </div>
+
+                          <div class="form-group" style="text-align: start;">
+                            <li><strong>TIPO DE FORMAÇÃO:&nbsp;&nbsp;&nbsp;
+                              </strong>
+                              <select class="form-control " id="escolaridade" name="escolaridademodal"
+                                title="Tipo de Formação">
+                                <option value="" selected>Selecionar</option>
+                                <option value="1">Acadêmica</option>
+                                <option value="2">Complementar</option>
+                              </select>
+                            </li>
+                          </div>
+
+                          <div class="form-group" id="idnivel_modal_busca" style="display: none; text-align:start;">
+                            <li><strong> NÍVEL:&nbsp;&nbsp;&nbsp;
+                              </strong>
+                              <select class="form-control" id="nivel_idnivel" name="nivelmodal"
+                                title="Nivel de Escolaridade">
+                                <option value="" selected>Selecionar</option>
+                                @foreach(Helper::getNiveis() as $n)
+                                <option value="{{$n->idnivel}}">{{ $n->nome }}
+                                </option>
+                                @endforeach
+                              </select>
+                            </li>
+                          </div>
+
+
+                          <div class="form-group" id="categoria_modal_busca" style="display: none; text-align:start;">
+                            <li><strong> CATEGORIA:&nbsp;&nbsp;&nbsp;
+                              </strong>
+                              <select class="custom-select" id="categoria_idcategoria" name="categoriamodal">
+                                <option value="" selected>Selecionar</option>
+                                @foreach(Helper::getCategorias() as $c)
+                                <option value="{{$c->idcategoria}}">{{ $c->nome }}
+                                </option>
+                                @endforeach
+                              </select>
+                            </li>
+                          </div>
+
+                          <div class="form-group" style="text-align:start; display:none" id="area_modal_busca">
+                            <li><strong> ÁREA:&nbsp;&nbsp;&nbsp;</strong>
+                              <select class="custom-select" id="area_idarea" name="areamodal" title="Area de Atuação">
+                                <option value="" selected>Selecionar</option>
+                                @foreach(Helper::getAreas() as $a)
+                                <option value="{{$a->idarea}}">{{$a->nome }}
+                                </option>
+                                @endforeach
+                              </select>
+                            </li>
+                          </div>
+                          <div class="form-group" style="text-align:start" id="curso_modal_busca">
+                            <li><strong> CURSO:&nbsp;&nbsp;&nbsp;</strong><span>
+                              </span>
+                              <input type="text" class="form-control" name="nomecursomodal" id="curso"
+                                title="Insira o curso">
+                            </li>
+                          </div>
+
+                          <div class="form-group" style="text-align:start" id="empresa_modal_busca">
+                            <li><strong> EMPRESA:&nbsp;&nbsp;&nbsp;</strong><span>
+                              </span>
+                              <input type="text" class="form-control" name="empresamodal" id="empresa"
+                                title="Insira o nome da empresa">
+                            </li>
+                          </div>
+
+                          <div class="form-group" style="text-align:start" id="cargo_modal_busca">
+                            <li><strong> CARGO:&nbsp;&nbsp;&nbsp;</strong><span>
+                              </span>
+                              <input type="text" class="form-control" name="cargomodal" id="cargo"
+                                title="Insira o cargo exercido">
+                            </li>
+                          </div>
+
+                          <div class="form-group" style="text-align: start;" id="catcnh_modal_busca">
+                            <li><strong> CATEGORIA DA
+                                CNH:&nbsp;&nbsp;&nbsp;</strong><span> </span>
+                              <select class="custom-select" id="catcnh" name="catcnhmodal"
+                                title="Insira a categoria da CNH">
+                                <option value="" selected>Selecionar</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="AB">AB</option>
+                                <option value="AC">AC</option>
+                                <option value="AD">AD</option>
+                                <option value="AE">AE</option>
+                              </select>
+                            </li>
+                          </div>
+
+                          <div class="form-group" style="text-align:start" id="buscar_candidatos_vaga">
+                            <input type="hidden" name="vagamodal" value="{{$vaga->idvaga}}">
+                          </div>
+                        </ul>
+
+
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">Buscar</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
                   </div>
                 </div>
-                <!-- Fim Modal-->
-
               </div>
-
-
-
-              <div class="container col">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Candidato</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Data da candidatura</th>
-                        <th scope="col">Observação</th>
-                        <th scope="col">Opções</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-
-                      @foreach($candidatos as $c)
-                      <tr>
-                        <th>{{$c->name}}</th>
-                        <td>{{Helper::getStatusCandidatura($c->status)}}</td>
-                        <td>{{Helper::getData($c->dtcandidatura)}}</td>
-                        <td>{{$c->observ}}</td>
-                        <td>
-                          <a href="/buscarcurriculo/visualizar/{{$c->curriculo_idcurriculo}}" target="_blank"
-                            class="badge badge-primary">Visualizar Currículo</a><br>
-                          <a href="#" class="badge badge-warning" data-toggle="modal"
-                            data-target="#exampleModal{{$c->idcurriculo}}"
-                            style="padding-left: 6px; padding-right:6px;">Incluir
-                            Observação</a><br>
-                          @if($c->status == 1)
-                          <a href="/classificar/2/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}"
-                            class="badge badge-success" style="padding-left: 29px; padding-right: 29px;"
-                            name="name_classificar" data_value="{{$c->vaga_idvaga}}">Classificar</a><br>
-                          <a href="/classificar/3/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}"
-                            class="badge badge-danger" style="padding-left: 20px; padding-right: 20px;"
-                            name="name_desclassificar" data_value="{{$c->vaga_idvaga}}">Desclassificar</a><br>
-                          @endif
-                        </td>
-                      </tr>
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModal{{$c->idcurriculo}}">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Processo seletivo do(a) {{$c->name}}:</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <form action="/editarObs" method="POST">
-                              @csrf
-                              <div class="modal-body">
-                                <div class="form-group">
-                                  <label for="message-text" class="col-form-label">Observações:</label>
-                                  <textarea class="form-control" rows="4" name="observ"
-                                    id="message-text">{{$c->observ}}</textarea>
-                                </div>
-                                <div class="form-group">
-                                  <input type="hidden" name="vaga" value="{{$c->vaga_idvaga}}">
-                                  <input type="hidden" name="curriculo" value="{{$c->curriculo_idcurriculo}}">
-                                </div>
-
-                              </div>
-                              <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Fim modal-->
-                      @endforeach
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <!-- Fim Modal-->
 
             </div>
-            @else
-            <div class="card-footer" style="text-align: center;">
-              <h5>Ninguém se inscreveu nesta vaga ainda!</h5>
-            </div>
-            @endif
+
+            {{-- <div class="col-sm" style="text-align: start;">
+              <p>Mostrando de {{$candidatos->count()}} </p>
+          </div> --}}
+          <div class="col" style="text-align: start;">
+            Quantidade de Candidatos: <b id="valor"></b>
           </div>
+          <div class="col" style="text-align: start; margin-top: 25px;">
+            <label class="radio-inline"><input type="radio" name="classificacao" value="2">Classificado</label>
+            <label class="radio-inline"><input type="radio" name="classificacao" value="3">Desclassificado</label>
+            <label class="radio-inline"><input type="radio" name="classificacao" value="1">
+              Em
+              andamento</label>
+            <label class="radio-inline"><input type="radio" name="classificacao" value="0">
+              Todos</label>
+          </div>
+          <div class="container col">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Candidato</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data da candidatura</th>
+                    <th scope="col">Observação</th>
+                    <th scope="col">Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  @foreach($candidatos as $c)
+                  <tr id="idcandidatos" data_value={{$c->status}}>
+                    <th id="idname">{{$c->name}}</th>
+                    <td class="idstatus">{{Helper::getStatusCandidatura($c->status)}}
+                    </td>
+                    <td>{{Helper::getData($c->dtcandidatura)}}</td>
+                    <td>{{$c->observ}}</td>
+                    <td>
+                      <a href="/buscarcurriculo/visualizar/{{$c->curriculo_idcurriculo}}" target="_blank"
+                        class="badge badge-primary">Visualizar Currículo</a><br>
+                      <a href="#" class="badge badge-warning" data-toggle="modal"
+                        data-target="#exampleModal{{$c->idcurriculo}}"
+                        style="padding-left: 6px; padding-right:6px;">Incluir
+                        Observação</a><br>
+                      @if($c->status == 1)
+                      <a href="/classificar/2/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}"
+                        class="badge badge-success" style="padding-left: 29px; padding-right: 29px;"
+                        name="name_classificar" data_value="{{$c->vaga_idvaga}}">Classificar</a><br>
+                      <a href="/classificar/3/{{$c->vaga_idvaga}}/{{$c->curriculo_idcurriculo}}"
+                        class="badge badge-danger" style="padding-left: 20px; padding-right: 20px;"
+                        name="name_desclassificar" data_value="{{$c->vaga_idvaga}}">Desclassificar</a><br>
+                      @endif
+                    </td>
+                  </tr>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal{{$c->idcurriculo}}">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Processo seletivo do(a) {{$c->name}}:</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="/editarObs" method="POST">
+                          @csrf
+                          <div class="modal-body">
+                            <div class="form-group">
+                              <label for="message-text" class="col-form-label">Observações:</label>
+                              <textarea class="form-control" rows="4" name="observ"
+                                id="message-text">{{$c->observ}}</textarea>
+                            </div>
+                            <div class="form-group">
+                              <input type="hidden" name="vaga" value="{{$c->vaga_idvaga}}">
+                              <input type="hidden" name="curriculo" value="{{$c->curriculo_idcurriculo}}">
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fim modal-->
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </div>
+        @else
+        <div class="card-footer" style="text-align: center;">
+          <h5>Ninguém se inscreveu nesta vaga ainda!</h5>
+        </div>
+        @endif
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 </div>
 

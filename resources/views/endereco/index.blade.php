@@ -83,34 +83,13 @@
 
 							@foreach($endereco as $e)
 							<ul style="list-style-type: none;">
+
+								<li><strong> PAÍS:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getPais($e->pais_idpais)}}
+								</li>
+								<hr>
+
 								<li><strong>CEP:&nbsp;&nbsp;&nbsp;</strong>
 									{{$e->cep}}</li>
-								<hr>
-
-
-								<li><strong> LOGRADOURO:&nbsp;&nbsp;&nbsp;</strong> {{$e->logradouro}}
-								</li>
-								<hr>
-
-
-								<li><strong> BAIRRO:&nbsp;&nbsp;&nbsp;</strong> {{$e->bairro}}
-								</li>
-								<hr>
-
-
-								<li><strong> NUMERO:&nbsp;&nbsp;&nbsp;</strong> {{$e->numero}}</li>
-								<hr>
-
-
-
-								@if ($e->complemento != null)
-								<li><strong> COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>{{$e->complemento}}
-								</li>
-								@else
-								<li><strong> COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
-										Informado!</span>
-								</li>
-								@endif
 								<hr>
 
 								<li><strong>
@@ -123,9 +102,30 @@
 								</li>
 								<hr>
 
-								<li><strong> PAÍS:&nbsp;&nbsp;&nbsp;</strong>{{Helper::getPais($e->pais_idpais)}}
+								<li><strong> BAIRRO:&nbsp;&nbsp;&nbsp;</strong> {{$e->bairro}}
 								</li>
 								<hr>
+
+								<li><strong> RUA:&nbsp;&nbsp;&nbsp;</strong> {{$e->logradouro}}
+								</li>
+								<hr>
+
+
+								<li><strong> NUMERO:&nbsp;&nbsp;&nbsp;</strong> {{$e->numero}}</li>
+								<hr>
+
+
+								@if ($e->complemento != null)
+								<li><strong> COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>{{$e->complemento}}
+								</li>
+								@else
+								<li><strong> COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong><span style="color: red;"> Não
+										Informado!</span>
+								</li>
+								@endif
+								<hr>
+
+
 
 								<li><strong> DISPONIBILIDADE DE
 										MUDANÇA:&nbsp;&nbsp;&nbsp;</strong>{{$e->disp_mudanca == '1' ? 'Sim':'Não'}}

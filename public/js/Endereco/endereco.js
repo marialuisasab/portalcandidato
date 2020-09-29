@@ -70,13 +70,6 @@ $(function () {
             document.getElementById('mensdisponi').style.display = 'none';
         }
 
-
-
-
-
-
-
-
         // chamadas da fução de validação
         // validaFomr('#cep', 'menserrocep');
         // validaFomr('#logradouro', 'menserrologra');
@@ -141,10 +134,14 @@ $(document).ready(function ($) {
         }
     });
 
-    $("#numero").mask('NNNNNNNNN', {
+    $("#numero").mask('MNNNNNNNNN', {
         translation: {
             N: {
                 pattern: /[\d]/
+            },
+            M: {
+                pattern: /[1-9]/,
+                optional: false
             },
         }
     });

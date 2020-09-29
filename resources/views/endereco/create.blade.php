@@ -82,6 +82,25 @@
 								<form action="/endereco" method="POST" enctype="multipart/form-data" id="idformselect">
 									@csrf
 
+
+
+
+									<div class="form-group">
+										<li style="" id="idlipais"><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
+											<select class="custom-select " id="pais_idpais" name="pais_idpais"
+												title="País">
+												<option value="1">Brasil</option>
+												{{-- @foreach(Helper::getPai () as $pais)
+																														                                                <option value="{{$pais->idpais}}">{{$pais->nome}}
+												</option>
+												@endforeach --}}
+											</select>
+											<div class="invalid-feedback" style="display: none;" id="menserropais">
+												Você deve preencher o País!
+											</div>
+										</li>
+									</div>
+
 									<div class="form-group">
 										<li id="idlicep"><strong> CEP*:&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control " name="cep" id="cep"
@@ -94,56 +113,6 @@
 										</li>
 									</div>
 
-
-
-
-									<div class="form-group">
-										<li id="idlilogr"><strong> RUA*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control " name="logradouro" id="logradouro"
-												placeholder="Ex.: Rua/Praça/ Ladeira ..." title="Rua">
-
-											<div class="invalid-feedback" style="display: none" id="menserrologra">
-												Você deve preencher a Rua!
-											</div>
-
-										</li>
-									</div>
-
-
-
-
-
-									<div class="form-group">
-										<li id="idlibairro"><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control " name="bairro" id="bairro"
-												placeholder="Informe o seu bairro" title="Bairro">
-											<div class="invalid-feedback" style="display: none;" id="menserrobairro">
-												Você deve preencher o Bairro!
-											</div>
-										</li>
-									</div>
-
-
-
-
-									<div class="form-group">
-										<li id="idlinumero"><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control " name="numero" id="numero"
-												placeholder="numero" title="Numero Residencial">
-											<div class="invalid-feedback" style="display: none;" id="menserronumero">
-												Você deve preencher o Número!
-											</div>
-										</li>
-									</div>
-
-
-									{{-- complemento  definicao pendente --}}
-									<div class="form-group">
-										<li><strong>COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control"
-												placeholder="Ex.:Casa, apartamento, etc..." name="complemento"
-												id="complemento" title="Complemento"></li>
-									</div>
 
 									{{-- <form method="GET" action="/endereco" id="ID_DO_FORMULARIO"> --}}
 									<div class="form-group">
@@ -172,7 +141,7 @@
 												title="Cidade">
 												<option value="" selected>Selecionar</option>
 												{{-- @foreach(Helper::getCidades() as $cid)
-												<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
+																					<option value="{{$cid->idcidade}}">{{ $cid->nome }}</option>
 												@endforeach --}}
 											</select>
 											<div class="invalid-feedback" style="display: none;" id="menserrocidade">
@@ -181,23 +150,50 @@
 										</li>
 									</div>
 
-
-
 									<div class="form-group">
-										<li style="" id="idlipais"><strong> PAÍS:*&nbsp;&nbsp;&nbsp;</strong>
-											<select class="custom-select " id="pais_idpais" name="pais_idpais"
-												title="País">
-												<option value="1">Brasil</option>
-												{{-- @foreach(Helper::getPai () as $pais)
-												                                                <option value="{{$pais->idpais}}">{{$pais->nome}}
-												</option>
-												@endforeach --}}
-											</select>
-											<div class="invalid-feedback" style="display: none;" id="menserropais">
-												Você deve preencher o País!
+										<li id="idlibairro"><strong> BAIRRO*:&nbsp;&nbsp;&nbsp;</strong>
+											<input type="text" class="form-control " name="bairro" id="bairro"
+												placeholder="Informe o seu bairro" title="Bairro">
+											<div class="invalid-feedback" style="display: none;" id="menserrobairro">
+												Você deve preencher o Bairro!
 											</div>
 										</li>
 									</div>
+
+
+									<div class="form-group">
+										<li id="idlilogr"><strong> RUA*:&nbsp;&nbsp;&nbsp;</strong>
+											<input type="text" class="form-control " name="logradouro" id="logradouro"
+												placeholder="Ex.: Rua/Praça/ Ladeira ..." title="Rua">
+
+											<div class="invalid-feedback" style="display: none" id="menserrologra">
+												Você deve preencher a Rua!
+											</div>
+
+										</li>
+									</div>
+
+
+
+
+									<div class="form-group">
+										<li id="idlinumero"><strong> NUMERO*:&nbsp;&nbsp;&nbsp;</strong>
+											<input type="text" class="form-control " name="numero" id="numero"
+												placeholder="numero" title="Numero Residencial">
+											<div class="invalid-feedback" style="display: none;" id="menserronumero">
+												Você deve preencher o Número!
+											</div>
+										</li>
+									</div>
+
+									{{-- complemento  definicao pendente --}}
+									<div class="form-group">
+										<li><strong>COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>
+											<input type="text" class="form-control"
+												placeholder="Ex.:Casa, apartamento, etc..." name="complemento"
+												id="complemento" title="Complemento"></li>
+									</div>
+
 
 
 

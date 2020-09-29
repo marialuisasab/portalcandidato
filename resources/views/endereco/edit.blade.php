@@ -90,6 +90,27 @@
 								<form action="/endereco/{{Auth::user()->id}}" method="POST" id="idformselect">
 									@csrf
 
+
+
+
+									<div class="form-group">
+										<li id="idlipais"><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+											<select class="form-control " id="pais_idpais" name="pais_idpais"
+												value="{{$e->pais_idpais}}" title="País">
+												<option value="1">Brasil</option>
+												{{-- @foreach(Helper::getPai() as $pai)
+																																	<option value="{{$pai->idpais}}"
+												{{ $c->nacionalidade == $pai->idpais ? 'selected' : '' }}>
+												{{ $pai->nome }}</option>
+												@endforeach --}}
+											</select>
+											<div class="invalid-feedback" style="display: none;" id="menserropais">
+												Você deve preencher o País!
+											</div>
+										</li>
+									</div>
+
+
 									<div class="form-group">
 										<li id="idlicep"><strong> CEP:*&nbsp;&nbsp;&nbsp;</strong>
 											<input type="text" class="form-control " name="cep" id="cep"
@@ -99,60 +120,6 @@
 											</div>
 										</li>
 									</div>
-
-
-
-
-
-
-									<div class="form-group">
-										<li id="idlilogr"><strong> RUA:*&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control " name="logradouro" id="logradouro"
-												placeholder="Ex.: Rua/Praça/ Ladeira ..." value="{{$e->logradouro}}"
-												title="Rua">
-											<div class="invalid-feedback" style="display: none" id="menserrologra">
-												Você deve preencher a Rua!
-											</div>
-										</li>
-									</div>
-
-
-									<div class="form-group">
-										<li id="idlibairro"><strong>BAIRRO:*&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control " name="bairro" id="bairro"
-												placeholder="Bairro" value="{{$e->bairro}}" title="Bairro">
-											<div class="invalid-feedback" style="display: none;" id="menserrobairro">
-												Você deve preencher o Bairro!
-											</div>
-										</li>
-									</div>
-
-
-
-
-									<div class="form-group">
-										<li id="idlinumero"><strong> NÚMERO:*&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control " name="numero" id="numero"
-												placeholder="numero" value="{{$e->numero}}" title="Numero Residencial">
-											<div class="invalid-feedback" style="display: none;" id="menserronumero">
-												Você deve preencher o Número!
-											</div>
-										</li>
-									</div>
-
-
-
-
-
-
-									<div class="form-group">
-										<li><strong>COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>
-											<input type="text" class="form-control" placeholder="Ex.:9999,99"
-												name="complemento" id="complemento" value="{{$e->complemento}}"
-												title="Complemento"></li>
-
-									</div>
-
 
 
 									<div class="form-group">
@@ -176,9 +143,9 @@
 
 
 									{{-- <div class="form-group">
-										<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-											<select class="custom-select" id="cidade" name="cidade_idcidade"
-												value="{{$e->cidade_idcidade}}">
+																												<li><strong>CIDADE:*&nbsp;&nbsp;&nbsp;</strong><span></span>
+																													<select class="custom-select" id="cidade" name="cidade_idcidade"
+																														value="{{$e->cidade_idcidade}}">
 									<option value="">Selecionar</option>
 
 									@foreach(Helper::getCidades() as $cid)
@@ -217,27 +184,54 @@
 						</div>
 
 
+						<div class="form-group">
+							<li id="idlibairro"><strong>BAIRRO:*&nbsp;&nbsp;&nbsp;</strong>
+								<input type="text" class="form-control " name="bairro" id="bairro" placeholder="Bairro"
+									value="{{$e->bairro}}" title="Bairro">
+								<div class="invalid-feedback" style="display: none;" id="menserrobairro">
+									Você deve preencher o Bairro!
+								</div>
+							</li>
+						</div>
+
+
+						<div class="form-group">
+							<li id="idlilogr"><strong> RUA:*&nbsp;&nbsp;&nbsp;</strong>
+								<input type="text" class="form-control " name="logradouro" id="logradouro"
+									placeholder="Ex.: Rua/Praça/ Ladeira ..." value="{{$e->logradouro}}" title="Rua">
+								<div class="invalid-feedback" style="display: none" id="menserrologra">
+									Você deve preencher a Rua!
+								</div>
+							</li>
+						</div>
+
+
+
+
+						<div class="form-group">
+							<li id="idlinumero"><strong> NÚMERO:*&nbsp;&nbsp;&nbsp;</strong>
+								<input type="text" class="form-control " name="numero" id="numero" placeholder="numero"
+									value="{{$e->numero}}" title="Numero Residencial">
+								<div class="invalid-feedback" style="display: none;" id="menserronumero">
+									Você deve preencher o Número!
+								</div>
+							</li>
+						</div>
+
 
 
 
 
 
 						<div class="form-group">
-							<li id="idlipais"><strong>PAÍS:*&nbsp;&nbsp;&nbsp;</strong><span></span>
-								<select class="form-control " id="pais_idpais" name="pais_idpais"
-									value="{{$e->pais_idpais}}" title="País">
-									<option value="1">Brasil</option>
-									{{-- @foreach(Helper::getPai() as $pai)
-																		<option value="{{$pai->idpais}}"
-									{{ $c->nacionalidade == $pai->idpais ? 'selected' : '' }}>
-									{{ $pai->nome }}</option>
-									@endforeach --}}
-								</select>
-								<div class="invalid-feedback" style="display: none;" id="menserropais">
-									Você deve preencher o País!
-								</div>
+							<li><strong>COMPLEMENTO:&nbsp;&nbsp;&nbsp;</strong>
+								<input type="text" class="form-control" placeholder="Ex.:Casa, apartamento, etc..."
+									name="complemento" id="complemento" value="{{$e->complemento}}" title="Complemento">
 							</li>
+
 						</div>
+
+
 
 
 

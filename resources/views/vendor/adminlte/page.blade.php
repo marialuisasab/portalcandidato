@@ -718,7 +718,6 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             <section class="content"
                 style="height: auto !important; min-height: 0px !important; background-color:  white;">
                 <div class=" {{config('adminlte.classes_content', 'container-fluid')}}">
-                    <button class="btn btn-danger">kjahdkjsakjhdjk</button>
                     @yield('content')
                 </div>
             </section>

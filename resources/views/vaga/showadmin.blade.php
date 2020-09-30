@@ -576,7 +576,7 @@
               Em
               andamento</label>
             <label class="radio-inline"><input type="radio" name="classificacao" value="4">Encerrado</label>
-            <label class="radio-inline"><input type="radio" name="classificacao">
+            <label class="radio-inline"><input type="radio" name="classificacao" value="0">
               Todos</label>
           </div>
           <div class="container col">
@@ -589,9 +589,10 @@
                     <th scope="col">Data da candidatura</th>
                     <th scope="col">Observação</th>
                     <th scope="col">Opções</th>
+
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="vazio">
 
                   @foreach($candidatos as $c)
                   <tr id="idcandidatos" data_value={{$c->status}}>
@@ -616,7 +617,9 @@
                         name="name_desclassificar" data_value="{{$c->vaga_idvaga}}">Desclassificar</a><br>
                       @endif
                     </td>
+
                   </tr>
+
                   <!-- Modal -->
                   <div class="modal fade" id="exampleModal{{$c->idcurriculo}}">
                     <div class="modal-dialog" role="document">
@@ -653,6 +656,9 @@
                   @endforeach
                 </tbody>
               </table>
+              <div id="vazio_registros" style="text-align: center; color:red; display:none;"> Não encontramos
+                nenhum registro!
+              </div>
             </div>
           </div>
 

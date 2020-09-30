@@ -1,11 +1,11 @@
 $(function () {
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // após o DOM ter sido carregado,
-        // atribui o elemento à variável
-        log = document.getElementById("lognome");
-    });
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     // após o DOM ter sido carregado,
+    //     // atribui o elemento à variável
+    //     log = document.getElementById("lognome");
+    // });
     let valor_quant = document.querySelectorAll('#idname');
     if (valor_quant != undefined) {
         var teste = document.getElementById('valor');
@@ -28,7 +28,7 @@ $(function () {
                 valor_conferi++;
                 if (classi[i].value != undefined) {
                     vetor_conferi[i] = classi[i];
-                    var valor = vetor_conferi[i].value;
+                    // var valor = vetor_conferi[i].value;
                 }
             }
         }
@@ -51,33 +51,55 @@ $(function () {
             for (var i = 0; i < vetor_conferi.length; i++) {
                 if (vetor_conferi[i] != undefined) {
                     if (vetor_conferi[i].value == '2') {
-                        let quantidade = filtrar_por_campos(classi[i].value, "#idcandidatos");
+                        let quantidade = filtrar_por_campos(vetor_conferi[i].value, "#idcandidatos");
                         // filtrar_por_campos(3, "#idcandidatos", ".idstatus");
                         // alert("Classificado" + vetor_conferi[i].value);
                         // let quantidade = document.querySelectorAll('#idname');
                         // $("#valor").TextContent = quantidade.length;
                         document.getElementById("valor").innerHTML = quantidade;
+                        if (quantidade == '0') {
+                            document.getElementById('vazio_registros').style.display = 'block';
+                        } else {
+                            document.getElementById('vazio_registros').style.display = 'none';
+                        }
                     } else if (vetor_conferi[i].value == '3') {
-                        let quantidade = filtrar_por_campos(classi[i].value, "#idcandidatos");
+                        let quantidade = filtrar_por_campos(vetor_conferi[i].value, "#idcandidatos");
                         // filtrar_por_campos(2, "#idcandidatos", ".idstatus");
                         // alert("Desclassificado" + vetor_conferi[i].value);
                         document.getElementById("valor").innerHTML = quantidade;
+                        if (quantidade == '0') {
+                            document.getElementById('vazio_registros').style.display = 'block';
+                        } else {
+                            document.getElementById('vazio_registros').style.display = 'none';
+                        }
                     } else if (vetor_conferi[i].value == '1') {
-                        let quantidade = filtrar_por_campos(classi[i].value, "#idcandidatos");
+                        let quantidade = filtrar_por_campos(vetor_conferi[i].value, "#idcandidatos");
                         document.getElementById("valor").innerHTML = quantidade;
+                        if (quantidade == '0') {
+                            document.getElementById('vazio_registros').style.display = 'block';
+                        } else {
+                            document.getElementById('vazio_registros').style.display = 'none';
+                        }
                     } else if (vetor_conferi[i].value == '4') {
-                        let quantidade = filtrar_por_campos(classi[i].value, "#idcandidatos");
+                        let quantidade = filtrar_por_campos(vetor_conferi[i].value, "#idcandidatos");
                         // filtrar_por_campos(2, "#idcandidatos", ".idstatus");
                         // alert("Desclassificado" + vetor_conferi[i].value);
                         document.getElementById("valor").innerHTML = quantidade;
+                        if (quantidade == '0') {
+                            document.getElementById('vazio_registros').style.display = 'block';
+                        } else {
+                            document.getElementById('vazio_registros').style.display = 'none';
+                        }
                     } else if (vetor_conferi[i].value == '0') {
-                        let camposfiltrados = document.querySelectorAll("#idcandidatos");
+                        var camposfiltrados = document.querySelectorAll("#idcandidatos");
                         for (var i = 0; i < camposfiltrados.length; i++) {
+                            console.log("passei aqui");
                             var idcamposfiltrados = camposfiltrados[i];
-                            idcamposfiltrados.classList.remove("invisivel");
+                            $(idcamposfiltrados).removeClass('invisivel');
                             let quantidade = document.querySelectorAll('#idname');
                             // $("#valor").TextContent = quantidade.length;
                             document.getElementById("valor").innerHTML = quantidade.length;
+                            document.getElementById('vazio_registros').style.display = 'none';
                         }
                     } else {
                         break;

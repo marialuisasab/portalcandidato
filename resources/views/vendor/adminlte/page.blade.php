@@ -346,7 +346,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
     </aside>
     @endif
 
-    <div class="content-wrapper" style="height: auto; min-height: 100%;">
+    <div class="content-wrapper"
+        style="grid-area: article; min-height: calc(100vh - 300px); padding: 10px;background-color: #ffffff; @media (max-width: 768px) {min-height: calc(100vh - 100px);}">
         @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
         <div class="container">
             @endif
@@ -699,7 +700,8 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
     </aside>
     @endif
 
-    <div class="content-wrapper" style="height: auto; min-height: 100%;">
+    <div class="content-wrapper"
+        style="grid-area: article; min-height: calc(100vh - 300px); padding: 10px;background-color: #ffffff; @media (max-width: 768px) {min-height: calc(100vh - 100px);}">
         @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
         <div class="container">
             @endif
@@ -716,6 +718,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
             <section class="content"
                 style="height: auto !important; min-height: 0px !important; background-color:  white;">
                 <div class=" {{config('adminlte.classes_content', 'container-fluid')}}">
+                    <button class="btn btn-danger">kjahdkjsakjhdjk</button>
                     @yield('content')
                 </div>
             </section>
@@ -726,7 +729,6 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
 
 
     @endif
-
     <footer class="main-footer" style="background-color:  #CDD7BC;">
         <div class=" container">
             <div class="row">
